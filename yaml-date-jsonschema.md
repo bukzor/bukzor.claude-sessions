@@ -1,6 +1,9 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
-session-uuid: 9dcb2df1-1f06-4bc2-b5c8-b3e634e3065e
+session:
+  uuid: 9dcb2df1-1f06-4bc2-b5c8-b3e634e3065e
+  started: null
+  ended: null
 ---
 # yaml-date-jsonschema (2026-05-15)
 
@@ -21,6 +24,9 @@ and expanded into a rename and an index.
 - `.claude/ideas.jsonschema.yaml` committed (commit cb315b3); the
   schema was already in use on disk but untracked. Done on a
   branch session (uuid dca7da65-d65c-43de-b345-87fa6518d630).
+- This collection's `CLAUDE.md` opening reframed: dropped the
+  contradictory `one file = one session` axiom so the judgment
+  criteria are primary.
 - This collection (`~/.claude/sessions.kb/`) created and seeded
   with five follow-up entries (commit d288b9a in bukzor/dotfiles).
 

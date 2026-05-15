@@ -4,12 +4,12 @@ requires:
 ---
 # Sessions Collection
 
-One file = one claude-code session. The user runs many parallel
-sessions across cwds, repos, and skills; this collection is their index.
+The user runs many parallel sessions across cwds, repos, and skills;
+this collection indexes the ones worth tracking.
 
 ## What Belongs
 
-- A planned session that has not been started yet (no `session-uuid`)
+- A planned session that has not been started yet (no `session.uuid`)
 - An in-flight session worth referencing across other contexts
 - A recently completed session whose follow-ups are still live
 
@@ -36,7 +36,6 @@ deciding whether the current task is already tracked elsewhere.
 
 kebab-case, descriptive enough that the user can guess the session's
 purpose from the filename. Do not number -- sessions are not ordered.
-If a session has a UUID, put it in frontmatter, not the filename.
 
 ## Lifecycle
 
