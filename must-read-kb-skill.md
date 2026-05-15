@@ -1,7 +1,11 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
+color: yellow
+session:
+  started: null
+  ended: null
 ---
-# must-read.kb-skill (2026-05-15, yellow)
+# must-read.kb-skill (2026-05-15)
 
 Designed and shipped `llm-must-read-kb` — a `Skill(llm-kb)` extension
 that prescribes a triggered-conditional-read access pattern over
