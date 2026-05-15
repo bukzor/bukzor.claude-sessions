@@ -32,11 +32,15 @@ and expanded into a rename and an index.
 - Schema grew a `session: { uuid, started, ended }` block. `started`
   and `ended` accept `[instant, "null"]` -- the new `instant` type
   put to immediate use. Top-level `session-uuid` removed; `uuid`
-  lives inside `session` now. Uncommitted.
+  lives inside `session` now (committed earlier today in dotfiles).
 - `commands/session-{start,end}.md` amended with sessions.kb
   maintenance steps (find-or-create entry, propose new entries
   for surfaced follow-ups, rules of thumb for when to capture).
   Uncommitted.
+- Validator (`lib/python/llmd/frontmatter_validate.py`) now skips
+  dotfiles (`.template.md` etc.) in addition to `CLAUDE.md`.
+  Uncommitted in bukzor-agent-skills; tracked in llm-kb's
+  `.claude/todo.md` under "CLEAN-KITCHEN".
 
 ## Live Follow-Ups
 
