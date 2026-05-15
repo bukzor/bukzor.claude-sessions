@@ -18,6 +18,9 @@ and expanded into a rename and an index.
   tools dir (commit 799eb02). 7 directories renamed, 18 reference
   files updated.
 - Rename todo updated with progress (commit d59458b).
+- `.claude/ideas.jsonschema.yaml` committed (commit cb315b3); the
+  schema was already in use on disk but untracked. Done on a
+  branch session (uuid dca7da65-d65c-43de-b345-87fa6518d630).
 - This collection (`~/.claude/sessions.kb/`) created and seeded
   with five follow-up entries (commit d288b9a in bukzor/dotfiles).
 
