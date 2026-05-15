@@ -32,26 +32,35 @@ and expanded into a rename and an index.
 - Schema grew a `session: { uuid, started, ended }` block. `started`
   and `ended` accept `[instant, "null"]` -- the new `instant` type
   put to immediate use. Top-level `session-uuid` removed; `uuid`
-  lives inside `session` now (committed earlier today in dotfiles).
+  lives inside `session` now (committed in ba089e8, dotfiles).
 - `commands/session-{start,end}.md` amended with sessions.kb
   maintenance steps (find-or-create entry, propose new entries
-  for surfaced follow-ups, rules of thumb for when to capture).
-  Uncommitted.
+  for surfaced follow-ups, rules of thumb for when to capture)
+  (committed in ba089e8, dotfiles).
 - Validator (`lib/python/llmd/frontmatter_validate.py`) now skips
-  dotfiles (`.template.md` etc.) in addition to `CLAUDE.md`.
-  Uncommitted in bukzor-agent-skills; tracked in llm-kb's
-  `.claude/todo.md` under "CLEAN-KITCHEN".
+  dotfiles (`.template.md` etc.) in addition to `CLAUDE.md`
+  (committed in ecfb6fd, bukzor-agent-skills).
 
 ## Live Follow-Ups
 
-The five sibling entries in this directory are all derived from
-this session:
+Sibling entries in this directory derived from this session:
 
 - `rename-rollup-d-to-kb-doc-references.md`
 - `auto-migrate-scripts-for-kb-dirs.md`
 - `schema-migrate-string-pattern-to-date.md`
 - `finish-debolding-cleanup.md` (pre-existing work surfaced here)
-- `finish-skill-kb-refactor.md` (pre-existing work surfaced here)
+
+(`finish-skill-kb-refactor.md` was a fifth seed entry; absorbed
+elsewhere and deleted.)
+
+## Minor noted
+
+- `sessions.jsonschema.yaml` `session.uuid` description currently
+  reads "Absent for planned or proposed sessions that have not been
+  started yet." Since the strict shape made `session.started: null`
+  the canonical "planned but not begun" signal, the uuid wording is
+  no longer load-bearing -- could be tightened to just "absent until
+  the session is actually run." Left as a doc nit, not behavior.
 
 Delete this entry once those follow-ups are absorbed and there is
 no remaining reason to point back at the originating session.
