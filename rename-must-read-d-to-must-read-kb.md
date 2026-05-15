@@ -43,6 +43,11 @@ The originating skill design lives at `must-read-kb-skill.md`
 
 - `extract-sessions-kb-to-private-repo.md` — planned session entry
   for isolating sessions.kb churn from the dotfiles repo.
+- `fix-git-partial-commit-staged-rename-pair.md` — tool bug surfaced
+  by this session's rename (forced the d9d7617 follow-up commit).
+- `settle-sessions-kb-conventions.md` — design questions surfaced
+  during the workflow polish (`session.ended` workflow, Task.md
+  tracking convention, slug-match prefix variants).
 
 ## Notes
 
