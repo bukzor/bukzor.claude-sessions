@@ -1,5 +1,8 @@
 ---
 cwd: /home/bukzor
+session:
+  started: null
+  ended: null
 ---
 # Restructure must-read-before.d -> must-read.d/before (archive)
 

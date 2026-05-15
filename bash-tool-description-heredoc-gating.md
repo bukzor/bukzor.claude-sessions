@@ -1,7 +1,7 @@
 ---
 cwd: /home/bukzor/repo/Dive-into-Claude-Code
-session-uuid: 6d5c69b9-b5ed-449e-9b2e-26a3500f9d2d
 session:
+  uuid: 6d5c69b9-b5ed-449e-9b2e-26a3500f9d2d
   started: 2026-05-12T19:55:30-05:00
   ended: 2026-05-15T14:05:29-05:00
 ---

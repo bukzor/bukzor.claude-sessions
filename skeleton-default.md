@@ -1,0 +1,59 @@
+---
+cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
+color: green
+session:
+  started: 2026-05-13T21:30:43-05:00
+  ended: 2026-05-15T15:20:15-05:00
+---
+# skeleton-default (2026-05-13 → 2026-05-15)
+
+## Through-line
+
+Canonical schemas live in `llm-subtask/skeleton/.claude/`; consuming
+skills hand-copy from there. The SKILL.md gained a recovery line that
+makes this the default behavior when a `.kb/` is missing its schema.
+
+## Completed
+
+- Meta-review of `docs/dev/procedures.kb/post-mortem.md` produced 9
+  critiques; 4 generalizable ones distilled into `SKILL.kb/`'s
+  must-read triggers + audits + procedures (commit pending).
+- `git mv` `post-mortem.md` from `docs/dev/procedures.kb/` to
+  `SKILL.kb/procedures.kb/` (consumer-facing). Inbound references
+  updated.
+- `git mv` `llm-collab/{idea,todo}.jsonschema.yaml` to
+  `llm-subtask/skeleton/.claude/{ideas,todo}.jsonschema.yaml`
+  (consolidating canonical home; rename `idea → ideas` for plural
+  match with the `.kb/` dir).
+- Installed schema copies at each consuming skill's `.claude/`
+  (llm-kb, llm-subtask, llm-collab).
+- Quoted `@value` everywhere it was unquoted (skeleton template + 3
+  pre-existing llm-collab entries).
+- Added `__pycache__/` and `*.pyc` to top-level `.gitignore`; trashed
+  the stray `lib/python/llmd/__pycache__/`.
+- Added recovery line to `llm-kb/SKILL.md`:
+  > "No schema found" for `ideas.kb`/`todo.kb`: copy from
+  > `llm-subtask/skeleton/.claude/`.
+- Migrated `sessions.kb/` corpus to the `session: { uuid, started,
+  ended }` nested shape; `session` + `{started, ended}` now required
+  with load-bearing null. Filled all entries.
+
+## Live Follow-Ups
+
+- `reconcile-seed-case-study.md` (sibling sessions.kb entry) — the
+  consequential next session; the originating distillation work the
+  May 13 devlog flagged. Strategic todo at
+  `llm-kb/.claude/todo.kb/2026-05-15-000-reconcile-seed-case-study-may-13-har-browse-rust-port.md`.
+- Tactical follow-ups in `llm-kb/.claude/todo.md` (move
+  reconcile-case-study.md into SKILL.kb, verify tests/, etc.).
+- Drift risk from per-skill schema copies is enumerated in
+  `llm-kb/.claude/todo.kb/2026-02-09-000-schema-reuse-with-ref.md`
+  ("Drift surface" section).
+
+## Notes
+
+- Session spans two days because of an idle period; `started` is when
+  I first oriented to the work, not when the user first messaged.
+- Final validator state: 81 files / 0 errors across llm-{kb,
+  subtask, collab}; 11 / 0 in `~/.claude/sessions.kb/`.
+- Devlog entry: `llm-kb/docs/dev/devlog/2026-05-15-000-...`.
