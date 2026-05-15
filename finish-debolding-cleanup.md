@@ -1,5 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
+session:
+  started: null
+  ended: null
 ---
 # Finish in-progress de-bolding cleanup
 

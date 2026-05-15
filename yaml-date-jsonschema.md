@@ -29,6 +29,14 @@ and expanded into a rename and an index.
   criteria are primary.
 - This collection (`~/.claude/sessions.kb/`) created and seeded
   with five follow-up entries (commit d288b9a in bukzor/dotfiles).
+- Schema grew a `session: { uuid, started, ended }` block. `started`
+  and `ended` accept `[instant, "null"]` -- the new `instant` type
+  put to immediate use. Top-level `session-uuid` removed; `uuid`
+  lives inside `session` now. Uncommitted.
+- `commands/session-{start,end}.md` amended with sessions.kb
+  maintenance steps (find-or-create entry, propose new entries
+  for surfaced follow-ups, rules of thumb for when to capture).
+  Uncommitted.
 
 ## Live Follow-Ups
 
