@@ -40,6 +40,11 @@ and expanded into a rename and an index.
 - Validator (`lib/python/llmd/frontmatter_validate.py`) now skips
   dotfiles (`.template.md` etc.) in addition to `CLAUDE.md`
   (committed in ecfb6fd, bukzor-agent-skills).
+- Authored Task file
+  `~/.claude/CLAUDE.integrate-sessions-kb-into-llm-subtask.Task.md`
+  for a follow-up session to integrate sessions.kb into
+  Skill(llm-subtask) and evaluate relocating
+  `/session-{start,end}` into the skill (commit 5a5f54a, dotfiles).
 
 ## Live Follow-Ups
 
