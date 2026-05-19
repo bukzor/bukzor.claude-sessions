@@ -62,30 +62,24 @@ User-confirmed dollar anchor: **$100 USD ≈ 1 SWEh**. Recorded in
 canonical schema (`bukzor-agent-skills@fb7230a`) and homedir-archeology
 `decision.kb/sweh-dollar-anchor.md`.
 
-Items rated this session (highest-WSJF first):
+11 items rated this session across 7 repos. WSJF-ranked view:
 
-| File | tb | b2w | cod2w | WSJF | cod-2w conf. | Commit |
-|---|---|---|---|---|---|---|
-| schema-reuse-with-ref | 1.0 | 1.0 | 1.5 | 2.50 | unsure | bukzor-agent-skills@fc8c346 (pre-sweep) |
-| har-browse/todo.md | 2.0 | 1.5 | 0.3 | 0.90 | tentative | prototype.chatfs@39280ce |
-| bukzor-llc/todo.md | 6.0 | 2.0 | 3.0 | 0.83 | **hypothetical** | private.bukzor-llc@ed26626 |
-| ameriprise-exit | 12.0 | 2.0 | 3.0 | 0.42 | tentative | private.evan-family@1959daf |
-| financial-data-completeness | 6.0 | 1.0 | 1.0 | 0.33 | tentative | private.evan-family@09ad9a4 |
-| super-tictactoe/todo.md | 8.0 | 1.0 | 0.5 | 0.19 | tentative | bukzor.garden@3a1b880 |
-| super-tictactoe/beam-search | 4.0 | 0.5 | 0.3 | 0.20 | tentative | bukzor.garden@3a1b880 |
-| scratch.vim-work | 10.0 | 0.5 | 0.5 | 0.10 | tentative | scratch.vim-work@6cb48eb |
-| trunk-to-buck2 (deferred) | 8.0 | 0.0 | 0.0 | 0.00 | confident | bukzor.garden@fad6788 |
+    ~/repo/github.com/bukzor/2026-05-19--task-archeology/task-list.wsjf.md
 
-## Items NOT rated this session
+Refresh with `claude-open-tasks-list | ./wsjf-rank > task-list.wsjf.md`
+from the project root.
 
-- `prototyping.hearts-2025/.claude/todo.md`
-- `prototyping.hearts-2025/packages/engine/.claude/todo.md`
+Commits that landed the ratings:
 
-Pre-commit hooks in this repo reference a missing `pnpm-run` binary
-(prettier + pyright entries in `.pre-commit-config.yaml`). The hearts
-repo also had unrelated staged Python refactor work in flight. My
-edits were reverted and skipped. Re-attempt after the user fixes the
-pre-commit tooling.
+- bukzor-agent-skills@fc8c346 (pre-sweep: schema-reuse-with-ref re-rate)
+- bukzor-agent-skills@fb7230a (dollar-anchor + Ameriprise example)
+- private.evan-family@1959daf (ameriprise-exit), @09ad9a4 (financial-data)
+- private.bukzor-llc@ed26626
+- prototype.chatfs@39280ce (har-browse)
+- bukzor.garden@3a1b880 (super-tictactoe ×2), @fad6788 (trunk-to-buck2)
+- scratch.vim-work@6cb48eb
+- prototyping.hearts-2025@050cf73 (parent + engine)
+- 2026-05-19--task-archeology@cacfcf6 (decision.kb), @ad5a121 (wsjf-rank)
 
 ## Confidence audit
 
@@ -98,13 +92,17 @@ flagging them.
 
 ## Outstanding follow-ups
 
-1. **hearts-2025** ratings (pending pre-commit fix).
-2. **Calibration review** — user may want to revise the hand-anchored
+1. **Calibration review** — user may want to revise the hand-anchored
    cost-of-delay-2w values (especially bukzor-llc and Ameriprise tax-tail
    premium).
-3. **Re-rate existing shaky items** — `observation.kb/sweh-ratings-need-recalibration.md`
+2. **Re-rate existing shaky items** — `observation.kb/sweh-ratings-need-recalibration.md`
    flagged the 20 pre-existing ratings as needing review. Not touched
-   this session; still pending.
-4. **Aggregate prioritization view** — WSJF table above is per-item;
-   user may want a unified backlog view sorted by WSJF across all rated
-   items (would need a small script vs the JSONL output of md-frontmatter).
+   this session; still pending. Running
+   `claude-open-tasks-list | wsjf-rank` now shows several pre-existing
+   items at WSJF > 2.5 that may be miscalibrated (small timeboxes,
+   no cost-of-delay values).
+3. **`pnpm-run` PATH-resolution in pre-commit hooks** — hearts-2025
+   commits required `eval "$(direnv export bash)"` to make
+   `$REPO/bin/pnpm-run` resolvable. Could symlink to `~/bin/` or update
+   `.pre-commit-config.yaml` to invoke via `$REPO/bin/pnpm-run` directly,
+   so commits work from sessions that haven't loaded direnv.
