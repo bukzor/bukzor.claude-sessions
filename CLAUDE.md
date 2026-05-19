@@ -2,6 +2,7 @@
 requires:
   - Skill(llm-kb)
 ---
+
 # Sessions Collection
 
 The user runs many parallel sessions across cwds, repos, and skills;
@@ -36,6 +37,12 @@ deciding whether the current task is already tracked elsewhere.
 
 kebab-case, descriptive enough that the user can guess the session's
 purpose from the filename. Do not number -- sessions are not ordered.
+
+## Where Files Live
+
+Session with a clear project home: canonical at
+`<project>/.claude/sessions.kb/<slug>.md`, absolute-path symlink here.
+Otherwise: directly here, no symlink.
 
 ## Lifecycle
 
