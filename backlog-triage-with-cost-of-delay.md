@@ -44,20 +44,67 @@ shaky) that the new field reframes:
 
 ## Open user decisions (pending at end of 2026-05-18 session)
 
-- **Re-rate `2026-02-09-000-schema-reuse-with-ref.md`** with
-  `cost-of-delay-2w` value reflecting the worsened dup tax.
-- **Delete or rename the verified deletion candidates** (homedir-archeology
+Both resolved 2026-05-19:
+
+- ~~**Re-rate `2026-02-09-000-schema-reuse-with-ref.md`** with
+  `cost-of-delay-2w` value reflecting the worsened dup tax.~~ Done in
+  `fc8c346` (bukzor-agent-skills): rated `cost-of-delay-2w: 1.5` with
+  dup-tax rationale; all SWEH legs now carry `confidence: unsure`
+  (5-band vocab).
+- ~~**Delete or rename the verified deletion candidates** (homedir-archeology
   `verified-claim.kb/trailing-newline-dups-bit-identical.md` and
-  `verified-claim.kb/skills-trash-todo-stale-predecessor.md`).
+  `verified-claim.kb/skills-trash-todo-stale-predecessor.md`).~~ Resolved
+  in `bce91b4` + `d15556e` (this repo); verified-claim.kb is empty.
 
-## Approach for the next session
+## Sweep progress (2026-05-19)
 
-1. Walk the items above in cost-of-delay order (highest urgency first).
-2. For each, read the file body, write a `cost-of-delay-2w` rationale,
-   add `confidence: low|medium|high` to existing ratings.
-3. Use `md-frontmatter | jq | md-frontmatter-set` (per homedir-archeology
-   CLAUDE.md) to bulk-edit frontmatter where appropriate.
-4. Re-run aggregate prioritization with WSJF:
-   `(benefit-2w + cost-of-delay-2w) / timebox`.
+User-confirmed dollar anchor: **$100 USD ≈ 1 SWEh**. Recorded in
+canonical schema (`bukzor-agent-skills@fb7230a`) and homedir-archeology
+`decision.kb/sweh-dollar-anchor.md`.
 
-The sweep is multi-hour work; do not attempt in one session.
+Items rated this session (highest-WSJF first):
+
+| File | tb | b2w | cod2w | WSJF | cod-2w conf. | Commit |
+|---|---|---|---|---|---|---|
+| schema-reuse-with-ref | 1.0 | 1.0 | 1.5 | 2.50 | unsure | bukzor-agent-skills@fc8c346 (pre-sweep) |
+| har-browse/todo.md | 2.0 | 1.5 | 0.3 | 0.90 | tentative | prototype.chatfs@39280ce |
+| bukzor-llc/todo.md | 6.0 | 2.0 | 3.0 | 0.83 | **hypothetical** | private.bukzor-llc@ed26626 |
+| ameriprise-exit | 12.0 | 2.0 | 3.0 | 0.42 | tentative | private.evan-family@1959daf |
+| financial-data-completeness | 6.0 | 1.0 | 1.0 | 0.33 | tentative | private.evan-family@09ad9a4 |
+| super-tictactoe/todo.md | 8.0 | 1.0 | 0.5 | 0.19 | tentative | bukzor.garden@3a1b880 |
+| super-tictactoe/beam-search | 4.0 | 0.5 | 0.3 | 0.20 | tentative | bukzor.garden@3a1b880 |
+| scratch.vim-work | 10.0 | 0.5 | 0.5 | 0.10 | tentative | scratch.vim-work@6cb48eb |
+| trunk-to-buck2 (deferred) | 8.0 | 0.0 | 0.0 | 0.00 | confident | bukzor.garden@fad6788 |
+
+## Items NOT rated this session
+
+- `prototyping.hearts-2025/.claude/todo.md`
+- `prototyping.hearts-2025/packages/engine/.claude/todo.md`
+
+Pre-commit hooks in this repo reference a missing `pnpm-run` binary
+(prettier + pyright entries in `.pre-commit-config.yaml`). The hearts
+repo also had unrelated staged Python refactor work in flight. My
+edits were reverted and skipped. Re-attempt after the user fixes the
+pre-commit tooling.
+
+## Confidence audit
+
+All ratings except `trunk-to-buck2` and `schema-reuse-with-ref` are
+`tentative` or weaker. The `bukzor-llc/cost-of-delay-2w` is
+`hypothetical` — revenue projections could be off by an order of
+magnitude in either direction. These should be re-evaluated before
+driving prioritization decisions; the 5-band vocab is doing its job by
+flagging them.
+
+## Outstanding follow-ups
+
+1. **hearts-2025** ratings (pending pre-commit fix).
+2. **Calibration review** — user may want to revise the hand-anchored
+   cost-of-delay-2w values (especially bukzor-llc and Ameriprise tax-tail
+   premium).
+3. **Re-rate existing shaky items** — `observation.kb/sweh-ratings-need-recalibration.md`
+   flagged the 20 pre-existing ratings as needing review. Not touched
+   this session; still pending.
+4. **Aggregate prioritization view** — WSJF table above is per-item;
+   user may want a unified backlog view sorted by WSJF across all rated
+   items (would need a small script vs the JSONL output of md-frontmatter).
