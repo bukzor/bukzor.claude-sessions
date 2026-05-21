@@ -4,6 +4,26 @@ session:
   uuid: e31c1049-58fa-4b42-ba9d-a0b1dde7862c
   started: 2026-05-19T19:00:00-05:00
   ended: 2026-05-20T12:56:00-05:00
+cost-benefit-sweh:
+  timebox:
+    "@value": 0.5
+    rationale: |
+      Main work landed (commit 041b31e). Residual: tighten
+      tsconfig.json (stub playwright-core registry, eval
+      noImplicitAny). ~0.5h. The .mjs → .ts rename is tracked in
+      packages/har-browse/.claude/todo.md, not here.
+    confidence: tentative
+  benefit-2w:
+    "@value": 0.2
+    rationale: |
+      Quality follow-ups on already-landed work. Modest.
+    confidence: tentative
+  cost-of-delay-2w:
+    "@value": 0.0
+    rationale: |
+      No bleed — typecheck wiring works as-is. Tightening is
+      polish, not blocking.
+    confidence: tentative
 ---
 
 # Har-Browse Typecheck Wiring
