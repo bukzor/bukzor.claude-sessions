@@ -40,12 +40,28 @@ purpose from the filename. Do not number -- sessions are not ordered.
 
 ## Where Files Live
 
-Session with a clear project home: canonical at
-`<project>/.claude/sessions.kb/<slug>.md`, absolute-path symlink here.
-Otherwise: directly here, no symlink.
+Session files live directly here, in `~/.claude/sessions.kb/`. This is
+the canonical location regardless of which project the session relates
+to. A single global index avoids fragmenting sessions across repos and
+makes "what am I working on?" a one-directory question.
+
+See the appendix below for an optional in-repo + symlink scheme.
 
 ## Lifecycle
 
 When a session is finished and its follow-ups are absorbed elsewhere
 (or it is no longer worth tracking), delete the file. The collection
 is a working index, not an archive.
+
+## Appendix: in-repo canonical with symlink (optional)
+
+A session may instead be co-located with a project's own source when
+that suits the work — e.g., session notes that are usefully versioned
+alongside project history, or that track follow-ups tightly coupled to
+project-internal artifacts. In that case:
+
+- canonical: `<project>/.claude/sessions.kb/<slug>.md`
+- absolute-path symlink: `~/.claude/sessions.kb/<slug>.md` → canonical
+
+This is an optional scheme. The default (direct-in-global) is simpler
+and should be preferred unless there's a specific reason to co-locate.
