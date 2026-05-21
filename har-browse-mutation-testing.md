@@ -1,9 +1,12 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/prototype.chatfs/packages/har-browse
 session:
-  started: 2026-05-20T13:39:09-05:00
-  ended: 2026-05-21T09:15:25-05:00
+  uuid: 61c5b383-df54-49b8-85aa-49da0d287c35
+  started: 2026-05-21T10:23:09-05:00
+  ended: 2026-05-21T10:37:28-05:00
 prior-sessions:
+  - started: 2026-05-20T13:39:09-05:00
+    ended: 2026-05-21T09:15:25-05:00
   - uuid: 17b785ab-b3b2-4ca7-981a-49f989382c36
     started: 2026-05-19T18:09:15-05:00
     ended: 2026-05-19T18:42:00-05:00
@@ -114,9 +117,55 @@ reverted.
 Used `md-frontmatter | jq` for cheap KB-wide status grouping —
 faster than per-file `head | grep` loops.
 
+## This session (2026-05-21 morning, 10:23–10:37)
+
+Re-ran the cold-enum methodology against `src/cache.mjs` and
+`src/user-agent.mjs` (the two leaf modules with colocated unit tests).
+Surfaced 12 mutations not in the kb; all driven to `done` in one
+burndown pass.
+
+### Done this session
+
+cache.mjs (6):
+- `cache-key-nul-assertion-removed` → src/cache.test.mjs (existing
+  "rejects NUL in hive key" test caught it on first injection)
+- `cache-hive-kv-order-swapped` → src/cache.test.mjs (path-shape
+  equality across tests 2–4)
+- `cache-segments-joined-with-ampersand` → src/cache.test.mjs test 2
+  (multi-key fixture is the discriminator)
+- `cache-segment-order-swapped` → src/cache.test.mjs tests 1–4
+- `cache-mkdir-removed` → src/cache.test.mjs (existsSync check) plus
+  src/user-agent.test.mjs (seed `writeFileSync` ENOENT)
+- `cache-escape-no-string-coercion` → caught by `tsc --noEmit`: TS2339
+  on `unknown.includes` / `unknown.replaceAll`. Type-system catch
+  (no runtime test needed).
+
+user-agent.mjs (6):
+- `ua-suffix-missing-plus` → existing full-string equality
+- `ua-suffix-missing-pkg-name` → existing full-string equality
+- `ua-suffix-missing-homepage` → existing full-string equality
+- `ua-concat-no-space` → existing full-string equality
+- `ua-concat-order-reversed` → existing full-string equality
+- `ua-fetch-headless-negated` → **new** test "fetchUserAgent passes
+  headless mode through to launch" (`onLaunch` captures `opts.headless`,
+  asserts both modes). The existing `executablePath` fixture inspected
+  only `opts.executablePath`; this was a real gap.
+
+### Methodology note
+
+Cold-enum'd 29 verbal mutations BEFORE reading tests/kb. 12 overlapped
+with existing `done` entries; 17 went into recording as unique. After
+writing them up I culled 5 that were obviously caught by full-string
+equality assertions, leaving 12 todo entries — every one closed in
+this session. One predicted gap (`ua-fetch-headless-negated`) verified
+empirically.
+
+User-driven speedup: skipped the post-revert green-check step (verified
+on the next iteration's test run instead).
+
 ## Overall status
 
-Kb now has 53 entries: **45 done, 0 todo, 8 gap.** Burndown terminus
+Kb now has 65 entries: **57 done, 0 todo, 8 gap.** Burndown terminus
 reached — every entry has analysis. The 8 gaps cluster into a
 "dead defense / structurally unobservable" family:
 
