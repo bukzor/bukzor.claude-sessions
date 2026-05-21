@@ -60,3 +60,22 @@ makes this the default behavior when a `.kb/` is missing its schema.
 - All work committed and pushed (5 commits in bukzor-agent-skills,
   2 in dotfiles).
 - Devlog: `llm-kb/docs/dev/devlog/2026-05-15-000-skeleton-default-schema-centralization.md`.
+
+## Postscript (2026-05-21)
+
+The "Installed schema copies" line above is true literally — copies
+were placed at each consuming skill's `.claude/`. But the copies
+shipped **permissive**: they lack the `managed-by` block (so
+`managed-by` was not required), they don't define the cross-skill
+fields (`required-reading`, `suggested-reading`, `related-effort`)
+that real downstream files use, and they set
+`additionalProperties: true`. That made the schemas unable to
+enforce the design intent ("`managed-by` is fully
+jsonschema-controlled and required via a const definition") and let
+deprecated fields like `anthropic-skill-ownership: llm-subtask`
+persist in two `llm-kb/.claude/ideas.kb/` files unnoticed.
+
+The remaining work — strict `managed-by` const everywhere, schema
+propagation byte-identical from the skeleton, and 8 data-file
+migrations — is captured at
+`~/.claude/sessions.kb/strict-managed-by-schema-propagation.md`.
