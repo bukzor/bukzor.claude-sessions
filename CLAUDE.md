@@ -33,6 +33,15 @@ session." Capture is cheap; the value is in not losing track.
 Read at session start to recover the user's open lines of work, or when
 deciding whether the current task is already tracked elsewhere.
 
+## Open Work: `- [ ]` Is Load-Bearing
+
+A session entry's open work surfaces in `claude-open-tasks-list` only
+when its lines use `- [ ]`. Bare `-` bullets are **invisible** to the
+inventory and silently lost — they will not be rated, will not appear in
+`task-list.md`, will not compete for prioritization. See
+`Skill(llm-subtask)` for the full rule; the short version: any
+task-shaped line uses `- [ ]`, anything else is prose.
+
 ## File Naming
 
 kebab-case, descriptive enough that the user can guess the session's
