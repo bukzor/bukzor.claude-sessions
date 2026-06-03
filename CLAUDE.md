@@ -6,7 +6,8 @@ requires:
 # Sessions Collection
 
 The user runs many parallel sessions across cwds, repos, and skills;
-this collection indexes the ones worth tracking.
+these notes keep the live ones at hand on disk for the next session
+to pick up.
 
 ## What Belongs
 
@@ -26,12 +27,13 @@ this collection indexes the ones worth tracking.
 Add an entry the moment a future line of work is identified -- end of a
 session that surfaced follow-ups, mid-conversation when a tangent is
 recognized as its own scope, or whenever the user notes "that's another
-session." Capture is cheap; the value is in not losing track.
+session." Writing it down is cheap; the value is reading it back at
+the next session start.
 
 ## When to Read
 
-Read at session start to recover the user's open lines of work, or when
-deciding whether the current task is already tracked elsewhere.
+Read at session start to recover the user's open lines of work, or
+when checking whether the current task is already noted elsewhere.
 
 ## Open Work: `- [ ]` Is Load-Bearing
 
@@ -49,28 +51,29 @@ purpose from the filename. Do not number -- sessions are not ordered.
 
 ## Where Files Live
 
-Session files live directly here, in `~/.claude/sessions.kb/`. This is
-the canonical location regardless of which project the session relates
-to. A single global index avoids fragmenting sessions across repos and
-makes "what am I working on?" a one-directory question.
+Session files live directly here, in `~/.claude/sessions.kb/`. This
+is the default home regardless of which project the session relates
+to. A single directory keeps "what am I working on?" a one-`ls`
+question and avoids fragmenting notes across repos.
 
 See the appendix below for an optional in-repo + symlink scheme.
 
 ## Lifecycle
 
-When a session is finished and its follow-ups are absorbed elsewhere
-(or it is no longer worth tracking), delete the file. The collection
-is a working index, not an archive.
+These are ephemeral working notes — useful on disk between sessions,
+not durable knowledge artifacts. When follow-ups are absorbed
+elsewhere (or no longer worth keeping at hand), delete the file.
 
-## Appendix: in-repo canonical with symlink (optional)
+## Appendix: in-repo placement with symlink (optional)
 
-A session may instead be co-located with a project's own source when
-that suits the work — e.g., session notes that are usefully versioned
-alongside project history, or that track follow-ups tightly coupled to
-project-internal artifacts. In that case:
+A session may instead live in a project's own source tree when that
+suits the work — e.g., notes tightly coupled to project-internal
+artifacts, or that should appear in the project's grep results. In
+that case:
 
-- canonical: `<project>/.claude/sessions.kb/<slug>.md`
-- absolute-path symlink: `~/.claude/sessions.kb/<slug>.md` → canonical
+- on-disk home: `<project>/.claude/sessions.kb/<slug>.md`
+- symlink: `~/.claude/sessions.kb/<slug>.md` → on-disk home
 
-This is an optional scheme. The default (direct-in-global) is simpler
-and should be preferred unless there's a specific reason to co-locate.
+This is an optional scheme. The default (directly in
+`~/.claude/sessions.kb/`) is simpler and should be preferred unless
+there's a specific reason to co-locate.

@@ -1,0 +1,52 @@
+---
+cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
+session:
+  uuid: 2fc65ba3-d504-485c-8bd4-ee76beb66fa6
+  started: 2026-05-27T09:33:43-05:00
+  ended: null
+---
+# Apply the migrations.kb Backlog
+
+Centralization point for ongoing work on
+`~/.claude/skills/llm-kb/migrations.kb`. The durable part -- which entries
+are open and how to apply one -- lives in that collection's `CLAUDE.md`
+under "Working the backlog"; that is the source of truth, not this file.
+
+## Open
+
+- [ ] Apply the open migrations.kb backlog. List + procedure +
+      `depends-on` ordering: `~/.claude/skills/llm-kb/migrations.kb/CLAUDE.md`
+      ("Working the backlog"). Now includes the new
+      `2026-05-27-000-skill-notation-to-agent-skill-uri` (planning); its
+      load-directive prerequisite (convention + each SKILL.md `setup:`
+      block updated before the textual sweep) is recorded in the entry.
+- [ ] Migration scripts violate the user's shell guidelines
+      (`2>/dev/null`, `grep` for control flow, per-process redirects).
+      Cleanup pass over `migrations.kb/*/{validate,migrate}.sh`.
+- [ ] Decide ADR home for the agent-skill URI scheme: currently
+      `llm-kb/docs/adr/2026-05-18-000-agent-skill-uri-scheme.md` (chosen
+      for `agent-skill://`-addressability + symlink-robust refs) vs
+      repo-root `docs/dev/adr/` (where other cross-skill ADRs live).
+      Moving it means rewriting 4 `agent-skill://` links.
+
+## Done this session (2026-05-27)
+
+- strict-schema-propagation advanced to `verified` (propagated the
+  missing schemas, gated the validator's MISSING false-positive, added
+  `closeout:` to the todo schema and re-propagated byte-equal).
+- ownership->managed-by: cleared the legacy tag from the one in-scope
+  file the new schema surfaced; added `managed-by` to a second.
+- Authored `migrations.jsonschema.yaml`; the whole collection validates.
+- Added the "Working the backlog" guide to migrations.kb/CLAUDE.md.
+- Spun the sessions.kb schema drift into its own entry,
+  `~/.claude/sessions.kb/reconcile-sessions-kb-schema-drift.md`.
+- Authored migration `2026-05-27-000-skill-notation-to-agent-skill-uri`
+  (planning): sweep `Skill(xxyy)` -> `agent-skill://xxyy`. Created the
+  canonical ADR `2026-05-18-000-agent-skill-uri-scheme` and deduped the
+  scheme decision out of the `schema-reuse-with-ref` todo (removed a live
+  contradiction: the todo still said `Skill()` "stays as-is"). Committed
+  these three as one unit.
+
+The agent-skill:// unit is committed. The rest of the tree (earlier
+schema-propagation work + unrelated in-flight debolding) remains
+uncommitted and intermixed.
