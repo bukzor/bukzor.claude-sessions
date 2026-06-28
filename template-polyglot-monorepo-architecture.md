@@ -22,14 +22,12 @@ re-litigate.
 
 ## Open follow-ups
 
-Repo-specific next-actions (recorded here; promote to `template.python-project/.claude/todo.kb/` when ready to act):
+Repo-specific next-actions have **moved to the repo's own queue** (this entry is
+background; execute there):
 
-- [ ] Rename the repo — "python-project" is already false (it ships pnpm/js tooling)
-- [ ] Buckify this repo as a **Python+Node two-language proof** (`.buckconfig` bundled prelude + python & node toolchains + `apps/lib/packages` as uniform BUCK files) — the unification value only shows at 2+ ecosystems
-- [ ] **Cell-alias spike**: a two-repo toy proving a leaf builds both standalone and composed (gates the compose-on-demand bet)
-- [ ] Derisk **third-party buckify** for Python/pnpm (cargo is paved via reindeer; python is DIY; pnpm is roughest)
-- [ ] Original `project_type: app|lib` question, reframed as "where the primary package lands" (`apps/{slug}` vs `packages/pypi/{slug}`) — `.claude/todo.kb/2026-06-24-000-copier-projecttype-app--lib-question.md`
+- `template.python-project/.claude/todo.kb/2026-06-28-000-adopt-buck2-as-the-polyglot-spine-rename--pythonnode-proof.md` — rename + Python+Node buck proof + cell-alias spike + third-party derisk
+- `…/2026-06-24-000-copier-projecttype-app--lib-question.md` — the reframed `project_type` question
 
-Personal-global hoist (already queued at `~` scope):
+Personal-global hoist (still at `~` scope):
 
 - [ ] [`~/.claude/todo.kb/2026-06-27-000-hoist-polyglot-monorepo-architecture-convention--values-to-personal-global-scope.md`](../todo.kb/2026-06-27-000-hoist-polyglot-monorepo-architecture-convention--values-to-personal-global-scope.md) — extract the convention + hoist the values; may belong under `private.bukzor-llc`
