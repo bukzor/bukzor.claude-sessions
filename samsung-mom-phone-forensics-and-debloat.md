@@ -15,8 +15,8 @@ cost-benefit-sweh:
     confidence: tentative
   cost-of-delay-2w:
     '@value': 1
-    rationale: unknown whether the phone is still in pre-wipe limbo (in active use, degraded) — pending owner answer
-    confidence: hypothetical
+    rationale: phone confirmed still pre-wipe and in active use (owner, 2026-07-03) — forensics window open, device degraded daily
+    confidence: confident
 ---
 # Samsung Mom-Phone Forensics and Debloat
 
