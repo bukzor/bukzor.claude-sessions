@@ -3,6 +3,19 @@ cwd: /home/bukzor/.claude
 session:
   started: null
   ended: null
+cost-benefit-sweh:
+  timebox:
+    '@value': 1
+    rationale: post-hoc diff review; changes already committed (verified 2026-07-03), so this is verification, not gatekeeping
+    confidence: unsure
+  benefit-2w:
+    '@value': 0.3
+    rationale: the file drives every agent session; a weakened directive would silently degrade all work
+    confidence: tentative
+  cost-of-delay-2w:
+    '@value': 0
+    rationale: already committed; no working-tree risk remains
+    confidence: confident
 ---
 # Review global CLAUDE.md restructure
 

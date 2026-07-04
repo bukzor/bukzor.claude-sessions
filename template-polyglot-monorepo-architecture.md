@@ -4,6 +4,14 @@ session:
   uuid: 8614a837-cce4-42ad-87d5-06555a4b08ba
   started: 2026-06-24T15:35:42-05:00
   ended: 2026-06-28T11:49:42-05:00
+cost-benefit-sweh:
+  timebox:
+    '@value': 0
+    rationale: 'explicitly background: repo-specific actions moved to the repo queue; the hoist item is rated at ~/.claude/todo.kb'
+    confidence: confident
+  benefit-2w:
+    '@value': 0
+    confidence: confident
 ---
 # template.python-project → polyglot, self-similar, buck-unified monorepo template
 

@@ -4,6 +4,19 @@ session:
   uuid: cee48983-97b5-4479-86e8-085b12ba3d48
   started: 2026-05-22
   ended: null
+cost-benefit-sweh:
+  timebox:
+    '@value': 6
+    rationale: record the 3 unrecorded designs (~2h) + start the implementation ladder; stop and reassess after recording
+    confidence: tentative
+  benefit-2w:
+    '@value': 1
+    rationale: attention system targets the whole portfolio; near-term realizable value is the recorded designs
+    confidence: hypothetical
+  cost-of-delay-2w:
+    '@value': 0.5
+    rationale: 3 settled designs exist only in a 5-week-old transcript; recall decays
+    confidence: tentative
 ---
 
 # Personal Attention System — Design Conversation

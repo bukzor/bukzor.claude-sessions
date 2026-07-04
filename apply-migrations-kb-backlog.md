@@ -4,6 +4,19 @@ session:
   uuid: 2fc65ba3-d504-485c-8bd4-ee76beb66fa6
   started: 2026-05-27T09:33:43-05:00
   ended: null
+cost-benefit-sweh:
+  timebox:
+    '@value': 3
+    rationale: apply open migrations backlog + shell-guideline cleanup of migrate scripts + ADR home decision
+    confidence: unsure
+  benefit-2w:
+    '@value': 0.5
+    rationale: kb consistency; unblocks strict-schema rollout
+    confidence: unsure
+  cost-of-delay-2w:
+    '@value': 0.1
+    rationale: backlog is durable and self-describing
+    confidence: unsure
 ---
 # Apply the migrations.kb Backlog
 

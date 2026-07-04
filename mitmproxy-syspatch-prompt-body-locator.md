@@ -4,6 +4,14 @@ session:
   uuid: 4c07d8be-16e0-4010-bec9-503fbacfbe3a
   started: null
   ended: 2026-07-03T15:24:23-05:00
+cost-benefit-sweh:
+  timebox:
+    '@value': 0
+    rationale: 'pointer entry: session ended 2026-07-03; sole open item is the triage task tracked in mitmproxy/.claude/todo.md, rated there'
+    confidence: confident
+  benefit-2w:
+    '@value': 0
+    confidence: confident
 ---
 # Mitmproxy Syspatch — Prompt-Body Locator Incidents
 

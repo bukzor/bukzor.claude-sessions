@@ -4,6 +4,19 @@ session:
   uuid: 24ad6496-1df7-4921-a76d-7aecc7052c12
   started: 2026-05-26T17:40:00-05:00
   ended: 2026-05-27T19:56:00-05:00
+cost-benefit-sweh:
+  timebox:
+    '@value': 4
+    rationale: ADB reconnect + data-preservation wipe gate + wipe/de-Samsung
+    confidence: tentative
+  benefit-2w:
+    '@value': 1
+    rationale: family device restored to trustworthy state
+    confidence: tentative
+  cost-of-delay-2w:
+    '@value': 1
+    rationale: unknown whether the phone is still in pre-wipe limbo (in active use, degraded) — pending owner answer
+    confidence: hypothetical
 ---
 # Samsung Mom-Phone Forensics and Debloat
 
