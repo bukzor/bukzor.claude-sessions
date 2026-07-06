@@ -24,8 +24,11 @@ content-addressed capture system (`patch-failures/`, rule
 distinct content, warn once, pass the request through unpatched.
 Committed as 77815a8; verified offline with fake flows.
 
-Root cause of the zero-body traffic is still unknown — diagnosis is
-blocked until the next live occurrence lands a capture.
+Root cause found (triaged 2026-07-05, session d54e3a0c): the zero-body
+traffic is auxiliary CLI requests — session-title generation, web-search
+helper — whose system prompts legitimately lack the interactive-agent
+marker. Unpatched by design; not marker drift. Follow-up (incident dedup
+is broken across CLI builds — cc_version build suffix defeats
+`content_hash`) is tracked in `/home/bukzor/claude/mitmproxy/.claude/todo.md`.
 
-- [ ] Triage the first `_locate-system-prompt` capture (details in
-  `/home/bukzor/claude/mitmproxy/.claude/todo.md`)
+- [x] Triage the first `_locate-system-prompt` capture (verdict above)

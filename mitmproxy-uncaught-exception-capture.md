@@ -32,5 +32,7 @@ all three addons' hooks and confirmed capture + dedup + re-raise. No live
 `proxy.sh` run yet, and no permanent test exists for `capture_uncaught` — see
 open items below and `mitmproxy/.claude/ideas.kb/2026-07-03-000-addon-level-request-tests-via-mitmproxytest.md`.
 
-- [ ] Verify uncaught-exception capture end-to-end live (tracked in
-  `/home/bukzor/claude/mitmproxy/.claude/todo.md`)
+- [x] Verify uncaught-exception capture end-to-end live — proven 2026-07-04
+  by a real capture from live traffic (thinkpatch disabled-thinking
+  `AssertionError`, `_uncaught-thinkpatch/4380a5b276ed`); root cause fixed
+  in mitmproxy repo commit 42fe263.
