@@ -3,7 +3,7 @@ cwd: /home/bukzor
 session:
   uuid: 80204f8f-9642-4ed5-90e7-d86ab434788e
   started: 2026-07-07T16:38:28-05:00
-  ended: 2026-07-08T17:03:46-05:00
+  ended: 2026-07-08T17:58:17-05:00
 ---
 # Shell-Function Unit Testing and CI Regression Harness
 
@@ -26,6 +26,16 @@ fix observed red-first. Two live bugs fixed: `hardquote` backslash
 escaping, `path append` drifted from its first-wins acceptance criteria.
 CI: `.github/workflows/check-sh.yml`. Devlog:
 `~/docs/dev/devlog/2026-07-08-000-cross-shell-test-harness--redo-as-the-test-runner.md`.
+
+Post-wrap additions (same day): vendored apenwarr minimal/do at
+`.local/share/redo/do` (public domain, pinned b08b5ef) — CI needs no
+redo install, job 43s → 14s; `.tested` targets materialize as
+`date -Iseconds` certificates (gitignored; -Ins rejected, BSD/macOS);
+mixed-implementation footgun documented in the vendor README. The
+reunify plan was synced with the live harness: 2026-07-07-000 records
+the decisions and shrinks to its remainder (run-once `X_check.sh` →
+`.checked` class, skip-if-absent helper, pty allowance for `-i`
+startup tests, full-fetch, docs, land on main).
 
 - [x] verify first `check-sh.yml` run is green on GitHub after push
       (green 2026-07-08 on 9a9643c; iterating to green caught a real bug:
