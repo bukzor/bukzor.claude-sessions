@@ -30,10 +30,10 @@ tool-description patching is whole-replacement + byte-equality against an
 accepted upstream set, not the template-placeholder model `syspatch.py` uses
 for the system prompt).
 
-mitmproxy working tree still holds the addon changes uncommitted (per its own
-`git-caution: personal` — user hasn't asked for that commit). `~/.claude`'s
-matching pieces (settings.json, tool-description-patches.d/, the Monitor
-must-read entry, this file) were committed this session.
+Both repos committed and pushed this session: `~/claude/mitmproxy` (commit
+f1d47c7, toolpatch.py + the per-request-reload hardening) and `~/.claude`
+(commit 47a11a3, settings.json + tool-description-patches.d/ + the Monitor
+must-read entry + this file).
 
 Remaining follow-ups in the taskfile (all open, none urgent): verify
 project-scope `disableBundledSkills` override semantics; consider extending
