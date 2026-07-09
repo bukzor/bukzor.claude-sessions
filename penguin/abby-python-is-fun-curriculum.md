@@ -29,25 +29,27 @@ SDL_image trap, a headless smoke-test command) from the abandoned `failed`
 branch into `docs/dev/background.kb/pgzero-mechanics.md` before they were
 lost. Nothing yet committed to git as of this note.
 
-**Important, needs user confirmation:** this repo has a `failed` branch
-(`0c8127c`) — a prior, much larger attempt ("Abbycraft": 12 sessions to
-mobs/save-load, a pre-built `mentor/reference.py` ground-truth game, sprite
-tooling), authored by a different assistant persona, that got `git reset`
-away from `main`. The current lean 8-session-core + expansion-menu design
-looks like the deliberate correction, but I'm inferring that — I haven't
-confirmed with the user *why* it failed or whether anything else from that
-branch (beyond the environment facts already salvaged above) should be
-carried forward. Worth a quick check before that branch is deleted.
+**Resolved (2026-07-09):** the `failed` branch (`0c8127c`, a prior larger
+"Abbycraft" attempt) is ruled out of scope by the user — no further mining,
+no action needed. Environment facts already salvaged from it live in
+`docs/dev/background.kb/pgzero-mechanics.md`.
 
 Task tracking for this project lives in `docs/dev/design/060-deliverables.kb/`
 (`status: not-started|done` per file) and `docs/dev/discourse.kb/questions.kb/`
 — not `.claude/todo.md` (project doesn't depend on `Skill(llm-subtask)`).
 
-Open follow-ups (user hasn't ruled; tracked as formal discourse-graph
-questions now, see `docs/dev/discourse.kb/questions.kb/`):
-- [ ] pre-plan session 2 as 2a/2b split
-- [ ] demote session-5 clickable buttons to explicit stretch
-- [ ] opening ritual (run game, read last commit, narrate) + cadence note
+2026-07-09: all three discourse follow-ups resolved by the user and
+promoted into the design tree:
+- [x] Session 2 splits into 2a (`session-02-the-world-is-a-list.md`, the
+      loops/dict/nested-list load) + 2b (`session-02b-trees-and-treasure.md`,
+      pure play, no new concepts) — rationale: oversized sessions are hard
+      to fix mid-session, undersized ones can always be merged back.
+- [x] Session-5 clickable buttons demoted to stretch-only, but not
+      pre-decided in the doc — it's a live just-in-time question posed to
+      Abby after the keyboard build lands ("want buttons too?").
+- [x] Opening ritual adopted (run `main.py`, read last commit aloud,
+      narrate one thing) in `session-facilitation-protocol.md`; cadence set
+      to weekly, same day if possible, in `session-arc-and-pacing-design.md`.
 
 Also still open: the whole `project-bootstrap.md` first-tasks list (smoke
 test, `checkpoints/session_00.py`, replace `README.md`, seed `ideas.md`,
