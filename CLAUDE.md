@@ -58,6 +58,49 @@ question and avoids fragmenting notes across repos.
 
 See the appendix below for an optional in-repo + symlink scheme.
 
+## This Repo
+
+This repo (`bukzor/bukzor.claude-sessions`) *is* `~/.claude/sessions.kb/`
+on every host that uses it — wired in as a git submodule at that path
+in `bukzor/dotfiles`, not cloned/gitignored separately. It was split
+out of dotfiles' history (2026-07) to keep sessions.kb's high-churn
+file edits out of dotfiles' log/blame; only the submodule gitlink
+pointer shows up there, and even that is bumped lazily/as-needed
+rather than after every commit here.
+
+### Per-host layout
+
+Entries live under `<hostname>/`, e.g. `penguin/reunify-dotfiles.md`
+for host `penguin`. Rationale: sessions are tied to a specific
+machine's filesystem state (open worktrees, local branches, uncommitted
+files) — a flat namespace would silently collide or misattribute
+entries across hosts sharing this one repo. `CLAUDE.md` and
+`.template.md` stay at the repo root, shared across hosts.
+
+When onboarding a new host: `git submodule update --init
+.claude/sessions.kb` in dotfiles, then `mkdir -p
+~/.claude/sessions.kb/$(hostname -s)`.
+
+### `cwd:` frontmatter stays host-absolute
+
+Session entries' `cwd:` field (e.g. `/home/bukzor`) is left as a plain
+host-absolute path, not made portable/symbolic. The per-host directory
+already disambiguates *which* host a path belongs to; a reader who
+knows the entry lives under `penguin/` already knows `cwd:` is
+`penguin`-relative. Revisit if a host ever needs to read another
+host's entries and resolve `cwd:` programmatically — no such need
+exists yet.
+
+### Push / pointer-bump cadence
+
+Commit and push here (`bukzor.claude-sessions`) whenever a session
+entry changes — same as any other repo. The dotfiles-side gitlink
+pointer is a separate, deliberately lazy step: bump it only when
+something outside sessions.kb needs the pointer current (e.g. cloning
+dotfiles fresh on a new host). Until then, dotfiles will often show
+this submodule as "modified (new commits)" against its recorded
+pointer — that's expected, not a problem to fix.
+
 ## Lifecycle
 
 These are ephemeral working notes — useful on disk between sessions,
