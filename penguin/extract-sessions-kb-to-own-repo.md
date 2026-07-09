@@ -21,16 +21,19 @@ Procedure: `~/.claude/CLAUDE.Task.extract-sessions-kb-to-own-repo.md`.
 
 ## Status (as of 2026-07-09, second session)
 
-Execution is underway. Done: repo created (public), full history
-extracted via `git filter-repo`, reorganized into per-host `penguin/`
-layout, pushed to `bukzor/bukzor.claude-sessions` `main` (commit
-`7f33915` as of this writing), `gitleaks detect` clean, CLAUDE.md in
-the new repo documents the per-host convention / `cwd:` stance /
-pointer-bump cadence (Task.md step 7). **Not done, deliberately
-deferred — see "For User Review" below**: the go/no-go history-strip
-checkpoint, and switching `~` over to the submodule (Task.md step 6),
-blocked on apparent live concurrent activity in the very directory
-that step would `git rm -r`.
+Execution complete except the history-strip go/no-go (explicit,
+separate decision — see "For User Review"). Repo created (public),
+full history extracted via `git filter-repo`, reorganized into
+per-host `penguin/` layout, CLAUDE.md documents the per-host
+convention / `cwd:` stance / pointer-bump cadence (Task.md step 7).
+`~` swapped over to the submodule live, per user direction, while
+another session had uncommitted edits in-flight in the very directory
+being swapped — dotfiles `5ae0792`, submodule `5d63b44`. Verified
+clean: 41 entries in `penguin/`, real branch `main` checked out (not
+detached), gitlink and submodule both clean. This file itself moved
+from `~/.claude/sessions.kb/extract-sessions-kb-to-own-repo.md` to
+`~/.claude/sessions.kb/penguin/extract-sessions-kb-to-own-repo.md` as
+part of that swap.
 
 Superseded note from the first session (kept for the record, no
 longer accurate): it listed 3 live entries as "deliberately held
@@ -105,37 +108,38 @@ ignore the branch literally named `main`.
 Three items surfaced this session that need your call, not mine.
 Noted here per your instruction rather than blocking on them.
 
-### 1. Submodule swap deferred — live concurrent writes to sessions.kb
+### 1. Submodule swap — RESOLVED, done live per your direction
 
-Task.md step 6 (`git -C ~ rm -r .claude/sessions.kb` + `git submodule
-add`) is a destructive rewrite of the exact directory another active
-process is writing to *right now*. Evidence, gathered ~16:08–16:10:
+Evidence of live concurrent writes was real (gathered ~16:08–16:10:
+`git -C ~ log` advanced to a commit I never made, `61bbea4`, between
+two checks minutes apart; the dirty-file set in sessions.kb shifted
+shape in the same window). You said to swap live anyway, "Indiana
+Jones style," and gave the recipe: add the new submodule at a temp
+path, `git mv -k` the old dir aside, `git mv` the new one into place,
+merge the old dir's latest content in, untrack the old dir but keep
+its files. Done:
 
-- `git -C ~ status -s .claude/sessions.kb/` showed a dirty set that
-  changed shape between two checks a couple minutes apart —
-  `reunify-dotfiles-lineages.md` was modified (M) at 16:08, then gone
-  from the dirty list entirely by 16:10.
-- `git -C ~ log --oneline -1` had advanced to a commit I never made:
-  `61bbea4 reunify-dotfiles: record dedicated main-reunify clone,
-  session findings` — not one of mine (mine top out at `e4df7b6`).
-  That commit didn't exist a few minutes earlier.
-- Currently dirty: `M abby-python-is-fun-curriculum.md`, `D
-  provider-code-reuse-stutter-step.md`, `D
-  pyright-clean-sweep-across-the-incubator.md`, `??
-  chatfs-mockup-chatgpt-open-todo-sweep.md` — most recent mtime
-  15:57, i.e. within the last ~15 min of "now."
+- dotfiles `5ae0792` (gitlink + `.gitmodules`), submodule content
+  synced+pushed as `5d63b44` in `bukzor.claude-sessions`.
+- Mid-swap, `git submodule add` hit a real `index.lock` held by the
+  concurrent session's own git process. Didn't touch the lock — waited
+  a beat, it cleared on its own, retried, succeeded.
+- `abby-python-is-fun-curriculum.md` had a pre-existing (session-1)
+  uncommitted edit that `git mv -k` carried through as an index/disk
+  divergence; resolved by `git rm --cached -f` (untrack only, file
+  itself untouched) since the current content was already rsynced into
+  the submodule and pushed before the untrack happened.
+- Old on-disk copy of the whole pre-swap directory preserved (not
+  deleted) at `~/trash/sessions.kb.tmp.20260709-162236/` — gitignored,
+  your "keep the files just in case" ask. Nothing in there is
+  git-recoverable any other way (it was `rm --cached`'d, not
+  committed), so that's the only copy if anything got missed in the
+  merge — worth a skim before it ages out of `trash/`.
 
-Read together: another session (most plausibly whatever's driving the
-`reunify-dotfiles-lineages` work) is live in `~` right now, committing
-and editing sessions.kb entries as it goes. `git rm -r
-.claude/sessions.kb` would also choke on `abby-python-is-fun-curriculum.md`
-(git refuses to `rm` a file with uncommitted working-tree changes
-without `-f`) — so it'd fail loudly, or worse, succeed via `-f` and
-discard someone else's in-progress edit.
-
-**Decision needed from you**: either tell me it's safe (the other
-session is done / was you and it's fine to interrupt), or I hold step
-6 until things go quiet. I'm holding by default.
+Net: no data lost, no force-push, no destructive action on anything I
+didn't explicitly stage myself; the concurrent session's own commits
+were left alone and even got carried along (fast-forwarded) when I
+pushed `svelte-crostini`.
 
 ### 2. Go/no-go: strip sessions.kb from dotfiles history
 
