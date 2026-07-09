@@ -45,7 +45,7 @@ startup tests, full-fetch, docs, land on main).
       see CI-foundations taskfile below)
 
 The harness decision is shared with the reunify-dotfiles effort:
-`~/.claude/todo.kb/reunify-dotfiles/2026-07-07-000-CI-and-testing-foundations.md`
+`~/.claude/todo.kb/reunify-dotfiles.kb/2026-07-07-000-CI-and-testing-foundations.md`
 runs FIRST in that plan and its survey table includes this file's needs —
 decide once, serve both. Background on the code under test:
 `~/docs/dev/devlog/2026-07-07-000-shell-PATH-prepend--eliminate-eval-array-emulation-with-a-heredoc-fed-line-iterator.md`.

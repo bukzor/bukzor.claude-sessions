@@ -14,22 +14,15 @@ content, merge with zero conflicts, and live on main. The planning session
 
 Plan of record — do not duplicate here:
 
-- Goal block + execution order: `~/.claude/todo.md`
-- Task files (one per session/commit-group): `~/.claude/todo.kb/reunify-dotfiles/`
+- Goal, execution order, operating loop:
+  `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.md` (pointed to from
+  `~/.claude/todo.md`)
+- Task files (one per session/commit-group): `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/`
 - Working agreements (topology, single-writer-per-branch, file ownership):
-  `~/.claude/todo.kb/reunify-dotfiles/CLAUDE.md`
+  `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/CLAUDE.md`
 
-Execution order: CI/testing foundations (paired with
-`todo.kb/2026-07-07-001-shell-function-unit-testing-and-ci-regression-harness.md`
-— one harness decision serves both; see sibling session entry
-`shell-function-unit-testing-and-ci-regression-harness.md`) → 000 shell
-unification → 001/002/003 (parallelizable) → 005 zsh port → 004 hand-merges
-→ 006 final merge + home switchover.
+See sibling session entry `shell-function-unit-testing-and-ci-regression-harness.md`
+for the CI/testing-foundations pairing.
 
-Operating loop: `cd ~ && claude --model fable`, `/session-start` (picks up
-the todo.md goal block), work one group, `/session-end`. Main-branch commits
-happen only in the clone at `~/repo/github.com/bukzor/dotfiles`; svelte
-commits only in `~`. No worktrees.
-
-Delete this file when the supertask's todo.md goal block is fully checked
-and 006's switchover is done.
+Delete this file when the supertask's todo.kb entry is fully checked and
+006's switchover is done.
