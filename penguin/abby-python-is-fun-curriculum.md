@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/scratch.pygame-zero
 session:
-  uuid: 293f1f98-1212-4df4-aa38-63c693aa7a49
+  uuid:
+    - 293f1f98-1212-4df4-aa38-63c693aa7a49
   started: 2026-07-08T22:21:19-05:00
   ended: null
 ---

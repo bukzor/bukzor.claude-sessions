@@ -11,7 +11,7 @@ to pick up.
 
 ## What Belongs
 
-- A planned session that has not been started yet (no `session.uuid`)
+- A planned session that has not been started yet (no/empty `session.uuid`)
 - An in-flight session worth referencing across other contexts
 - A recently completed session whose follow-ups are still live
 

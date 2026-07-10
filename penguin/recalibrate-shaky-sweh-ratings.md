@@ -1,7 +1,7 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/2026-05-19--task-archeology
 session:
-  uuid: null
+  uuid: []
   started: null
   ended: null
 parent: backlog-triage-with-cost-of-delay.md

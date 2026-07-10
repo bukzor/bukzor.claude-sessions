@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/summer-programming-project/2026
 session:
-  uuid: 75fbedcc-189a-48a4-aa1f-916b69f88534
+  uuid:
+    - 75fbedcc-189a-48a4-aa1f-916b69f88534
   started: 2026-07-06T15:53:32-05:00
   ended: null
 ---

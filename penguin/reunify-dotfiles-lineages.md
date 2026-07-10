@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor
 session:
-  uuid: 545f4138-cfb5-410d-b6f4-2d73afd7856a
+  uuid:
+    - 545f4138-cfb5-410d-b6f4-2d73afd7856a
   started: 2026-07-06T18:30:00-05:00
   ended: 2026-07-08T08:14:12-05:00
 ---

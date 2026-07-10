@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/type-theory/python-type-type-inconsistent
 session:
-  uuid: fdabb2e4-d950-42bb-8ff8-371a9ecf5e9a
+  uuid:
+    - fdabb2e4-d950-42bb-8ff8-371a9ecf5e9a
   started: 2026-06-03T10:22:00-05:00
   ended: 2026-06-03T14:46:00-05:00
 cost-benefit-sweh:

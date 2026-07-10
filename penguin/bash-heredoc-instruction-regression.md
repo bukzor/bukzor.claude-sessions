@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/homedir-archeology
 session:
-  uuid: 6e8223d3-e99c-4f60-b5a4-1035c95a8f59
+  uuid:
+    - 6e8223d3-e99c-4f60-b5a4-1035c95a8f59
   started: 2026-05-16T17:39:01-05:00
   ended: null
 ---

@@ -2,7 +2,8 @@
 cwd: /home/bukzor
 color: pink
 session:
-  uuid: 7e61d259-3c6c-4c3d-9786-7d7cdb4caa07
+  uuid:
+    - 7e61d259-3c6c-4c3d-9786-7d7cdb4caa07
   started: 2026-05-15T12:45:00-05:00
   ended: null
 ---

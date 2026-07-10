@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/template.python-project
 session:
-  uuid: 8614a837-cce4-42ad-87d5-06555a4b08ba
+  uuid:
+    - 8614a837-cce4-42ad-87d5-06555a4b08ba
   started: 2026-06-24T15:35:42-05:00
   ended: null
 ---

@@ -1,7 +1,7 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
 session:
-  uuid: null
+  uuid: []
   started: null
   ended: 2026-05-21T11:55-05:00
 parent: skeleton-default.md

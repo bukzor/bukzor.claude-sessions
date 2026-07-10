@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/empty
 session:
-  uuid: 035c875c-c3dc-46d2-a612-a5cfab5ea5dd
+  uuid:
+    - 035c875c-c3dc-46d2-a612-a5cfab5ea5dd
   started: 2026-07-07T11:42:33-05:00
   ended: 2026-07-08T17:07:22-05:00
 ---

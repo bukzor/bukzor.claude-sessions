@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/prototype.chatfs/packages/har-browse
 session:
-  uuid: dd02760b-ca22-4ba3-a921-8db5cc0fd7ba
+  uuid:
+    - dd02760b-ca22-4ba3-a921-8db5cc0fd7ba
   started: null
   ended: null
 prior-sessions:

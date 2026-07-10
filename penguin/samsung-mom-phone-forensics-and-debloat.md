@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/bukzor.samsung-debloat
 session:
-  uuid: 24ad6496-1df7-4921-a76d-7aecc7052c12
+  uuid:
+    - 24ad6496-1df7-4921-a76d-7aecc7052c12
   started: 2026-05-26T17:40:00-05:00
   ended: 2026-05-27T19:56:00-05:00
 cost-benefit-sweh:

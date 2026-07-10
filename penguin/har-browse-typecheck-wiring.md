@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/prototype.chatfs/packages/har-browse
 session:
-  uuid: e31c1049-58fa-4b42-ba9d-a0b1dde7862c
+  uuid:
+    - e31c1049-58fa-4b42-ba9d-a0b1dde7862c
   started: 2026-05-19T19:00:00-05:00
   ended: 2026-05-20T12:56:00-05:00
 cost-benefit-sweh:

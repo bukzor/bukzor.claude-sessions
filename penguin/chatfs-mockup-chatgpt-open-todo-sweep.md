@@ -1,7 +1,9 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/prototype.chatfs/docs/dev/design-incubators/chatfs-mockup-chatgpt
 session:
-  uuid: f3fa93d2-9158-45a0-b99a-01dde66f390d
+  uuid:
+    - f3fa93d2-9158-45a0-b99a-01dde66f390d
+    - 4946d6c3-7543-43a1-98a7-5750f04e1f04
   started: 2026-07-09T14:07:41-05:00
   ended: null
 ---
@@ -17,7 +19,7 @@ git history (`7ba1669`, `a82d1f7`) and deleted per sessions.kb lifecycle.
 Taskfile: `.claude/todo.md` (this incubator's own tactical list; project-wide
 work lives in `../../../../.claude/todo.md`).
 
-## Landed 2026-07-09/10 (4 commits, unpushed as of this note — see session-end)
+## Landed 2026-07-09/10 (all pushed as of 2026-07-10)
 
 - `a5c8bce` — explicit-if/elif/else sweep (todo.md's "match/case
   exhaustiveness" item): 3 real violations found in

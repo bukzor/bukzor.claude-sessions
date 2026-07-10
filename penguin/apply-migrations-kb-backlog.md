@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
 session:
-  uuid: 2fc65ba3-d504-485c-8bd4-ee76beb66fa6
+  uuid:
+    - 2fc65ba3-d504-485c-8bd4-ee76beb66fa6
   started: 2026-05-27T09:33:43-05:00
   ended: null
 cost-benefit-sweh:

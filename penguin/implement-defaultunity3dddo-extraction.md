@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/claude/cultist-simulator
 session:
-  uuid: 522decb7-98c4-470d-ae0d-9769676d9b39
+  uuid:
+    - 522decb7-98c4-470d-ae0d-9769676d9b39
   started: 2026-06-30T21:00:31-05:00
   ended: 2026-06-30T23:14:13-05:00
 ---

@@ -2,7 +2,8 @@
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills/llm-kb
 color: green
 session:
-  uuid: a4c67e67-cbc2-405c-ae75-2c81c5d609d8
+  uuid:
+    - a4c67e67-cbc2-405c-ae75-2c81c5d609d8
   started: 2026-05-13T21:30:43-05:00
   ended: 2026-05-15T18:41:27-05:00
 ---

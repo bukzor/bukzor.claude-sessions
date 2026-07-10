@@ -1,7 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
 session:
-  uuid: 83ca2a15-59b7-4653-910e-9ccc0ed643c9
+  uuid:
+    - 83ca2a15-59b7-4653-910e-9ccc0ed643c9
   started: 2026-07-05T23:04:45-05:00
   ended: null
 ---
