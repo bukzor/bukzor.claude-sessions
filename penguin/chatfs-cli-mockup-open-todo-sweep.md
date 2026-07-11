@@ -5,7 +5,7 @@ session:
     - f3fa93d2-9158-45a0-b99a-01dde66f390d
     - 4946d6c3-7543-43a1-98a7-5750f04e1f04
   started: 2026-07-09T14:07:41-05:00
-  ended: 2026-07-10T17:38:14-05:00
+  ended: 2026-07-11T10:22:39-05:00
 ---
 # Chatfs-Cli-Mockup Open Todo Sweep
 
@@ -47,10 +47,10 @@ plan" section — read that first on pickup).
   closing paragraph reframed: graduation target is `$REPO/lib/chatfs/`
   once libraryized (corrected mid-session from the plan's original
   `packages/chatfs-cli/`).
-- `871e917` — recorded the agreed four-step execution plan in
+- `982f4a9` — recorded the agreed four-step execution plan in
   `.claude/todo.md`'s new "Immediate plan" section, and closed the two
   strategic decisions below.
-- `d1758bc` — unrelated: a forked subagent's `.claude/focus.md`
+- `ddc52a9` — unrelated: a forked subagent's `.claude/focus.md`
   convention removal (never paid out), landed in the same working tree.
 
 ## Decisions resolved this session (2026-07-10)
