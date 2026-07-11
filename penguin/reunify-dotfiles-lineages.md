@@ -5,7 +5,7 @@ session:
     - 545f4138-cfb5-410d-b6f4-2d73afd7856a
     - 58689610-0fee-4260-ac2f-eccd37c487f8
   started: 2026-07-06T18:30:00-05:00
-  ended: null
+  ended: null # set only when no more sessions are expected (~= about to delete this file) -- not "my conversation ended"
 ---
 # Reunify Dotfiles Lineages (supertask)
 
@@ -29,7 +29,38 @@ for the CI/testing-foundations pairing.
 Delete this file when the supertask's todo.kb entry is fully checked and
 006's switchover is done.
 
-## For User Review (2026-07-09, latest)
+## For User Review (2026-07-11, latest)
+
+Task 000 (shell config unification) is now fully closed except its one
+deliberately-deferred item (delete superseded `.sh_env`/etc., waits on
+005). Folded in main-only `.sh_env` content: ported CPUTYPE/OSTYPE,
+macOS `path_helper`, TMPDIR selection, the private-dotfiles hook, and
+TERM-fixing into five new env.d files + two functions.d helpers,
+authored once, applied byte-identical to both branches. Commits:
+`855ac0d` (svelte), `31b7c44` (main), task-file update `8fa804e`. Full
+clean harness (`./.local/share/redo/do test`, all 4 shells): 137/137
+assertions green on both branches, shellcheck clean.
+
+Three adaptations beyond a literal port, all because env.d is
+re-sourced by every shell (unlike main's interactive-session-scoped
+`.sh_env`): TERM-fixing gated behind `tty`; path_helper's PATH output
+routed through the existing idempotent `path()` function instead of a
+raw `eval` (untestable here, no macOS -- verify live if it ever lands
+on one); dropped main's `$PREFIX` TMPDIR candidate (name collision
+with this tree's own, differently-scoped `$PREFIX`).
+
+Two incidental fixes: a stale `test.did` marker was silently no-op-ing
+local (non-CI) harness runs since 2026-07-08 (removed, CI itself
+unaffected); main's nested `.gitignore`s were missing `*.did`/
+`*.did.tmp` re-ignores alongside their existing `*.tested`/`*.checked`
+ones (added). Also swept up two unrelated doc-drift fixes sitting
+uncommitted in `.claude/todo.kb/` since before this session (wrong CLI
+flag, missing `.kb` suffix in a path reference) — commit `74120d0`.
+
+Next: 001/002/003 (mutually independent) are up per the execution
+order.
+
+### 2026-07-09 work (superseded/resolved, kept for context)
 
 CI-foundations is now fully checked off (only remaining item, CI
 `fetch-depth: 0`, is deferred to whichever of 001/006 writes the first
