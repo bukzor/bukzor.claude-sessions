@@ -4,8 +4,9 @@ session:
   uuid:
     - f3fa93d2-9158-45a0-b99a-01dde66f390d
     - 4946d6c3-7543-43a1-98a7-5750f04e1f04
+    - c562c738-bcfd-4c3c-8007-257a12992899
   started: 2026-07-09T14:07:41-05:00
-  ended: 2026-07-11T10:22:39-05:00
+  ended: 2026-07-11T15:00:33-05:00
 ---
 # Chatfs-Cli-Mockup Open Todo Sweep
 
@@ -66,14 +67,29 @@ plan" section — read that first on pickup).
 
 ## Immediate plan (agreed with user, recorded in `.claude/todo.md`)
 
-1. [x] Rename to `chatfs-cli-mockup` — done this session.
-2. [ ] Live-capture sitting — AI Studio index (needs user at an
-       authenticated browser): reverse-engineer the index endpoint,
-       write `chatfs_aistudio_index_pluck.jq` +
-       `chatfs_aistudio_index_splat.py` + `..._index_browse.sh` at the
-       same sitting. Piggyback: reproduce har-browse's `has_more=false`
-       premature stop; optionally capture a second AI Studio prompt
-       (forks/images) to stress the single-capture JSPB schema.
+1. [x] Rename to `chatfs-cli-mockup` — done 2026-07-10.
+2. [~] Live-capture sitting — AI Studio index. Reverse-engineering half
+       done 2026-07-11 (devlog
+       `2026-07-11-000-AI-Studio-ListPrompts-index-rung...`, commit
+       `705f6dc`): endpoint confirmed as `ListPrompts` (shares
+       `ResolveDriveResource`'s PROMPT/METADATA schema — verified via
+       `docs/dev/aistudio-schema/rosetta/`, pivoted to this RPC this
+       session, left uncommitted for the user to commit separately).
+       Surfaced and fixed a real bug this unblocked: `IndexItem`/
+       `index_item()`/`place_meta()` assumed `create_time` was always
+       derivable — it isn't, for index-only entries — now split into a
+       required `last_modified` + `NotRequired[create_time]`, with a
+       new uniform `Created=`/`LastModified=` view-tree label convention
+       in shared `chatfs_layout.py`. **Not done**:
+       `chatfs_aistudio_index_pluck.jq` + `chatfs_aistudio_index_splat.py`
+       + `..._index_browse.sh` themselves are still unwritten — but
+       writing them no longer needs a live browser sitting
+       (endpoint/schema are known; test data exists in
+       `trash/aistudio.library.cdp.jsonl` and
+       `aistudio-schema/rosetta/listprompts.jspb.json`). A live sitting
+       is still useful for two unresolved items: the `has_more=false`
+       pagination shape (this account's 42 prompts never triggered
+       pagination) and end-to-end verification of the finished scripts.
 3. [ ] Finish AI Studio's conversation side — `conversation_render`
        (verify linear/no-forks first), `path_render`, `url_browse`
        delegation. Deliberately not `path_browse`/`url_render` — those
@@ -84,9 +100,10 @@ plan" section — read that first on pickup).
 
 ## Blocked on the user specifically
 
-- **AI Studio index rung** and **har-browse `has_more=false` wait fix**
-  (Immediate plan step 2) both need a live authenticated browser session
-  — not something an agent session can drive solo.
+- **AI Studio index rung, remaining**: writing the three scripts above
+  is NOT blocked (see step 2 update) — only the pagination/has_more
+  question and final live end-to-end verification still want a browser
+  sitting.
 - **claude-code as next provider**: its own todo.kb file has real open
   design questions (locator shape, `claudecode`/`claudeai` naming
   collision, sequencing) — project CLAUDE.md says discuss before
@@ -99,4 +116,17 @@ plan" section — read that first on pickup).
   no blockers, just not reached.
 - Shared-code boundary refinement (what else belongs in
   `chatfs_layout.py`): answered by the unification work itself (step 4),
-  not a standalone decision anymore.
+  not a standalone decision anymore. (`chatfs_layout.py` did gain one
+  small addition 2026-07-11 — the `Created=`/`LastModified=` label
+  param — but that's orthogonal to the boundary question, not a
+  preemption of it.)
+
+## 2026-07-11 addendum
+
+Also touched `docs/dev/aistudio-schema/` (a sibling project, not this
+incubator): pivoted `rosetta/`'s golden-pair tooling from
+`ResolveDriveResource` to `ListPrompts` to reverse-engineer the index
+endpoint. Left uncommitted at the user's request ("i'll take care of
+aistudio-schema myself") — not part of `705f6dc`. If a future session
+lands there, check `git status -s docs/dev/aistudio-schema/` first;
+don't assume it's clean.
