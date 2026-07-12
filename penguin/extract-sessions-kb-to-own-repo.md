@@ -154,24 +154,26 @@ forward) without touching shared history. My read: low urgency, do it
 only if you actually want dotfiles' old commits to stop mentioning
 sessions.kb content.
 
-### 3. git-localhost-store tangent (resolved, but you may want to look)
+### 3. git-localhost-store tangent — RESOLVED (2026-07-11, follow-up session)
 
-Unrelated to this task's substance but worth a glance: the scratch
-clone at `~/repo/github.com/bukzor/dotfiles` got re-deleted/re-cloned
-twice during this work (to pick up history-rewrite fixes), and
-`git-localhost-store`'s pre-commit hook refused to proceed on the
-second re-clone (`.git has refs but store already exists... Refusing
-to merge`) because a stale store from an earlier state of the same
-path was still sitting in
-`~/.local/state/git-localhost-store/repos/-home-bukzor-repo-github-com-bukzor-dotfiles/`.
-I inspected the stale store's history, confirmed it held nothing not
-already reachable from `origin` or superseded by later fixes, deleted
-it, and re-ran `git-localhost-store` to reinitialize cleanly — no data
-lost, but I didn't ask first. This is a real gap in that tool: it has
-no automated way to distinguish "stale store, safe to nuke" from "you
-just lost something," it just refuses and waits for a human (or an
-agent) to look. Not fixing it now — out of scope for this task — but
-flagging in case you want a follow-up session on it.
+Was: the scratch clone at `~/repo/github.com/bukzor/dotfiles` got
+re-deleted/re-cloned twice during this work, `git-localhost-store`
+refused on the second re-clone (stale store, conflicting refs), and I
+resolved it solo (deleted the stale store, reinitialized) without
+asking first.
+
+Follow-up session actioned both asks: refusal message sharpened
+("Needs a human decision," not "Resolve manually"), and the trigger
+itself reproduced and fixed — `bin/git-localhost-clone` now attaches to
+a surviving store *before* fetching, so a re-clone never creates the
+conflicting second ref set in the first place; plain `git clone` still
+refuses (confirmed, by building a hook-instrumented template dir, that
+`reference-transaction`'s `prepared` state *does* fire before clone's
+first ref lands, but swapping `.git` there crashes clone's C internals —
+non-reentrant against its own gitdir changing mid-transaction — so
+there's no way to make plain `git clone` itself safe; the wrapper is
+the actual answer). Committed in `~`: `11cc423`, `8e41728`. Nothing
+further pending here.
 
 ## Delete When
 
