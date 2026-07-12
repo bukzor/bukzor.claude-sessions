@@ -5,8 +5,9 @@ session:
     - f3fa93d2-9158-45a0-b99a-01dde66f390d
     - 4946d6c3-7543-43a1-98a7-5750f04e1f04
     - c562c738-bcfd-4c3c-8007-257a12992899
+    - f3faf947-fbfe-4c44-bd81-1d1125b64e9e
   started: 2026-07-09T14:07:41-05:00
-  ended: 2026-07-11T15:00:33-05:00
+  ended: null # step 4 (unification) still open
 ---
 # Chatfs-Cli-Mockup Open Todo Sweep
 
@@ -68,8 +69,9 @@ plan" section — read that first on pickup).
 ## Immediate plan (agreed with user, recorded in `.claude/todo.md`)
 
 1. [x] Rename to `chatfs-cli-mockup` — done 2026-07-10.
-2. [~] Live-capture sitting — AI Studio index. Reverse-engineering half
-       done 2026-07-11 (devlog
+2. [x] Live-capture sitting — AI Studio index. Accepted done-for-now by
+       user 2026-07-11 ("as done as we can get it at the present
+       time"). Reverse-engineering half done 2026-07-11 (devlog
        `2026-07-11-000-AI-Studio-ListPrompts-index-rung...`, commit
        `705f6dc`): endpoint confirmed as `ListPrompts` (shares
        `ResolveDriveResource`'s PROMPT/METADATA schema — verified via
@@ -80,30 +82,41 @@ plan" section — read that first on pickup).
        derivable — it isn't, for index-only entries — now split into a
        required `last_modified` + `NotRequired[create_time]`, with a
        new uniform `Created=`/`LastModified=` view-tree label convention
-       in shared `chatfs_layout.py`. **Not done**:
-       `chatfs_aistudio_index_pluck.jq` + `chatfs_aistudio_index_splat.py`
-       + `..._index_browse.sh` themselves are still unwritten — but
-       writing them no longer needs a live browser sitting
-       (endpoint/schema are known; test data exists in
-       `trash/aistudio.library.cdp.jsonl` and
-       `aistudio-schema/rosetta/listprompts.jspb.json`). A live sitting
-       is still useful for two unresolved items: the `has_more=false`
-       pagination shape (this account's 42 prompts never triggered
-       pagination) and end-to-end verification of the finished scripts.
-3. [ ] Finish AI Studio's conversation side — `conversation_render`
-       (verify linear/no-forks first), `path_render`, `url_browse`
-       delegation. Deliberately not `path_browse`/`url_render` — those
+       in shared `chatfs_layout.py`. **Still not done, deliberately
+       deferred** (not blocked — schema/endpoint known, test fixtures
+       exist): `chatfs_aistudio_index_pluck.jq` +
+       `chatfs_aistudio_index_splat.py` + `..._index_browse.sh`
+       themselves, the `has_more=false` pagination shape (this
+       account's 42 prompts never triggered pagination), and
+       end-to-end verification of the (unwritten) scripts. Revisit at
+       a future live sitting if/when it happens; not otherwise
+       scheduled.
+3. [x] Finish AI Studio's conversation side — done 2026-07-11.
+       `chatfs_aistudio_conversation_render.py` (verified the
+       linear/no-forks assumption first — recorded in
+       `dev.kb/claims.kb/aistudio-jspb-prompt-shape.md` — then reused
+       `chatfs_render.render_tree` over a degenerate single-child-chain
+       tree, rather than a bespoke linear renderer), `..._path_render.py`
+       (byte-for-byte the claude shape), and `url_browse` now delegates
+       to it. Live end-to-end tested against the demo capture (15
+       turns, zero fork artifacts in the output); new
+       `chatfs_aistudio_conversation_render_test.py` (9 tests,
+       mutation-checked). Devlog:
+       `devlog/2026-07-11-001-aistudio-conversation-render-linear-chain.md`.
+       Deliberately did not write `path_browse`/`url_render` — those
        fold into step 4.
 4. [ ] Unify — execute cross-provider-drift's "solve by unification"
        (5 requirements), applying the driver-model decision above.
        Closes the drift file and the shared-code file's tactical half.
+       **Next up.**
 
 ## Blocked on the user specifically
 
-- **AI Studio index rung, remaining**: writing the three scripts above
-  is NOT blocked (see step 2 update) — only the pagination/has_more
-  question and final live end-to-end verification still want a browser
-  sitting.
+- **AI Studio index rung, remaining**: no longer blocking (step 2
+  accepted done-for-now 2026-07-11) — the three scripts are NOT blocked
+  (schema/endpoint known), just deprioritized behind step 4; only the
+  pagination/has_more question and final live end-to-end verification
+  still want a browser sitting, whenever one next happens.
 - **claude-code as next provider**: its own todo.kb file has real open
   design questions (locator shape, `claudecode`/`claudeai` naming
   collision, sequencing) — project CLAUDE.md says discuss before
@@ -121,7 +134,7 @@ plan" section — read that first on pickup).
   param — but that's orthogonal to the boundary question, not a
   preemption of it.)
 
-## 2026-07-11 addendum
+## 2026-07-11 addendum (morning: index reverse-engineering)
 
 Also touched `docs/dev/aistudio-schema/` (a sibling project, not this
 incubator): pivoted `rosetta/`'s golden-pair tooling from
@@ -129,4 +142,37 @@ incubator): pivoted `rosetta/`'s golden-pair tooling from
 endpoint. Left uncommitted at the user's request ("i'll take care of
 aistudio-schema myself") — not part of `705f6dc`. If a future session
 lands there, check `git status -s docs/dev/aistudio-schema/` first;
-don't assume it's clean.
+don't assume it's clean. Still true as of this session's end — those
+files remain staged-but-uncommitted; left untouched again.
+
+## 2026-07-11 addendum (evening: conversation render/path_render)
+
+Landed Immediate plan steps 2 (accepted done-for-now) and 3 (done) in
+one sitting — see the Immediate plan section above for what shipped.
+Two things worth a future pickup's attention, both recorded as open
+questions in
+`devlog/2026-07-11-001-aistudio-conversation-render-linear-chain.md`
+rather than as todo items (neither is scheduled work, just caveats):
+
+- The "AI Studio editing discards history, never forks" claim
+  (`dev.kb/claims.kb/aistudio-jspb-prompt-shape.md`, "Turn order is
+  linear") is inferred from data shape (no parent/child field
+  anywhere), not a captured edit/regenerate round-trip. If a future
+  live sitting captures an edited prompt, check whether this holds and
+  promote the claim's status from `observed` to `settled` (or refute
+  it — a fork would need real `chatfs_aistudio_conversation_render.py`
+  rework, not just a status flip).
+- `chatfs_aistudio_conversation_render.py`'s heading timestamps are
+  computed at render time (epoch seconds → local wall clock via
+  `.astimezone()`), unlike claude/chatgpt whose local-time-with-offset
+  is baked into the message filename once, at splat time. Re-rendering
+  `chat.md` on a machine in a different timezone than the original
+  capture would show a different wall-clock hour for AI Studio only.
+  Accepted as-is (chat.md is gitignored/regenerated freely; AI Studio's
+  deliberately id-less, index-led basenames have nowhere to bake a
+  timestamp without either changing that naming scheme or writing a
+  synthetic field into the otherwise-raw per-turn `.json`) — revisit
+  only if it ever causes real confusion.
+
+Not committed by this session's end — will be committed as part of
+`/session-end`'s own commit step, alongside this sessions.kb update.
