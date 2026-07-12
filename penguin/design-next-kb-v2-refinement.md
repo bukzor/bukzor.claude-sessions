@@ -59,9 +59,17 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
   authoring" scope; widen or rehome (rated tier-4 by user).
 - Task-domain redesign (grain/horizon/scope) — the strategic
   todo.kb entry above.
-- Still unanswered: does the v1 task-rating system (sweh/wsjf/
-  task-list.md) drive actual session choice, or is it unread
-  landfill? Blocks closing the task-domain redesign.
+- **Resolved:** the v1 task-rating system (`wsjf-rank` /
+  `task-list.wsjf.toon` in the separate `task-archeology` repo) is a
+  real consumer, not landfill — operator confirmed it drove a real
+  decision. Reframed per operator correction: treat it as a *case
+  study* for "extensions must be supportable," not as a primary use
+  case dictating task-genre schema — don't canonize `sweh`'s fields.
+  Sharper open question left for the T3 session: does "supportable"
+  mean the core engine eventually grows `kb query`
+  (`structured-query.md`), or does the core stay minimal forever and
+  ranking-shaped needs stay externally-built, as task-archeology
+  already demonstrates works?
 
 ## Delete When
 
