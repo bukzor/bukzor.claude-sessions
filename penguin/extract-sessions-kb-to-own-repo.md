@@ -6,7 +6,7 @@ session:
   started: 2026-07-09T09:54:58-05:00
   ended: 2026-07-09T11:55:46-05:00
 ---
-# Extract sessions.kb to own repo (planned)
+# Extract sessions.kb to own repo (done)
 
 Move `~/.claude/sessions.kb/` out of the dotfiles repo into its own
 public GitHub repo (`bukzor/bukzor.claude-sessions`), wired back in as
@@ -20,10 +20,11 @@ relocating the churn.
 
 Procedure: `~/.claude/CLAUDE.Task.extract-sessions-kb-to-own-repo.md`.
 
-## Status (as of 2026-07-09, second session)
+## Status (as of 2026-07-11, third session — complete)
 
-Execution complete except the history-strip go/no-go (explicit,
-separate decision — see "For User Review"). Repo created (public),
+All steps done, including the history-strip go/no-go (see "For User
+Review" #2) and the other-hosts init (moot — no other hosts exist,
+confirmed by user 2026-07-11). Repo created (public),
 full history extracted via `git filter-repo`, reorganized into
 per-host `penguin/` layout, CLAUDE.md documents the per-host
 convention / `cwd:` stance / pointer-bump cadence (Task.md step 7).
@@ -142,17 +143,30 @@ didn't explicitly stage myself; the concurrent session's own commits
 were left alone and even got carried along (fast-forwarded) when I
 pushed `svelte-crostini`.
 
-### 2. Go/no-go: strip sessions.kb from dotfiles history
+### 2. Go/no-go: strip sessions.kb from dotfiles history — RESOLVED, found already done (2026-07-11)
 
-Unchanged from the original plan — still explicitly not executed.
-Rewrites 68 of 358 commits on the shared `svelte-crostini` branch and
-force-pushes it, so every other host's dotfiles clone diverges until
-hard-reset to the new tip. Worth doing at some point for a *fully*
-symmetric split, but the submodule wiring (step 6) already gets you
-the main practical win (churn out of dotfiles' live log/blame going
-forward) without touching shared history. My read: low urgency, do it
-only if you actually want dotfiles' old commits to stop mentioning
-sessions.kb content.
+This note previously said "still explicitly not executed" — that was
+stale. Re-verified from scratch this session (forensic git-history
+check, not trusting this file's prior claim or Task.md's unchecked
+box): across `svelte-crostini`'s full history — confirmed against a
+fresh `git fetch origin` in both `~` and the `~/repo/github.com/bukzor/dotfiles`
+working copy (origin had advanced 326→341 commits since last fetch,
+purely fast-forward, no divergence) — only 2 commits touch any
+`.claude/sessions.kb` path, and both are the submodule-wiring commits
+(`2d26840`, `82de024`). Smoking-gun confirmation: commit `b27b0a9`
+("sessions.kb: index parallel lines of work...", message describes
+seeding 5 entries + a CLAUDE.md) now only touches
+`.claude/sessions.jsonschema.yaml` in its diff — the entry files it
+once added are gone from the tree while the commit message/authorship
+survive. That's the signature of a completed
+`git filter-repo --invert-paths --path .claude/sessions.kb` rewrite,
+already force-pushed to `origin/svelte-crostini`. `main` never had
+sessions.kb content to begin with. Both `~` and the scratch working
+copy sit at the same post-strip tip (`57812e9` as of 2026-07-11).
+
+Not determined: which session/commit actually executed and pushed the
+strip — it predates this check and isn't logged anywhere found so far.
+Not blocking; noting as an open curiosity only.
 
 ### 3. git-localhost-store tangent — RESOLVED (2026-07-11, follow-up session)
 
@@ -179,3 +193,9 @@ further pending here.
 
 Extraction landed, all hosts wired up, Task.md absorbed into the new
 repo's README. Or when the plan is abandoned.
+
+As of 2026-07-11: extraction landed, history strip confirmed done, all
+hosts wired up (none other exist). Only remaining criterion is the
+Task.md→README absorption — once that lands, this file and
+`~/.claude/CLAUDE.Task.extract-sessions-kb-to-own-repo.md` are both
+ready to delete.
