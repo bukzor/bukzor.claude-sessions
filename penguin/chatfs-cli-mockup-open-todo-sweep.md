@@ -6,8 +6,9 @@ session:
     - 4946d6c3-7543-43a1-98a7-5750f04e1f04
     - c562c738-bcfd-4c3c-8007-257a12992899
     - f3faf947-fbfe-4c44-bd81-1d1125b64e9e
+    - 8602bab8-384d-4178-afd3-611e7f0d2b05
   started: 2026-07-09T14:07:41-05:00
-  ended: null # step 4 (unification) still open
+  ended: null # Immediate plan (all 4 steps) done 2026-07-11; backlog remains (Next/Strategic/Later in todo.md)
 ---
 # Chatfs-Cli-Mockup Open Todo Sweep
 
@@ -105,10 +106,22 @@ plan" section — read that first on pickup).
        `devlog/2026-07-11-001-aistudio-conversation-render-linear-chain.md`.
        Deliberately did not write `path_browse`/`url_render` — those
        fold into step 4.
-4. [ ] Unify — execute cross-provider-drift's "solve by unification"
-       (5 requirements), applying the driver-model decision above.
-       Closes the drift file and the shared-code file's tactical half.
-       **Next up.**
+4. [x] Unify — done 2026-07-11: executed cross-provider-drift's "solve
+       by unification" (all 5 requirements) — shared `capture()`/
+       `run_pluck()` in `chatfs_layout.py`; chatgpt's endpoint cross-check
+       (`chatfs_url_browse.py::null_tolerant_mismatches`, with a
+       `_index_shaped()` normalization step chatgpt needs that claude
+       doesn't, since chatgpt's two endpoints don't share literal key
+       names/representations); `<details type="thinking"|"tool_call">`
+       wrapping landed in `packages/bukzor.chatgpt-export`'s splat (TDD,
+       4 new tests); driver-model decision documented in new
+       `design.kb/040-design.kb/driver-model.md`. Also wrote AI Studio's
+       remaining entry points (`path_browse.py`/`url_render.py`) against
+       the shared `capture()`. `basedpyright` 0/0/0; `pytest` 76/76
+       (incubator 28 + chatgpt-export 48). Devlog:
+       `devlog/2026-07-11-002-unification-shared-capture-and-drift-fixes.md`.
+       Closes both the drift file and the shared-code file (all items now
+       `[x]`). This closes the Immediate plan's 4 steps.
 
 ## Blocked on the user specifically
 
@@ -140,10 +153,9 @@ Also touched `docs/dev/aistudio-schema/` (a sibling project, not this
 incubator): pivoted `rosetta/`'s golden-pair tooling from
 `ResolveDriveResource` to `ListPrompts` to reverse-engineer the index
 endpoint. Left uncommitted at the user's request ("i'll take care of
-aistudio-schema myself") — not part of `705f6dc`. If a future session
-lands there, check `git status -s docs/dev/aistudio-schema/` first;
-don't assume it's clean. Still true as of this session's end — those
-files remain staged-but-uncommitted; left untouched again.
+aistudio-schema myself") — not part of `705f6dc`. Confirmed clean as
+of 2026-07-11's session (user committed it themselves, `805fe4b`); no
+longer a concern for future sessions here.
 
 ## 2026-07-11 addendum (evening: conversation render/path_render)
 
@@ -176,3 +188,31 @@ rather than as todo items (neither is scheduled work, just caveats):
 
 Not committed by this session's end — will be committed as part of
 `/session-end`'s own commit step, alongside this sessions.kb update.
+
+## 2026-07-11 addendum (Immediate plan step 4: unification)
+
+Closed the Immediate plan (all 4 steps) — see step 4 above for what
+shipped. Also touched `packages/bukzor.chatgpt-export/` (outside this
+incubator) for the `<details>`-wrapping requirement.
+
+Two mistakes, both recovered clean, full account in the devlog
+(`devlog/2026-07-11-002-...`):
+- Used `git stash` mid-session (project convention explicitly bans it)
+  to A/B basedpyright's warning count; `basedpyright` exits 1 on any
+  warning, which under the Bash tool's `set -e` skipped the paired
+  `git stash pop` in the same compound command. Caught via `git stash
+  list` before starting new work; recovered with a standalone `git
+  stash pop`. Nothing lost, but a reminder to run stash push/pop (or
+  better, not stash at all — throwaway-branch commit is the house
+  convention) as fully separate commands, never chained.
+- An `har-browse` stub for smoke-testing AI Studio's new
+  `path_browse.py` read its replay source from the same path
+  `capture()` was about to `unlink()`, clobbering the only real AI
+  Studio demo fixture (`chatfs.demo/`, gitignored — no git history to
+  restore from). Recovered via `aistudio.cdp.jsonl` (a root-level
+  capture of the same prompt from the 2026-06-20 session) replayed
+  through the real pluck → massage → place_meta → path_render
+  pipeline by hand; verified restored (`chat.md` back to 439
+  lines/15 turns). Lesson carried into the rest of the session's
+  smoke tests: an external-tool stand-in must read from a path
+  outside anything the code under test is about to write to.
