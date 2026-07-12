@@ -78,10 +78,12 @@ session's `/session-end` began — confirms another session was active in
 the same `~` checkout concurrently. No path overlap with this session's
 work, no conflict, just worth knowing another writer was live.
 
-003 has two minor formal-hygiene items left unchecked (a permanent
-dangling-reference regression-check script, a final path-list regen) —
-task is complete in substance; left open pending user call on whether
-those still matter now that every decision is made and committed.
+003 is now fully closed (`status: done`): dropped the permanent
+dangling-ref check script (temporary concern, not worth CI investment),
+re-ran the final path-list regen for real (caught a stale
+`origin/svelte-crostini` ref mid-check) — exact reconciliation: 373
+original main-only paths − 5 deleted − 25 converged (the ported
+`bukzor.readline` package) = 343 remaining, all deliberately kept.
 
 Next: 005 (zsh port) is next per execution order (000's success criteria
 are all met; 005 was the reason its one remaining item was deferred).
