@@ -1,6 +1,8 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
 session:
+  uuid: # chronological; append your uuid when picking this entry up
+    - 5547c56a-1044-4855-bd1e-a9e1e74d60e3
   started: 2026-07-10
   ended: null
 ---
@@ -25,6 +27,10 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
 - T4: trigger-subsystem design session (condition vocabulary,
   compilation model, packaging verdict). Same shape as T3 — needs a
   real session.
+- Goals-level review (opened 2026-07-19, post-T3): settle the
+  ecosystem-goals framing, then assess v2.2 against it. Claude's
+  framing delivered, operator reaction pending; queued under the
+  green-light gate in `.claude/todo.md`.
 - `llm-design-kb/principles.kb` charter has outgrown "design.kb
   authoring" scope; widen or rehome (rated tier-4 by user, still
   unresolved).
@@ -66,9 +72,9 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
 
 Dated pickup write-ups (2026-07-10 through 2026-07-19) moved to
 `design-next-kb-v2-refinement.kb/` — one file per addendum, `ls` for
-the full chronological list. Latest: 2026-07-19, T3 settled (task
-grain, horizon, and scope all resolved and recorded in
-`class-task.md`; journey ADR filed).
+the full chronological list. Latest: 2026-07-19 (-002), post-T3
+review — `class-task.md` corrected to the final two-pair state
+(`ideas.md` synthesis); goals-level v2.2 review opened.
 
 ## Delete When
 
