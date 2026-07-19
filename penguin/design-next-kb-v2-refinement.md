@@ -108,6 +108,44 @@ Follow-Ups). Commits `e17867e`..`9972588`, pushed.
   llm-kb `.d → .kb` rename child is actually done (verified — no
   `.d/` dirs, ADR Accepted) but was still shown unchecked.
 
+## Completed 2026-07-19 (backlog sweep)
+
+Worked the top-level `todo.md` ordering again: T3/T4/principles-rehome
+still genuinely blocked (operator answer / dedicated session), so
+moved to the next unblocked items — chatfs-harmonization's scoping
+pass, then the shared-code-between-skills investigation, then a
+survey of all four per-skill `todo.md` backlogs, resolving what was
+mechanically- or investigation-decidable via three parallel forks
+(reviewed and committed individually, not blindly). Commits
+`4e3cdfb`..`44730df`, not yet pushed.
+
+- Two pre-existing uncommitted drifts from 2026-07-13/18 (never part
+  of this session) landed first, separately: `llm-kb`'s
+  `cross-kb-cooperation-conventions.md` idea filing, and a stale-hash
+  fixup in the T2 landing brief.
+- chatfs-harmonization: confirmed `llm-design-kb` does **not** cover
+  `milestones.kb/` (only `design.kb/`) — the llm-collab skeleton child
+  task is not superseded, still needed as scoped. Its user-sign-off
+  gate stands untouched.
+- shared-code-between-skills: **decided**, with real `uv 0.11.29`
+  experiments (not speculation) — per-skill `pyproject.toml` + `uv
+  run` project mode, matching `llm-kb`'s existing shape. `--script`
+  mode confirmed to ignore nearby `pyproject.toml` sources entirely.
+  Forward-looking convention only; no current script needs migrating.
+- `llm-must-read-kb`: wrote `references/create-new-trigger.md`
+  (8-step canonical procedure), clearing the blocker on the
+  must-read-slash-command idea (command itself still unbuilt).
+- `llm-subtask`: batched three UX-flow fixes — trimmed todo.kb/ideas.kb
+  skeleton boilerplate, added "default to lightest tier" guidance,
+  added a "Cross-Repo Ownership" section.
+- `llm-kb`: routed `distilling-from-a-raw-source.md`'s generic audit
+  portion through `run-self-audits.md`; verified the post-rewrite
+  SKILL.md coherence check (no change needed); **declined** the
+  `reconcile-case-study.md` move — its "parallel to post-mortem move"
+  premise was checked against git history and found wrong (commit
+  `577702a` deliberately kept it skill-internal). Left as a real open
+  question, not closed mechanically.
+
 ## Live Follow-Ups
 
 All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
@@ -124,15 +162,26 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
   unresolved).
 - Chatfs-harmonization: the `llm-collab` skeleton-update child is
   still genuinely open (~3h estimated, "pending user sign-off on
-  tentative steps" per its own file) — and possibly partly superseded
-  now that `llm-design-kb` exists as its own skill (the milestones.kb/
-  design.kb pattern that child wanted may already live there instead).
-  Worth a quick scoping pass before sinking the 3h in.
-- `shared-code-between-skills.md` — ~2h uv-packaging investigation,
-  untouched this pass.
+  tentative steps" per its own file). **Resolved 2026-07-19:** not
+  superseded by `llm-design-kb` (checked — it only covers
+  `design.kb/`, no `milestones.kb/` concept). Still needs the sign-off
+  before the 3h gets spent.
+- **Resolved 2026-07-19:** `shared-code-between-skills.md` — decided
+  per-skill `pyproject.toml` + `uv run` project mode via real
+  experiments; forward-looking, nothing to migrate yet.
 - Four per-skill `todo.md` backlogs (`llm-kb`, `llm-collab`,
-  `llm-subtask`, `llm-must-read-kb`) point to their own open lists,
-  not surveyed this pass.
+  `llm-subtask`, `llm-must-read-kb`) surveyed 2026-07-19; the
+  mechanically-decidable items were resolved (see "Completed
+  2026-07-19" above). Still open per-skill, none blocking:
+  `llm-kb` (`.claude/settings.json` permissions migration, two
+  ideas.kb entries, `reconcile-seed-case-study.md` — has its own
+  sessions.kb entry, substantial), `llm-collab` (HACKING.md fate for
+  kb-only repos, blocking-pattern doc, ideas.kb pattern doc,
+  devlog-reevaluation and todo/todo.kb-relationship items under
+  Later), `llm-subtask` (milestone/phase planning pattern gap —
+  discussion invited), `llm-must-read-kb`
+  (`todo.kb/2026-05-15-000-must-read-slash-command.md` — now
+  unblocked, could be built next).
 - **Resolved:** the v1 task-rating system (`wsjf-rank` /
   `task-list.wsjf.toon` in the separate `task-archeology` repo) is a
   real consumer, not landfill — operator confirmed it drove a real
