@@ -24,9 +24,12 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
 - **Resolved 2026-07-19:** T3 settled — all three axes recorded in
   `class-task.md` (+ two 070 entries); sessions.kb dated-prefix sweep
   moved to the reconcile-sessions-kb-schema-drift session.
-- T4: trigger-subsystem design session (condition vocabulary,
-  compilation model, packaging verdict). Same shape as T3 — needs a
-  real session.
+- **Resolved 2026-07-19:** T4 settled — packaging (in-suite),
+  condition vocabulary (three neutral kinds + admission test),
+  interpretation model (no compile step), bank format (one authoring
+  format), and the task↔trigger boundary (shared wake-condition
+  grammar) all recorded in new skill `llm-triggers/design.kb/`; the
+  v2 green-light's T4 blocker is cleared. See addendum -003.
 - Goals-level review (opened 2026-07-19, post-T3): settle the
   ecosystem-goals framing, then assess v2.2 against it. Claude's
   framing delivered, operator reaction pending; queued under the
@@ -72,9 +75,9 @@ All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
 
 Dated pickup write-ups (2026-07-10 through 2026-07-19) moved to
 `design-next-kb-v2-refinement.kb/` — one file per addendum, `ls` for
-the full chronological list. Latest: 2026-07-19 (-002), post-T3
-review — `class-task.md` corrected to the final two-pair state
-(`ideas.md` synthesis); goals-level v2.2 review opened.
+the full chronological list. Latest: 2026-07-19 (-003), the T4
+session — trigger subsystem settled, `llm-triggers/design.kb/`
+seeded.
 
 ## Delete When
 
