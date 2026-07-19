@@ -60,7 +60,7 @@ See the appendix below for an optional in-repo + symlink scheme.
 
 ## This Repo
 
-This repo (`bukzor/bukzor.claude-sessions`) *is* `~/.claude/sessions.kb/`
+This repo (`bukzor/bukzor.claude-sessions`) _is_ `~/.claude/sessions.kb/`
 on every host that uses it — wired in as a git submodule at that path
 in `bukzor/dotfiles`, not cloned/gitignored separately. It was split
 out of dotfiles' history (2026-07) to keep sessions.kb's high-churn
@@ -85,7 +85,7 @@ When onboarding a new host: `git submodule update --init
 
 Session entries' `cwd:` field (e.g. `/home/bukzor`) is left as a plain
 host-absolute path, not made portable/symbolic. The per-host directory
-already disambiguates *which* host a path belongs to; a reader who
+already disambiguates _which_ host a path belongs to; a reader who
 knows the entry lives under `penguin/` already knows `cwd:` is
 `penguin`-relative. Revisit if a host ever needs to read another
 host's entries and resolve `cwd:` programmatically — no such need
@@ -106,6 +106,33 @@ pointer — that's expected, not a problem to fix.
 These are ephemeral working notes — useful on disk between sessions,
 not durable knowledge artifacts. When follow-ups are absorbed
 elsewhere (or no longer worth keeping at hand), delete the file.
+
+### Creating a New Entry
+
+- see `~/.claude/sessions.kb/.template.md`
+- substitute the `$(...)` placeholders
+- Filename: see `## File Naming` above; additionally, prefer exact
+  match with the taskfile's slug (strip `CLAUDE.`/`.Task.`/`.md`
+  affixes) — exact-match ids across files with the same referent make
+  cross-reference cheap.
+- Consider creating a new sessions.kb entry (via .template.md) when any apply:
+  - Complex or nuanced task
+  - Will take more than a couple hours
+  - Has already been more than a day
+  - Context already > 100k tokens (plan a separate session)
+
+### Growing Entries: Dated Addenda
+
+- `$slug.kb/` -- one file per pickup write-up
+  - `YYYY-MM-DD-NNN-slug.md`; `NNN` resets per date, ordered by when
+    the work happened, not written
+  - opens `Part of \`../$slug.md\`.`
+  - reads like a devlog entry
+- `$slug.md` -- live status (plan/blocked/decisions), edited in
+  place, never appended
+  - close with an `## Addenda` section pointing at `$slug.kb/`
+- trigger -- a pickup write-up outgrows a one-line status update
+  - `Skill(llm-kb)`'s promotion signal
 
 ## Appendix: in-repo placement with symlink (optional)
 
