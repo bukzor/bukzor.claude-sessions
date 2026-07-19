@@ -70,25 +70,69 @@ in conversation) reconciling and sharpening it against v2.0.
   targets) → land. Review-before-land is deliberate: this session's
   two big moves were each ratified within a single turn.
 
+## Completed 2026-07-18 (post-T2 cleanup pass)
+
+Worked the top-level `todo.md` backlog in order, resolving everything
+mechanically- or quickly-decidable; left the items needing a real
+dedicated session or operator collaboration alone (see Live
+Follow-Ups). Commits `e17867e`..`9972588`, pushed.
+
+- `decisions-are-settled-questions.md` rewritten to cite `kb-spec.md`'s
+  synthesis-file element instead of restating it; fixed the dangling
+  "supersedes the decision sub-type" sentence (`class-record.md` never
+  had one to supersede).
+- "summary" → "synthesis" rename swept across the whole llm-kb /
+  llm-design-kb / design-next.kb tower (SKILL.md, self-audit.kb file
+  rename, references, test fixtures, a couple of stale todo.kb/ideas.kb
+  mentions). Devlogs and unrelated skills (llm-collab,
+  llm-chat-librarian, llm-discourse-graph, llm-vitals) deliberately
+  left untouched.
+- `llm-design-kb/SKILL.md`'s `why:` teaching example was still bare-slug
+  style, stale since the 2026-07-13 file-relative-path decision.
+  Operator call: propagate the convention into llm-design-kb generally
+  (its own `technical-policy.jsonschema.yaml` already treated `why:` as
+  untyped paths, so nothing else relied on slugs).
+- `references-are-structured-data.md`'s two open questions
+  operator-ratified: `references:` labels are kebab-slugs (not free
+  strings, matching every other identifier in the tower); no separate
+  hardened-label registry (the promoted key's own schema entry is the
+  record). `blocked-on: discussion` cleared; still `status: proposal`.
+- Session-log residue test run for real: skimmed 3 actual devlog
+  entries (llm-collab, llm-kb). Verdict: **cut** — every section
+  (narrative-of-failure, decisions/alternatives, conventions
+  established, open items) already has a better v2 home (incident,
+  design entries, principles/procedures, task entries respectively);
+  no residue, no nameable read-back moment. `class-record.md` and
+  `core-and-classes.md` updated to drop the session-log sub-type.
+- Chatfs-harmonization coordinator's own checklist was stale: the
+  llm-kb `.d → .kb` rename child is actually done (verified — no
+  `.d/` dirs, ADR Accepted) but was still shown unchecked.
+
 ## Live Follow-Ups
 
 All tracked in-repo (`bukzor-agent-skills/.claude/todo.md` +
 `.claude/todo.kb/2026-07-11-000-settle-task-grain-and-store-count-for-design-next.md`):
 
-- T2 pipeline (supersedes the old "rework function-grouped entries"
-  line; see the in-repo brief): haiku genre→class sweep, fable
-  drafts, fresh-context review — decision 3 (class-local code =
-  consumer status) still needs operator ratification there.
+- T3 (task-domain redesign: grain/horizon/scope) — needs the operator
+  to answer the rating-system read-side question first, then a real
+  dedicated session per axis. Not squeezable into a quick pass.
 - T4: trigger-subsystem design session (condition vocabulary,
-  compilation model, packaging verdict).
-- Rename "summary" → "synthesis" everywhere outside `kb-spec.md`.
-- Discuss `references-are-structured-data.md` (still a proposal).
-- Session-log residue test — decides whether any session-narrative
-  class survives in v2 at all.
+  compilation model, packaging verdict). Same shape as T3 — needs a
+  real session.
 - `llm-design-kb/principles.kb` charter has outgrown "design.kb
-  authoring" scope; widen or rehome (rated tier-4 by user).
-- Task-domain redesign (grain/horizon/scope) — the strategic
-  todo.kb entry above.
+  authoring" scope; widen or rehome (rated tier-4 by user, still
+  unresolved).
+- Chatfs-harmonization: the `llm-collab` skeleton-update child is
+  still genuinely open (~3h estimated, "pending user sign-off on
+  tentative steps" per its own file) — and possibly partly superseded
+  now that `llm-design-kb` exists as its own skill (the milestones.kb/
+  design.kb pattern that child wanted may already live there instead).
+  Worth a quick scoping pass before sinking the 3h in.
+- `shared-code-between-skills.md` — ~2h uv-packaging investigation,
+  untouched this pass.
+- Four per-skill `todo.md` backlogs (`llm-kb`, `llm-collab`,
+  `llm-subtask`, `llm-must-read-kb`) point to their own open lists,
+  not surveyed this pass.
 - **Resolved:** the v1 task-rating system (`wsjf-rank` /
   `task-list.wsjf.toon` in the separate `task-archeology` repo) is a
   real consumer, not landfill — operator confirmed it drove a real
