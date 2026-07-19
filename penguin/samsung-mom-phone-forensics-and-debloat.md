@@ -34,18 +34,6 @@ A reusable analyzer (`scripts/forensic_report.py`) and a sources/analyses task-k
 framework now drive the remaining work. Full live state, findings, and gotchas
 are in the project task kb.
 
-**2026-05-27 (session 2): account-side My Activity cracked it open.** Two
-captures (live scrape + Takeout export, parsed by new
-`scripts/myactivity_takeout.py`) show the adware was an **~80-package PPI bundle,
-Play-Store-installed**, that **detonated 2026-05-18** as a single-day
-store-deeplink burst (onset 07:09:27; gone from device by 05-25). The
-seed/controller is **off-Play** — the 04:53→07:09:27 trigger window is silent in
-every retained source — leading candidate **`com.open.web.ai.browser`** ("AI
-Browser": sideloaded, Samsung-Device-Care-flagged, ties to a Chrome Yahoo
-search-hijack), but **undated/unconfirmed**. The Tencent APK is downstream, not
-the enabler. New: `timeline.kb/` (full chain) and a **data-preservation wipe
-gate** in `mission.md`. README is current — read it first.
-
 Task kb (read this first): /home/bukzor/claude/bukzor.samsung-debloat/.claude/current-task.kb/
 
 ## Open work
@@ -66,37 +54,6 @@ Task kb (read this first): /home/bukzor/claude/bukzor.samsung-debloat/.claude/cu
   Android 16 / One UI 8); reinstall TeamViewer Host.
 - [ ] Prevention: Auto Blocker on, "install unknown apps" OFF for all apps, Play
   Protect on.
-
-> **Heads-up — concurrent session still live in this repo (as of 2026-05-27
-> 22:45).** It committed `8b11d2a` ("test suite runnable via `uv run pytest`")
-> ~45 min ago and has **~150 files staged-but-uncommitted** (the whole
-> `android-apps.kb/` corpus, the probe scripts, schemas, findings, timeline
-> edits). Local `main` is **ahead 1** of `origin/main` with that commit, so a
-> push publishes its in-flight work. It is **mid-migration**: the working-tree
-> `android-apps.kb/CLAUDE.md` describes a **flat** kb (verdict in frontmatter)
-> but the **staged** copy still says **subdir-encoded** verdicts — internally
-> inconsistent. **Do not commit/push wholesale; reconcile first.**
-
-## 2026-05-27 (session 3): script-discoverability docs (uncommitted)
-
-Made `scripts/` tooling discoverable from the kb an agent actually reads. All in
-the **working tree, uncommitted**, layered on top of the concurrent blob above:
-
-- `android-apps.kb/CLAUDE.md` — added a "Spot-checking an app — the probe
-  toolkit" section naming all four probes (`app_reputation_probe.py`,
-  `app_reviews_probe.py`, `wayback_probe.py`, `app_reputation_probe.frontmatter.jq`);
-  `wayback_probe.py` had been referenced nowhere. (This file is `AM` — entangled
-  with the concurrent session's flat-migration; can't be committed alone.)
-- `environment.kb/prefer-committed-scripts-over-inline-code.md` — replaced the
-  "Built so far" registry with a rule: *a script worth reusing earns one line in
-  the `CLAUDE.md` nearest where the next agent will reach for it.* (Also `AM`,
-  entangled — concurrent session renamed it from `use-a-real-script-not-inline-bash.md`.)
-- `forensic-analyses.kb/install-timeline.kb/CLAUDE.md` — `package_dump.py`
-  tooling line. (Clean mod of a committed file.)
-- `environment.kb/two-myactivity-captures-complementary.md` — named the My
-  Activity family (`myactivity_scrape.py` + the three `.jq`); corrected a stale
-  "jq don't read the device field" note. (Clean mod of a committed file.)
-
 - [ ] **Decide the per-dir `bin/` + `.envrc` (direnv) convention** for
   domain-limited scripts (user floated it; deferred by invoking session-end).
   Recommended *against* adopting inside the transient `current-task.kb`: scripts
@@ -107,6 +64,14 @@ the **working tree, uncommitted**, layered on top of the concurrent blob above:
   `prefer-committed-scripts-over-inline-code.md` / `android-apps.kb/CLAUDE.md`
   edits are committed: record the decision + rejected alternative (a central
   "Built so far" script registry, dropped because it drifts across N places).
+
+## Addenda
+
+Dated pickup write-ups (2026-05-27) moved to
+`samsung-mom-phone-forensics-and-debloat.kb/` — one file per addendum,
+`ls` for the full chronological list. Latest: session 3,
+script-discoverability docs (uncommitted, entangled with a concurrent
+session's flat-migration).
 
 ## Tooling follow-ups (llm-kb)
 

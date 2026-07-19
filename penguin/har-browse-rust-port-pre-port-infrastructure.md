@@ -43,25 +43,12 @@ at `packages/har-browse/docs/dev/mutation-testing.kb/`, sessions.kb
 entry deleted). This entry covers the testing-infrastructure work that
 builds on both.
 
-## Constraints decided in meta-planning (2026-05-21)
+## Addenda
 
-See workspace `.claude/decision.kb/` for each:
-
-- **BB1 ≡ har-browse.** Schema home: `packages/rs-har-browse/schema/`.
-- **`./schema/` directory** with `<stem>.jsonschema.yaml` matching the
-  validated file's stem.
-- **Diagnostic events go in a separate stream** from cdp-jsonl.
-  Interleaving concerns mitigated per-invariant via sequence
-  numbers / timestamps / interleaved-format escape hatch.
-- **Diagnostic emission is uniform** in production and test code paths.
-  Tests sample on/off mode randomly (seeded by test name). One
-  dedicated double-run gate test enforces zero-side-effect.
-- **Zero-side-effect rule** is a workspace principle
-  (`.claude/principle.kb/zero-side-effect-diagnostics.md`).
-- **`.spec.mjs` → blackbox CLI; `.test.mjs` → Rust unit tests.**
-- **example.com baseline** is a transition-only belt-and-suspenders
-  fixture, retires after `1300` cutover.
-- **Insert commit `0050`** (blackbox conversion) before `0100` scaffold.
+Dated pickup write-ups (2026-05-21) moved to
+`har-browse-rust-port-pre-port-infrastructure.kb/` — one file per
+addendum, `ls` for the full chronological list. Latest (and only, so
+far): the meta-planning constraints that drive the phases below.
 
 ## Phase C — Schema + diagnostic-events design (doc-only)
 

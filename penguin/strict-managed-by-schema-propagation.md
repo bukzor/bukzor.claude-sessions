@@ -8,7 +8,8 @@ parent: skeleton-default.md
 ---
 # Strict `managed-by` + Skeleton Schema Propagation
 
-Planned. Spun out 2026-05-21 during the wsjf-rank tool-gap cleanup,
+Done (2026-05-21) — see Addenda below. Spun out that day during the
+wsjf-rank tool-gap cleanup,
 after the user clarified that:
 
 - `managed-by` is intended to be **fully jsonschema-controlled and
@@ -94,37 +95,6 @@ Update the `Drift surface` section of
 - Pre-existing pressure for `$ref` work intensifies: any further field
   addition now requires 5 hand-edits instead of 5 different surgeries.
 
-## Current state (2026-05-21)
-
-Partial work-in-progress in the bukzor-agent-skills working tree
-(uncommitted):
-
-- `llm-subtask/skeleton/.claude/todo.jsonschema.yaml`: status block
-  added, `additionalProperties: false` set. Missing required-reading
-  / suggested-reading / related-effort additions.
-- `llm-subtask/skeleton/.claude/ideas.jsonschema.yaml`: same.
-
-These edits are a subset of step 1 and can be discarded or built
-upon. The schemas they produce are coherent in isolation (the
-skeleton's example files have only `managed-by` + `status`, so they
-validate under `additionalProperties: false`), but they don't
-acknowledge the cross-skill fields that real downstream files use.
-
-## Field landscape (2026-05-21)
-
-Frontmatter field counts across todo+ideas in llm-subtask, llm-collab,
-llm-kb (from `awk` over all `.claude/{todo,ideas}{,.kb/*}.md`):
-
-| Field | Count | Status |
-|-------|-------|--------|
-| `cost-benefit-sweh` | 14 | in schema |
-| `managed-by` | 11 | in schema (const) |
-| `suggested-reading` | 3 | needs schema definition |
-| `status` | 3 | added by this session |
-| `required-reading` | 3 | needs schema definition |
-| `related-effort` | 3 | needs schema definition |
-| `anthropic-skill-ownership` | 2 | deprecated → migrate |
-
 ## Suggested execution order
 
 1. Update skeleton schemas (1 commit per skeleton file or one for both).
@@ -149,42 +119,11 @@ piece (data migration) if needed.
 - Decision: `bukzor-agent-skills/llm-kb/.claude/decision.kb/agent-skill-uri-scheme.md`
   (the URI scheme for the eventual cross-skill $ref).
 
-## Result (2026-05-21)
+## Addenda
 
-Completed. Four commits on `main`:
-
-- `24850a9` — llm-subtask/skeleton: strict managed-by + status/reading
-  fields (step 1: skeleton schemas, byte-identical todo+ideas)
-- `c61191c` — todo,ideas: migrate frontmatter to managed-by:
-  Skill(llm-subtask) (step 3: 8 data files)
-- `7612398` — llm-{subtask,collab,kb}/.claude: propagate strict schema
-  (step 2: 4 downstream copies, byte-identical to skeleton)
-- `3bea19d` — todo.kb/schema-reuse-with-ref: drift surface — six
-  byte-identical copies (step 5)
-
-Validation (step 4): `llm-kb/bin/llm.kb-validate llm-subtask llm-collab
-llm-kb` → 81 files, 0 errors.
-
-### Brief vs reality
-
-- Brief listed **3** downstream copies (`llm-subtask/.claude/ideas`,
-  `llm-kb/.claude/ideas`, `llm-collab/.claude/todo`); actual count was
-  **4** — `llm-kb/.claude/todo.jsonschema.yaml` has lived in the repo
-  since the original centralization commit. Counted as 6 byte-identical
-  copies in the drift-surface note (was 5 in the brief's estimate).
-- WIP described in the brief ("status block added,
-  `additionalProperties: false` set on the skeleton schemas") was
-  effectively the whole step 1 + much of steps 2/3/5 — by the time the
-  session resumed, the working tree already contained the full
-  migration; only commit splitting and validation remained.
-- Asymmetry preserved: `llm-subtask/.claude/` still has no
-  `todo.jsonschema.yaml`, `llm-collab/.claude/` still has no
-  `ideas.jsonschema.yaml`. Not blocking and not addressed here.
-
-### Follow-ups
-
-- `$ref` consolidation: drift pressure is strictly worse per change
-  now (6 hand-edits per field addition vs. prior 2-shape surgery). The
-  mitigation is tracked in
-  `bukzor-agent-skills/llm-kb/.claude/todo.kb/2026-02-09-000-schema-reuse-with-ref.md`
-  (decision B: stub-`$ref` resolution).
+Dated pickup write-ups (2026-05-21) moved to
+`strict-managed-by-schema-propagation.kb/` — one file per addendum,
+`ls` for the full chronological list. Latest: the result — completed
+in four commits on `main`, validation clean (81 files, 0 errors); one
+follow-up remains open (`$ref` consolidation, tracked in
+`schema-reuse-with-ref.md`).

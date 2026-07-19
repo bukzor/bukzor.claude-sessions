@@ -14,31 +14,6 @@ them. This session decides, per category, whether the schema is behind
 (extend it) or the entries are wrong (fix them), then makes the corpus
 validate clean.
 
-## Violation inventory (2026-05-27)
-
-Schema-unknown fields (rejected by `additionalProperties: false`). These
-look like deliberate conventions the schema never caught up to -- the
-likely resolution is to bless them in the schema:
-
-- `parent` -- link to the spawning session. (4 entries)
-- `spawned` -- links to child sessions this one spun off. (2 entries)
-- `prior-sessions` -- predecessor sessions in a chain. (3 entries)
-- `cost-benefit-sweh` -- WSJF-style rating carried on the session itself.
-  (2 entries) Note: this overlaps the todo/ideas rating schema; decide
-  whether sessions are rated and, if so, reuse that definition.
-
-Value-shape violations (likely fix the entries, maybe loosen the schema):
-
-- `session.uuid: null` written explicitly on planned sessions. The schema
-  makes `uuid` optional and type `string`, so an explicit null fails.
-  Decide: omit `uuid` when absent, or allow null. (4 entries)
-- `session.started` as a bare date (`2026-05-22`) rather than an
-  `instant`. (1 entry)
-- `session.ended` as `2026-05-21T11:55-05:00` -- a datetime lacking
-  seconds, so not a valid `instant`. (1 entry)
-- `move-skill-triggers-to-must-read-kb.md` omits the `session` block
-  entirely, which the schema requires. (1 entry)
-
 ## The decision
 
 Two directions, applied per-field:
@@ -52,6 +27,45 @@ Two directions, applied per-field:
 
 Done when `bin/llm.kb-validate ~/.claude/sessions.kb` is clean and the
 schema documents whatever new fields it gained.
+
+## Additional normalization (added 2026-07-19, from the T3 design session)
+
+- [ ] Dated-prefix rename sweep: entries become
+      `YYYY-MM-DD-NNN-slug.md` (date = when the line of work was
+      identified — from `session.started`, else git first-commit
+      date; `NNN` resets per date within the host dir). Rename
+      sibling `$slug.kb/` dirs and the two `@` symlinks to match;
+      update `CLAUDE.md` File Naming (drop "Do not number — sessions
+      are not ordered": chronological identity is not priority
+      ordering) and the exact-match-slug guidance (match modulo date
+      prefix); update `.template.md`; check
+      `sessions.jsonschema.yaml` for filename assumptions.
+      Rationale: `design-next.kb/040-design.kb/class-task.md` (Scope)
+      — session entries are ordinary task-collection entries, and
+      collection entries carry dated-record identity.
+- [ ] Taskfile retirement (operator-ratified 2026-07-19):
+      `CLAUDE.<slug>.Task.md` is superseded — a sessions.kb entry
+      (plus elaboration kb) is the operator-scope task shape. Update
+      `CLAUDE.md`'s Creating-a-New-Entry (drop the
+      taskfile-slug-matching clause; note "superseded; migrate on
+      touch"). Once the last taskfile
+      (`CLAUDE.move-skill-triggers-to-must-read-kb.Task.md`, live
+      work, migrates on its next pickup) is gone, also drop the
+      `CLAUDE.*Task*.md` pattern from `~/bin/claude-open-tasks-list`
+      and from `Skill(llm-subtask)`'s scan-locations list.
+      (`CLAUDE.integrate-sessions-kb-into-llm-subtask.Task.md`
+      deleted 2026-07-19 — obsoleted by T2's delivery boundary and
+      T3's scope design.)
+
+## Addenda
+
+Dated pickup write-ups moved to `reconcile-sessions-kb-schema-drift.kb/`
+— one file per addendum, `ls` for the full chronological list. Latest
+(and only, so far): 2026-05-27, the violation inventory that drove
+"The decision" above. (The "Additional normalization" open items above
+stay here rather than in the addenda kb, since they're live `- [ ]`
+tasks -- burying them in a dated sub-file would make them invisible to
+`claude-open-tasks-list`'s one-level-deep scan of `sessions.kb/*.md`.)
 
 ## Why a separate session
 

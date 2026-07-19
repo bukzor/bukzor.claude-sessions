@@ -43,24 +43,11 @@ under "Working the backlog"; that is the source of truth, not this file.
       repo-root `docs/dev/adr/` (where other cross-skill ADRs live).
       Moving it means rewriting 4 `agent-skill://` links.
 
-## Done this session (2026-05-27)
+## Addenda
 
-- strict-schema-propagation advanced to `verified` (propagated the
-  missing schemas, gated the validator's MISSING false-positive, added
-  `closeout:` to the todo schema and re-propagated byte-equal).
-- ownership->managed-by: cleared the legacy tag from the one in-scope
-  file the new schema surfaced; added `managed-by` to a second.
-- Authored `migrations.jsonschema.yaml`; the whole collection validates.
-- Added the "Working the backlog" guide to migrations.kb/CLAUDE.md.
-- Spun the sessions.kb schema drift into its own entry,
-  `~/.claude/sessions.kb/reconcile-sessions-kb-schema-drift.md`.
-- Authored migration `2026-05-27-000-skill-notation-to-agent-skill-uri`
-  (planning): sweep `Skill(xxyy)` -> `agent-skill://xxyy`. Created the
-  canonical ADR `2026-05-18-000-agent-skill-uri-scheme` and deduped the
-  scheme decision out of the `schema-reuse-with-ref` todo (removed a live
-  contradiction: the todo still said `Skill()` "stays as-is"). Committed
-  these three as one unit.
-
-The agent-skill:// unit is committed. The rest of the tree (earlier
-schema-propagation work + unrelated in-flight debolding) remains
-uncommitted and intermixed.
+Dated pickup write-ups moved to `apply-migrations-kb-backlog.kb/` — one
+file per addendum, `ls` for the full chronological list. Latest (and
+only, so far): 2026-05-27 — strict-schema-propagation advanced to
+`verified`, `migrations.jsonschema.yaml` authored, agent-skill:// unit
+committed; earlier schema-propagation work + unrelated in-flight
+debolding remain uncommitted and intermixed.
