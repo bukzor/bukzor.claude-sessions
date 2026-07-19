@@ -37,9 +37,11 @@ Three sequenced phases that all must land **before** commit `0100`
 (Rust scaffold) so the regression suite is live the moment Rust
 output appears.
 
-Sister to `rust-port-kb-scope-refactor.md` (the kb-shape work) and
-`har-browse-mutation-testing.md` (the spec-sharpening work). This
-entry covers the testing-infrastructure work that builds on both.
+Sister to `rust-port-kb-scope-refactor.md` (the kb-shape work) and the
+now-closed mutation-testing spec-sharpening work (kb burndown complete
+at `packages/har-browse/docs/dev/mutation-testing.kb/`, sessions.kb
+entry deleted). This entry covers the testing-infrastructure work that
+builds on both.
 
 ## Constraints decided in meta-planning (2026-05-21)
 
