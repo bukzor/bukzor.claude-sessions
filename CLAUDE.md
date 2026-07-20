@@ -1,6 +1,7 @@
 --- # workaround: anthropics/claude-code#13003
 requires:
   - Skill(llm-kb)
+git-caution: personal
 ---
 
 # Sessions Collection
@@ -123,11 +124,11 @@ elsewhere (or no longer worth keeping at hand), delete the file.
 
 ### Growing Entries: Dated Addenda
 
-- `$slug.kb/` -- one file per pickup write-up
-  - `YYYY-MM-DD-NNN-slug.md`; `NNN` resets per date, ordered by when
-    the work happened, not written
-  - opens `Part of \`../$slug.md\`.`
-  - reads like a devlog entry
+Naming is `Skill(llm-kb)`'s `references/dated-slug-filename.md`.
+
+- `$slug.kb/` -- one file per pickup write-up, reading like a devlog
+  entry. Filed once per pickup; corrections or a late-fallout note are
+  fine, it's not append-only-forever
 - `$slug.md` -- live status (plan/blocked/decisions), edited in
   place, never appended
   - close with an `## Addenda` section pointing at `$slug.kb/`
