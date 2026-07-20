@@ -13,6 +13,8 @@ session:
     - aa2f4a4a-e185-4b4b-9197-09759f811e2d
     - 6e4979ba-ba34-4389-89ff-ecd5a3544c30
     - d69e481a-fdaf-46c4-8e3b-6ad42bd88e95
+    - 697262c3-a774-445e-9fbe-483249dcfd1b
+    - 66297935-bc0a-4b2c-a1f8-0052cfa1142f
   started: 2026-07-09T14:07:41-05:00
   ended: null # Immediate plan (all 4 steps) done 2026-07-11; backlog remains (Next/Strategic/Later in todo.md)
 ---
@@ -156,9 +158,10 @@ plan" section — read that first on pickup).
 
 ## Addenda
 
-Dated pickup write-ups (2026-07-11 through 2026-07-18) moved to
+Dated pickup write-ups (2026-07-11 through 2026-07-20) moved to
 `chatfs-cli-mockup-open-todo-sweep.kb/` — one file per addendum,
-`ls` for the full chronological list. Latest: 2026-07-18, verified
-and committed the 2026-07-17 `chatfs_sh` work (merge-commit message
-fix, `4c75787`); the atomic-chat-dir-regen worktree merge past
-`ff1879f` is still pending, tracked as a `todo.md` "Next" item.
+`ls` for the full chronological list. Latest: 2026-07-20, the claude
+family edit pass (real package imports, pure/shell split, subprocess→
+in-process conversion) — closes module-shape-refactor's "move one
+provider family end-to-end" step; chatgpt/aistudio sweep against this
+template is next.
