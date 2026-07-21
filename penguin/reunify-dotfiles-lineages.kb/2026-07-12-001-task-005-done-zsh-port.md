@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-12: task 005 done, zsh port
 
 Task 005 (zsh port) is done: svelte-crostini had zero interactive zsh

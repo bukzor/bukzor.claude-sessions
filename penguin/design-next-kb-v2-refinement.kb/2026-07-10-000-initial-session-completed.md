@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-10: initial session — ADR/devlog killed, kb-spec synthesis-file rename
 
 - Killed ADR and devlog as artifact classes: a decision is a settled

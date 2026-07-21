@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-18: verified and committed the 2026-07-17 chatfs_sh work
 
 Picked up a fully-staged-but-uncommitted tree left by the prior

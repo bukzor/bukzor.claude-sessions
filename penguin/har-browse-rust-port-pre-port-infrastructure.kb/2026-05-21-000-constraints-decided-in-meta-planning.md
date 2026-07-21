@@ -1,5 +1,3 @@
-Part of `../har-browse-rust-port-pre-port-infrastructure.md`.
-
 # 2026-05-21: constraints decided in meta-planning
 
 See workspace `.claude/decision.kb/` for each:

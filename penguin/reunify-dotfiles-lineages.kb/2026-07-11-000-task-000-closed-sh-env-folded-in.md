@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-11: task 000 closed, main-only .sh_env content folded in
 
 Task 000 (shell config unification) is now fully closed except its one

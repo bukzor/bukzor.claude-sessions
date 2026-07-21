@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-12: T2 session, v2.2 direction settled
 
 - **Baselined the tower**: most of design-next.kb had never been

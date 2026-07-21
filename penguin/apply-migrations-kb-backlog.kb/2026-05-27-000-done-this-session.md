@@ -1,5 +1,3 @@
-Part of `../apply-migrations-kb-backlog.md`.
-
 # 2026-05-27: done this session
 
 - strict-schema-propagation advanced to `verified` (propagated the

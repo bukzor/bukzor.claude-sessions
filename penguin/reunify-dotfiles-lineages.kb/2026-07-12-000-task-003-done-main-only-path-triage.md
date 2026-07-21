@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-12: task 003 done, main-only path triage
 
 Task 003 (main-only path triage) is done. User flipped the task's default

@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-12 (later): todo.md/todo.kb clear pass, dead-link cleanup
 
 Ran `Skill(llm-subtask)`'s `todo clear`: verified every `[x]` item in

@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-11 addendum (Immediate plan step 4: unification)
 
 Closed the Immediate plan (all 4 steps) — see step 4 above for what

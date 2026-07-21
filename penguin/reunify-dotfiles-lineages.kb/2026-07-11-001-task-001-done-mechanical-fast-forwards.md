@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-11: task 001 done, mechanical file fast-forwards
 
 Task 001 (mechanical file fast-forwards) is done: all 26 classifier-verified

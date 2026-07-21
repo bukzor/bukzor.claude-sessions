@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-18: post-T2 cleanup pass
 
 Worked the top-level `todo.md` backlog in order, resolving everything

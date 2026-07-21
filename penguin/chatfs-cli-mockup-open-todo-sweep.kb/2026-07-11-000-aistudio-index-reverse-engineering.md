@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-11 addendum (morning: index reverse-engineering)
 
 Also touched `docs/dev/aistudio-schema/` (a sibling project, not this

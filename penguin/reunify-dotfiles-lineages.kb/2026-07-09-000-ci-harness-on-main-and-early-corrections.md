@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-09: CI harness landed on main, early portability/verification corrections
 
 1. **Resolved (was flagged blocked, then corrected on your

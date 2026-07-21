@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-13: for user review — task 004 in progress, 7/10 themes done
 
 Task 004 (hand-merge true divergences) is well underway: `.vim/init.lua`,

@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-12: finished index rung, caught the branch up with main, fixed a stale todo bullet
 
 Three pieces of work, in order:

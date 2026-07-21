@@ -1,5 +1,3 @@
-Part of `../samsung-mom-phone-forensics-and-debloat.md`.
-
 # 2026-05-27 (session 2): account-side My Activity cracked it open
 
 Two captures (live scrape + Takeout export, parsed by new

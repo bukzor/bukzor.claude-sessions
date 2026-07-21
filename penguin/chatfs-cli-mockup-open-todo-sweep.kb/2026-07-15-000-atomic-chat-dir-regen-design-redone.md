@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-15: atomic chat-dir regeneration — design redone, not implemented
 
 Worked in the `atomic-chat-dir-regen` worktree

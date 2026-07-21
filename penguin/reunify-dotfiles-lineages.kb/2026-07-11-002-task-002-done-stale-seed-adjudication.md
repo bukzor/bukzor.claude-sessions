@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-11: task 002 done, stale-seed adjudication
 
 Task 002 (stale-seed adjudication) is done: 2/9 files were genuine

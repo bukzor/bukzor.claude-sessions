@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-19: post-T3 review — ideas.md fixup; goals review opened
 
 Fresh-eyes review of the T3 artifacts (separate session) found the

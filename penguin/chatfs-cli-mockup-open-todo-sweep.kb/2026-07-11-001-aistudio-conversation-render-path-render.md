@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-11 addendum (evening: conversation render/path_render)
 
 Landed Immediate plan steps 2 (accepted done-for-now) and 3 (done) in

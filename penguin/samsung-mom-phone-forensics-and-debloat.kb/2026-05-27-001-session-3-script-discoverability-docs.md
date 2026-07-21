@@ -1,5 +1,3 @@
-Part of `../samsung-mom-phone-forensics-and-debloat.md`.
-
 # 2026-05-27 (session 3): script-discoverability docs (uncommitted)
 
 **Heads-up — concurrent session still live in this repo (as of 2026-05-27

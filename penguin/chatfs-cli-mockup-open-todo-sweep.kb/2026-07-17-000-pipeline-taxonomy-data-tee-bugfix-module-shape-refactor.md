@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-17: pipeline-class taxonomy, .data/ tee bugfix, module-shape-refactor amendment, root-capture cleanup
 
 User asked for a classification of all scripts in the incubator

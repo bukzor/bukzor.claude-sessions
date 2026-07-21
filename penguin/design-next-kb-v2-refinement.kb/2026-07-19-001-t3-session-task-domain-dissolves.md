@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-19: T3 session — task domain dissolves into spec primitives
 
 T3 settled — all three axes, operator-ratified incrementally, each

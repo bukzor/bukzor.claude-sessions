@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-19: T4 session — trigger subsystem settled
 
 T4 settled — all four axes, operator-ratified incrementally in

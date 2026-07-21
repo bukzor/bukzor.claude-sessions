@@ -1,5 +1,3 @@
-Part of `../reconcile-sessions-kb-schema-drift.md`.
-
 # 2026-05-27: violation inventory
 
 `bin/llm.kb-validate ~/.claude/sessions.kb` reports 11 of 28 entries

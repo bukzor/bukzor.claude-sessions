@@ -1,5 +1,3 @@
-Part of `../design-next-kb-v2-refinement.md`.
-
 # 2026-07-19: backlog sweep
 
 Worked the top-level `todo.md` ordering again: T3/T4/principles-rehome

@@ -1,5 +1,3 @@
-Part of `../reunify-dotfiles-lineages.md`.
-
 # 2026-07-09: CI-foundations checked off, task 000 main-side mirror
 
 CI-foundations is now fully checked off (only remaining item, CI
