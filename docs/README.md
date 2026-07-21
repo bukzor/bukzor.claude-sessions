@@ -6,7 +6,7 @@ last-updated: 2026-07-11
 
 Session index for Claude Code: tracks planned and in-flight coding-agent
 sessions across cwds, repos, and skills, so the next session can recover
-open lines of work. See `CLAUDE.md` for the full collection conventions
+open lines of work. See `../CLAUDE.md` for the full collection conventions
 (what belongs, per-host layout, push/pointer-bump cadence, lifecycle).
 
 ## Origin
