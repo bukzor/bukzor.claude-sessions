@@ -49,3 +49,7 @@ editing `design.kb/040-design.kb/capture-cut-model.md` and
 Unrelated to this entry — left untouched — but expect drift there
 between sessions; see `har-browse-completeness-bugs.md` for that
 thread.
+
+## Addenda
+
+Per-pickup write-ups: `har-browse-capture-implementation-frontier.kb/`.
