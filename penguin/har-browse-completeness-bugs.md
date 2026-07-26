@@ -22,10 +22,13 @@ flakiness on index-page captures, identified 2026-07-22.
   the original taskfile: `has_more=false` discriminator and live-capture
   validation, both blocked on a fresh live capture (ask-first).
 - **Cache hydration** (`todo.kb/2026-07-22-001-claude-ai-revisits-render-from-persisted-React-Query-IndexedDB-cache--so-capture-sees-no-conversation-traffic.md`):
-  fix (`clearOriginStorage`, widened 2026-07-23 to also clear
-  `cache_storage` + per-session `setCacheDisabled`/`setBypassServiceWorker`)
-  not yet implemented — highest-value, implementable-now item on
-  `todo.md`.
+  implemented 2026-07-26 — `clearOriginStorage` (indexeddb +
+  cache_storage, pre-goto, cookies preserved) behind
+  `startCapture`/`--clear-origin-storage`, plus unconditional
+  per-session `setCacheDisabled`/`setBypassServiceWorker`. Six tests,
+  six mutation entries `done`, `pnpm test` green. Only live
+  per-provider verification remains (ask-first). Devlog:
+  `2026-07-26-001-*`.
 - **Target coverage** (`todo.kb/2026-07-23-001-Zero-miss-target-coverage-via-Target-setAutoAttach.md`):
   service-worker/OOPIF/popup-pre-attach traffic invisible to per-page CDP
   sessions. Forensic pass + venue spike are the first steps, not yet run;
@@ -48,6 +51,6 @@ Per-pickup write-ups: `har-browse-completeness-bugs.kb/`.
 
 ## Devlogs
 
-- `docs/dev/devlog/2026-07-22-000-har-browse-Done-Capturing-drain-race-fix.md`
-- `docs/dev/devlog/2026-07-23-001-capture-cut-semantics-pivot-and-gap-closure-planning.md`
-- `docs/dev/devlog/2026-07-23-002-Frontier-ratification--doc-accuracy-pass--todo-restructuring.md`
+- `packages/har-browse/docs/dev/devlog/2026-07-22-000-har-browse-Done-Capturing-drain-race-fix.md`
+- `packages/har-browse/docs/dev/devlog/2026-07-23-001-capture-cut-semantics-pivot-and-gap-closure-planning.md`
+- `packages/har-browse/docs/dev/devlog/2026-07-23-002-Frontier-ratification--doc-accuracy-pass--todo-restructuring.md`

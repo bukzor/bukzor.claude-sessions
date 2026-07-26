@@ -71,4 +71,4 @@ todos already route around it.
   and `dev.kb/rust-port.kb/handoffs.kb/CLAUDE.md`. Filed as a `todo.md`
   bullet, not fixed blind (out of scope, unfamiliar design area).
 
-Devlog: `docs/dev/devlog/2026-07-23-002-Frontier-ratification--doc-accuracy-pass--todo-restructuring.md`.
+Devlog: `packages/har-browse/docs/dev/devlog/2026-07-23-002-Frontier-ratification--doc-accuracy-pass--todo-restructuring.md`.
