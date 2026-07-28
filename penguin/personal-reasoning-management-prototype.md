@@ -3,6 +3,7 @@ cwd: /home/bukzor/repo/github.com/bukzor/prototype.personal-reasoning-management
 session:
   uuid:
     - cea2b7a6-c009-4e4b-b856-66434ae55978
+    - af42c215-9424-41a2-ab0e-94512ba3a4cb
   started: 2026-07-26T19:25:08-05:00
   ended: null
 ---
@@ -34,10 +35,11 @@ greppable), and a posterior theory may not defeat what it extends
 
 That apparatus was then ported into `Skill(llm-claim-ledger)`'s own
 `design.ledger.kb/` — see `claim-ledger-skill-and-epistemics-realm.md`.
-The overlap is about seven claims out of ~50, medium-independent on the
-skill side and project-specific here; the prototype's 20-claim `ledger`
-theory and the skill's `good-smells` have no counterpart on the other
-side. **Divergence across the overlap is a defect in one of the two** —
+Thirteen claims overlap, **carrying identical labels on both sides** as
+of 2026-07-28, so the correspondence is `grep LABEL` and not a table;
+the prototype's `ledger` theory and the skill's `good-smells` have no
+counterpart on the other side, and the two `purpose` theories share only
+a name. **Divergence across the overlap is a defect in one of the two** —
 the cheapest available drift check, and the reason neither was made a
 pointer to the other.
 

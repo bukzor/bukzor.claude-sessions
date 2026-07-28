@@ -43,21 +43,42 @@ Pickup (third session, 2026-07-28, cwd
 audience. `SKILL.kb/` is now the operator's manual — 11 directives, all
 frontmatter stripped; `design.ledger.kb/` is the claim ledger, four theories
 ordered by ontology inclusion (`stance → purpose → good-smells →
-notation`), with `design.md` as the reader's entry point. The tell that
-forced the split: 9 of 12 `SKILL.kb/` entries read `standing: warranted`
-— a field that near-constant carries no information — and the 3 `fiat`
-entries turned out to be design commitments that had leaked into the
-manual. Confinement immediately caught a misplacement (`PAR` was arguing
-from sigils, which `stance`'s ontology doesn't admit). Also: canonical
-claim schema in `design.ledger.kb/jsonschema/` with four `$ref` stubs (verified
-enforcing, not silently passing); `SKILL.jsonschema.yaml` deleted;
-`SKILL.md` gained the cycle rule and a `design.md` pointer; `CLAUDE.md`
-now warns that this `design.ledger.kb/` is *not* the layered
-`Skill(llm-design-kb)` kind that `llm-vitals`/`llm-triggers` have.
+notation`), with `design.ledger.md` as the reader's entry point. The tell
+that forced the split: 9 of 12 `SKILL.kb/` entries read `standing:
+warranted` — a field that near-constant carries no information — and the
+3 `fiat` entries turned out to be design commitments that had leaked into
+the manual. Confinement immediately caught a misplacement (`PARSIMONY`
+was arguing from sigils, which `stance`'s ontology doesn't admit). Also:
+canonical claim schema in `design.ledger.kb/jsonschema/` with four `$ref`
+stubs (verified enforcing, not silently passing);
+`SKILL.jsonschema.yaml` deleted; `SKILL.md` gained the cycle rule and a
+`design.ledger.md` pointer; `CLAUDE.md` now warns that this
+`design.ledger.kb/` is *not* the layered `Skill(llm-design-kb)` kind that
+`llm-vitals`/`llm-triggers` have.
 Commit `528f72c` (bukzor-agent-skills). The theory/ontology/confinement
 apparatus itself came from the prototype repo's own design ledger this
 session — the two are deliberate copies at different fidelity, and
 divergence between them is the drift check.
+
+Pickup (fourth, same day): names. `design.kb/` → `design.ledger.kb/`
+(`8c4b6c7`) — the bare name promised the layered `Skill(llm-design-kb)`
+kind, and `$subject.$kind.kb` already names the governing artifact in the
+prototype (`design.ledger.kb/`, `initial-setup.discourse.kb/`). Then every
+label was rewritten (`13d53a9`): they had all been 2–5 char initialisms
+because the claim schema said `^[A-Z]{2,5}$` — a constraint invented while
+writing the schema and then obeyed while writing the claims, never a design
+commitment, and one that would have rejected `SKILL.md`'s own worked example
+(`PARSER`/`MULTIBYTE`/`DECODER`). Pattern is now upper snake case of any
+length plus the no-prefix rule (sigils trail the label, so `grep LABEL` must
+stay unambiguous). The claims shared with the prototype now carry that
+ledger's names **verbatim**, so the two-copies drift check is `grep LABEL`
+across both repos rather than a correspondence table; the direction was
+forced by reference count (the prototype's labels had ~19 citations, the
+skill's had two). A later session (`006b7a5` / prototype `3d99f74`) extended
+the shared set to thirteen: `REGRESS_ACT`, `AUTHOR_ACTS`, `PARSIMONY`,
+`ARROWS`, `IMAGE`, `LEAST_FIX`, `CLAIMS_ONLY`, `STIP`, `WARRANT`,
+`SELF_CONTAINED`, `FRESH_READER`, `PROVISIONAL`, `TRICHOTOMY` — verified
+present on both sides 2026-07-28.
 
 Live follow-ups (tracked in the repos' own todos):
 
@@ -76,3 +97,8 @@ Live follow-ups (tracked in the repos' own todos):
       second notation — 8 of its 11 entries are `standing: open`
       because the whole set came out of one design conversation, so
       nothing has yet had the chance to fail one
+- [ ] llm-claim-ledger: re-test the labels against `NAME_LOCUS` after
+      that scoring lands — `LEAST_FIX` and `CLAIMS_ONLY` encode answers
+      where `CYCLES`/`NODE_TYPES` would name the loci, but both are
+      shared verbatim with the prototype and `CLAIMS_ONLY` is certified
+      there, so this waits on `NAME_LOCUS` earning better than `open`
