@@ -33,11 +33,13 @@ greppable), and a posterior theory may not defeat what it extends
 `stance`, `ledger` and `convention` should survive any substrate change.
 
 That apparatus was then ported into `Skill(llm-claim-ledger)`'s own
-`design.kb/` — see `claim-ledger-skill-and-epistemics-realm.md`. The two
-are deliberate copies at different fidelity (the prototype's may cite
-`ledger` vocabulary; the skill's is medium-independent), so **divergence
-between them is a defect in one of the two** — the cheapest available
-drift check, and the reason neither was made a pointer to the other.
+`design.ledger.kb/` — see `claim-ledger-skill-and-epistemics-realm.md`.
+The overlap is about seven claims out of ~50, medium-independent on the
+skill side and project-specific here; the prototype's 20-claim `ledger`
+theory and the skill's `good-smells` have no counterpart on the other
+side. **Divergence across the overlap is a defect in one of the two** —
+the cheapest available drift check, and the reason neither was made a
+pointer to the other.
 
 - [ ] Work the setup spine in `.claude/todo.md`, in order — each item is
       about one small commit and verifies the previous one

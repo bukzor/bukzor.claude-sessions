@@ -12,7 +12,7 @@ session:
 
 Reviewed the captured "Knot theory representations for GPU computation"
 chat (prototype.chatfs `chatfs.demo`), then brought
-`Skill(llm-claim-ledger)` up to date with its design.kb: sigil layer
+`Skill(llm-claim-ledger)` up to date with its design.ledger.kb: sigil layer
 (`?`/`!`), `stipulated` harmonized as fiat-warrant, `claim
 accept`/`contest` commands, and the implicit-obligation paradigm
 (obligation derived from openness × downstream weight — `obligated`
@@ -23,7 +23,7 @@ verbatim, `ladder.md` rung-correspondence synthesis, todos. Committed
 and pushed in `bukzor-agent-skills` (`4d6c287`).
 
 Pickup (second session): persisted `Skill(llm-claim-ledger)`'s design
-rationale as `design.kb/good-smells.kb/` (9 criteria — writing
+rationale as `design.ledger.kb/good-smells.kb/` (9 criteria — writing
 clarifies thinking, no forced early decisions, plus 7 economy
 criteria), with its own schema, validated clean. In
 ideation.epistemics: filed `background.kb/prior-art.kb/bukzor.kb/` (5
@@ -41,7 +41,7 @@ rather than silently fixing it (see below).
 Pickup (third session, 2026-07-28, cwd
 `prototype.personal-reasoning-management`): split the skill in two by
 audience. `SKILL.kb/` is now the operator's manual — 11 directives, all
-frontmatter stripped; `design.kb/` is the claim ledger, four theories
+frontmatter stripped; `design.ledger.kb/` is the claim ledger, four theories
 ordered by ontology inclusion (`stance → purpose → good-smells →
 notation`), with `design.md` as the reader's entry point. The tell that
 forced the split: 9 of 12 `SKILL.kb/` entries read `standing: warranted`
@@ -49,10 +49,10 @@ forced the split: 9 of 12 `SKILL.kb/` entries read `standing: warranted`
 entries turned out to be design commitments that had leaked into the
 manual. Confinement immediately caught a misplacement (`PAR` was arguing
 from sigils, which `stance`'s ontology doesn't admit). Also: canonical
-claim schema in `design.kb/jsonschema/` with four `$ref` stubs (verified
+claim schema in `design.ledger.kb/jsonschema/` with four `$ref` stubs (verified
 enforcing, not silently passing); `SKILL.jsonschema.yaml` deleted;
 `SKILL.md` gained the cycle rule and a `design.md` pointer; `CLAUDE.md`
-now warns that this `design.kb/` is *not* the layered
+now warns that this `design.ledger.kb/` is *not* the layered
 `Skill(llm-design-kb)` kind that `llm-vitals`/`llm-triggers` have.
 Commit `528f72c` (bukzor-agent-skills). The theory/ontology/confinement
 apparatus itself came from the prototype repo's own design ledger this
@@ -72,7 +72,7 @@ Live follow-ups (tracked in the repos' own todos):
 - [ ] llm-claim-ledger: verify the sigil set against the derivation
       chat — blocked, no capture path exists for a Claude Code session
       the way chatfs captures claude.ai; revisit if that ever changes
-- [ ] llm-claim-ledger: score `design.kb/good-smells.kb/` against a
+- [ ] llm-claim-ledger: score `design.ledger.kb/good-smells.kb/` against a
       second notation — 8 of its 11 entries are `standing: open`
       because the whole set came out of one design conversation, so
       nothing has yet had the chance to fail one
