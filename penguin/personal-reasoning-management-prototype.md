@@ -4,6 +4,7 @@ session:
   uuid:
     - cea2b7a6-c009-4e4b-b856-66434ae55978
     - af42c215-9424-41a2-ab0e-94512ba3a4cb
+    - f3a645e9-6157-4948-b2d8-570b032b0e9a
   started: 2026-07-26T19:25:08-05:00
   ended: null
 ---
@@ -20,7 +21,10 @@ Nothing under the spine has been started past the Brewfile/elan step.
 
 Design docs, in reading order:
 
-- `docs/dev/design-sketch.md` — the rationale, in prose
+- `docs/dev/design-sketch.md` — the assembled shape, drawn concrete
+  (redefined 2026-07-28: a label tag means the ledger commits it; every
+  unlabelled concrete choice is arbitrary and freely replaceable —
+  lakefile.toml was decided this way, community default + declarative needs)
 - `docs/dev/design.ledger.md` — the labelled commitments, as a ledger
 - `docs/dev/initial-setup.discourse.kb/` — toolchain questions and claims
 
