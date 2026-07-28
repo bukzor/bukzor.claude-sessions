@@ -4,6 +4,7 @@ session:
   uuid:
     - 9ebe2c81-c177-4c93-9ab9-031b23ff3411
     - bc035331-3259-4a75-9def-476a3ce64eeb
+    - cea2b7a6-c009-4e4b-b856-66434ae55978
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -37,6 +38,27 @@ must name loci rather than conclusions) and one pointer claim to the
 good-smells criteria. Surfaced a real inconsistency as a question
 rather than silently fixing it (see below).
 
+Pickup (third session, 2026-07-28, cwd
+`prototype.personal-reasoning-management`): split the skill in two by
+audience. `SKILL.kb/` is now the operator's manual — 11 directives, all
+frontmatter stripped; `design.kb/` is the claim ledger, four theories
+ordered by ontology inclusion (`stance → purpose → good-smells →
+notation`), with `design.md` as the reader's entry point. The tell that
+forced the split: 9 of 12 `SKILL.kb/` entries read `standing: warranted`
+— a field that near-constant carries no information — and the 3 `fiat`
+entries turned out to be design commitments that had leaked into the
+manual. Confinement immediately caught a misplacement (`PAR` was arguing
+from sigils, which `stance`'s ontology doesn't admit). Also: canonical
+claim schema in `design.kb/jsonschema/` with four `$ref` stubs (verified
+enforcing, not silently passing); `SKILL.jsonschema.yaml` deleted;
+`SKILL.md` gained the cycle rule and a `design.md` pointer; `CLAUDE.md`
+now warns that this `design.kb/` is *not* the layered
+`Skill(llm-design-kb)` kind that `llm-vitals`/`llm-triggers` have.
+Commit `528f72c` (bukzor-agent-skills). The theory/ontology/confinement
+apparatus itself came from the prototype repo's own design ledger this
+session — the two are deliberate copies at different fidelity, and
+divergence between them is the drift check.
+
 Live follow-ups (tracked in the repos' own todos):
 
 - [ ] ideation.epistemics: execute `prompts/` in fresh contexts with
@@ -50,3 +72,7 @@ Live follow-ups (tracked in the repos' own todos):
 - [ ] llm-claim-ledger: verify the sigil set against the derivation
       chat — blocked, no capture path exists for a Claude Code session
       the way chatfs captures claude.ai; revisit if that ever changes
+- [ ] llm-claim-ledger: score `design.kb/good-smells.kb/` against a
+      second notation — 8 of its 11 entries are `standing: open`
+      because the whole set came out of one design conversation, so
+      nothing has yet had the chance to fail one
