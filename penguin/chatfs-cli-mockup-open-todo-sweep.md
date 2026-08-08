@@ -165,3 +165,10 @@ family edit pass (real package imports, pure/shell split, subprocess→
 in-process conversion) — closes module-shape-refactor's "move one
 provider family end-to-end" step; chatgpt/aistudio sweep against this
 template is next.
+
+2026-08-08: the incubator has graduated — code to `packages/chatfs-cli/`
+(2026-08-07, umbrella children 000/001), its `design.kb/` followed
+(2026-08-08, child 005; ADR `docs/dev/adr/2026-08-08-000-chatfs-cli-graduates-from-the-incubator-with-its-design-kb.md`).
+The incubator README carries a Historical banner; work continues against
+`packages/chatfs-cli/`, not here. (The earlier `$REPO/lib/chatfs/`
+graduation-target decision was superseded by the landing.)
