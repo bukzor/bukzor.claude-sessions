@@ -78,5 +78,23 @@ it); stock-dialect declarations are honored and report extension types
 as schema bugs. The type checker and the naive-datetime rationale moved
 from `frontmatter_validate.py` to `lib/python/llmd/_jsonschema_adapter.py`.
 
+## Addendum 2026-08-10 — the diagnostic is missing a hint
+
+Observed in a fresh kb (`~/claude/crostini-health/`): an agent wrote
+`last-updated: { type: string }` under the stock dialect, hit
+`datetime.date(2026, 8, 10) is not of type 'string'`, and "fixed" it by
+**deleting the field**. The message is accurate and useless — it names
+what failed, never that `type: date` exists.
+
+- [ ] Have the validator, on a `type: string` failure whose instance is a
+      `date`/`datetime`, name the extension type and the dialect URI in
+      the error. One branch in `lib/python/llmd/_jsonschema_adapter.py`
+      or its caller; the failure it prevents is silent data loss, not
+      just a slow fix.
+
+The declared-dialect design worked exactly as intended here (stock
+`$schema` correctly refused the extension type). The gap is only that
+the diagnostic points at the data instead of at the schema.
+
 Delete this entry once those follow-ups are absorbed and there is
 no remaining reason to point back at the originating session.
