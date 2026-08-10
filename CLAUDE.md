@@ -71,23 +71,32 @@ rather than after every commit here.
 
 ### Per-host layout
 
-Entries live under `<hostname>/`, e.g. `penguin/reunify-dotfiles.md`
+Entries live under `<hostname>.kb/`, e.g. `penguin.kb/reunify-dotfiles.md`
 for host `penguin`. Rationale: sessions are tied to a specific
 machine's filesystem state (open worktrees, local branches, uncommitted
 files) — a flat namespace would silently collide or misattribute
 entries across hosts sharing this one repo. `CLAUDE.md` and
 `.template.md` stay at the repo root, shared across hosts.
 
+The `.kb` suffix is load-bearing, not decoration: `llm.kb-validate`
+only descends into `*.kb/`, so a plain `penguin/` made the whole
+collection invisible to validation — it reported "1 file, 0 errors"
+while 44 entries went unchecked for a month. Each host directory
+also needs a one-line `<hostname>.jsonschema.yaml` beside it, because
+schema lookup for `X.kb/` resolves to `X.jsonschema.yaml`; copy
+`penguin.jsonschema.yaml`, which just `$ref`s the shared schema.
+
 When onboarding a new host: `git submodule update --init
-.claude/sessions.kb` in dotfiles, then `mkdir -p
-~/.claude/sessions.kb/$(hostname -s)`.
+.claude/sessions.kb` in dotfiles, then `H=$(hostname -s); mkdir -p
+~/.claude/sessions.kb/$H.kb; sed "s/penguin/$H/" penguin.jsonschema.yaml
+> $H.jsonschema.yaml`.
 
 ### `cwd:` frontmatter stays host-absolute
 
 Session entries' `cwd:` field (e.g. `/home/bukzor`) is left as a plain
 host-absolute path, not made portable/symbolic. The per-host directory
 already disambiguates _which_ host a path belongs to; a reader who
-knows the entry lives under `penguin/` already knows `cwd:` is
+knows the entry lives under `penguin.kb/` already knows `cwd:` is
 `penguin`-relative. Revisit if a host ever needs to read another
 host's entries and resolve `cwd:` programmatically — no such need
 exists yet.
