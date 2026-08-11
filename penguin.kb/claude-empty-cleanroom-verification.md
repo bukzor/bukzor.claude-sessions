@@ -2,7 +2,6 @@
 cwd: /home/bukzor/repo/claude-empty
 focus:
   - CLAUDE.md
-  - .claude/todo.md
 session:
   uuid:
     - 430f8c97-9648-4ea5-ab03-da3113d69c13
@@ -27,13 +26,12 @@ is an absolute symlink into the real `$HOME`, so upgrading Claude Code
 anywhere on the machine silently changes what the room runs. The room's own
 install attempt fails and is never selected.
 
-Open work lives in `/home/bukzor/repo/claude-empty/.claude/todo.md`:
+Nothing is scheduled, on purpose: the repo has no task list. Its three open
+questions are `> [!QUESTION]` blocks inside the entries they belong to, and
+each settles as a side effect of using the room rather than by anyone going
+to work on it.
 
-- [ ] Re-run the upgrade procedure: the machine is on 2.1.227 and every
-  claim says 2.1.226, established hours before the upgrade landed
-- [ ] Check whether every interactive start re-downloads 61 MB it cannot use
-- [ ] Find whether the plugin-marketplace clone can be suppressed
-- [ ] Settle whether a permission granted "always" writes into the room --
-  the tripwire is armed, but no session has granted one yet
-
-Take the first of those before trusting anything else here.
+The one thing to do before trusting a result from the room is re-check the
+claims under whatever version is in front of you --
+`testing.kb/after-a-claude-code-upgrade.md`. Everything here was established
+under 2.1.226, and the machine moved to 2.1.227 hours later.
