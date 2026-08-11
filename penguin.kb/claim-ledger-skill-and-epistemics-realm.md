@@ -5,6 +5,7 @@ session:
     - 9ebe2c81-c177-4c93-9ab9-031b23ff3411
     - bc035331-3259-4a75-9def-476a3ce64eeb
     - cea2b7a6-c009-4e4b-b856-66434ae55978
+    - 1fab91a6-1013-4508-9fe7-aeda9aadfa89
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -102,3 +103,18 @@ Live follow-ups (tracked in the repos' own todos):
       where `CYCLES`/`NODE_TYPES` would name the loci, but both are
       shared verbatim with the prototype and `CLAIMS_ONLY` is certified
       there, so this waits on `NAME_LOCUS` earning better than `open`
+
+Pickup (2026-08-09..11, cwd bukzor-agent-skills, fourth uuid): the arc
+produced `Skill(review-open-questions)` and ran the corpus's own review
+passes through it. Renames landed on the user's ruling: the skill pair
+is now `llm-claims`/`llm-claims-kb`, every `*.ledger.kb` is
+`*.claims.kb` (ADR `2026-08-10-000` there; old names above are
+provenance), and PRMS's corpus theory dirs took `*.prms.kb` (its
+`5aa251c`) after failing the claims-kb shape test. Rulings filed:
+PLACEMENT (user-corrected cost accounting: `!` banks sunk judgment,
+`+` issues debt), SPLIT, TIERS signed `!`, claim-shape directive plus
+the IMAGE/PROVISIONAL/CHEAP sweep, dosage trigger renamed to
+temptation shape. Live follow-ups: `.prms.kb` <-> `.claims.kb`
+theory-merge items (both repos' `.claude/todo.md`), task-5 future
+planning (skills repo todo), Core-block re-paste (unchanged, still
+USER).
