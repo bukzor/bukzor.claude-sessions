@@ -49,8 +49,7 @@ package, install it, delete the duplicates.
 - I claimed dotfiles was unpushed. It wasn't — `origin/svelte-crostini`
   already had the cutover commits.
 - The parallel session's finding, which I agree with: **a declared
-  dependency fixes provisioning, not selection.** The hook still says
-  `claude-path`, and `~/bin` still precedes `~/.local/bin`.
+  dependency fixes provisioning, not selection.**
 - The parallel session retracted a claim on my evidence: PEP 723 gives
   standalone operation *and* a declared dependency, so "a caller who
   wants to work standalone is refusing to declare" was false.

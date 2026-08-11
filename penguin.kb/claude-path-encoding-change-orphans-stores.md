@@ -39,15 +39,10 @@ The formal account lives in `~/claude/bukzor-packaging/` (kb) and
 `bukzor-packaging.claims.kb/` (ledger), maintained by a parallel session;
 `coherence.py` there is the standing check.
 
-Open:
-
-- [ ] Package `git-localhost-store` itself — see
-      `package-git-localhost-store.md`. Until then the hook resolves a
-      bare `claude-path` through PATH, so a correct encoder is installed
-      but not *selected*.
-- [ ] Watch the dotfiles reunification: `~/repo/github.com/bukzor/dotfiles`
-      still carries a legacy `bin/claude-path`, and `~/bin` precedes
-      `~/.local/bin`. Tracked in `~/.claude/todo.md`.
+Nothing open. `git-localhost-store` is itself packaged and published
+(0.1.0, 2026-08-10); its hook imports `claude_code_slug` instead of
+resolving a bare `claude-path`, so the encoder is chosen by the declared
+dependency rather than by PATH.
 
 ## Addenda
 
