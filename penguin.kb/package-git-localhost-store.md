@@ -30,31 +30,42 @@ a symlink into the venv. **Install before deleting anything**: a gap
 between removing the dotfiles copy and running the installer breaks
 `git commit` in every relocated repo on this machine (~50 live).
 
-## Release
+## Release -- blocked on one browser step
+
+Tag `git-localhost-store-v0.1.0` is pushed. Its run
+(<https://github.com/bukzor/bukzor-tools/actions/runs/31447107849>) built
+and bounced at upload: `400 Non-user identities cannot create new
+projects` -- PyPI's phrasing for "no publisher for this project name".
 
 - [ ] Register the pending PyPI trusted publisher (browser, human):
       pypi.org → Account settings → Publishing. Project `git-localhost-store`,
       Owner `bukzor`, Repository `bukzor-tools`, Workflow `release-pypi.yml`,
       Environment `pypi`. The `pypi` environment already exists on the repo.
       Name verified free against the squashed-name rule on 2026-08-10.
-- [ ] `workflow_dispatch` rehearsal with `package=git-localhost-store` --
-      builds and mints a token without uploading, which is the one failure a
-      local build cannot predict.
-- [ ] Tag `git-localhost-store-v0.1.0`, push, watch the run.
+- [ ] Then `gh run rerun 31447107849` -- the tag is already right, no
+      re-tagging needed.
 - [ ] Verify the consumer path:
       `curl -s https://pypi.org/pypi/git-localhost-store/json | jq .info.version`.
 
-## Cutover
+The `workflow_dispatch` rehearsal is no help here and its comment now says
+so: the mint-token request carries only the OIDC token, no package name, so
+`claude-code-slug`'s registration mints a token for any dispatch. For a
+first release the upload bounce is the only test.
 
-- [ ] `uv tool install git-localhost-store` (or `uv tool upgrade bukzor-tools`).
-- [ ] `git-localhost-store-install`; check the public symlink resolves and a
-      real commit in a relocated repo still works.
-- [ ] Only then: delete `.local/share/git-localhost-store/` from the dotfiles
-      repo.
+## Cutover -- done 2026-08-10
+
+`uv tool install . --force` from the workspace, then
+`git-localhost-store-install`. The dotfiles copy is deleted and
+`.local/share/.gitignore` no longer opts it in; the installer regenerates
+`bin/git-localhost-store` (symlink into the tool venv) and
+`template-repo/hooks/`. Verified by a fresh repo relocating and committing
+through the real hooks into the real store, after a full `rm -rf` of the
+share directory. Redo with `uv tool install git-localhost-store` once the
+release lands, or leave it -- the workspace install is equivalent.
 
 ## Known gaps
 
-- [ ] No shellcheck hook in `bukzor-tools/.pre-commit-config.yaml`;
-      `relocate.sh` and `hook.sh` are checked by hand.
-- [ ] No test for the `post-index-change` deferral branch -- the one place
-      `relocate.sh` must *not* adopt an existing store.
+Tracked in the package's own `.claude/todo.md`, which also carries the
+workdir-rename orphan bug: no shellcheck hook, and no test for the
+`post-index-change` deferral branch -- the one place `relocate.sh` must
+*not* adopt an existing store.
