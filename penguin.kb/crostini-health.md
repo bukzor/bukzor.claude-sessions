@@ -62,7 +62,11 @@ incident).
       everything else. Biggest single directories are `~/.cache` 9.9G,
       `~/prefix` 9.9G, `~/.local` 11G, `~/claude` 24G, `~/repo` 33G, plus
       `~/trash` at 3.7G, which is scratch by construction and the cheapest
-      to take first.
+      to take first. One specific, verified item inside `~/.local`:
+      `~/.local/share/claude/versions/` keeps every Claude Code build, four
+      of them at ~300M each (1.17G total), while `~/.local/bin/claude`
+      symlinks only the newest. The three older ones are ~890M, held only
+      for rollback.
 - [ ] Watch for upstream replies: earlyoom#378, comments on earlyoom#214
       and lxc/lxcfs#695, ChromeOS issue 544148694. `~/bin/upstream-replies`
       nags at shell startup until acked by hand.
