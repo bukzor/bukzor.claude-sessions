@@ -56,6 +56,13 @@ incident).
       nohang is packaged in trixie). systemd-oomd stays permanently
       impossible here — termina binds every cgroup controller to a v1
       hierarchy.
+- [ ] Reclaim disk: `/` is at 99%, 2.3G free (2026-08-10). Not yet
+      investigated, and not obviously the same failure class as the freeze,
+      but a full root on this machine breaks the guards along with
+      everything else. Biggest single directories are `~/.cache` 9.9G,
+      `~/prefix` 9.9G, `~/.local` 11G, `~/claude` 24G, `~/repo` 33G, plus
+      `~/trash` at 3.7G, which is scratch by construction and the cheapest
+      to take first.
 - [ ] Watch for upstream replies: earlyoom#378, comments on earlyoom#214
       and lxc/lxcfs#695, ChromeOS issue 544148694. `~/bin/upstream-replies`
       nags at shell startup until acked by hand.
