@@ -21,12 +21,19 @@ only observed exhaust, so new pollution reports itself in `git status`; an
 empty tracked `home/.claude/settings.local.json` is the tripwire for anything
 writing settings into the room.
 
+The sharpest finding is that the room is not hermetic in the one dimension
+it cannot inspect: `PATH` is untouched by the redirect and `~/.local/bin/claude`
+is an absolute symlink into the real `$HOME`, so upgrading Claude Code
+anywhere on the machine silently changes what the room runs. The room's own
+install attempt fails and is never selected.
+
 Open work lives in `/home/bukzor/repo/claude-empty/.claude/todo.md`:
 
+- [ ] Re-run the upgrade procedure: the machine is on 2.1.227 and every
+  claim says 2.1.226, established hours before the upgrade landed
+- [ ] Check whether every interactive start re-downloads 61 MB it cannot use
 - [ ] Find whether the plugin-marketplace clone can be suppressed
 - [ ] Settle whether a permission granted "always" writes into the room --
   the tripwire is armed, but no session has granted one yet
 
-The next pickup should re-run `testing.kb/smoke-test-the-room.md` first: the
-room auto-updates its own binary, so a claim's `version:` can go stale with
-no tracked file changing.
+Take the first of those before trusting anything else here.
