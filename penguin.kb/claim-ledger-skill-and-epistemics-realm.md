@@ -6,6 +6,7 @@ session:
     - bc035331-3259-4a75-9def-476a3ce64eeb
     - cea2b7a6-c009-4e4b-b856-66434ae55978
     - 1fab91a6-1013-4508-9fe7-aeda9aadfa89
+    - 315152a8-93a9-4305-8bf4-3dad30e4b8f3
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -118,3 +119,28 @@ temptation shape. Live follow-ups: `.prms.kb` <-> `.claims.kb`
 theory-merge items (both repos' `.claude/todo.md`), task-5 future
 planning (skills repo todo), Core-block re-paste (unchanged, still
 USER).
+
+Pickup (2026-08-11..12, cwd `bukzor-agent-skills/llm-claims-kb`, fifth
+uuid): asked for a tool to paste a ledger into claude.ai; got
+`bin/llm-claims-kb-flatten` (`cd6cfbb`), and the tool exposed the file
+form's oldest defect. A theory was a *header* on disk — no `standing:`,
+ontology in the collection's `CLAUDE.md`, nesting hard-coded two deep —
+while the notation had said since its first draft that a theory needs
+no node type of its own. Now one rule at every depth: `X.md` beside
+`X.kb/` is the claim that defines that theory (`ontology:`,
+`defeated-by:`, priors on `why:`), `X.md` alone is an ordinary claim,
+and `X.kb/` alone is an **open theory** — legal, cited `LABEL?`,
+stipulating nothing, never a folder. Chat rendering is one nested list;
+indentation is containment, so membership needs no field. 52 files
+migrated across three ledgers, content *moved* out of the `CLAUDE.md`s
+rather than copied. ADR
+`docs/dev/adr/2026-08-11-000-A-theory-is-a-claim--containment-is-indentation.md`,
+devlog `2026-08-12-000-A-theory-is-a-claim*`; commits `448e8a1`,
+`b835a17`, `791441b`. Accepted costs, both filed in the skills repo's
+todo: `FLEET` now prefixes `FLEET_MAP` (theory and claim labels share
+one namespace — operator's call which side renames), and all 21
+defining claims stand `agent` because the migration signed them
+uniformly, `strata.claims.kb/purpose.md` most likely wanting `user`.
+The strata root took the label `ENGINE` (`STRATA_CLAIMS` prefixed
+`STRATA`). Also filed there: `llm.kb-validate .` counts 12 errors from
+inside gitignored `trash/`.
