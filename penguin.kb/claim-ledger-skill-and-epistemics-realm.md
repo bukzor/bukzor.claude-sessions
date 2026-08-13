@@ -144,3 +144,22 @@ uniformly, `strata.claims.kb/purpose.md` most likely wanting `user`.
 The strata root took the label `ENGINE` (`STRATA_CLAIMS` prefixed
 `STRATA`). Also filed there: `llm.kb-validate .` counts 12 errors from
 inside gitignored `trash/`.
+
+Pickup (2026-08-13, same fifth uuid): closed that last item. `llm.kb-validate`
+now filters what its walk *discovers* through git -- a `.kb/` under `trash/` is
+scratch, not corpus -- while a path named on the command line is validated
+whatever git thinks of it. Two operator review notes shaped the rest, and both
+paid: no fail-soft and no swallowed stderr (the only message kept off the
+terminal is `fatal: not a git repository`, which is an answer rather than an
+error), and ask git per path instead of probing for a `.git`, since
+`check-ignore` performs git's own discovery. The second surfaced a crash the
+fail-soft had been hiding -- `check-ignore` refuses a pathspec inside a
+submodule, which a batched query anchored at the expanding directory hands it
+whenever a submodule holds `.kb/` collections below a non-`.kb` name. Devlog
+`llm-kb/docs/dev/devlog/2026-08-13-000-what-git-ignores-is-not-corpus.md`;
+commits `895c8ec`, `8c5ee24`, `6d65b97`, `9ebc50c`. A literal `-prune` rewrite
+was measured and dropped (discovery is 7% of runtime). Still open, unchanged:
+the `FLEET`/`FLEET_MAP` rename side and the 21 defining claims standing
+`agent`. The 8 errors now at the repo root are not ours -- the peer
+replication-run session's new `strata.replication.run.kb/` types `sent`/
+`replied` as `string` against unquoted ISO timestamps; they have been told.
