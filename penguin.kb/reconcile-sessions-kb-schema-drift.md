@@ -1,32 +1,33 @@
 ---
 cwd: /home/bukzor/.claude
 session:
-  started: null
+  uuid: # chronological; append your uuid when picking this entry up
+    - 315152a8-93a9-4305-8bf4-3dad30e4b8f3
+  started: 2026-05-27 # the inventory sweep; the instant is not recorded
   ended: null
 ---
 # Reconcile sessions.kb Schema Drift
 
-`bin/llm.kb-validate ~/.claude/sessions.kb` reports 11 of 28 entries
-failing against `~/.claude/sessions.jsonschema.yaml`. The schema and the
-corpus have diverged: entries adopted fields and value shapes the schema
-never blessed, and the schema's `additionalProperties: false` now rejects
-them. This session decides, per category, whether the schema is behind
-(extend it) or the entries are wrong (fix them), then makes the corpus
-validate clean.
+`llm.kb-validate ~/.claude/sessions.kb` reported entries failing against
+`~/.claude/sessions.jsonschema.yaml`: 11 of 28 at the 2026-05-27
+inventory, 14 of 94 by 2026-08-13. The schema and the corpus had
+diverged -- entries adopted fields and value shapes the schema never
+blessed, and `additionalProperties: false` rejected them. This entry
+decides, per field, whether the schema is behind (extend it) or the
+entries are wrong (fix them), and makes the corpus validate clean.
 
 ## The decision
 
-Two directions, applied per-field:
+Settled 2026-08-13; a ruling per field, with reasons, in
+`reconcile-sessions-kb-schema-drift.kb/2026-08-13-000-a-ruling-per-drifted-field.md`.
+In short: `cost-benefit-sweh` adopted by `$ref` into llm-subtask's
+definition rather than a copy, `parent` adopted, `prior-sessions`
+adopted under the name `provenance`, `spawned` struck, one missing
+`session` block added, and `started`/`ended` widened to take a bare
+date where the instant is unrecoverable. 94 files, 0 errors.
 
-1. Extend `sessions.jsonschema.yaml` to bless `parent`, `spawned`,
-   `prior-sessions`, and (if sessions are rated) `cost-benefit-sweh`.
-   These encode a real session-graph the user maintains.
-2. Normalize the malformed values: drop or null-allow `uuid`, and
-   re-emit `started`/`ended` as full RFC3339 instants. Add the missing
-   `session` block to the one entry lacking it.
-
-Done when `bin/llm.kb-validate ~/.claude/sessions.kb` is clean and the
-schema documents whatever new fields it gained.
+What remains open is the normalization below -- corpus-wide renames,
+not schema questions.
 
 ## Additional normalization (added 2026-07-19, from the T3 design session)
 

@@ -4,7 +4,7 @@ session:
   uuid: []
   started: null
   ended: null
-prior-sessions:
+provenance:
   - uuid: 8eb1d4e4-f6ef-4356-a1f9-196748934a4e
     started: 2026-05-21T10:46:43-05:00
     ended: 2026-05-21T12:31:28-05:00

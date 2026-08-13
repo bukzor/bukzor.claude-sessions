@@ -1,5 +1,8 @@
 ---
 cwd: /home/bukzor
+session:
+  started: null # planned; the work has not begun
+  ended: null
 ---
 # Move skill auto-load triggers from SKILL.md descriptions to must-read.kb
 
