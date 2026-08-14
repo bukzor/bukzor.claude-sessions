@@ -3,6 +3,7 @@ cwd: /home/bukzor/claude/bukzor-packaging
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - 1ce769c9-b940-433c-82e9-18978cdf6646
+    - 8a7520b0-9bf2-424e-a968-3f183fe6074b
   started: 2026-08-13T16:51:16-05:00
   ended: null
 ---
@@ -22,7 +23,7 @@ machinery, not the number) and a bespoke schema (loses on re-derivation).
 Then bukzor reported being lost — "tempted to reset everything to two days
 ago" — and both sessions froze all edits, commits, and ruling talk. The
 orientation map was delivered: baseline `5db0ce4` (end of 08-11), 8 commits
-since (+313/−33), plus alignment's 8-file uncommitted batch; graph lint clean
+since (+313/−33), plus alignment's 8-file batch; graph lint clean
 (51 nodes, 98 edges, acyclic); seams green, coherence/composition/retirement
 red = the documented backlog, not damage.
 
@@ -43,12 +44,14 @@ Open work:
       `todo.jsonschema.yaml` gains the `horizon` sub-attribute plus one
       rank-normalization sentence (`@value × (P2W/horizon)` before WSJF) —
       shared skill, needs bukzor's approval. Full ruled state also in the
-      repo's `requirements.md` R4 (alignment's file, uncommitted).
+      repo's `requirements.md` R4 (committed, `f820840`).
 - [ ] The audience-benefit numerator in genesis (does audience multiply b?)
       — queued ruling touching user-signed QUOTIENT; partially subsumed by
       the R4 unit work but not decided.
 - [ ] R2 (instruments hardwire `claude-*`; population must be an input) —
       bukzor de-emphasized this mid-review; confirm before starting.
-- [ ] Alignment's uncommitted batch (requirements.md + charter reframing,
-      8 files, +55/−42): disposition is bukzor's call — do not commit or
-      discard on agent initiative.
+- [x] Alignment's batch (requirements.md + charter reframing, 8 files):
+      committed as `f820840` by bukzor's `/session-end` in the alignment
+      session (default args: commit; push), 2026-08-13T16:54. Nothing
+      uncommitted remains in the repo, so the keep/prune/reset decision now
+      applies uniformly to commits — all recoverable, whatever is ruled.
