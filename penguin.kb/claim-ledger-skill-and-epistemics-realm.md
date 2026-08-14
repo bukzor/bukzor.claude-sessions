@@ -163,3 +163,55 @@ the `FLEET`/`FLEET_MAP` rename side and the 21 defining claims standing
 `agent`. The 8 errors now at the repo root are not ours -- the peer
 replication-run session's new `strata.replication.run.kb/` types `sent`/
 `replied` as `string` against unquoted ISO timestamps; they have been told.
+
+Pickup (2026-08-13 afternoon, same fifth uuid): `defeated-by:` became
+`stale-when:`, on a proposal from the replication-run peer and a ruling
+that was mine to make. The old name asked a header to predict an
+outcome; whether a finding retires a theory or repairs it is decided
+when the finding lands, and surveying the corpus most "defeaters"
+resolve as repairs. `stale-when:` is `last-updated:`'s missing half --
+the stamp, and the observable condition that voids it. Every existing
+value survived verbatim, which is the evidence the field was already
+written as a condition and only described as a verdict. NOTATION's
+stipulated word `defeater` became `staleness condition`; that is a
+revision to a defining claim, signed `agent`, **veto still invited and
+unexercised**. `read_claim` asserts the old key's absence, so an
+unmigrated ledger fails loudly instead of dropping the line. Two
+byte-identical copies of `claim.jsonschema.yaml` folded into the
+canonical (a `skill://` stub, a symlink). Commit `3862512`, devlog
+`docs/dev/devlog/2026-08-13-000-stale-when-replaces-defeated-by*`, ADR
+`2026-08-11-000` amended rather than edited.
+
+Then the strata ledger's thirteen lines landed on main (`03911d9`), and
+the repo went 20 errors to 8. Worth knowing for next time: the peer
+reported "migrated", and it was not -- the work sat in an env worktree
+(`env-2026-08-13`) that forks from a snapshot rather than main and was
+due to be rebuilt from it, so it would have evaporated. Checking `git
+log` rather than taking the report is what caught it. The landing was
+done from this side deliberately: main carries the replication run
+record, which that experiment's subject must not read. `-n` cherry-pick
+plus `git commit-staged` on explicit paths, author date preserved,
+`git diff` between source and landed commit empty. Attribution of the
+env-worktree commits `186e256`/`31f0b70` was later corrected by another
+session in the skills repo's `.claude/todo.md` -- read the note there
+rather than trusting this paragraph's "peer" framing.
+
+Remaining 8 errors are `strata.replication.run.kb/` timestamps
+(`replied:` -> `took:` as a duration, `sent:` typed with llmd's
+date-time, 8 frontmatter blocks). The fix is fully specified and
+**gated on the operator's word**, which has not come; the peer holds it
+and declined to delegate it. Nobody should execute it without hearing
+that word first-hand.
+
+If the operator wants this arc gone: `git revert 891fd7e 03911d9
+3862512` in the skills repo takes it out cleanly, and nothing
+downstream breaks -- the peer's sandbox was slated for rebuild anyway.
+That option is cheap and stays open; it was offered 2026-08-13 and not
+taken up either way.
+
+Two operator concerns surfaced this session, each with its own entry:
+`commit-the-dotfiles-governance-drift.md` (two days of uncommitted
+edits to CLAUDE.md / must-read.kb / settings.json -- and why resetting
+there, unlike in the skills repo, destroys rather than restores) and
+`decide-the-inbound-peer-message-channel.md` (whether cross-session
+messaging stays on at all).
