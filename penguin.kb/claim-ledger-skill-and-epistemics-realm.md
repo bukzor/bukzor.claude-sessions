@@ -7,6 +7,7 @@ session:
     - cea2b7a6-c009-4e4b-b856-66434ae55978
     - 1fab91a6-1013-4508-9fe7-aeda9aadfa89
     - 315152a8-93a9-4305-8bf4-3dad30e4b8f3
+    - f144b4b8-84c9-4e7d-bf32-42f5ed7e4d5b
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -215,3 +216,32 @@ edits to CLAUDE.md / must-read.kb / settings.json -- and why resetting
 there, unlike in the skills repo, destroys rather than restores) and
 `decide-the-inbound-peer-message-channel.md` (whether cross-session
 messaging stays on at all).
+
+Pickup (2026-08-20, sixth uuid, session "onto-review"; harness cwd
+meta-reasoning/2026-08-14--source-survey, all work in
+bukzor-agent-skills): the ownership arc. Confinement grew into law:
+`ownership.py` beside `llm-claims/design.claims.kb/ownership.md`
+(CONTENTION, OUTERMOST_WINS, SORT_REACH, TRESPASS, EXCLUSION_FORCE,
+FOUR_POSITIONS, IDLE_UNDECIDABLE), run over the real fleet by
+`llm-claims-kb/bin/llm-claims-kb-ownership` (`3008def`). All 13
+sibling doubles adjudicated under the user's plain-English ruling --
+cull or narrow; my centrality-as-coinage sort was overturned and
+SHOULD_OWN settled as use-signals-violation (`53a7e45`, devlog 005).
+Adjudication procedure filed as ownership.kb claims (DOCKET, PLAIN,
+TRIAGE, IDLE_TEST). The scan then learned the support lens --
+claim-level `why:` paths witness an import's liveness (`2b1ef87`,
+devlog 008) -- and the last idle survivor dissolved by refiling:
+FATE's likelihood section was a lodger restating strata's TESTIMONY,
+SCALAR's one dependent sentence duplicated MIGRATE's escrow ruling
+(`2e1adb6`, devlog 009). Ruling worth keeping: a file-path cite is a
+reference, backticked or not; mutual reach across an arrow means
+misfiled content, and IDLE_TEST now carries the refile outcome. A
+concurrent session worked the same repo throughout (standing-pair
+renames, trespass docket 253 -> 9; devlogs 006/007/010) -- its two
+open queues (9 trespasses, 1 idle import) are in flight and not this
+line's to work.
+
+- [ ] bukzor-agent-skills: authorship.kb's `instances-cite-the-skill`
+      and `skills-are-operator-composed` never joined the design
+      ledger's graph (no `why:`, no citers) -- join or adjudicate;
+      flagged in devlog `2026-08-20-009`
