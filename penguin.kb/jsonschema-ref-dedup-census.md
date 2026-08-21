@@ -26,6 +26,16 @@ is ready; the actual census/dedup logic is not written yet.
   (by `*.jsonschema.*`/`*.schema.json`/`*.schema.y*ml` naming, union a
   `$schema`-key content sniff for files that predate the convention).
 
+## Continued in a later session
+
+The dedup analysis below was done on 2026-08-21 by session
+`531674aa-acea-44f2-b221-058134337e71` -- see
+`jsonschema-ref-rollout-beyond-todo-ideas.md`. It did not need the
+subtree-hashing tool sketched here: the duplicates were whole-file copies
+of known canonicals, so a category table plus git-blob comparison found
+them. The tool below is still unwritten and still a reasonable idea for
+finding *partial* duplication.
+
 ## Not started: the actual dedup analysis
 
 Planned (not written): parse each found schema, canonicalize subtrees
