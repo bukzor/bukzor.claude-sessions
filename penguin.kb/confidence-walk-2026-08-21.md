@@ -1,0 +1,1 @@
+../../../claude/meta-reasoning/.claude/sessions.kb/confidence-walk-2026-08-21.md
