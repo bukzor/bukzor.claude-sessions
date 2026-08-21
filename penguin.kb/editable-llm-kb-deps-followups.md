@@ -10,21 +10,22 @@ session:
 
 Swept every path-based `uv.sources` dependency on llm-kb/llm-claims-kb
 homedir-wide (15 entries across 15 repos) and added `editable = true` to
-each, synced, committed, and pushed 14 of them. Also updated
-`llm-kb`/`llm-claims-kb` `SKILL.md` `setup:` docs to prescribe `uv add
---editable ../path/...` for external (non-workspace-member) consumers,
-which was previously undocumented. Two loose ends surfaced along the way:
+each, synced, committed, and pushed all 15 of them (2 of the 15 have no
+configured git remote — local-only repos, committed but unpushed by
+design). Also updated `llm-kb`/`llm-claims-kb` `SKILL.md` `setup:` docs to
+prescribe `uv add --editable ../path/...` for external
+(non-workspace-member) consumers, which was previously undocumented.
 
-- [ ] `bukzor/template.python-project`'s `prettier` pre-commit hook
-  (`entry: pnpm-run prettier --write --ignore-unknown`) fails with
-  `Executable 'pnpm-run' not found` — `pnpm-run` doesn't exist anywhere
-  on this host. Blocks all commits touching prettier-matched files in
-  that repo, not just this one. The editable-install fix
-  (`pyproject.toml`/`uv.lock`/`CLAUDE.md`) is made and staged there but
-  **not committed** — left alone rather than `--no-verify`. Fix
-  `pnpm-run` (or the hook config), then `git -C
-  ~/repo/github.com/bukzor/template.python-project commit-staged
-  pyproject.toml uv.lock CLAUDE.md -- -m '...'`.
+`bukzor/template.python-project`'s `prettier` pre-commit hook
+(`entry: pnpm-run prettier --write --ignore-unknown`) initially failed with
+`Executable 'pnpm-run' not found` — `pnpm-run` is a repo-local script
+(`bin/pnpm-run`) only resolvable once the repo's `.envrc` is activated
+(`cd <repo> && eval "$(direnv export bash)"`), which a bare non-interactive
+shell doesn't do automatically. Activated it and committed `1486fb3`,
+pushed. Not a hook bug — just needed direnv active.
+
+One loose end remains:
+
 - [ ] `md-frontmatter`/`md-frontmatter-set` (via `yq -f extract`) mis-parses
   any `CLAUDE.md` whose frontmatter opens with the `--- # workaround:
   anthropics/claude-code#13003` comment-fence pattern **and** has 2+
