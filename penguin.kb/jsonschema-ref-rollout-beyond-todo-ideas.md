@@ -4,7 +4,7 @@ session:
   uuid:
     - 531674aa-acea-44f2-b221-058134337e71
   started: 2026-08-21T10:41:45-05:00
-  ended: 2026-08-21T12:34:28-05:00
+  ended: 2026-08-21T15:52:06-05:00
 ---
 # JSON Schema $ref Rollout Beyond todo/ideas
 
@@ -23,16 +23,21 @@ exact complement of the 2026-07-07 sweep's hardcoded two-category scope.
 
 ## Landed
 
-- **A** (`2026-08-21-000`, `in-progress`): copies-to-stubs generalized to
+- **A** (`2026-08-21-000`, `complete`): copies-to-stubs generalized to
   nine categories via `categories.tsv`. 18 files stubbed across 7
   projects; 69 OK / 2 ALIAS / 1 EXTENDER / 9 CANON-OK / 14 DIVERGED.
   Six canonicals had a closed root with no `#base` and were converted to
-  the two-entry-point form (the entry predicted one).
+  the two-entry-point form (the entry predicted one). All 14 DIVERGED
+  judged 2026-08-21: 11 stale -> stubbed, 1 -> `#base` extender, 2
+  genuinely rival -> standalone with the reason written into the file.
 - **B** (`2026-08-21-001`, `complete`): six incident-forensics schemas out
   of `skeleton/` into `jsonschema/`, three sites stubbed.
-- **C** (`2026-08-21-002`, `in-progress`): 268 of 271 `why:` refs rewritten
+- **C** (`2026-08-21-002`, `complete`): 271 of 271 `why:` refs rewritten
   from slugs to paths across 175 files in 8 towers; layer schemas bound to
   the new canonical. Idempotency demonstrated by md5 diff, not asserted.
+  The last 3 were ambiguous by prose and settled by distribution: 13 of 13
+  sibling refs in that layer target `030-requirements.kb/` and none
+  targets a 040 sibling.
 - **Cluster 6**: new `llm-sessions` skill; `~/.claude/sessions.jsonschema.yaml`
   is now a stub onto it.
 - **D** (`2026-08-21-003`, `complete`): 30 schema *symlinks* to `$ref`
@@ -46,28 +51,34 @@ exact complement of the 2026-07-07 sweep's hardcoded two-category scope.
 
 ## Open work
 
-- [ ] Judge the 14 DIVERGED files. 6 are `template.python-project` stale
-      snapshots (2 differ from canonical only in dialect/wrapping -- the
-      strongest stub candidates); 8 carry real local intent. This is the
-      only thing holding A at `in-progress`.
-- [ ] Disambiguate 3 `canonical-conversation-graph` slugs in
-      `prototype.chatfs` -- the name exists at both `030-requirements.kb/`
-      and `040-design.kb/` and the prose does not settle it. C refused to
-      guess; they sit as visible validator errors.
+- [x] Judge the 14 DIVERGED files. Done. Both survivors that stayed
+      standalone are rival over the *same field*, `status`: epistemics
+      carries warrant by field presence and exists to remove the
+      canonical's `status` requirement, and chatfs's `dev.kb/claims` is an
+      observation ledger with a disjoint enum. That is where this schema
+      family is actually contested.
+- [x] Disambiguate 3 `canonical-conversation-graph` slugs in
+      `prototype.chatfs`. Done -- all three are `030-requirements.kb/`,
+      settled by distribution rather than by re-reading the prose.
 - [ ] Re-run the em-dash migration `2026-05-21-000` with
       `*.jsonschema.yaml` descriptions in scope. Em dashes drifted back
       into the canonicals themselves (5 in llm-subtask's todo schema, 6
       across the discourse quintet); a prose-oriented sweep misses data
       files.
-- [ ] Judge the 15 errors migration D newly exposed in
-      `scratch.vim-work/docs/sources/2026-03-02-*.kb/`. That tree
-      validated at 44/44 failing because its schema symlinks dangled;
-      29 of the 44 conform and had simply never been checked. Same shape
-      of question as the 14 DIVERGED, different tree.
-- [ ] `template.python-project` has 4 files uncommitted because its
-      pre-commit `prettier` hook calls `pnpm-run`, which exists nowhere
-      on this machine. Pre-existing broken hook, not migration damage.
-      Agent C declined to `--no-verify` past it, correctly.
+- [x] Judge the 15 errors migration D newly exposed in
+      `scratch.vim-work`. Done: 15 -> 0, and the stale-or-intentional
+      framing applied to **none** of them. All 15 said `No schema found`.
+      Schemas resolve strictly as a sibling of the `.kb/` they govern,
+      and the two elaborated questions are legitimate nested scopes with
+      no schema beside them. Fixed with 7 sibling stubs, zero frontmatter
+      edited. The symlink-era graph got schemas at its root, where the
+      author was standing; every scope elaborated later was invisible.
+- [x] `template.python-project`'s `prettier` hook. Fixed -- but the
+      premise above is wrong: `pnpm-run` *does* exist, at
+      `<repo>/bin/pnpm-run`, put on PATH by `.envrc` via direnv. The hook worked inside a direnv
+      shell and nowhere else, including under pre-commit. Now
+      `entry: bin/pnpm-run`. The copier template still emits the broken
+      form; that is open.
 - [ ] `~/claude/meta-reasoning` has no `origin` configured, so two
       sessions' worth of committed work sits local-only. Same for
       `~/claude/crostini-health` (localhost-backed).
@@ -107,10 +118,36 @@ is a failure of the migration; both are worth a look.
 
 ## Notes for the next session
 
-`2026-05-15-000-schema-propagation-from-canonical` must NOT have its scope
-widened until the 14 are judged -- its validator now covers all nine
-categories but does not pass homedir-wide. A recurring guard whose stated
-scope exceeds what its validator checks is worse than a narrow one.
+`2026-05-15-000-schema-propagation-from-canonical` **was widened**
+2026-08-21, once the 14 were judged. The rule it was held back by still
+stands -- a recurring guard whose stated scope exceeds what its validator
+checks is worse than a narrow one -- but the widening turned up something
+the plan did not anticipate.
+
+The plan was to copy migration A's nine-row `categories.tsv`. The
+filesystem had **nineteen** published canonicals. A hand-maintained list
+of what exists drifts from what exists, and this one was nine behind. So
+the table was deleted rather than copied: `lib.sh` now derives categories
+by globbing `<skill>/jsonschema/`, which makes publishing a canonical the
+act that enrolls it. No exclusion list either -- `dialect` and
+`layer-entry` are published but have no `.kb/`, so the guard is vacuous
+on them without being told, and an exclusion list would be a second thing
+to keep in sync.
+
+Two further widenings fell out: the roots (`~/claude` and `~/.claude` had
+**never** been swept) and the path shape (only `.claude/<category>.kb/`
+was matched, so nested collections were invisible -- the same defect
+found one level down in `scratch.vim-work`).
+
+Residual: **42 findings, 32 MISSING and 10 NO-REF.** Ten were already in
+the old scope and old root. The guard is `kind: recurring` and had last
+run 2026-07-07: six weeks of ordinary drift on a check that only runs
+when someone opens a migration. Worth deciding whether recurring guards
+get a schedule; one that nobody runs is a `complete` one that lies.
+
+The 42 understates the work. Each stub `migrate.sh` writes subjects a
+collection to validation for the *first time* -- `scratch.vim-work` is
+the precedent, where one schema resolving newly checked 44 files.
 
 `incident-forensics` is NOT unswept, despite an earlier claim of mine to
 the contrary: it holds exactly one file in A's category table
@@ -136,3 +173,18 @@ permission first."
 three agents otherwise. Separately, `~/.claude/sessions.kb/` is its own
 repo nested inside it. Check with `rev-parse --show-toplevel` before
 asserting a path is uncommittable.
+
+**The validator caught me using `in-progress`.** One commit after
+recording *why* the todo canonical omits that value -- session liveness
+belongs in `sessions.kb`, because nothing transitions it back when a
+session dies -- I set `status: in-progress` on the parent todo. Knowing
+the rule and having just written it down did not prevent breaking it,
+which is the argument for these guards being machine-run rather than
+remembered.
+
+**Two exclusions went stale the day they were written.** Migration A's
+`excluded-prefixes.txt` deferred `incident-forensics/` (waiting on
+2026-08-21-001) and `~/.claude/sessions` (waiting on an addressing
+decision). Both blockers cleared *within the same session*, and nothing
+went back to remove the exclusions. An exclusion that names its blocker
+should be re-read whenever that blocker closes.
