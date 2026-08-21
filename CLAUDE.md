@@ -152,7 +152,8 @@ artifacts, or that should appear in the project's grep results. In
 that case:
 
 - on-disk home: `<project>/.claude/sessions.kb/<slug>.md`
-- symlink: `~/.claude/sessions.kb/<slug>.md` → on-disk home
+- symlink: `~/.claude/sessions.kb/<hostname>.kb/<slug>.md` → on-disk
+  home (per-host, same as any entry — sessions are host-bound)
 
 This is an optional scheme. The default (directly in
 `~/.claude/sessions.kb/`) is simpler and should be preferred unless
