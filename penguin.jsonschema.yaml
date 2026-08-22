@@ -1,5 +1,35 @@
-# yaml-language-server: $schema=https://json-schema.org/draft-07/schema
-# Per-host indirection: llm.kb-validate resolves `penguin.kb/*.md` against
-# `penguin.jsonschema.yaml`, so each host directory needs one of these. The
-# schema itself is shared and lives one level up, in dotfiles.
-$ref: "../sessions.jsonschema.yaml"
+# yaml-language-server: $schema=https://json-schema.org/draft/2020-12/schema
+title: Penguin Frontmatter
+description: >
+  Frontmatter for penguin.kb/ collection items.
+type: object
+required: []
+additionalProperties: false
+properties:
+  color:
+    description: Color
+    type: string
+    enum: ['pink', 'yellow']
+  cost-benefit-sweh:
+    description: Cost benefit sweh
+    type: string
+  cwd:
+    description: Working directory
+    type: string
+  focus:
+    description: Focus
+    type: array
+    items:
+      type: string
+  parent:
+    description: Parent
+    type: string
+    enum: ['backlog-triage-with-cost-of-delay.md']
+  provenance:
+    description: Provenance
+    type: array
+    items:
+      type: string
+  session:
+    description: Session identifier
+    type: string
