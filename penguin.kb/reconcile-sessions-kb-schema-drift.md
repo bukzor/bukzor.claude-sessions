@@ -61,8 +61,10 @@ not schema questions.
 ## Addenda
 
 Dated pickup write-ups moved to `reconcile-sessions-kb-schema-drift.kb/`
-— one file per addendum, `ls` for the full chronological list. Latest
-(and only, so far): 2026-05-27, the violation inventory that drove
+— one file per addendum, `ls` for the full chronological list. Latest:
+2026-08-22, `penguin.jsonschema.yaml`'s silent regression to a flat
+inferred schema (all entries failing again), found and fixed back to the
+`$ref` stub. Earliest: 2026-05-27, the violation inventory that drove
 "The decision" above. (The "Additional normalization" open items above
 stay here rather than in the addenda kb, since they're live `- [ ]`
 tasks -- burying them in a dated sub-file would make them invisible to
