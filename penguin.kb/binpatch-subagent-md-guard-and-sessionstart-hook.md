@@ -28,13 +28,13 @@ Operational notes for the next session:
   (and any concurrent one open at patch time) still block MD reports until
   restarted.
 - The hook wiring in `~/.claude/settings.json` (home repo, branch
-  `svelte-crostini`) is live on disk but deliberately UNCOMMITTED: that file
-  also carries the user's own runtime config drift (model, `defaultMode`,
-  `autoCompactEnabled`, permission-list additions) that isn't this session's
-  work, and the `commit-files`/`commit-staged` tools are path-granular (no
-  clean way to isolate just the hook hunk). The user commits `settings.json`
-  on their own cadence; the `SessionStart` block rides along in their next
-  settings commit.
+  `svelte-crostini`) is committed as `14acd83` (pushed). That file also
+  carries the user's own runtime-config drift (model, `autoCompact`,
+  permission-list additions) that isn't this session's work; since
+  `commit-files`/`commit-staged` are path-granular and can't isolate a single
+  hunk, the hook was committed alone via a working-tree swap -- stage a
+  HEAD+hook-only copy of the file, commit, then restore the hook+drift working
+  tree. The drift stays uncommitted for the user to handle on their own cadence.
 
 Live follow-up -- renaming the mitmproxy repo to encompass both works (the
 proxy and binpatch). Owned by `~/claude/mitmproxy/.claude/todo.md` `## Later`,
@@ -44,4 +44,5 @@ the `~/.claude/settings.json` SessionStart hook path (this entry's, above), and
 the `~/.claude/{system-prompt,tool-description}-patches.d/README.md` that cite
 `~/claude/mitmproxy/`.
 
-Delete this file once the rename lands (or is dropped) and the hook is committed.
+Delete this file once the rename lands (or is dropped) -- the hook is
+committed (`14acd83`).
