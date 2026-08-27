@@ -3,8 +3,9 @@ cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
 session:
   uuid:
     - 531674aa-acea-44f2-b221-058134337e71
+    - abb60cf6-2a2c-48ec-aa0b-507755534106
   started: 2026-08-21T10:41:45-05:00
-  ended: 2026-08-21T15:52:06-05:00
+  ended: 2026-08-27T17:36:18-05:00
 ---
 # JSON Schema $ref Rollout Beyond todo/ideas
 
@@ -115,6 +116,64 @@ Two repos hold committed work that cannot be pushed for want of a
 configured remote: `~/claude/meta-reasoning` (2 stubs) and
 `~/claude/crostini-health` (6 stubs, backed by a localhost store). Neither
 is a failure of the migration; both are worth a look.
+
+## 2026-08-27: lane -005 ruled, five for five
+
+The second session ran from `~/claude/meta-reasoning` (a `/session-end`
+there is why the cwd above does not match) but wrote only in
+`bukzor-agent-skills`. It worked lane `-005` — the five fleet rulings
+that gate the other five lanes — end to end: researched each, wrote a
+recommendation with the case for and against, and stopped. The owner
+ruled all five the same day, and each verdict is appended to its own
+recommendation file under
+`llm-kb/.claude/todo.kb/2026-08-23-005-*.kb/`.
+
+| # | ruling | verdict |
+| --- | --- | --- |
+| 1 | decision-lifecycle trio | canonicalize in `llm-design-kb`, 7 consumers, zero instance edits |
+| 2 | four canonical-less collections | no canonical for any; local schemas for three; `curriculum` struck |
+| 3 | `live:` axis | deductions yes, questions no |
+| 4 | recurring-guard schedule | adopt as a trial: one daily anacron row, files a report, blocks nothing |
+| 5 | guard roots include `~`? | no; `$HOME/.vim` joins `ROOTS` instead |
+
+**Nothing was applied.** The lane's charter was to recommend and record;
+execution is `llm-kb/.claude/todo.kb/2026-08-27-000-Execute-the-five-fleet-verdicts-from-lane--005.md`,
+whose anacron step is gated on
+`…/2026-08-27-001-Guard-admission-blockers-before-the-anacron-trial.md`
+— nine of the guard's ten current findings are the guard's own
+`claims`-vs-`claim` table defect.
+
+Three claims landed in `llm-kb/claims.kb/design.claims.kb/`, all
+`standing: agent` with the veto window open: `STUB_IS_SCHEMA` (a sibling
+schema that exists **is** the schema, however short — the gap that let
+2026-08-22's "add schemas where missing" overwrite 254 stubs),
+`GUARD_SCHEDULE`, and `STATUS_ENUM` (there is no `status` canonical to
+write, and there never will be — eight vocabularies, two independent
+surveys overlapping in one entry).
+
+The 2026-08-22 blast is **fully reverted**: it had never been committed
+anywhere, surviving only in the working tree of the second `dotfiles`
+checkout at `~/repo/github.com/bukzor/dotfiles`. `git log -G` across
+three repos since 2026-08-15 found only stub-*adding* commits, so the
+`--fixup`/`--autosquash` the owner reached for had nothing to operate
+on. Guard findings 17 → 10.
+
+Still open from this sitting:
+
+- [ ] **Session 2 has not started.** The other five lanes
+      (`2026-08-23-000` … `-004`) are untouched: `-003` runs alone, the
+      rest in parallel, each with its own sole-writer glob and its
+      prohibitions. Read them as written — "an agent that finishes early
+      does not go looking for more."
+- [ ] Two untracked schemas in the stale `dotfiles` clone,
+      `.claude/{reference,user-preferences}.jsonschema.yaml`, are the
+      wanted half of the 2026-08-22 sitting and exist nowhere else, not
+      even in the live `$HOME` tree. They should move there and be
+      committed. Awaiting the owner's word.
+- [ ] The stale clone itself deserves the `*--replication-run`
+      treatment (prune it, or prefer the live tree), and the guard's
+      `-name .git` prune misses `~/.local/state/git-localhost-store`
+      git dirs.
 
 ## Notes for the next session
 
