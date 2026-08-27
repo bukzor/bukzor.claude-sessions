@@ -53,10 +53,6 @@ Three commits on `svelte-crostini`, pushed: `3f0a8ba` (shell), `cab90f2`
 
 ## Live follow-ups
 
-- [ ] Rule on `.gitignore`: it carries this session's `/pnpm-lock.yaml` line
-      *and* a pre-existing `backups/` line from other work, so it was left
-      uncommitted rather than sweeping someone else's change into a pnpm
-      commit. Commit both together, or split.
 - [ ] Decide whether to report pnpm's third bug upstream. Two were ruled
       not-worth-filing (`ERR_PNPM_UNEXPECTED_STORE` recommends a command that
       cannot fix it; `pnpm config set --global` refuses to run in exactly the
