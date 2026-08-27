@@ -36,9 +36,14 @@ Three commits on `svelte-crostini`, pushed: `3f0a8ba` (shell), `cab90f2`
   tracked manifest, one install with a fixed flag list, `--allow-build=bun`,
   `corepack use pnpm@latest`, and a smoke test that would have caught the
   original failure on day one.
-- `path.sh` no longer aborts `.profile` under errexit (a `grep` with no
-  matches exits 1); `source_dir` reports a file whose last command failed
-  while leaving errexit armed.
+- Two separate aborts of `.profile` under errexit, both dating to the
+  2026-07-09 env.d migration and both fatal to every anacron job: a `grep`
+  matching nothing in `path.sh`, and `HOMEBREW="$(command -v brew)"` in
+  `300-homebrew.sh`, which runs six hundred numbers before PATH gets
+  homebrew. Nothing read `$HOMEBREW`, so it is gone. `source_dir` now reports
+  a file whose last command failed, with errexit still armed, and
+  `.profile_test.sh` sources under `set -e` -- the mode cron uses, and the
+  one its existing clean-stderr assertion could never see.
 - `logrotate-cron` writes `<job>.status`; `.config/sh/rc.d/cron-status.sh`
   warns at shell start; `.config/anacron/cron-health_check.sh` joins the
   `redo test` fan-out.
@@ -60,6 +65,9 @@ Three commits on `svelte-crostini`, pushed: `3f0a8ba` (shell), `cab90f2`
       fresh empty global directory and **unlinked the five unrelated global
       bins**. Global installs are keyed on effective settings.
       `Skill(upstream-reporting)` if it goes.
+- Nothing else is known-broken: both jobs were re-run under a cron-identical
+  `env -i ... PATH=/usr/bin:/bin` shell and exited 0. That environment, not
+  a login shell, is the one that matters here.
 - Smaller items live in `~/.claude/todo.md` (trash purge, `~/prefix/npm/`,
   the `functions.sh` loop, corepack's version-coupled shims).
 
@@ -71,6 +79,9 @@ Three commits on `svelte-crostini`, pushed: `3f0a8ba` (shell), `cab90f2`
 - `status` is read-only in zsh. A `status=$?` in shared shell config breaks
   every zsh startup; the four-shell `redo test` fan-out is what caught it,
   along with busybox awk rejecting bare `length`.
+- Clean stderr is not the signal for shell-config health; errexit is. A
+  failed command substitution prints nothing and exits 1, which a login
+  shell shrugs off and every `set -e` cron job dies on.
 - `har-browse` is now installed globally from the working tree
   (`pnpm add -g <path>`), so `har-browse`/`cdp-to-har` on PATH run the repo
   copy -- relevant to `har-browse-completeness-bugs.md`.
