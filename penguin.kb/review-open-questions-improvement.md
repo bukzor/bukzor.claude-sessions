@@ -130,3 +130,22 @@ bad"):
   (staged draft), chained to the approve-or-ratify factoring entry;
   SKILL.md amended to match (staged). Nothing committed; owner rules
   by editing the staged files.
+
+DRY pass, same day (owner: "that makes perfect sense to me. please
+do."): the two bank siblings merged into
+`must-read.kb/before/asking-the-user-questions.md` — factoring
+(facts/adequacy/acts) then form (preconditions, success criteria,
+tools); both old filenames survive as symlink aliases. SKILL.md shed
+all ask-side form law (labels, projections, register shape, the
+uncapped-close section — its law moved into the entry's
+reply-unconstrained precondition) and keeps only the sweep: courts,
+kills, tally, cluster grain, rulings filing, reply adjudication. The
+fleet→personal path reference is deleted; the trigger system itself
+is the wiring, and the skill names only the trigger phrase. All
+still staged, uncommitted. Punt on record (on-tripwire): a
+fleet-carried home for the asking law — repo-level
+`bukzor-agent-skills/must-read.kb/` symlinked from dotfiles, or an
+imperative-named skill (`ask-the-user`; NAME_GRAMMAR in
+authorship.kb already records the owner's names-are-verbs-or-systems
+rule) — waits until an external consumer or a second fleet-wide
+entry needs it.
