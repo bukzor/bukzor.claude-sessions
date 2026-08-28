@@ -166,5 +166,16 @@ procedure (staged, uncommitted). One dangling mention of the removed
 retracting alias remains in a 2026-08-21 devlog — historical record,
 left as-is.
 
+Addendum (owner: 'anecdotally, "retracting-or-conceding-a-claim" was
+the most effective of those'): the proven name became canonical —
+`when/evaluating-a-contested-or-subjective-position.md` renamed to
+`before/retracting-or-conceding-a-claim.md`, the endorse/validate
+motion carried in its opening prose; CLAUDE.md's `Jr?` pointer
+updated; the fleet SKILL.md's `when/` example row swapped to a
+neutral slug. The doctrine gained two rules from the anecdote:
+broaden a slug only while it stays concrete (action verbs fire,
+abstract descriptions get scanned past), and keep the name that
+fires — effectiveness outranks incumbency.
+
 - [ ] ADR in llm-must-read-kb (`docs/dev/adr/`) for the
       aliasing→no-aliasing contract reversal, when the pass commits
