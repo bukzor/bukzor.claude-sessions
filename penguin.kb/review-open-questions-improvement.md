@@ -133,9 +133,9 @@ bad"):
 
 DRY pass, same day (owner: "that makes perfect sense to me. please
 do."): the two bank siblings merged into
-`must-read.kb/before/asking-the-user-questions.md` — factoring
+`must-read.kb/before/asking-the-user.md` — factoring
 (facts/adequacy/acts) then form (preconditions, success criteria,
-tools); both old filenames survive as symlink aliases. SKILL.md shed
+tools). SKILL.md shed
 all ask-side form law (labels, projections, register shape, the
 uncapped-close section — its law moved into the entry's
 reply-unconstrained precondition) and keeps only the sweep: courts,
@@ -149,3 +149,22 @@ imperative-named skill (`ask-the-user`; NAME_GRAMMAR in
 authorship.kb already records the owner's names-are-verbs-or-systems
 rule) — waits until an external consumer or a second fleet-wide
 entry needs it.
+
+No-aliases ruling, same day (owner: "What invariably happens is that
+claude reads all of them then realizes they're identical, after
+they're already duplicate in context."): all four bank symlinks
+removed — the two just minted, plus the two pre-existing aliases of
+`when/evaluating-a-contested-or-subjective-position.md`
+(contradicting-a-previous-response, retracting-or-conceding-a-claim).
+Their retrieval work moved into names and prose: the merged entry
+took the broadest honest name, `before/asking-the-user.md`, and the
+contested-position entry's intro now names the reverse motion
+(contradict / retract / concede). llm-must-read-kb's "Aliasing"
+section replaced with "No aliasing" doctrine — broaden the slug, put
+variants in opening prose, or split into two entries with a shared
+procedure (staged, uncommitted). One dangling mention of the removed
+retracting alias remains in a 2026-08-21 devlog — historical record,
+left as-is.
+
+- [ ] ADR in llm-must-read-kb (`docs/dev/adr/`) for the
+      aliasing→no-aliasing contract reversal, when the pass commits
