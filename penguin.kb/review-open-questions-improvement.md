@@ -42,3 +42,91 @@ Exhibits, in order:
   asked "Hm? Where?" and settling required both artifacts read in full
   (the trigger file and its target), which then dissolved the question
   entirely. Present artifacts, not summaries of artifacts.
+- (added later, same day) The format the owner endorses: "Please craft
+  a listing of easy-to-understand, easy-to-answer questions that gives
+  both you and me confidence that you've chosen the correct
+  'direction' to correct each misalignment" — then H2 per group of
+  questions, H3 per question: "That seems like a good organization,
+  i think."
+
+Corpus (claude-code-archeology sweep, 2026-08-28; line numbers are
+JSONL lines under `~/.claude/projects/`):
+
+- 98f2be37 L1431→L1434 (Aug 21, bukzor-agent-skills): faithful
+  five-part narrative walkthrough, ~15k chars — "that's so long :( /
+  can you give me a listing of items i can agree/disagree/correct?"
+- 98f2be37 L1439→L1446: the repair that worked — 11 numbered items
+  grouped by the reply owed (facts, correct me if wrong / decisions I
+  need from you / already done, veto any), 1–3 sentences each, "My
+  rec:" inline, "reply with numbers and yes/no/correction"; the owner
+  quote-replied every item substantively.
+- 98f2be37 L1477: "This workflow sucks. Real bad. I have a bunch of
+  toil copy-pasting your answer and formatting it, and your multipart
+  responses get separated from their referents making them
+  inscrutible." → origin of the register-as-presentation law. The toil
+  is owner-side quote-reply prose, not chat presentation per se.
+- 33e3067f L199 (Aug 23): "i didn't read your … section because the
+  synthesis is lacking. all the items you listed are second- or
+  third-order concerns about this deep stack frame of a larger piece"
+  — items must arrive synthesized at the frame the owner owns.
+- d5828a77 L859ff (Aug 26, real /review-open-questions run, file
+  register): "editing in place? where?"; "a vim command would be
+  helpful"; "commit seems premature. uncommit, leave it staged"; owner
+  ruled by editing files inline ("ruled the other two questions,
+  inline. use git-diff") — the register law works; ergonomics owed.
+  L1066: "devlog is inappropriate, for a durable home for ruling
+  persistence. instead, i need you to do nontrivial mental work. Infer
+  what the correct claim set that best represents/accords with my
+  ruling would/should have been, counterfactually. Then make it so."
+- c814b73b L1457 (Aug 26): "will /review-open-questions find your
+  open-items filed easily?" — filing opens discoverably to the next
+  sweep is part of the contract; also "in short?" after a long answer.
+- 6c04b3e5 L525→L527 (Aug 28 am, the praised one): ask quoted in the
+  exhibit above; response was 13 questions in 4 sections — opening
+  reframe ("54 findings ≈ a dozen decisions"), each item a bold
+  universal question + 1–2 evidence sentences + A/B + "Mine:" with a
+  one-line reason, footer naming which questions dominate and where
+  I most expect to be wrong; "you can answer with just numbers and
+  letters." Owner answered every one inline; "Good calls all around!"
+- b0411fba L382→L405 (Aug 28 pm, private.bukzor-llc): same ask
+  ("easy-to-read, easy-to-evaluate questions … I suspect you're
+  trusting agent assertions where i'd disagree if asked");
+  SKILL.md-faithful three-decision walkthrough; engaged without format
+  complaint; the session soured on premature edits ("desist edits till
+  we're aligned"), not on format.
+
+Contradiction resolved by ruling (2026-08-28 pm): reply-shape routing
+rejected — "how is agent to tell if the **reply** is word-size? It
+can't." File-register always required; chat carries tally + paths +
+editor command. "We can add special cases later if the cost/benefit
+seems worthwhile."
+
+Rulings, 2026-08-28 pm (from the direction-check batch — which itself
+repeated the indicted chat-QnA workflow; owner: "it still sucks, real
+bad"):
+
+- Claim-labels over numbers ("Numbers get ambiguous way too quickly,
+  can't represent graph structure well"); plain language.
+- Five-part skeleton is a ruled failure: "Too often it's just five
+  similarly-opaque phrasings of the same thing." Keep the intent
+  (multiple genuinely different concretizations), drop the template.
+  No length caps ("Length is not the problem").
+- Style of guidance: "I'd instead give agent a _mode_ of thinking,
+  clear success criteria and a directory of tools" — less prescription
+  of output and presentation; universals encouraged, not mandated.
+- kb form: outer kb per question-group, inner kb per question, each
+  answer a .md therein (= llm-kb decision points).
+- Principle-shaped replies: generalize particulars to principles, yes;
+  unilateral execution, no — default to waiting for the call to
+  action.
+- Frame synthesis is dialogic: the agent can't do it unilaterally;
+  needs discussion, archeology, or owner soul-searching. "When neither
+  is needed that's a windfall, not the usual case."
+- Register ergonomics: "a git-add but not a commit of
+  question-register seems appropriate."
+- Owner proposal, executed: a generic multi-question trigger apart
+  from the review-open-questions procedure →
+  `must-read.kb/before/asking-the-user-multiple-questions.md`
+  (staged draft), chained to the approve-or-ratify factoring entry;
+  SKILL.md amended to match (staged). Nothing committed; owner rules
+  by editing the staged files.
