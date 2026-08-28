@@ -1,7 +1,7 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/private.bukzor-llc
 session:
-  started: null
+  started: 2026-08-28T16:26:36-05:00
   ended: null
 focus:
   - meta-reasoning-data.claims.kb/givens.kb/capnp-in-motion-parquet-at-rest.md
@@ -20,6 +20,17 @@ provenance:
       freshly-pulled chats and ruled one sitting per discharge —
       UNIVERSES (bootstrap-universes.md) and this one, each in a
       fresh session. Wrote both entries; no other durable artifacts.
+  - uuid: aeaa9307-254b-461e-a36a-2f3b7e76ed99
+    started: 2026-08-28T16:26:36-05:00
+    ended: null
+    summary: |
+      The discharge sitting, 2026-08-28: read all four candidates.
+      Neither SEARCH_2025_11 reading survives — the ruling has no
+      located origin (leading account: memory synthesis; the real
+      prior art ruled Arrow-in-motion for the data shell, capnp
+      subordinate). Relitigated on merits:
+      motion-means-messages.md recommends affirm as amended
+      (motion = messages/RPC, never bulk). User ruling pending.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
@@ -45,15 +56,20 @@ tokens — read raw in the main context, no digests needed.
 
 ## Plan
 
-- [ ] Read the four chats in chronological order: Cap'n Proto RPC
+- [x] Read the four chats in chronological order: Cap'n Proto RPC
       suitability → Arrow vs Cap'n Proto → dbt alternatives →
       cross-platform simulations
-- [ ] Settle SEARCH_2025_11's open question: which conversation
-      produced "capnp in motion, parquet at rest" — the leading pair
-      or the 11-04 Arrow alternative
-- [ ] Relitigate the given against `strategy.kb/tech-stack.md`;
-      resolve its probationary standing (affirm, amend, or strike)
-- [ ] Land the result in `meta-reasoning-data.claims.kb/` (update
-      `givens.kb/capnp-in-motion-parquet-at-rest.md` and
-      `search-for-the-serialization-discussion.md`) and check off
-      todo.md's CAPNP_PARQUET item
+- [x] Settle SEARCH_2025_11's open question: which conversation
+      produced "capnp in motion, parquet at rest" — neither: no
+      candidate contains the ruling; the 11-04 pair ruled the
+      reverse (Arrow in motion), the leading pair has no
+      serialization content at all
+- [x] Relitigate the given against `strategy.kb/tech-stack.md`;
+      resolved: affirm as amended, recommended in
+      `meta-reasoning-data.claims.kb/motion-means-messages.md` —
+      probation lift awaits the user's ruling
+- [x] Land the result in `meta-reasoning-data.claims.kb/` (updated
+      `givens.kb/capnp-in-motion-parquet-at-rest.md`,
+      `search-for-the-serialization-discussion.md`, the roll-up, and
+      `strategy.kb/tech-stack.md`) and check off todo.md's
+      CAPNP_PARQUET item
