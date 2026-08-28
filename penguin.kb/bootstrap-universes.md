@@ -3,6 +3,7 @@ cwd: /home/bukzor/repo/github.com/bukzor/private.bukzor-llc
 session:
   uuid:
     - f7aa51e0-969c-4319-bec3-bcd3a98b5582
+    - ea809486-3a9e-4f59-9bf7-facc33783c28
   started: 2026-08-28T16:21:47-05:00
   ended: null
 focus:
@@ -16,9 +17,10 @@ provenance:
     ended: null
     summary: |
       Session-planning sitting, 2026-08-28: sized the seven
-      freshly-pulled chats and ruled two sittings — CAPNP_PARQUET
-      stays in that session, UNIVERSES branched off as this one.
-      Still in flight there; no durable artifacts beyond this entry.
+      freshly-pulled chats and ruled one sitting per discharge, each
+      in a fresh session — this one, and CAPNP_PARQUET
+      (capnp-in-motion-parquet-at-rest.md). The two entries are its
+      only durable artifacts.
 ---
 
 # Bootstrap Universes — the UNIVERSES Discharge
