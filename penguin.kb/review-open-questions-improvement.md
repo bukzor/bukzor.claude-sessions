@@ -179,3 +179,18 @@ fires — effectiveness outranks incumbency.
 
 - [ ] ADR in llm-must-read-kb (`docs/dev/adr/`) for the
       aliasing→no-aliasing contract reversal, when the pass commits
+
+Staged awaiting ruling — commit NOTHING here until the owner
+edits/rules; the dotfiles index also holds other agents' unrelated
+staged work, so commit by these exact paths only:
+
+- dotfiles: `.claude/must-read.kb/before/asking-the-user.md` (new:
+  merged factoring+form), deletions of
+  `before/asking-the-user-to-approve-or-ratify.md`,
+  `before/contradicting-a-previous-response.md`,
+  `when/evaluating-a-contested-or-subjective-position.md`, typechange
+  `before/retracting-or-conceding-a-claim.md` (HEAD symlink → real
+  body), `.claude/CLAUDE.md` (Jr? pointer follows the rename)
+- bukzor-agent-skills: `review-open-questions/SKILL.md` (sheds
+  ask-side form, keeps the sweep), `llm-must-read-kb/SKILL.md`
+  (Aliasing → No aliasing, neutral when/ example)
