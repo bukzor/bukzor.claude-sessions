@@ -31,6 +31,14 @@ provenance:
       subordinate). Relitigated on merits:
       motion-means-messages.md recommends affirm as amended
       (motion = messages/RPC, never bulk). User ruling pending.
+      Follow-up, same sitting: user challenged precedence; the
+      record shows the capnp adoption (604e1c3, 2026-04-04)
+      postdates the Nov-2025 discussion by five months but weighed
+      protobuf/FlatBuffers only — Arrow never engaged. A three-role
+      debate re-ran the relitigation; the recommendation sharpened
+      to two seats: bulk = Arrow in motion / Parquet at rest;
+      messages = JSON today, capnp successor-designate. Ruling
+      still pending.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
@@ -65,7 +73,8 @@ tokens — read raw in the main context, no digests needed.
       reverse (Arrow in motion), the leading pair has no
       serialization content at all
 - [x] Relitigate the given against `strategy.kb/tech-stack.md`;
-      resolved: affirm as amended, recommended in
+      resolved: two-seat amendment (after follow-up debate),
+      recommended in
       `meta-reasoning-data.claims.kb/motion-means-messages.md` —
       probation lift awaits the user's ruling
 - [x] Land the result in `meta-reasoning-data.claims.kb/` (updated
