@@ -49,51 +49,17 @@ Exhibits, in order:
   questions, H3 per question: "That seems like a good organization,
   i think."
 
-Corpus (claude-code-archeology sweep, 2026-08-28; line numbers are
-JSONL lines under `~/.claude/projects/`):
-
-- 98f2be37 L1431→L1434 (Aug 21, bukzor-agent-skills): faithful
-  five-part narrative walkthrough, ~15k chars — "that's so long :( /
-  can you give me a listing of items i can agree/disagree/correct?"
-- 98f2be37 L1439→L1446: the repair that worked — 11 numbered items
-  grouped by the reply owed (facts, correct me if wrong / decisions I
-  need from you / already done, veto any), 1–3 sentences each, "My
-  rec:" inline, "reply with numbers and yes/no/correction"; the owner
-  quote-replied every item substantively.
-- 98f2be37 L1477: "This workflow sucks. Real bad. I have a bunch of
-  toil copy-pasting your answer and formatting it, and your multipart
-  responses get separated from their referents making them
-  inscrutible." → origin of the register-as-presentation law. The toil
-  is owner-side quote-reply prose, not chat presentation per se.
-- 33e3067f L199 (Aug 23): "i didn't read your … section because the
-  synthesis is lacking. all the items you listed are second- or
-  third-order concerns about this deep stack frame of a larger piece"
-  — items must arrive synthesized at the frame the owner owns.
-- d5828a77 L859ff (Aug 26, real /review-open-questions run, file
-  register): "editing in place? where?"; "a vim command would be
-  helpful"; "commit seems premature. uncommit, leave it staged"; owner
-  ruled by editing files inline ("ruled the other two questions,
-  inline. use git-diff") — the register law works; ergonomics owed.
-  L1066: "devlog is inappropriate, for a durable home for ruling
-  persistence. instead, i need you to do nontrivial mental work. Infer
-  what the correct claim set that best represents/accords with my
-  ruling would/should have been, counterfactually. Then make it so."
-- c814b73b L1457 (Aug 26): "will /review-open-questions find your
-  open-items filed easily?" — filing opens discoverably to the next
-  sweep is part of the contract; also "in short?" after a long answer.
-- 6c04b3e5 L525→L527 (Aug 28 am, the praised one): ask quoted in the
-  exhibit above; response was 13 questions in 4 sections — opening
-  reframe ("54 findings ≈ a dozen decisions"), each item a bold
-  universal question + 1–2 evidence sentences + A/B + "Mine:" with a
-  one-line reason, footer naming which questions dominate and where
-  I most expect to be wrong; "you can answer with just numbers and
-  letters." Owner answered every one inline; "Good calls all around!"
-- b0411fba L382→L405 (Aug 28 pm, private.bukzor-llc): same ask
-  ("easy-to-read, easy-to-evaluate questions … I suspect you're
-  trusting agent assertions where i'd disagree if asked");
-  SKILL.md-faithful three-decision walkthrough; engaged without format
-  complaint; the session soured on premature edits ("desist edits till
-  we're aligned"), not on format.
+Corpus (claude-code-archeology sweep, 2026-08-28): moved to its
+durable home, `~/.claude/docs/dev/devlog/2026-08-29-000-the-asking-
+law-and-what-each-of-its-rules-answers-to.md`, which holds the JSONL
+line-cites and maps each rule of the asking law to the exchange that
+produced it. Two cites that stayed behind because they are about the
+*sweep*, not the asking form: d5828a77 L1066 ("devlog is
+inappropriate, for a durable home for ruling persistence … Infer what
+the correct claim set … would/should have been, counterfactually.
+Then make it so."), and c814b73b L1457 ("will
+/review-open-questions find your open-items filed easily?" — filing
+opens discoverably to the next sweep is part of the contract).
 
 Contradiction resolved by ruling (2026-08-28 pm): reply-shape routing
 rejected — "how is agent to tell if the **reply** is word-size? It
@@ -185,36 +151,41 @@ exemplar cuts the owner made directly in `before/asking-the-user.md`
 AskUserQuestion). Generalized across the staged batch -- writer-facing
 rationale and provenance cut from actor-facing text:
 
-- `asking-the-user.md`: trailing Background block deleted; its
-  provenance lives here instead -- SIGNATURE, PROVISIONAL in
-  llm-claims (bukzor-agent-skills); incident session "over-veto",
-  2026-08-09; the walkthrough corpus above. Rationale clauses cut
-  from Labels ("numbers go ambiguous fast..."), File register
-  ("chat-only bets everything..."), Stated position ("a survey with
-  no position makes the owner do your job"); "is the recorded
-  failure" rephrased operative ("rephrasings of one abstraction
-  don't count"); the redesign-entry path pointer dropped from Unfuse
-  (that entry fires on its own trigger).
+- `asking-the-user.md`: trailing Background block deleted; rationale
+  clauses cut from Labels, File register, and Stated position; "is
+  the recorded failure" rephrased operative; the redesign-entry path
+  pointer dropped from Unfuse (that entry fires on its own trigger).
 - `review-open-questions/SKILL.md`: the asking-law tool enumeration
-  cut ("-- the labels, the file register, the projections, your
-  stated position" -- restated the bank entry it defers to); "the
-  owner did your abstraction for you. Receive it as such:" cut from
-  Principles.
-- `llm-must-read-kb/SKILL.md`: "the reader discovers they were
-  identical only after paying for both" and "whatever file used to
-  hold the body" cut -- mechanism already stated without them.
+  cut (it restated the bank entry it defers to); "the owner did your
+  abstraction for you. Receive it as such:" cut from Principles.
+- `llm-must-read-kb/SKILL.md`: two restatements of the mechanism cut.
 
 Kept deliberately: precondition elaborations the owner's own edit
 pass retained ("the cheap outcome, not wasted effort"; "a windfall,
 not the norm") and the sweep skill's mode-of-thinking motivation.
 
+Ruling on the cuttings' home (owner: "now any of that a future
+designer/editor needs belongs under docs/dev"): everything worth
+keeping was relocated, not deleted, and no longer lives in this
+entry. Three files, all staged with the pass:
+
+- `~/.claude/docs/dev/devlog/2026-08-29-000-the-asking-law-and-what-each-of-its-rules-answers-to.md`
+  — the corpus, and per-rule provenance for `before/asking-the-user.md`,
+  including the ruling that gave the entry its mode/criteria/tools shape.
+- `bukzor-agent-skills/docs/dev/devlog/2026-08-29-000-The-sweep-sheds-the-asking-law.md`
+  — why the skill shed the ask-side form and must not take it back;
+  the ruled failures behind rules it no longer states.
+- `bukzor-agent-skills/docs/dev/adr/2026-08-29-001-No-aliasing--one-body-gets-one-filename.md`
+  — the contract reversal (discharges the ADR item below).
+
 - [ ] Propose for llm-kb `skill.kb/self-audit.kb/bloat.md` (draft,
       agent-authored, vetoable): editorial feedback the owner gives
       mid-drafting addresses the writer, not the artifact's reader;
-      integrating it verbatim is audience-mismatch bloat.
+      integrating it verbatim is audience-mismatch bloat. Recovery is
+      relocation to `docs/dev/`, not deletion.
 
-- [ ] ADR in llm-must-read-kb (`docs/dev/adr/`) for the
-      aliasing→no-aliasing contract reversal, when the pass commits
+- [x] ADR in llm-must-read-kb for the aliasing→no-aliasing contract
+      reversal — written, staged, commits with the pass
 
 Staged awaiting ruling — commit NOTHING here until the owner
 edits/rules; the dotfiles index also holds other agents' unrelated
