@@ -177,6 +177,42 @@ broaden a slug only while it stays concrete (action verbs fire,
 abstract descriptions get scanned past), and keep the name that
 fires — effectiveness outranks incumbency.
 
+Bloat audit, next day (owner: "You need to distinguish between what
+*you* needed to know to write the skill and what *the agent using
+the skill* needs to know. /llm.kb audit: bloat"), calibrated by two
+exemplar cuts the owner made directly in `before/asking-the-user.md`
+(the drift-smells paragraph; the reply-unconstrained tail on menus /
+AskUserQuestion). Generalized across the staged batch -- writer-facing
+rationale and provenance cut from actor-facing text:
+
+- `asking-the-user.md`: trailing Background block deleted; its
+  provenance lives here instead -- SIGNATURE, PROVISIONAL in
+  llm-claims (bukzor-agent-skills); incident session "over-veto",
+  2026-08-09; the walkthrough corpus above. Rationale clauses cut
+  from Labels ("numbers go ambiguous fast..."), File register
+  ("chat-only bets everything..."), Stated position ("a survey with
+  no position makes the owner do your job"); "is the recorded
+  failure" rephrased operative ("rephrasings of one abstraction
+  don't count"); the redesign-entry path pointer dropped from Unfuse
+  (that entry fires on its own trigger).
+- `review-open-questions/SKILL.md`: the asking-law tool enumeration
+  cut ("-- the labels, the file register, the projections, your
+  stated position" -- restated the bank entry it defers to); "the
+  owner did your abstraction for you. Receive it as such:" cut from
+  Principles.
+- `llm-must-read-kb/SKILL.md`: "the reader discovers they were
+  identical only after paying for both" and "whatever file used to
+  hold the body" cut -- mechanism already stated without them.
+
+Kept deliberately: precondition elaborations the owner's own edit
+pass retained ("the cheap outcome, not wasted effort"; "a windfall,
+not the norm") and the sweep skill's mode-of-thinking motivation.
+
+- [ ] Propose for llm-kb `skill.kb/self-audit.kb/bloat.md` (draft,
+      agent-authored, vetoable): editorial feedback the owner gives
+      mid-drafting addresses the writer, not the artifact's reader;
+      integrating it verbatim is audience-mismatch bloat.
+
 - [ ] ADR in llm-must-read-kb (`docs/dev/adr/`) for the
       aliasing→no-aliasing contract reversal, when the pass commits
 
