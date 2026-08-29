@@ -16,7 +16,7 @@ messages, delivery by Read at task boundaries — replacing SendMessage
 and the `claude agents` interface, both owner-vetoed. The design is
 fully ruled (2026-08-28..29), nothing implemented.
 
-- [ ] Implement the postbox convention. Route + details:
-      `~/.claude/.claude/todo.md` ("Later" — Postbox convention);
-      re-entry path for a cold agent:
-      `~/.claude/docs/dev/postbox.design.kb/CLAUDE.md`.
+- [ ] Implement the postbox convention. Sub-project (owner ruling
+      2026-08-29): `~/repo/github.com/bukzor/prototype.llm-postbox/` —
+      work queue in `.claude/todo.md`, cold-agent re-entry in
+      `design.kb/CLAUDE.md`.
