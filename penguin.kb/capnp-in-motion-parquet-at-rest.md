@@ -64,6 +64,15 @@ provenance:
       invariants (schema field IDs, codec chokepoints, encoding
       tags per boundary and log segment) plus an empirical
       trigger. Open: two-seat affirmation, invariant acceptance.
+      2026-08-29, ruling: "accepted, emphatically" — the two-seat
+      split affirmed, the three door invariants accepted, the
+      probation lifted as amended; MOTION_MESSAGES standing raised
+      to user. The message seat's encoding role named "the lingo"
+      (MR_DATA ontology) so docs and code survive the encoding's
+      change; tech-stack.md rewritten to the two-seat law. The
+      door pattern lifted to a playbook lens
+      (playbook.kb/architecture.kb/the-door-law.md). Sitting
+      complete.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
@@ -99,9 +108,8 @@ tokens — read raw in the main context, no digests needed.
       serialization content at all
 - [x] Relitigate the given against `strategy.kb/tech-stack.md`;
       resolved: two-seat amendment (after follow-up debate),
-      recommended in
       `meta-reasoning-data.claims.kb/motion-means-messages.md` —
-      probation lift awaits the user's ruling
+      ruled by the user 2026-08-29, probation lifted as amended
 - [x] Land the result in `meta-reasoning-data.claims.kb/` (updated
       `givens.kb/capnp-in-motion-parquet-at-rest.md`,
       `search-for-the-serialization-discussion.md`, the roll-up, and
