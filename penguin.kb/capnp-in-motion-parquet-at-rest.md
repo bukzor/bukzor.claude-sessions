@@ -56,6 +56,14 @@ provenance:
       gap empty; May-2026 Envoy shows capnp operationally live.
       MOTION_MESSAGES amended a third time: capnp leads the
       successor contest on continuity; ruling still the user's.
+      2026-08-29: the user ruled the successor question — not a
+      designation but a door (ENCODING_DOOR, new given): the seat
+      must stay reachable from JSON by increments, "capnp"
+      expressly a placeholder for any better-than-JSON encoding,
+      acts log included. Fourth amendment recommends three door
+      invariants (schema field IDs, codec chokepoints, encoding
+      tags per boundary and log segment) plus an empirical
+      trigger. Open: two-seat affirmation, invariant acceptance.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
