@@ -19,4 +19,5 @@ fully ruled (2026-08-28..29), nothing implemented.
 - [ ] Implement the postbox convention. Sub-project (owner ruling
       2026-08-29): `~/repo/github.com/bukzor/prototype.llm-postbox/` —
       work queue in `.claude/todo.md`, cold-agent re-entry in
-      `design.kb/CLAUDE.md`.
+      `docs/dev/claims.kb/design.md` (the claim ledger is the design's
+      single home).
