@@ -39,6 +39,13 @@ provenance:
       to two seats: bulk = Arrow in motion / Parquet at rest;
       messages = JSON today, capnp successor-designate. Ruling
       still pending.
+      Digest follow-up: a re-sweep found three Jan-2026 bodies
+      already pulled; agents read them. The user's declared policy
+      through 2026-01-22 was arrow-lingua-franca, extended to
+      messages ("arrow schema my source of truth for all models");
+      capnp absent or subordinate throughout. The successor half of
+      the recommendation is remanded: JSON today; capnp vs Arrow vs
+      none-yet for the user to rule. Four pulls queued in todo.md.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
