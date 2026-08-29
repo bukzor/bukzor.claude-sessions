@@ -46,6 +46,16 @@ provenance:
       capnp absent or subordinate throughout. The successor half of
       the recommendation is remanded: JSON today; capnp vs Arrow vs
       none-yet for the user to rule. Four pulls queued in todo.md.
+      Second batch, same sitting: the user pulled the four; read.
+      "Nushell to Cap'n Proto" (2025-10-15) locates the
+      capnp-in-motion origin — capnp-pipes, three weeks before the
+      Arrow ruling — vindicating the user's ordering recall in
+      substance; "Apache Arrow for Systems" (Jan-23) shows the
+      arrow-for-messages wire half cracking the day after
+      declaration ("isn't arrow ipc"); Mar-2026 leaves the Jan→Apr
+      gap empty; May-2026 Envoy shows capnp operationally live.
+      MOTION_MESSAGES amended a third time: capnp leads the
+      successor contest on continuity; ruling still the user's.
 ---
 
 # Cap'n Proto in Motion, Parquet at Rest — the CAPNP_PARQUET Discharge
