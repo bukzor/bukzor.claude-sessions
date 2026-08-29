@@ -67,9 +67,10 @@ provenance:
       2026-08-29, ruling: "accepted, emphatically" — the two-seat
       split affirmed, the three door invariants accepted, the
       probation lifted as amended; MOTION_MESSAGES standing raised
-      to user. The message seat's encoding role named "the lingo"
-      (MR_DATA ontology) so docs and code survive the encoding's
-      change; tech-stack.md rewritten to the two-seat law. The
+      to user. The message seat's encoding role named "the lingo,"
+      vetoed next message for plain "message format" (MR_DATA
+      ontology), so docs and code survive the encoding's change;
+      tech-stack.md rewritten to the two-seat law. The
       door pattern lifted to a playbook lens
       (playbook.kb/architecture.kb/the-door-law.md). Sitting
       complete.
