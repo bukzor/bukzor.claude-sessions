@@ -2,7 +2,7 @@
 cwd: /home/bukzor/repo/github.com/bukzor/private.bukzor-llc
 session:
   started: 2026-08-28T16:26:36-05:00
-  ended: null
+  ended: 2026-08-29T16:39:08-05:00
 focus:
   - meta-reasoning-data.claims.kb/givens.kb/capnp-in-motion-parquet-at-rest.md
   - meta-reasoning-data.claims.kb/search-for-the-serialization-discussion.md
@@ -22,7 +22,7 @@ provenance:
       fresh session. Wrote both entries; no other durable artifacts.
   - uuid: aeaa9307-254b-461e-a36a-2f3b7e76ed99
     started: 2026-08-28T16:26:36-05:00
-    ended: null
+    ended: 2026-08-29T16:39:08-05:00
     summary: |
       The discharge sitting, 2026-08-28: read all four candidates.
       Neither SEARCH_2025_11 reading survives — the ruling has no
