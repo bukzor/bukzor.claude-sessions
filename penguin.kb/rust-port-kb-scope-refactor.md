@@ -107,4 +107,4 @@ those need a target home decided. Per Q1: 0750's target is the live
 
 - `prototype.chatfs/packages/har-browse/dev.kb/rust-port.kb/scope-audit.md` — the per-file scope audit (the deliverable).
 - `~/.claude/skills/llm-kb/docs/dev/case-studies.kb/2026-05-13-000-har-browse-rust-port-scope-refactor.md` — postmortem from prior failed attempt.
-- `~/.claude/must-read.kb/when/evaluating-a-contested-or-subjective-position.md` — protocol used for stress-test.
+- `~/.claude/must-read.kb/before/retracting-or-conceding-a-claim.md` — protocol used for stress-test (renamed 2026-08-29 from `when/evaluating-a-contested-or-subjective-position.md`; same Advocate/Skeptic/Arbiter body).
