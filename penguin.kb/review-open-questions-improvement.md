@@ -207,8 +207,11 @@ ADR's Status line says so. Same for the bloat.md proposal above.
 
 Staged awaiting ruling — commit NOTHING here until the owner
 edits/rules; both indexes also hold other agents' unrelated staged
-work (dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
-`bin/prettier-markdown`), so commit by these exact paths only:
+work — dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
+`bin/prettier-markdown`; bukzor-agent-skills: an `llm-design-kb`
+restructure (`references/how-to-document-design-knowledge.md` deleted,
+`principles.kb/` moved under `skill.kb/`) — so commit by these exact
+paths only:
 
 - dotfiles: `.claude/must-read.kb/before/asking-the-user.md` (new:
   merged factoring+form), deletions of
