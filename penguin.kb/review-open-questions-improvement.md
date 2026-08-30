@@ -4,7 +4,7 @@ session:
   uuid: # chronological; append your uuid when picking this entry up
     - c78bbbb7-a161-4ecb-addb-8c5bdfa4abcc
   started: 2026-08-28T12:55:05-05:00
-  ended: null
+  ended: 2026-08-29T19:20:00-05:00
 ---
 
 # Review-Open-Questions Improvement Pass
@@ -50,10 +50,10 @@ Exhibits, in order:
   i think."
 
 Corpus (claude-code-archeology sweep, 2026-08-28): moved to its
-durable home, `~/.claude/docs/dev/devlog/2026-08-29-000-the-asking-
-law-and-what-each-of-its-rules-answers-to.md`, which holds the JSONL
-line-cites and maps each rule of the asking law to the exchange that
-produced it. Two cites that stayed behind because they are about the
+durable home:
+`~/.claude/docs/dev/devlog/2026-08-29-000-the-asking-law-and-what-each-of-its-rules-answers-to.md`
+holds the JSONL line-cites and maps each rule of the asking law to
+the exchange that produced it. Two cites that stayed behind because they are about the
 *sweep*, not the asking form: d5828a77 L1066 ("devlog is
 inappropriate, for a durable home for ruling persistence … Infer what
 the correct claim set … would/should have been, counterfactually.
@@ -187,9 +187,18 @@ entry. Three files, all staged with the pass:
 - [x] ADR in llm-must-read-kb for the aliasing→no-aliasing contract
       reversal — written, staged, commits with the pass
 
+Awaiting the owner's veto, named here so the ruling sitting sees them
+without opening the artifacts: the four no-aliasing *replacement*
+rules (broaden the slug only while concrete / keep the name that
+fires / variants in opening prose / two entries sharing a
+procedures.kb method) are agent-authored generalization from one
+anecdote — the owner ruled the prohibition, not the replacements. The
+ADR's Status line says so. Same for the bloat.md proposal above.
+
 Staged awaiting ruling — commit NOTHING here until the owner
-edits/rules; the dotfiles index also holds other agents' unrelated
-staged work, so commit by these exact paths only:
+edits/rules; both indexes also hold other agents' unrelated staged
+work (dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
+`bin/prettier-markdown`), so commit by these exact paths only:
 
 - dotfiles: `.claude/must-read.kb/before/asking-the-user.md` (new:
   merged factoring+form), deletions of
@@ -197,7 +206,22 @@ staged work, so commit by these exact paths only:
   `before/contradicting-a-previous-response.md`,
   `when/evaluating-a-contested-or-subjective-position.md`, typechange
   `before/retracting-or-conceding-a-claim.md` (HEAD symlink → real
-  body), `.claude/CLAUDE.md` (Jr? pointer follows the rename)
+  body), and
+  `.claude/docs/dev/devlog/2026-08-29-000-the-asking-law-and-what-each-of-its-rules-answers-to.md`
 - bukzor-agent-skills: `review-open-questions/SKILL.md` (sheds
   ask-side form, keeps the sweep), `llm-must-read-kb/SKILL.md`
-  (Aliasing → No aliasing, neutral when/ example)
+  (Aliasing → No aliasing, neutral when/ example),
+  `docs/dev/adr/2026-08-29-001-No-aliasing--one-body-gets-one-filename.md`,
+  `docs/dev/devlog/2026-08-29-000-The-sweep-sheds-the-asking-law.md`
+
+Deliberately NOT staged: `.claude/CLAUDE.md`. Its worktree carries two
+unrelated changes at once — the owner's two new standing laws
+("Confidence licenses acts, never laws…" under Values; "Once a pass
+closes, persist content immediately…" under Standing Defaults) and
+this pass's one-line `Jr?` pointer following the rename. Staging it
+would fold the owner's own uncommitted work into the pass's set.
+Consequence to watch: commit the bank rename without that line and
+HEAD keeps a `Jr?` pointer to
+`must-read.kb/before/retracting-or-conceding-a-claim.md`'s dead
+predecessor. Take the pointer line with the pass, or immediately
+after.
