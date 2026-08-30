@@ -18,7 +18,14 @@ third format worked. The skill is
       exhibits below (all from session c78bbbb7, 2026-08-28)
 - [ ] Ratify or amend `llm-triggers/design.kb/use-cases.kb/goal-gated-conditions.md`
       (`status: proposal`, bukzor-agent-skills 99166b1) — ride-along
-      from the same sitting
+      from the same sitting. Second, separable defect on the same
+      file, found 2026-08-29 by `llm.kb-validate llm-triggers/design.kb/`
+      (1 error, pre-existing): "No schema found:
+      llm-triggers/design.kb/use-cases.jsonschema.yaml". It carries
+      frontmatter, so the base spec wants a schema for the
+      collection — but whether an *auxiliary, unnumbered* collection
+      should carry one is the tower owner's call, so it was left
+      unfixed rather than minted.
 
 Exhibits, in order:
 
@@ -212,7 +219,24 @@ work (dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
   ask-side form, keeps the sweep), `llm-must-read-kb/SKILL.md`
   (Aliasing → No aliasing, neutral when/ example),
   `docs/dev/adr/2026-08-29-001-No-aliasing--one-body-gets-one-filename.md`,
-  `docs/dev/devlog/2026-08-29-000-The-sweep-sheds-the-asking-law.md`
+  `docs/dev/devlog/2026-08-29-000-The-sweep-sheds-the-asking-law.md`,
+  and the two found by the session-end gate below:
+  `llm-must-read-kb/references/create-new-trigger.md`,
+  `llm-triggers/design.kb/040-design.kb/bank-format.md`
+
+Session-end gate finding (2026-08-29): the no-aliasing reversal was
+**half-applied** — SKILL.md had been fixed while two other places
+still taught the reversed rule. `references/create-new-trigger.md`
+Step 7 was titled "Decide aliasing vs. new content" and handed the
+agent a literal `ln -s` command, with a success criterion blessing
+"one new file + one new symlink"; that is a procedure followed
+literally, so it would have re-minted aliases immediately.
+`llm-triggers/design.kb/040-design.kb/bank-format.md` listed "symlink
+aliasing" among the v1 conventions that "carry forward unless an
+entry here says otherwise". Both now carry the no-aliasing rule.
+Lesson for the next reversal: grep the whole fleet for the old rule's
+vocabulary, not just the file that states the doctrine — a rule lives
+in its procedures and its design tower too.
 
 Deliberately NOT staged: `.claude/CLAUDE.md`. Its worktree carries two
 unrelated changes at once — the owner's two new standing laws
