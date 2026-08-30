@@ -15,7 +15,10 @@ third format worked. The skill is
 `~/repo/github.com/bukzor/bukzor-agent-skills/review-open-questions/`.
 
 - [ ] Improve `/review-open-questions` presentation guidance from the
-      exhibits below (all from session c78bbbb7, 2026-08-28)
+      exhibits below (all from session c78bbbb7, 2026-08-28).
+      **Drafted, staged, not committed as of 2026-08-29** — the work
+      exists; what remains is the owner's rulings-by-edit on the
+      staged files ("Staged awaiting ruling", below). Do not redo it.
 - [ ] Ratify or amend `llm-triggers/design.kb/use-cases.kb/goal-gated-conditions.md`
       (`status: proposal`, bukzor-agent-skills 99166b1) — ride-along
       from the same sitting. Second, separable defect on the same
