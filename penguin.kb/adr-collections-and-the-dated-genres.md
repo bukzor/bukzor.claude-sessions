@@ -35,3 +35,10 @@ Open work:
       `llm-vitals` just got (commit `08a2c93`, why-slugs to paths)
 - [ ] If not: drop the frontmatter from llm-discourse-graph's nine ADRs
       and one devlog, matching every other skill
+
+NB (2026-08-30): a second consumer appeared — private.bukzor-llc's
+`strategy.jsonschema.yaml` adopted path-valued `superseded-by` for its
+lifecycle frontmatter (unlabeled docs get a machine check prose can't
+offer). If the fleet-wide question opens toward a shared lifecycle
+base schema (`status`/`last-updated`/`superseded-by`), strategy.kb is
+an interested party.
