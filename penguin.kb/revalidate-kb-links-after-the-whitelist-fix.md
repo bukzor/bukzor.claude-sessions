@@ -1,5 +1,5 @@
 ---
-cwd: /home/bukzor/claude/meta-reasoning
+cwd: /home/bukzor/repo/github.com/bukzor/private.meta-reasoning-corpus
 session:
   uuid:
     - 6c04b3e5-d49c-46e0-a5cb-d8547a4ff47d
@@ -11,8 +11,11 @@ session:
 `llm.kb-validate-links` was blind in two ways until
 `bukzor-agent-skills` `bbcde52` (2026-08-28, pushed). Every `.kb/` on
 this host was last checked by the blind version, so every one of them
-may hold broken cross-references that reported green. Only
-`~/claude/meta-reasoning` has been swept since; it is clean.
+may hold broken cross-references that reported green. Only the
+meta-reasoning corpus has been swept since; it is clean. That repo
+moved on 2026-08-29 to
+`~/repo/github.com/bukzor/private.meta-reasoning-corpus`, with
+`~/claude/meta-reasoning` left behind as a symlink.
 
 ## What was blind, and what it means for a re-run
 
