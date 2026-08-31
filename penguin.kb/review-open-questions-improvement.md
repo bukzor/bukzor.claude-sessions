@@ -255,14 +255,17 @@ Lesson for the next reversal: grep the whole fleet for the old rule's
 vocabulary, not just the file that states the doctrine — a rule lives
 in its procedures and its design tower too.
 
-Deliberately NOT staged: `.claude/CLAUDE.md`. Its worktree carries two
-unrelated changes at once — the owner's two new standing laws
-("Confidence licenses acts, never laws…" under Values; "Once a pass
-closes, persist content immediately…" under Standing Defaults) and
-this pass's one-line `Jr?` pointer following the rename. Staging it
-would fold the owner's own uncommitted work into the pass's set.
-Consequence to watch: commit the bank rename without that line and
-HEAD keeps a `Jr?` pointer to
-`must-read.kb/before/retracting-or-conceding-a-claim.md`'s dead
-predecessor. Take the pointer line with the pass, or immediately
-after.
+`.claude/CLAUDE.md` was deliberately held back from this pass's set —
+its worktree carried the owner's two new standing laws alongside this
+pass's `Jr?` pointer fix, and staging it would have folded the owner's
+own uncommitted work into ours. **Resolved by the owner**: `ccff9ce`
+took the laws, `b355779` took the pointer. Nothing left to carry.
+
+## Addenda
+
+`review-open-questions-improvement.kb/` holds the ruling register for
+this pass — one file per open decision, each posing the question with
+its artifact, the agent's position, and what silence does. Staged,
+uncommitted, awaiting rulings written in place under each `## Ruling`.
+When a ruling lands, apply it and rewrite that file to state the
+resolution rather than the question.
