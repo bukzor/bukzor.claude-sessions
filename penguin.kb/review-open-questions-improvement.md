@@ -205,6 +205,17 @@ procedures.kb method) are agent-authored generalization from one
 anecdote — the owner ruled the prohibition, not the replacements. The
 ADR's Status line says so. Same for the bloat.md proposal above.
 
+**Owner's rulings landed 2026-08-31** (dotfiles 89c3507, b355779,
+ccff9ce, ed1408c, d1dd2d3): the contested-position entry is renamed
+again and rewritten — `before/asserting-or-conceding-a-claim-of-judgment.md`,
+asserting a judgment claim (especially into standing text) promoted
+from prose variant to the primary occasion, two gates plus the
+stress-test. Also committed: the `Jr?` pointer, the two new standing
+laws, "H1 carries the juncture verb", and the deletion of the
+commit-eagerly doctrine from `must-read.kb/before/git/`. The bank
+half of this pass is therefore partly the owner's own work now;
+what follows is what still awaits them.
+
 Staged awaiting ruling — commit NOTHING here until the owner
 edits/rules; both indexes also hold other agents' unrelated staged
 work — dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
