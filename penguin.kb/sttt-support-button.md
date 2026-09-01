@@ -1,7 +1,7 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/bukzor.garden/apps/super-tictactoe
 session:
-  uuid: # planned 2026-08-31, not yet started; append your uuid on pickup
+  uuid: [] # planned 2026-08-31, not yet started; append your uuid on pickup
   started: null
   ended: null
 ---

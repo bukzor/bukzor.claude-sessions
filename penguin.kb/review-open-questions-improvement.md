@@ -227,15 +227,19 @@ stress-test. Also committed: the `Jr?` pointer, the two new standing
 laws, "H1 carries the juncture verb", and the deletion of the
 commit-eagerly doctrine from `must-read.kb/before/git/`. The bank
 half of this pass is therefore partly the owner's own work now;
-what follows is what still awaits them.
+what follows is the agent-authored remainder, since committed.
 
-Staged awaiting ruling — commit NOTHING here until the owner
-edits/rules; both indexes also hold other agents' unrelated staged
-work — dotfiles: `.envrc`, `bin/which-oss`, `.config/sh/env.d/`,
-`bin/prettier-markdown`; bukzor-agent-skills: an `llm-design-kb`
-restructure (`references/how-to-document-design-knowledge.md` deleted,
-`principles.kb/` moved under `skill.kb/`) — so commit by these exact
-paths only:
+**Committed 2026-09-01** — bukzor-agent-skills `04dbd65` (pushed to
+`main`), dotfiles `7286261` (pushed to `svelte-crostini`), register
+`ad8e6db`. Both by exact path, never `-a`. The dotfiles index still
+holds other agents' unrelated staged work (`.envrc`, `bin/which-oss`,
+`.config/sh/env.d/`, `bin/prettier-markdown`) and the fleet has one
+unstaged foreign file (`llm-kb/bin/llm.kb-validate-links`); none of it
+was touched. The `llm-design-kb` restructure that was staged here on
+2026-08-29 is gone from the index — the owner committed it.
+
+The inventory below is kept as the record of what the pass's two
+commits contain:
 
 - dotfiles: `.claude/must-read.kb/before/asking-the-user.md` (new:
   merged factoring+form), deletions of
@@ -277,8 +281,22 @@ took the laws, `b355779` took the pointer. Nothing left to carry.
 ## Addenda
 
 `review-open-questions-improvement.kb/` holds the ruling register for
-this pass — one file per open decision, each posing the question with
-its artifact, the agent's position, and what silence does. Staged,
-uncommitted, awaiting rulings written in place under each `## Ruling`.
-When a ruling lands, apply it and rewrite that file to state the
-resolution rather than the question.
+this pass — one file per decision. All four were posed 2026-08-31 and
+ruled 2026-09-01; each file now states its resolution rather than its
+question, which is the closed form `Skill(llm-kb)` prescribes for a
+decision point.
+
+The register is worth reading as the method's first live trial, not
+just for its outcomes. What it got right: cheap courts shrank the
+batch from a dozen dangling items to four, and the file-register form
+let the owner rule all four in one short message by quoting headings.
+What it got wrong is `04`, which the owner rejected as malformed in
+two ways that the pass's own law already named — the method caught it
+and the author shipped it anyway. That asymmetry is the finding.
+
+Sibling entry spun out of this session's gate:
+`must-read-banks-are-invisible-to-kb-validation.md` — `llm.kb-validate`
+never descends into `before/`/`after/`/`when/`, so the bank this pass
+spent two sittings editing has never once been validated. Independent
+of this pass's subject, found only because the gate re-ran validation
+on a bank it had just changed.
