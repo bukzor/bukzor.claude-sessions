@@ -17,18 +17,30 @@ third format worked. The skill is
 - [ ] Improve `/review-open-questions` presentation guidance from the
       exhibits below (all from session c78bbbb7, 2026-08-28).
       **Drafted, staged, not committed as of 2026-08-29** — the work
-      exists; what remains is the owner's rulings-by-edit on the
-      staged files ("Staged awaiting ruling", below). Do not redo it.
-- [ ] Ratify or amend `llm-triggers/design.kb/use-cases.kb/goal-gated-conditions.md`
-      (`status: proposal`, bukzor-agent-skills 99166b1) — ride-along
-      from the same sitting. Second, separable defect on the same
-      file, found 2026-08-29 by `llm.kb-validate llm-triggers/design.kb/`
-      (1 error, pre-existing): "No schema found:
-      llm-triggers/design.kb/use-cases.jsonschema.yaml". It carries
-      frontmatter, so the base spec wants a schema for the
-      collection — but whether an *auxiliary, unnumbered* collection
-      should carry one is the tower owner's call, so it was left
-      unfixed rather than minted.
+      exists; do not redo it. The register was posed 2026-08-31 and
+      **all four ruled 2026-09-01**; the rulings are applied and the
+      resolutions are in `review-open-questions-improvement.kb/`. What
+      remains is the commit itself, by the exact paths under "Staged
+      awaiting ruling" below.
+- [ ] Ratify `llm-triggers/design.kb/use-cases.kb/goal-gated-conditions.md`.
+      Ruled 2026-09-01 to fail the writer/consumer razor; **rewritten**
+      into the collection's own form (need / `Today:` /
+      `Satisficed when:`), provenance and repair relocated to the fleet
+      devlog. Still `status: proposal` — the rewrite is the agent's,
+      the ratification is the owner's. The schema half is **resolved**:
+      `use-cases.jsonschema.yaml` now exists (`status` only) and
+      `llm.kb-validate design.kb/` is 27 files, 0 errors. Still open on
+      the file: whether its shape earns an entry separate from
+      `use-cases.kb/arrival-fired-directives.md`, which names the same
+      need and misses in the opposite direction.
+- [ ] Draft "prefer positive directives" for
+      `~/.claude/must-read.kb/before/writing-agent-facing-instruction.md`.
+      Owner's standing correction, 2026-09-01: "be suspicious of
+      writing 'not' assertions for agent contexts" — crystallize what
+      *should* be done, then make the directions match it. Broader than
+      this pass, so it was recorded rather than written; it arrived
+      mid-pass, and a ruling landing mid-pass is input, not a dispatch
+      order.
 
 Exhibits, in order:
 
@@ -188,11 +200,12 @@ entry. Three files, all staged with the pass:
 - `bukzor-agent-skills/docs/dev/adr/2026-08-29-001-No-aliasing--one-body-gets-one-filename.md`
   — the contract reversal (discharges the ADR item below).
 
-- [ ] Propose for llm-kb `skill.kb/self-audit.kb/bloat.md` (draft,
-      agent-authored, vetoable): editorial feedback the owner gives
-      mid-drafting addresses the writer, not the artifact's reader;
-      integrating it verbatim is audience-mismatch bloat. Recovery is
-      relocation to `docs/dev/`, not deletion.
+- [x] Propose for llm-kb `skill.kb/self-audit.kb/bloat.md`: the
+      writer/consumer razor. **Ruled 2026-09-01** — intent right, draft
+      "wordy and negative"; rewritten to say what each reader gets
+      instead of what the author must omit, and folded into the
+      existing "Identify *which* Claude" bullet rather than added
+      beside it.
 
 - [x] ADR in llm-must-read-kb for the aliasing→no-aliasing contract
       reversal — written, staged, commits with the pass
