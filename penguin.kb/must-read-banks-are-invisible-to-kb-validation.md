@@ -84,6 +84,26 @@ success.
       is documented in `llm-kb/SKILL.md`. Minor, but the house rule
       that references it currently cannot be followed as written.
 
+## The class has three instances now
+
+Same sitting, same shape — a green report over files nothing checked:
+
+1. This one: entries nested in non-`.kb` subdirectories, never walked.
+2. `sessions.kb/sub-cli-gizmo-evaluation.md` sat at the repo root
+   instead of `penguin.kb/`, so it was outside the collection
+   entirely — invalid when named directly, invisible to
+   `llm.kb-validate .`, and absent from `claude-open-tasks-list` since
+   2026-07-26. Moved into `penguin.kb/`; still untracked, still the
+   owner's to commit.
+3. The `penguin/` → `penguin.kb/` incident already in
+   `sessions.kb/CLAUDE.md`: 44 entries unchecked for a month behind
+   "1 file, 0 errors".
+
+Three different causes, one signature: **a passing total that is
+smaller than the corpus.** A walker that refuses to report a
+suspiciously small count is the cross-cutting fix, and it is why (c)
+in the open work above composes with (a) rather than competing.
+
 ## Why this is worth a whole entry
 
 The pattern's premise is that the filename index is cheap to scan and
