@@ -8,6 +8,7 @@ session:
     - 1fab91a6-1013-4508-9fe7-aeda9aadfa89
     - 315152a8-93a9-4305-8bf4-3dad30e4b8f3
     - f144b4b8-84c9-4e7d-bf32-42f5ed7e4d5b
+    - 13528b4c-1567-496f-9e40-cec08677e318
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -245,3 +246,31 @@ line's to work.
       and `skills-are-operator-composed` never joined the design
       ledger's graph (no `why:`, no citers) -- join or adjudicate;
       flagged in devlog `2026-08-20-009`
+
+Pickup (2026-08-29..31, seventh uuid, cwd bukzor-agent-skills):
+`Skill(llm-design-kb)` reshaped into the ledger form -- encode/review/
+persist beats over `Skill(llm-claims)` + `Skill(llm-claims-kb)`, its six
+rungs kept but as *theories* rather than numbered folders, and a
+`skeleton/` consumers copy wholesale (schemas and empty collections
+included, `.keepme` in each). Its own record now lives at
+`llm-design-kb/docs/dev/claims.kb/`, dogfooding the pattern. New across
+the ledger machinery: `todo: true` for decided-but-unbuilt claims,
+rendering `(todo)` on the label ahead of the arrows, plus
+`jsonschema/policy.jsonschema.yaml` with a borrowable `#force` anchor.
+Two of my errors were caught by the owner and are worth not repeating:
+`const: true` where a boolean with `default: false` was right (a schema
+describes the data a consumer receives, not the text an author types),
+and -- when two ledgers collided on the label `STANCE` -- tiebreaking by
+seniority instead of by the naming law. Their words: **"use rationality not
+seniority to deciding naming conflicts."** Re-derived from NAME_LOCUS,
+every criterion inverted the answer; the *design*-side claim renamed to
+`BODY_FORM`. General lesson filed in devlog
+`docs/dev/devlog/2026-08-31-000-The-rule-was-already-written*`: both
+times the governing rule already existed in text I had read that
+session, so the repair was routing it to the point of use -- a lint
+string, an authoring reference -- not writing it down again. Commits
+`76930e2`, `fe3b475`, `a0969a4`, `6dbdc4c`, `648a14a`. All follow-ups
+are repo-scoped and live in `bukzor-agent-skills/.claude/todo.md`:
+three unruled agent judgment calls from this stretch, and the deferred
+120-file `design.claims.kb/` -> `design.kb/` rename (RENAME, `todo:
+true`).
