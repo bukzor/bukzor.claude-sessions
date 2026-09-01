@@ -84,6 +84,21 @@ success.
       is documented in `llm-kb/SKILL.md`. Minor, but the house rule
       that references it currently cannot be followed as written.
 
+## Ruling — the fix's shape
+
+The one decision here; the rest of the open work follows from it and
+needs no ruling. My position is (a)+(c) composed: the walker recurses
+into non-`.kb` subdirectories *and* refuses to report a total smaller
+than the corpus it was pointed at. (a) alone fixes this instance; (c)
+alone catches the class, including the two below that (a) would miss.
+
+Against myself: (c) means the walker needs a notion of "the corpus,"
+which it does not currently have — that is a real cost, and if it
+turns out to need a second directory walk, (a) alone plus a documented
+smell may be the better trade.
+
+<!-- edit here -->
+
 ## The class has three instances now
 
 Same sitting, same shape — a green report over files nothing checked:
