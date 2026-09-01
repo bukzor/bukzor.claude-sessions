@@ -19,7 +19,7 @@ Task and remaining subtasks: `/home/bukzor/claude/mitmproxy/.claude/todo.md`,
 second top-level entry. Narrative:
 `/home/bukzor/claude/mitmproxy/session.kb/2026-08-31-events-get-their-own-channel.md`.
 Design: `design/040-design.kb/events-are-separate-from-logs.md` and
-`ease-of-operation.kb/reload-rediscovers-open-fds.md`.
+`ease-of-operation.kb/open-files-are-rediscovered-not-remembered.md`.
 
 ## What a next session most needs to know
 
