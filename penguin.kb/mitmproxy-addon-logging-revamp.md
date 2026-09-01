@@ -10,9 +10,10 @@ session:
 
 The events channel is built and live. Addon events now land in one tailable
 file per event type under `log/events/`, named by the logger that emitted them.
-Three commits: `2726c6c` (the flocked, day-sharded fd primitives), `5fedd10`
+Four commits: `2726c6c` (the flocked, day-sharded fd primitives), `5fedd10`
 (the handler, the addon, the taxonomy, `syscapture` emitting), `41e04e8`
-(`lifecycle.reload`, verified against the running proxy).
+(`lifecycle.reload`, verified against the running proxy), `829b8a2` (the
+2026-09-01 rulings below).
 
 Task and remaining subtasks: `/home/bukzor/claude/mitmproxy/.claude/todo.md`,
 second top-level entry. Narrative:
@@ -33,17 +34,24 @@ reinstall on both paths); events are date-sharded because a date makes a shard
 *finished*, which is the unit compression and `held_open()` act on; the
 nine-name taxonomy; `/proc/self/fd` alone, no `/proc/locks`.
 
+Ruled 2026-09-01, both against the session's chosen default: the events logger
+is `DEBUG`, not `INFO` -- setting a level keeps the record independent of
+console verbosity, but pinning `INFO` also foreclosed a debug-grade event, and
+`termlog_verbosity` is what should decide loudness. And a failed write files an
+`_uncaught-events-log` incident rather than going to stderr: the event system's
+own failure is the last thing to report on the unwatched stream. The stated
+default was wrong besides -- `emit` had no `try`, so contention propagated out
+of the `logging.info()` call into the addon hook.
+
 ## Open work
 
-- [ ] Restart the proxy so `-s logging_handlers.py` load-ordering takes effect
-      -- the running instance predates that line and installed the handler via
-      `reload.py` instead, so `lifecycle.startup` would miss its own records.
 - [ ] Six of nine taxonomy names still have no emitter (`lifecycle.startup`,
-      `incident.*`, `housekeeping.*`).
-- [ ] Four unratified defaults awaiting a ruling, batched in todo.md rather
-      than left as loose ends: the events logger's `INFO` level, emit-time
-      flock contention going to `handleError` instead of an incident, the 2 MB
-      tripwire and `MIN_COMPRESS_BYTES` round numbers, and two agent-authored
-      testing rules now marked vetoable in the design entries.
+      `incident.*`, `housekeeping.*`). Wiring `incident.*` inside `incidents.py`
+      closes a loop back into the events handler; the handler guards against
+      it, but that module's import of `logging_handlers` must be function-local.
+- [ ] Two unratified defaults left of the original four, batched in todo.md
+      rather than left as loose ends: the 2 MB tripwire and
+      `MIN_COMPRESS_BYTES` round numbers, and two agent-authored testing rules
+      now marked vetoable in the design entries.
 - [ ] `driftwatch.sh` rewiring, the growth tripwire, the compression size
       floor, the `tail -F` symlink, folding in `quietconn` -- all in todo.md.
