@@ -8,11 +8,11 @@ session:
   ended: null
 ---
 
-# STTT Support Button — the $0.50/mo Checkout Goes Live
+# STTT Support Button — the Checkout Goes Live
 
 Revenue-beam session: a G1 expansion that also closes G2's shortest
 path (`private.bukzor-llc/strategy.kb/beam-search.md` — public URL
-accepts money by 2026-09-26). Add the "$0.50/mo support" button to the
+accepts money by 2026-09-26). Add the support button to the
 live app at `bukzor-garden--super-tictactoe.pages.dev`: research and
 choose the payment platform (Stripe, Ko-fi, GitHub Sponsors, …), set
 up the $0.50/mo product, wire the button into the page. ~2h by the
@@ -50,3 +50,23 @@ and IaC, and filed:
 
 - [ ] Swap the two `PLACEHOLDER` hrefs once real Payment Links exist,
   then build and deploy -- ~15 min, gated on activation
+
+## Status 2026-09-02
+
+Shipped. The account is live (sole proprietor, DBA `bukzor.garden`), the
+product carries three prices -- $1/yr, $6/yr, and a customer-chosen
+one-off -- on a single `donate.stripe.com` link, and production serves
+the footer button. The $0.50/mo SKU was dropped: the fixed 30c is per
+transaction, so annual billing at $1 keeps pennies-scale support at a
+third of the fee load.
+
+**G2 is not closed.** The Payment Link is paused, so the public URL has
+a button but does not yet accept money. The pause lifts server-side and
+needs no redeploy. Everything else in this session is done.
+
+Follow-ups filed rather than done: `support@bukzor.garden` and the DNS
+move it shares with the Pages custom domain (urgent now -- the live
+Stripe profile advertises `https://bukzor.garden`, which does not
+resolve); the public support address, knowingly the home address; the
+one-off preset, $1 with a case for $5; the shortened statement
+descriptor, unset and truncating to `BUKZOR.GAR`.
