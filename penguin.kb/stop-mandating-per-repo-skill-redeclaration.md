@@ -32,11 +32,13 @@ kb-using repo and **re-generate** it after removal. `basedpyright-as-pyright`
 removed one (commit `d28b932`) and is now non-conformant to its own skill's
 audits.
 
-The deliverable is therefore a discrimination rule, not a batch of edits —
-delete where the `description:` already names the occasion, migrate to
-`triggers:` only where the condition is genuinely repo-specific, and leave what
-isn't a directive at all. Migrating first produces a well-formed duplicate,
-which lints clean and is still wrong.
+So the work starts with a sorting criterion, not a batch of edits. The
+population mixes exact duplicates of an occasion the `description:` already
+names, possible repo-local conditions (none confirmed), and fields that are not
+directives at all. That criterion is undecided and is the owner's to settle with
+whoever picks this up; the taskfile states requirements only, on purpose. One
+constraint on it: migrating a duplicate to `triggers:` produces a well-formed
+duplicate, which lints clean and is still wrong.
 
 ## Second finding, same sitting: `depends:` has two owners
 
@@ -60,8 +62,8 @@ this backlog already records twice.
 
 ## Open work
 
-- [ ] Rule on the discrimination rule itself — it is agent-authored and
-      vetoable, and it is the taskfile's stated deliverable.
+- [ ] Settle the sorting criterion, with the owner, before any edits. The
+      taskfile deliberately carries no procedure to inherit.
 - [ ] Fix the two llm-kb audits before sweeping any consumer, or the sweep
       undoes itself on the next self-audit pass.
 - [ ] Decide who owns `depends:` — rename one side, or teach the linter that a
