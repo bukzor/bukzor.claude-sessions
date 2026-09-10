@@ -9,6 +9,7 @@ session:
     - 315152a8-93a9-4305-8bf4-3dad30e4b8f3
     - f144b4b8-84c9-4e7d-bf32-42f5ed7e4d5b
     - 13528b4c-1567-496f-9e40-cec08677e318
+    - 24a0acae-92e5-48b9-bb1b-6d18bfab6c51
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -274,3 +275,16 @@ are repo-scoped and live in `bukzor-agent-skills/.claude/todo.md`:
 three unruled agent judgment calls from this stretch, and the deferred
 120-file `design.claims.kb/` -> `design.kb/` rename (RENAME, `todo:
 true`).
+
+Pickup (2026-09-10, eighth uuid, cwd ideation.epistemics): the fleet
+scans learned to tell a ledger from a discourse graph. `ledger_roots()`
+took every `claims.kb` by name and asserted on the realm's root graph the
+moment this repo held both kinds; now a candidate is a ledger when the
+schema beside it requires `label:` and `standing:`, probed through
+llm-kb's validator rather than by walking `$ref`s -- the owner's call,
+both fields, declaration over data (`3be28c7` in bukzor-agent-skills;
+llm-claims-kb now depends on llm-kb). Cost measured at ~1 ms per
+candidate against a 170 ms walk. The census then ran here for the first
+time and found two trespasses in `session-model/`, filed in this repo's
+todo. The realm's own new line of work, `kb-dynamics/`, has its own entry:
+`kb-dynamics-ledger-debt-harness.md`.
