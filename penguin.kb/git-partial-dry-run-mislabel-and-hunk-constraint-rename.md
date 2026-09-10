@@ -1,7 +1,6 @@
 ---
 cwd: /home/bukzor/repo/github.com/bukzor/git-partial.prototyping
 session:
-  uuid: # chronological; append your uuid when picking this entry up
   started: null
   ended: null
 ---
