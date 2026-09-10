@@ -4,7 +4,7 @@ session:
   started: null
   ended: null
 ---
-# git-partial: dry-run mislabel, output polish, and a constraint rename
+# git-partial: dry-run mislabel and output defects
 
 Follow-ups surfaced 2026-09-10 while using `git commit-staged` /
 `git commit-files` from a dotfiles session (that session's own work —
@@ -22,9 +22,6 @@ of work.
 - [ ] Commit output prints the tool name where git prints the branch
       (`[commit-staged 05ba082]`)
 - [ ] Stale `.git/index.commit-staged.*` temp indexes accumulate (9 present)
-- [ ] Rename `discovered-constraints.kb/no-git-plumbing-for-hunks.md` to
-      scope its claim to reading — **awaiting owner's ruling**, body
-      already fixed in `8c64d88`
 
 ## Notes for the next session
 
@@ -37,7 +34,14 @@ confidence values I had no basis for.
 That repo also carries two unrelated uncommitted edits (`.claude/todo.md`
 three-version-bail item, `.claude/todo.d/2025-12-15-000-generate-manpage.md`
 status frontmatter) belonging to another session. Left untouched; my
-commit staged only my own hunk.
+commits staged only my own hunks.
+
+The fourth item this entry once carried — renaming
+`discovered-constraints.kb/no-git-plumbing-for-hunks.md` to scope its
+claim to reading — is done. The user ruled it as a standing law
+("aggressively rename claims to match their content"), now recorded in
+`~/.claude/CLAUDE.md`'s "Rename aggressively" value; the rename and this
+entry's own retitling are its first two applications.
 
 ## Cross-references
 
@@ -47,5 +51,5 @@ commit staged only my own hunk.
 
 ## Delete When
 
-All four items are resolved, or folded into the repo's own tracking and
+All three items are resolved, or folded into the repo's own tracking and
 no longer worth surfacing from `~`.
