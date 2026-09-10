@@ -288,3 +288,9 @@ candidate against a 170 ms walk. The census then ran here for the first
 time and found two trespasses in `session-model/`, filed in this repo's
 todo. The realm's own new line of work, `kb-dynamics/`, has its own entry:
 `kb-dynamics-ledger-debt-harness.md`.
+
+- [ ] ideation.epistemics: `session-model/` (formed 2026-09-09 in session
+      `f9bdf6f0`, per its own roll-up), its section in the repo `CLAUDE.md`,
+      and `.envrc` sit uncommitted with no session entry anywhere. Commit
+      them, or write the entry from `session-model.claims.md`'s account
+      first; the 2026-09-10 kb-dynamics commit deliberately left them out
