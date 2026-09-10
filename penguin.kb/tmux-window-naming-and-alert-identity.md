@@ -44,6 +44,15 @@ established are in
 the status bar, and the window list all consume what it resolves.
 Change it there, not in the consumers.
 
+Expect long-lived windows to read `bash` for a while, and don't "fix"
+it. No live shell has sourced `pane-title.sh` yet: every shell running
+when this shipped was started between Aug 24 and Sep 4, and the hook
+landed 2026-09-10T10:34:48. Those shells never will -- the rc runs at
+startup -- so their panes stay undeclared and the ladder correctly
+falls through to `pane_current_command`. The cwd rung is proven on an
+isolated tmux server, not yet by any live pane; it takes effect as
+shells are replaced.
+
 tmux re-derives an automatic name only on **pane activity**: after
 `source-file`, idle windows keep stale names and look like they opted
 out. Distinguish real opt-outs (`automatic-rename off`, meaning a human
