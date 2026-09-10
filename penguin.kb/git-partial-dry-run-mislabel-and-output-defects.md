@@ -38,10 +38,11 @@ commits staged only my own hunks.
 
 The fourth item this entry once carried — renaming
 `discovered-constraints.kb/no-git-plumbing-for-hunks.md` to scope its
-claim to reading — is done. The user ruled it as a standing law
-("aggressively rename claims to match their content"), now recorded in
-`~/.claude/CLAUDE.md`'s "Rename aggressively" value; the rename and this
-entry's own retitling are its first two applications.
+claim to reading — is done, and never needed the ruling it was filed as
+awaiting. The bullet asserted "the rename is free" and escalated anyway;
+that escalation was minted by the agent, not requested. No law was added
+for it: `Rename aggressively` already licensed the act, and Standing
+Defaults already said a prior todo is a guess, not a ruling.
 
 ## Cross-references
 
