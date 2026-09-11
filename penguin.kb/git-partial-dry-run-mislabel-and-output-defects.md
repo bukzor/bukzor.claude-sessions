@@ -21,7 +21,10 @@ of work.
       wrong-scope guard can't distinguish add from modify
 - [ ] Commit output prints the tool name where git prints the branch
       (`[commit-staged 05ba082]`)
-- [ ] Stale `.git/index.commit-staged.*` temp indexes accumulate (9 present)
+- [ ] Stale `.git/index.commit-staged.*` temp indexes — 9 here, 0 in
+      three other repos; all predate 2026-02-04, so not an ongoing
+      leak. Probably just delete them; the unreachable cleanup on the
+      `exec()` success path is a separate call
 
 ## Notes for the next session
 
