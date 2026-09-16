@@ -5,6 +5,8 @@ session:
     - 24a0acae-92e5-48b9-bb1b-6d18bfab6c51
     - 8a955044-2f8f-45fd-a6f5-812883410664
     - f65fbdf3-2597-44a8-b099-ee0e9d546ed2
+    - 9b6f24ad-884d-4152-9c1c-d294ae75325d
+    - dfc18e9d-7f4c-4c32-b52c-b46f668c557e
   started: 2026-09-10T10:40:07-05:00
   ended: null
 ---
@@ -34,12 +36,11 @@ standing from llm-claims' notation) -- and it is the only theory whose
 certifies five things and was seen failing on a planted violation.
 Nothing else in the layout exists yet.
 
-- [ ] First red test: a hand-written bad state with debt above zero.
-      That brings `examples/` (bad states, good states, traces with
-      provenance) and `python/` (`model`, `transition`, `rules`, `debt`,
-      kept pure and total for a later Lean port) into existence. Start
-      from constants -- `debt = lambda kb: 0`, `rules = []` -- and let
-      each property demand the next rung of agent fidelity
+- [x] First red test (2026-09-11, `dd63738`): `examples/` and `python/`
+      exist; properties two and three pass on the owner's three
+      confusions and one bad state per rot kind; debt is the vector,
+      effective basis the fold. `transition`, `rules`, and the generator
+      wait on property one
 - [ ] The five properties from the chat, in order: agent-only sequences
       never raise debt; every known bad state has debt > 0; every debt-0
       state satisfies every goodness predicate; each rule has a sequence
@@ -70,7 +71,7 @@ fifth, staleness; the headline missing capability is prioritized review
 with deferral, never dismissal (`DEFER_NOT_DISMISS`); derivation earns
 unread trust only when entire and rigorous (`DERIVED_TRUST`). `MINUTIAE`
 is certified by a fleet measurement with its verify script beside it.
-Nothing is committed; everything is staged.
+Committed as `168b5bd`.
 
 - [x] The eight opens of the sitting are ruled (`f65fbdf3#L815`,
       `#L995`); two remain open by the owner's word: `ROT_LIST`
@@ -82,6 +83,115 @@ Nothing is committed; everything is staged.
       `MONOTONE` is relabelled `NO_SILENT_RAISE`; `METHOD` no longer
       coins "target ledger"; the layout's `test_monotone.py` is
       `test_repayable.py`
-- [ ] The harness is to stress `TRUST_TEST`'s three conditions at the
-      corners and to try to close `ROT_LIST` -- the owner's stated hope
-      for the exploration
+- [x] `TRUST_TEST` stressed at the corners (`0def348`): `trust.py`
+      computes every reading, six corner states pin the verdicts, and the
+      open `TRUST_CORNERS` beside `TRUST_TEST` holds the two decisions it
+      reduces to. `ROT_LIST` untouched
+
+## Harness sitting, 2026-09-11 (session 9b6f24ad)
+
+Built the first two rungs on the ladder and committed each. Posed
+`TRUST_CORNERS` as two ledger-level trust decisions; the owner dissolved
+it: trust is per claim, a ledger's trust is an aggregation, a non-empty
+queue has no bearing on any claim, and "why does a sitting count at
+all". Filed as `TRUST_PER_CLAIM` (user) and `EMPTY_QUEUE_TRUST` (agent,
+verified by `test_trust.py`: empty queue entails all trusted; converse
+fails, witness `rot-among-user-claims-only`). `trust.py` is per-claim
+plus aggregations; the ledger-level `trusted` and the sitting count are
+gone. A peer session (kb-dynamics-28) edited five ledger claims in
+`5d44257` meanwhile, coordinated by message; no conflict. Lesson from
+the owner: a "files to look at" list holds only files needing their
+act, one line each naming the act, never background. This session owns
+`python/` (the owner's word, after a brief reversal at 13:55 that was
+their mistake); `179fe73` was amended without its Python and then
+amended back, landing as the final commit with the Python restored.
+
+- [x] Sufficiency entered the claim, not the arrow (`0ab6d8b`): a
+      property of the grounds together; the weak-arrows corner is a bad
+      state. The arrow's kind waits on a property that reads it
+- [x] Property one built as hidden debt (`OWNER_VIEW`, vetoable): a log
+      of steps replayed under the sanction table (the move table's actor
+      column) gives the owner's view; hidden is its debt beyond the
+      record. The constant-worst agent found the two rules, only the
+      owner settles wording and only the owner stipulates; property
+      four's flip test shows each has witnesses and a dead-weight rule
+      has none. The earlier observation stands, refined: in the sandbox
+      only the "no pathway" route is expressible, and it arises only as
+      an agent move hiding rot
+- [ ] Found, for `ROT_LIST`: an agent retracting a settled `user` claim
+      hides no rot, since a clean claim carries none, yet the owner's
+      content is gone. Needs the log, not the state
+- [x] The random agent (`tests/strategies.py`, hypothesis strategies
+      drawn against the live state) found, one shrunk step at a time:
+      agents retract a user claim; agents merge an owner ruling into its
+      dependent; agents add settled wording; agents add `basis: user`.
+      Five rules now, each with a constant or random witness. Its second
+      find also exposed a debt bug: a claim in a cycle was never a
+      proposed root, so a cycle of derivations had debt zero and broke
+      `EMPTY_QUEUE_TRUST`'s forward direction. Pinned as a bad state,
+      fixed: every cycle member is a root
+- [x] The owner challenged the five rules as worded ("agents never
+      retract owner claims" refuses an agent acting on buy-in) and
+      ruled "authority not hands": a move is tagged by the authority it
+      carries, per-move by an address or standing by a stipulated rule.
+      Filed as `AUTHORITY_NOT_HANDS` (user); `MOVE_TABLE`, `MODEL`,
+      `IMPORTED_MOVE`, and `GENERATOR_NOT_AGENT` amended in place.
+      `Step.authority` is `Owner(license)` or `Agent()`; the five rules
+      collapse to two: owner-only changes need owner authority, and
+      unlicensed merges preserve content. On THREE21 versus THREE12:
+      the sandbox already merges them, since content is an atom set;
+      whether the field may merge near-duplicates unasked is a widening
+      of `UNASKED_MOVES` the owner has not ruled
+- [x] Property five: `agents/repair.py` is the owner who rules yes on
+      every item after the unasked moves; it clears every recorded
+      state and every random-reached state within sixty steps
+      (`REPAIR_WITNESS`). `Close` entered the move table: a question,
+      leaf only, removed. All five properties run; 53 tests
+- [ ] Next: bounded enumeration (`enumerate.py`) for proof-strength
+      at small depth, or the loader for real ledgers, which `ROUND_TRIP`
+      blocks (wording has no sigil on disk). The owner's call which.
+      The peer session shares this worktree and reshapes the ledger
+      under the same commits, so re-read before editing claims; the
+      owner asked that I not message it
+- [ ] `python/` used Python 3.14 under `requires-python >=3.13`; black
+      is pinned to py313. `.envrc` at the repo root is untracked and not
+      mine
+
+## Review sitting, 2026-09-16 (session dfc18e9d)
+
+The owner ran `llm-claims-kb-grounding` on the ledger and asked for
+thoughts. Read: the spine is the owner's; the queue head is the three
+discourse-graph imports (tooling debt, filed as a planned session);
+the table sees one of five components, and this ledger carries the
+other kinds under its own definitions. Rulings landed as claims, each
+quoting the owner at `dfc18e9d`: `VETO_QUEUE` (every agent-authority
+move is a veto item, said once), `RESOLUTION` (resolve under agent
+authority or mark; either queued), `RESTING_STATES` (four, as
+examples), `CONFLICT` (a pair-or-set attribute, cached at most;
+absorbs `STALE`), `CYCLIC_CONFLICT` (yes, three claims can conflict
+pairwise-consistently), `OBJECTIVE` (benefit first, then cost per
+benefit), `EXCHANGE_RATE` (attention dearer than tokens, both in
+dollars). "Lowering" became "reduction" fleet-wide in the ledger.
+`UNREPAYABLE` was restored to the four routes the owner approved,
+with the agent's withdrawal of the fourth as `LEAF_REPAYS` (agent):
+the first application of `RESOLUTION` to the ledger's own history.
+In bukzor-agent-skills: `authority:` may be an object (address,
+words, about) and `ledger.py` projects it; VOICE's "verbatim" is
+"faithful" on the owner's word. A peer branch of this session filed
+the rename plan under `.claude/todo.kb/`. Two label lessons: no label
+may prefix another (`CONFLICT` blocked `CONFLICT_REDUCTION`), and YAML
+reads `on:` as true.
+
+- [x] Reviewed, filed, verified: 93 ledger files validate; mentions,
+      flatten, and the import certification clean; 64 tests pass with
+      one expected red (the conflict example)
+- [ ] Awaiting the owner's veto, agent-authored: the `authority:` object
+      shape (`about`, `words`, `address` as one string); "faithful" as
+      the word; `OBJECTIVE` placed in `debt.kb/` for theory order;
+      `RESOLUTION` as the label; `LEAF_REPAYS`; the conflict example as
+      an expected-red test; the $150/hour rate on file
+- [ ] Next build items are in `ideation.epistemics/.claude/todo.md`
+      under the kb-dynamics entry: the conflict relation in the state,
+      the ledger-to-State adapter, authority normalization, the weight
+- [ ] `discourse-graph-claims-readable-as-ledger-claims.md` is the
+      planned session for the queue head
