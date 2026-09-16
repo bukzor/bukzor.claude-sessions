@@ -10,6 +10,7 @@ session:
     - f144b4b8-84c9-4e7d-bf32-42f5ed7e4d5b
     - 13528b4c-1567-496f-9e40-cec08677e318
     - 24a0acae-92e5-48b9-bb1b-6d18bfab6c51
+    - a29c9a99-4cdb-42fc-b939-fd82593f3c3a
   started: 2026-07-24T11:30:00-05:00
   ended: null
 ---
@@ -288,6 +289,27 @@ candidate against a 170 ms walk. The census then ran here for the first
 time and found two trespasses in `session-model/`, filed in this repo's
 todo. The realm's own new line of work, `kb-dynamics/`, has its own entry:
 `kb-dynamics-ledger-debt-harness.md`.
+
+Pickup (2026-09-16, ninth uuid, cwd kb-dynamics' claims.kb): the word
+for how the owner is quoted. `VOICE` said "verbatim, typos mended,
+labels retconned"; the owner ruled the enumeration out (it cannot be
+shown exhaustive) and supplied *sensatim*, coined on *verbatim* and
+Jerome's *sensum de sensu*. The rule is now a condition -- emended only
+where the words as typed would now mislead -- defined once, in `VOICE`'s
+first sentence, and cited everywhere else as "sensatim (rather than
+verbatim)". `JUSTIF_ORDER` filed as a fourth stance: what is written is
+owed in justification order, not discovery order, with the test being
+whether a passage does justificatory work rather than whether it is
+historical. Two claims I was about to file turned out to be
+`FRESH_READER` and (by `NO_ECHO`) not filable at all. The body-writing
+rules moved out of `llm-claims-kb/SKILL.md` into
+`before/writing-a-claim.md`, where they fire at write time instead of
+being paid by every reader. History rewritten and force-pushed with
+lease: one commit's false title fixed, one squashed away, seven commits
+to six, trees verified identical. Devlog:
+`docs/dev/devlog/2026-09-16-000-Sensatim*`. Follow-ups are repo-scoped
+in `bukzor-agent-skills/.claude/todo.md` — three unruled judgment calls
+from this pass, and `llm-claims-kb-graph` being unrunnable here.
 
 - [ ] ideation.epistemics: `session-model/` (formed 2026-09-09 in session
       `f9bdf6f0`, per its own roll-up), its section in the repo `CLAUDE.md`,
