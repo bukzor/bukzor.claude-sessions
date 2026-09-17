@@ -3,6 +3,7 @@ cwd: /home/bukzor
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - 10dfad2d-6c36-40c4-a012-222965022fcc
+    - 17b60946-a452-4069-838b-2b35bf98cebb
   started: 2026-09-10T09:08:47-05:00
   ended: null
 ---
@@ -20,6 +21,22 @@ wants attention, and logs every alert to
 Reasoning, rejected alternatives, and the conventions this session
 established are in
 `docs/dev/devlog/2026-09-10-001-tmux-window-naming--a-precedence-ladder--not-a-program-list.md`.
+
+## Read into a claim ledger, 2026-09-17
+
+A later session (unrelated line of work: cron-alerting, see
+`pnpm-11-tooling-and-cron-health.md`) read `bin/alert`, its commits, and
+this devlog while extending `docs/dev/user-attention.claims.md`
+(`Skill(llm-claims-kb)`, pushed `80149a4`). `alert` is now formalized there
+as a **push channel** -- fires when the caller calls out rather than being
+polled or triggered by session lifecycle, so its coverage is exactly its
+call sites (`ALERT_PUSH`, `PUSH_BOUNDED_BY_CALLSITES`,
+`PUSH_ATTEMPTS_LOGGED` in `docs/dev/user-attention.claims.kb/`). The
+`log_alert`-under-`set -e` follow-up below is now also tracked as an open
+claim there (`ALERT_LOG_DESYNC`) -- same open question, now checkable
+alongside the ledger's others rather than only living in this file's prose.
+Nothing here was built or fixed; this is a cross-reference, not a
+resolution.
 
 ## Open follow-ups
 
