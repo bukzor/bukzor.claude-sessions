@@ -1,0 +1,17 @@
+---
+captured: "2026-09-17"
+method: ./2026-09-17-000-direnv-active-in-this-shell-direnv-env-vars.sh
+---
+
+# direnv active in this shell: DIRENV_* env vars
+
+```sh
+'bash' '-c' 'env | grep -E "^DIRENV_"'
+```
+
+```
+DIRENV_DIR=-/home/bukzor
+DIRENV_FILE=/home/bukzor/.envrc
+DIRENV_DIFF=eJzsU11zojAU_S95VtltFVbfYiSKVWwVUXhhIIQPDQkCgtDpf9_Rdqbdlt2Zfdmnfcnce07uSeaeOc8gBaNn8AiNGRgBKRIJlbzzsRGZ5MV89AvQY4K4rAUnbhaKr3ia0SC-SH9mU54mLZKlYIXbgntn_lupUDCXh690fjvPefZWibS4jXgZrdqgL5pezKU8ipPWFeSRm1GJl3EiJW4u3r50fe3Diq7trfhEhm5C81fgVoKXDuBXE9AMGnjjIIhm6mczSOQWuQQ6AK10rE0drC1Up821HhE8iEOJxQVlLJFe217tJgx0wERbq7rpTLQ1GIHux8F38ir9RZXyMiPvd3bQQDN1A0aAzmvSHIsVbNQl1JFi47v1arHzU-yPF_PG-mbV1mRwslk6lP2BpSHDJv3VcRhkYr96su_JfmDZzuP3bllfvFIZs6Lc3S-5frooB2_VRw-2DzeTKeWLO72rTJVawb6yV-SnwWE3Tx-D8ZAvZeVgk3JZG_ScpRdZ32qZSaoti07CCodmArF7rA6JiVHFIx1pc4ynBlbltaVO-z4xHd5lRXZRmNbHzY_URDHf7-FGzWtDbElULyr2sMVPOzQ4aWcDN3GtRushDE7BeCgbi8LnjoxCCB2nW9HEOYBOa6B6JeXlXwbhfwj_VQhffgYAAP__tN3FQg==
+DIRENV_WATCHES=eJyczktOAzEMANC7ZF2ROLWdpFdBLJzY0YyYD5qZlp96d5YICTZc4Ok9froXOQZ3cX5YZ_P1-vyxbv7BltvW3MnNqx7jbO4CKZdASDGenL2N-7G7y7Fd7X76Q5jWJpPfB9nM67jZcvMyTeurpx6NUIrVcwUlhqoYg9VmAFakwjmVFCwnhNCIJFFGTFE6RYEG4dcV_n-ltrx7lI4Fz8pVCinXXASEsyToUchyLwlKUFQWC5qIuTFziyEhR9AfqfB96TLtdn_6CgAA__-wem_j
+```

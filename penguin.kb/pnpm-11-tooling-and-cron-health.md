@@ -87,8 +87,9 @@ judgment call, not a refactor.
 corepack shadows `~/bin/corepack` automatically") turned out wrong for
 cron specifically -- found by a third, independent recurrence of this
 exact failure class in a concurrent investigation
-(`~/pnpm-corepack-cjs-mjs-2026-09-12/`, incident-forensics kb, not
-committed to `dotfiles`): the real order is direnv-gated (`~/.envrc`'s
+(`pnpm-11-tooling-and-cron-health.kb/pnpm-corepack-cjs-mjs-2026-09-12/`,
+incident-forensics kb, not committed to `dotfiles`; root-caused,
+fixed, and verified 2026-09-17): the real order is direnv-gated (`~/.envrc`'s
 `path_add` re-prepends `~/prefix/pnpm/bin` ahead of `~/bin` on every
 direnv-hooked prompt, masking the bug interactively; cron's plain
 `/bin/sh` has no direnv and hits stale `~/bin/corepack` directly). Their
@@ -126,3 +127,10 @@ original claim: `9d49617`.
 - `har-browse` is now installed globally from the working tree
   (`pnpm add -g <path>`), so `har-browse`/`cdp-to-har` on PATH run the repo
   copy -- relevant to `har-browse-completeness-bugs.md`.
+
+## Addenda
+
+`pnpm-11-tooling-and-cron-health.kb/pnpm-corepack-cjs-mjs-2026-09-12/` --
+the full incident-forensics kb for the 2026-09-12/17 corepack recurrence
+summarized above, moved here from a loose `$HOME` directory (private,
+machine-scoped notes; not `dotfiles` material).
