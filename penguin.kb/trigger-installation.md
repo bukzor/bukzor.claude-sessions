@@ -19,8 +19,11 @@ didn't fire and how to restate it so that it does. This session started as
 `pnpm-11-tooling-and-cron-health.md`.
 
 Evidence with line cites into the transcript: `trigger-installation.kb/`.
-Sibling session on the same subsystem, running concurrently:
-`must-read-sharding.md` (`while/` trigger sets; formal ledger).
+Two peers are live on the same subsystem: `must-read-sharding.md`
+(`while/` trigger sets; formal ledger) and `judgment-protocol-redesign.md`
+(one bank entry audited over 18 days). Cross-read in
+`trigger-installation.kb/2026-09-19-001-peers-cross-read.md`; summary under
+"Overlap with peers" below.
 
 ## Findings
 
@@ -108,14 +111,37 @@ schema stays `read:`-only; `sweep:` is the named successor verb if sweep
 machinery is ever built. Time Awareness drops *Session start* (harness
 supplies the date); the two judgment-shaped occasions stay prose.
 
+## Overlap with peers
+
+Adopted from `must-read-sharding`: ROOT (installer must be host context --
+B complies); BEGIN_AT_DECISION (settles the juncture: `when: planning a
+turn`); COMPACTION? is the same question as open item 1 below -- this
+session is its worked instance. From `judgment-protocol-redesign` `05-`:
+the four 09-02 `/align` turn-1 sweeps it counts as over-triggering are in
+this session's old-wording 7/7 cohort -- the IMPERATIVE stanza bought
+install rate with eager over-reads, so the review directive must say
+*review the listing; read only what this turn reaches*.
+
+Claims that extend theirs, for the user (not sent):
+
+- MODE_MISS says noticing is governed by mode, not layout. This session is
+  a miss *in deliberating mode* (`L22`); host-stanza wording is a third
+  variable, 30/30 → sonnet 5/7, 0/2 after `4614693`.
+- Their `06-` test (compaction-lost listing as a delivery hole on the 63
+  folds) omits a second hole: *never installed*. Audit window straddles
+  09-04. Split should be three-way.
+- GRADIENT/BACKSTOP (`07-`) reframes a `PreToolUse` first-call hook
+  injecting the listing as the prescribed backstop for step 0 -- it fires
+  only when a tool is called, which is the objection to `SessionStart`.
+  Needs a ruling.
+
 ## Open questions
 
 - Compaction: "your first tool call" was literally satisfied once and stayed
   dark through three re-injections. Is the intent per context window? If so
-  the occasion should say so.
-- Juncture for the review: `after: each user turn` (user's phrasing; loose --
-  literally satisfiable at turn end) vs `when: planning a turn` (names the
-  moment it happens). Both are prose descs; recurrence has no assigned form.
+  the occasion should say so. (= `must-read-sharding` COMPACTION?.)
+- ~~Juncture for the review~~: `when: planning a turn`, by
+  BEGIN_AT_DECISION. Recurrence still has no assigned desc form; prose.
 - Does `llm-triggers-lint` know the `must-read://` scheme, or will it warn
   `unresolved-read`? Unverified.
 - Cause split: is the skill-first failure sonnet-specific or wording-general?
