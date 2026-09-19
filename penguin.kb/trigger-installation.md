@@ -122,6 +122,13 @@ this session's old-wording 7/7 cohort -- the IMPERATIVE stanza bought
 install rate with eager over-reads, so the review directive must say
 *review the listing; read only what this turn reaches*.
 
+A fourth peer, `shell-config-intent-first-loader` (`df89c432`), reviewed
+this entry 2026-09-19 and adopted the frontmatter ruling as ROOT's shell
+analogue ("no patch"); its REENTRY is COMPACTION?'s analogue and its
+MECH_PULL is the same endpoint as the hook-backstop claim below. No
+conflict. `decide-the-inbound-peer-message-channel` is the standing
+decision behind this section's files-not-messages posture.
+
 Claims that extend theirs, for the user (not sent):
 
 - MODE_MISS says noticing is governed by mode, not layout. This session is
