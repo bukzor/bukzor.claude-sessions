@@ -105,8 +105,12 @@ findings and patches in `.kb/2026-09-19-001-sibling-review.md`.
   loaders. Two data points for its audit: this session had 2 folds
   under pushback, both with the disconfirmer named in the turn
   (contradictory count; pocket-vetoed nesting) -- the healthy path its
-  pre-commit proposal wants. Its "mode/criteria/tools" ruling (`.kb/03`)
-  should govern the eventual `intent.d/CLAUDE.md`.
+  pre-commit proposal wants. The 2026-08-29 ruling
+  ("a mode of thinking, clear success criteria and a directory of
+  tools", devlog `2026-08-29-000`) should shape the eventual
+  `intent.d/CLAUDE.md` -- my `+`, not theirs; whether it governs *their*
+  entry is their `.kb/03`, still `?` (peer message 14:33, verified:
+  "Posed 2026-09-19, unruled"). Not a dependency on that answer.
 
 ## Open questions
 
