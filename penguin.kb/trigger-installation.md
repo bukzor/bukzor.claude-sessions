@@ -147,6 +147,23 @@ Claims that extend theirs, for the user (not sent):
 - Compaction: "your first tool call" was literally satisfied once and stayed
   dark through three re-injections. Is the intent per context window? If so
   the occasion should say so. (= `must-read-sharding` COMPACTION?.)
+  Candidate answer on disk, not ruled -- `must-read-sharding.kb/
+  2026-09-19-003-shell-loader-peer.md` REENTRY+, attributed to
+  `shell-config-intent-first-loader` (`df89c432`), relayed by peer message
+  14:34 and verified: the installer's occasion is *entry into a context
+  window* (session start and every post-compaction resume); installing is
+  idempotent, so re-running costs one listing and needs no state. Draft
+  occasion would read `before: your first unrequested tool call in this
+  context window`. Same file's `-002` TOP_PULLER+: the mechanical form is
+  `SessionStart` matcher `compact` (compaction implies an active session)
+  plus a `PreToolUse` first-call hook -- both dodge the no-tool-calls
+  objection. Ruling is mine to bring to the user; it is theirs to make.
+- `-002` VOCAB (restated) asks that the `while/` recognition line live in
+  the review directive's body, not CLAUDE.md prose, since that body is what
+  the agent has open when scanning a stub -- and prose "standing state" is
+  the shape that measured 5/7. If adopted, CLAUDE.md carries only the two
+  static triggers and the "land as one change" want collapses to one file
+  plus one bank entry.
 - ~~Juncture for the review~~: `when: planning a turn`, by
   BEGIN_AT_DECISION. Recurrence still has no assigned desc form; prose.
 - Does `llm-triggers-lint` know the `must-read://` scheme, or will it warn
