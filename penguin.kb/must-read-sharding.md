@@ -77,10 +77,11 @@ occasion on its own; meet lives at nested sets only).
 
 ## Open
 
-- [ ] File the ledger to disk: new
-      `bukzor-agent-skills/llm-must-read-kb/claims.kb/design.claims.kb/`
-      shaped like `llm-kb/claims.kb/`; NAMESPACE goes to
-      `llm-kb/claims.kb/design.claims.kb/`. `Skill(llm-claims-kb)`.
+- [x] File the ledger to disk (2026-09-22, `bukzor-agent-skills`
+      `602b3de`): `llm-must-read-kb/claims.kb/design.claims.kb/`, 54
+      claims in 8 theories, tombstones beside their dissolvers; NAMESPACE
+      + GOVERNANCE in `llm-kb/claims.kb/design.claims.kb/` (`5d170c9`).
+      That ledger is now the canonical form of `.kb/-000..-003` here.
 - [ ] Migrate `~/.claude/must-read.kb` (after COMPACTION below): create
       `while/making-code-changes/`, move the five, rename rust, move stripe
       to its project bank; update `llm-must-read-ls` to the prune; put the
