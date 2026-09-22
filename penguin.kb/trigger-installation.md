@@ -144,9 +144,14 @@ Claims that extend theirs, for the user (not sent):
 
 ## Open questions
 
-- Compaction: "your first tool call" was literally satisfied once and stayed
-  dark through three re-injections. Is the intent per context window? If so
-  the occasion should say so. (= `must-read-sharding` COMPACTION?.)
+- Compaction: **deferred 2026-09-22 to
+  `must-read-sharding.kb/2026-09-22-000-decision-after-compaction.md`**,
+  which poses (a) per-context-window wording and (b) a `SessionStart
+  compact` hook as one `ruling:` file; a ruling there binds here. I added
+  the "unrequested" qualifier from the 09-19 LITERAL ruling in that file.
+  History of the question, for the record: "your first tool call" was
+  literally satisfied once and stayed dark through three re-injections.
+  (= `must-read-sharding` COMPACTION?.)
   Candidate answer on disk, not ruled -- `must-read-sharding.kb/
   2026-09-19-003-shell-loader-peer.md` REENTRY+, attributed to
   `shell-config-intent-first-loader` (`df89c432`), relayed by peer message
