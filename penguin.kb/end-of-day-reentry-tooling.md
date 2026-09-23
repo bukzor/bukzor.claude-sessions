@@ -1,12 +1,14 @@
 ---
-cwd: /home/bukzor/repo/github.com/bukzor/bukzor-tools/packages/claude-code-archeology
+cwd: /home/bukzor/repo/github.com/bukzor/bukzor-tools
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - f65fbdf3-2597-44a8-b099-ee0e9d546ed2
     - 01f46623-f8f4-45d2-bd30-72201775320a
+    - 32e41eca-33a4-40a8-855e-2af10fc4f837
   started: 2026-09-10T12:35:48-05:00
   ended: null
 ---
+
 # End-of-Day Re-entry Tooling
 
 Session f65fbdf3 (2026-09-10) reconstructed a day of twelve parallel
