@@ -3,6 +3,7 @@ cwd: /home/bukzor
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - c78bbbb7-a161-4ecb-addb-8c5bdfa4abcc
+    - 781aafd7-12e3-43b7-a7e2-59ee46a3f375
   started: 2026-08-28T12:55:05-05:00
   ended: 2026-08-29T19:20:00-05:00
 ---
@@ -23,16 +24,12 @@ third format worked. The skill is
       remains is the commit itself, by the exact paths under "Staged
       awaiting ruling" below.
 - [ ] Ratify `llm-triggers/design.kb/use-cases.kb/goal-gated-conditions.md`.
-      Ruled 2026-09-01 to fail the writer/consumer razor; **rewritten**
-      into the collection's own form (need / `Today:` /
-      `Satisficed when:`), provenance and repair relocated to the fleet
-      devlog. Still `status: proposal` — the rewrite is the agent's,
-      the ratification is the owner's. The schema half is **resolved**:
-      `use-cases.jsonschema.yaml` now exists (`status` only) and
-      `llm.kb-validate design.kb/` is 27 files, 0 errors. Still open on
-      the file: whether its shape earns an entry separate from
-      `use-cases.kb/arrival-fired-directives.md`, which names the same
-      need and misses in the opposite direction.
+      Rewritten 2026-09-01 into the collection's own form; the schema
+      half is resolved. Separate-or-merge settled by check 2026-09-03
+      (`review-open-questions-improvement.kb/05-ratify-goal-gated-conditions.md`):
+      not reducible to `arrival-fired-directives.md`, whose satisficed
+      state does not satisfice it. Only the `status: proposal` marker
+      remains, and that is the owner's.
 - [ ] Draft "prefer positive directives" for
       `~/.claude/must-read.kb/before/writing-agent-facing-instruction.md`.
       Owner's standing correction, 2026-09-01: "be suspicious of
@@ -285,6 +282,11 @@ this pass — one file per decision. All four were posed 2026-08-31 and
 ruled 2026-09-01; each file now states its resolution rather than its
 question, which is the closed form `Skill(llm-kb)` prescribes for a
 decision point.
+
+Two are open as of 2026-09-03: `05` (renamed from
+`05-goal-gated-entry-or-merge.md`; only ratification remains) and
+`06`, which asks whether this directory is where a pass's rulings
+belong at all.
 
 The register is worth reading as the method's first live trial, not
 just for its outcomes. What it got right: cheap courts shrank the

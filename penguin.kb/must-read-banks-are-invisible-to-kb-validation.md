@@ -3,6 +3,7 @@ cwd: /home/bukzor
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - c78bbbb7-a161-4ecb-addb-8c5bdfa4abcc
+    - 781aafd7-12e3-43b7-a7e2-59ee46a3f375
   started: 2026-09-01T13:16:48-05:00
   ended: null
 ---
@@ -59,17 +60,8 @@ success.
 
 ## Open work
 
-- [ ] Decide the fix's shape — it spans two skills and the choice is
-      the owner's. Options as I see them: (a) `llm.kb-validate`
-      recurses into non-`.kb` subdirectories of a `.kb/`, which is
-      what `llm-must-read-kb`'s documented nesting already assumes and
-      what the reading recipe `$CATEGORY.kb/**/*.md` implies; (b)
-      `llm-must-read-kb` stops nesting, which contradicts its own
-      "Nesting" section and the deployed `before/git/`,
-      `before/lazy-loading/`, `before/using-claude-code-tool/`; (c)
-      the walker warns when a `.kb/` yields zero files, which fixes
-      the *silence* without settling the semantics. (a) and (c)
-      compose and are my recommendation.
+- [ ] Decide the fix's shape -- two independent picks, under
+      "Ruling" below.
 - [ ] Write `~/.claude/must-read.jsonschema.yaml` for the `triggers:`
       field once validation can see the bank — the schema is what the
       ten entries above are missing, and minting it before the walker
@@ -84,18 +76,54 @@ success.
       is documented in `llm-kb/SKILL.md`. Minor, but the house rule
       that references it currently cannot be followed as written.
 
-## Ruling — the fix's shape
+## Ruling -- the fix's shape
 
-The one decision here; the rest of the open work follows from it and
-needs no ruling. My position is (a)+(c) composed: the walker recurses
-into non-`.kb` subdirectories *and* refuses to report a total smaller
-than the corpus it was pointed at. (a) alone fixes this instance; (c)
-alone catches the class, including the two below that (a) would miss.
+Two independent picks, not one. The previous draft fused them and
+offered a "stop nesting" option that was never live: `before/`,
+`after/`, `when/` are the pattern's juncture encoding, not the
+"Nesting" section's topical subdirs, and no bank has a single flat
+entry. The rest of the open work follows from these two picks and
+needs no ruling.
 
-Against myself: (c) means the walker needs a notion of "the corpus,"
-which it does not currently have — that is a real cost, and if it
-turns out to need a second directory walk, (a) alone plus a documented
-smell may be the better trade.
+### Membership: what makes a file under a `.kb/` a member?
+
+llm-kb's text says `$CATEGORY.kb/*.md` with nesting by `.kb` suffix;
+its reading recipe says `**/*.md`; the walker does the former. Counted
+2026-09-03, `.md` files sitting in a plain subdirectory of a
+collection, personal scope and fleet together:
+
+    58  must-read.kb/{before,after,when}            members, invisible
+     8  reference.kb/{git,markdown,python,rust}    members, invisible
+    10  strata.replication.kb/instructions.d       not members
+     4  tools.kb/*.examples.d                      not members
+     3  sessions.kb/.claude  sessions.kb/docs  tools.kb/.claude   not members
+
+- **Recurse everywhere.** Every `.md` under a `.kb/` is a member under
+  the parent's schema. Finds the 66; also sweeps the 17 non-members
+  into schemas that do not fit them.
+- **Declared per collection.** A collection opts in to subdirectory
+  members; the bank pattern and `reference.kb` declare it. Finds the
+  66, touches nothing else. Cost: one more concept in llm-kb.
+- **Flatten the bank.** Juncture moves into the filename
+  (`before--git--commit.md`); the walker is untouched. Cost: every bank
+  migrates, every `must-read.kb/before/...` path in the fleet breaks,
+  and `ls -RF` loses its grouping. The honest form of the previous
+  draft's option (b); I recommend against.
+
+**Mine:** declared per collection. Against myself: a new concept for
+two consumers, and the non-member set is small enough that "recurse
+everywhere, then rename the 17" might be cheaper -- but `docs/` and
+`instructions.d/` are not misnamed, they just are not members, and a
+rule that cannot tell them from `git/` is not a rule.
+
+### Self-check: does the walker refuse a total smaller than the corpus?
+
+Independent of membership. Three instances of one signature in one
+sitting (below) say yes; the cost is a notion of "corpus" the tool
+lacks -- likely a second, `.gitignore`-filtered `find`. Mine: yes.
+
+**If you say nothing:** both stay open. The previous draft said the
+choice is yours; I hold to that.
 
 <!-- edit here -->
 
