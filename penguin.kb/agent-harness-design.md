@@ -5,6 +5,7 @@ session:
     - c80a6431-2ca1-41a9-82ee-b01b7f91a4dc
     - c269ada4-0acb-4d1d-898a-b366887d63a5
     - 270dd94f-9d44-43b6-a0ac-ac57719ab44f
+    - 3ed32159-83e5-49e1-9da5-89236fbbfb4d
   started: 2026-08-28T10:24:49-05:00
   ended: null
 ---
@@ -45,3 +46,20 @@ CHANNEL_PICK, leaning to files for vcs/audit/control.
       hook plus inbox dirs keyed by sessions.kb slug, ~40 lines of shell
       -- rather than wait on that question; the topology is already
       ruled. Evidence in `decide-the-inbound-peer-message-channel.md`.
+
+**2026-10-01** (session `3ed32159`): agent recommendation, unruled --
+build now, but smaller than the ruled postbox. The 09-22 field test
+found every peer's sessions.kb entry already named its addressee
+("Offered back to X"); the dispatcher's only contribution was noticing
+X had not read it. So the minimal mechanism is one silent-when-empty
+user-turn hook: map the hook's `session_id` to its sessions.kb slug
+via the entries' `uuid:` lists, then print entries modified since that
+session last looked that mention the slug. No inbox dirs, message
+files, or `read/` moves. It deviates from PULL_DELIVERY ("a message is
+a file in the recipient's inbox"), hence the ruling. Either form gives
+CHANNEL_PICK a runnable candidate, which is what has held it since
+09-03. Urgency drops once `crossSessionInbound` is set (see the inbound
+entry): that alone ends unrewindable delivery.
+
+- [ ] Rule: minimal sessions.kb hook vs. the ~40-line inbox postbox
+  - [ ] Build the ruled form in `prototype.llm-postbox`

@@ -3,6 +3,7 @@ cwd: /home/bukzor
 session:
   uuid:
     - aa519804-1454-4c53-a29d-ed29bdb3a27c
+    - 3ed32159-83e5-49e1-9da5-89236fbbfb4d
   started: 2026-09-16T09:33:00-05:00
   ended: null
 focus:
@@ -75,8 +76,8 @@ tiers. Nothing about the findings is duplicated here.
       pairing exact instead of unpairable. One line; would let
       `claude-tokens-wire` read effort off the wire rather than joining
       it back from transcripts.
-- [ ] **Owner's proposal, unanswered** (2026-09-17, L1870; the session
-      died before replying). The agent had recommended (L1841) rating
+- [ ] **Owner's proposal** (2026-09-17, L1870; the session died before
+      replying). The agent had recommended (L1841) rating
       `timebox` for the delivery mode you'll actually use -- an item
       worth 6 SWEh by hand may be 0.5 SWEh of review when delegated, so
       every delegable item is under-ranked by the "delegation ratio" --
@@ -90,10 +91,35 @@ tiers. Nothing about the findings is duplicated here.
       > attached to each estimate. Modality can be a freeform string
       > for now.
 
-      Plus three questions still owed: how, exactly, to run the numbers
-      on a 6-SWEh item; whether agents are well posed to, i.e. are there
-      good docs and breadcrumbs to them; and what the delegation ratio
-      is, and whether it varies over time (with API pricing, at least).
+      Plus three questions it asked. Answered 2026-10-01 (session
+      `3ed32159`, agent-signed):
+
+      - *How to run the numbers.* Delegated timebox in SWEh = review
+        hours + steering hours + agent dollars / `HUMAN_RATE` ($150/h).
+        For the 6-SWEh item: 0.5 + ~0 + $25/$150 ≈ 0.67 SWEh.
+      - *Are agents well posed?* No. Nothing in `~/.claude/skills`,
+        `must-read.kb`, `CLAUDE.md`, or `reference.kb` mentions
+        `attention-costs.md`, and the `timebox` description never
+        mentions mode.
+      - *The delegation ratio* is by-hand timebox over delegated
+        timebox: ≈9x here (L1841's 12x omitted tokens). It varies per
+        item, and over time mostly with model capability (how much
+        review and steering a result needs), less with API price.
+        Hence the proposal subsumes it: store per-mode estimates, never
+        the ratio.
+
+      Recommendation: accept the proposal. `wsjf-rank`'s `sweh_at`
+      returns `None` for a list, so a list-valued `timebox` today
+      silently drops the item from ranking; the schema and ranker
+      must change together.
+
+      - [ ] Rule on the list-of-modes `timebox`
+        - [ ] `llm-subtask/jsonschema/todo.jsonschema.yaml`: `timebox`
+              accepts a list of `{mode, @value, rationale?, confidence?}`
+        - [ ] `2026-05-19--task-archeology/wsjf-rank`: score each mode,
+              rank by the best, show the winning mode
+        - [ ] `timebox` description: point to `attention-costs.md`
+              "Making an estimate"
 
 ## Declined, with reason
 
