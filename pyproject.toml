@@ -1,0 +1,10 @@
+[project]
+name = "sessions-kb"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "llm-kb",
+]
+
+[tool.uv.sources]
+llm-kb = { path = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }
