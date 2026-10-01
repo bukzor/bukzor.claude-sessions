@@ -35,10 +35,15 @@ flakiness on index-page captures, identified 2026-07-22.
   the venue spike's verdict now also gates/triggers the host-migration
   todo below.
 - **Host migration** (`todo.kb/2026-07-23-002-Migrate-capture-host-to-puppeteer-core.md`):
-  ratified 2026-07-23 — the current Playwright implementation is
-  dominated on the capture-implementation frontier. Gated on a host-seam
-  precondition (an implementation step now on the abort-cut todo above)
-  and on the target-coverage venue spike's verdict.
+  CORE LANDED 2026-07-26 (devlog `2026-07-26-003`, commits
+  `08023cf..df5ed11`): CaptureHost seam extracted (`capture.mjs` is the
+  venue-agnostic core; `host_playwright.mjs` test shell,
+  `host_puppeteer.mjs` production shell), CLI runs puppeteer-core, UA
+  probe/cache subsystem deleted (user-ratified branding trade: popup
+  first-requests unbranded until auto-attach), playwright demoted to
+  devDeps behind `tests/import_graph.test.mjs`. Remaining: tripwire 2
+  (live provider login -- batched into the standing live `--howto`
+  session), `.mjs`→`.ts` fold-in, mutation entries for the new shell.
 - The `has_more=false` symptom itself is still unattributed to either
   bug: the only local claude capture (`a59dc891`) has no index-page data
   to discriminate with. Needs a fresh live capture reproducing
