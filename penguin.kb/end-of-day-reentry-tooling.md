@@ -5,6 +5,7 @@ session:
     - f65fbdf3-2597-44a8-b099-ee0e9d546ed2
     - 01f46623-f8f4-45d2-bd30-72201775320a
     - 32e41eca-33a4-40a8-855e-2af10fc4f837
+    - 65ecc30b-ffda-4e11-af32-3bba4ca55aed # 32e41eca after a compaction
   started: 2026-09-10T12:35:48-05:00
   ended: null
 ---
@@ -47,3 +48,9 @@ longer tracked here.
       as the citation form, one entry command for a time span, and where
       the stream contracts live. Each carries an agent recommendation
       marked as such; the home for the `jq` views is ruled there
+- [ ] Rule on the agent-chosen defaults, all marked `[!DRAFT]`: the
+      records classification in `streams.kb/records.md` (queued prompts
+      and typed slash commands as `user-text`, relayed peer messages as
+      `injected`, borrowed `time_ns`) and the `claude-jq` mechanism in
+      `open-questions.kb/home-for-jq-views.md` (include only named views,
+      program as first argument, listing mode)
