@@ -65,11 +65,15 @@ and `pyproject.toml`. `642b4b6` and `6a32bbf` file the two tasks above.
       the other two are settled and merely sequenced.
 - [ ] `todo.kb/002` (idempotence) -- design unratified, and blocked on the
       trailing-newline convention, which changes the fixpoint.
-- [ ] Ten commits sit unpushed, and `e14faff` carries the message "Anchor patch
-      templates to line boundaries" over a content of nine `todo.md` lines
-      adding the `todo.kb/003` breadcrumb -- a job `dcdfba5` also does, with an
-      accurate message. Message and content disagree, which the standing rule
-      says to fix while still unpushed. Not mine to amend. **Needs the user.**
+- [ ] `e14faff` carries the message "Anchor patch templates to line boundaries"
+      over a content of nine `todo.md` lines adding the `todo.kb/003`
+      breadcrumb -- a job `dcdfba5` also does, with an accurate message. The
+      standing rule says to fix a message/content disagreement while unpushed,
+      but a peer pushed the series mid-session, so that window has closed:
+      repair is now a force-push on a branch live peers have built on.
+      Recommendation: leave it. The defect is a message, not content, and the
+      cost of rewriting shared history exceeds it. **Rule only if the history
+      matters more than that.**
 - [ ] `tests/CLAUDE.md` carries a `[!DRAFT]` exception from the parent session
       (`test_message_patches.py` loads live rules). Still unratified; the
       pristine-capture work in `todo.kb/003` would dissolve it.
