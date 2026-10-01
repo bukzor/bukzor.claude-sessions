@@ -1,1 +1,1 @@
-../../../claude/meta-reasoning/.claude/sessions.kb/register-the-claude-ai-prehistory.md
+../../../repo/github.com/bukzor/private.meta-reasoning-corpus/.claude/sessions.kb/register-the-claude-ai-prehistory.md

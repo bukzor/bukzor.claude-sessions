@@ -1,1 +1,1 @@
-../../../claude/meta-reasoning/.claude/sessions.kb/confidence-walk-2026-08-21.md
+../../../repo/github.com/bukzor/private.meta-reasoning-corpus/.claude/sessions.kb/confidence-walk-2026-08-21.md
