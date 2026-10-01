@@ -15,7 +15,7 @@ Greenfield revisit of
 2026-08-31): back-derive its goals and requirements, then ask what we
 would build today. The pass produced a transcript audit that overturned
 the agent's opening premise, a design proposal (second attempt; the
-first was withdrawn), and seven open questions (one since closed) -- nothing in the entry
+first was withdrawn), and eight open questions (three since closed) -- nothing in the entry
 itself has changed.
 
 Evidence record: `~/.claude/docs/dev/devlog/2026-09-18-000-the-judgment-trigger-audited-against-18-days-of-transcripts.md`.
@@ -37,10 +37,17 @@ known confounder unnamed).
   self-announced ("I'm about to assert a claim of judgment, so..."). The
   agent's opening claim -- that "asserting a judgment" is a continuous
   condition belonging in CLAUDE.md -- was wrong; the name stays.
-- **Assert leg works; fold leg does not.** 65 replies opened with a
-  concession phrase; 63 had no read of the entry nearby. User
+- **Both legs mostly miss; the fold leg worse.** 65 replies opened
+  with a concession phrase; 63 had no read of the entry nearby. The
+  09-22 corpus test (`.kb/01-`, `06-`) found the assert leg's reach is
+  <=22% (9 reads vs >=40 contestable assertions) and the disconfirmer
+  is pre-named on 5% of contested claims; the listing was present in
+  87% of no-read folds, so this is recall, not delivery. User
   hand-invoked the check 3 times in 18 days (8 in the seven weeks
   before). Self-diagnosis on 09-18: "it should have fired last turn."
+- **82% of no-read folds had the listing in context** (47/57; 3 never
+  installed, 7 compacted away) -- a recognition miss, not a delivery
+  hole (`.kb/06-`).
 - **Cause is state, not list size.** The same filename in the same
   35-entry bank fires cleanly on assert and not on fold; under pushback
   the agent is in respond-to-correction mode and "should I check?"
@@ -59,15 +66,24 @@ known confounder unnamed).
   disconfirmer), the roles as a tool. Nothing observed argues against
   them.
 - Delete the `Jr?` shorthand from CLAUDE.md (on ruling).
-- Proposed fix for the fold -- **pre-commit at assertion**: a
+- **Pre-commit at assertion is dead as a trigger-delivered rule**
+  (09-22): it reaches <=22% of claims through this file. It survives
+  only as one always-on posture line, which reverses the pushdown
+  direction for this rule and needs your word (`.kb/08-`). Pushing
+  Before Changing Course down is contraindicated: its demand is met
+  in 37/38 concessions today. Original proposal, for the record -- a
   contestable judgment is asserted with one clause naming what would
   change the agent's mind; at pushback, "did something real arrive?"
   is a comparison against that clause (in context) rather than a
   recall of an unloaded file. Three outcomes: named disconfirmer
   arrived -> concede citing it; unnamed one arrived -> concede and
   correct the grade; neither -> hold and say what would move you.
-  Subtractive: no hook, and CLAUDE.md's "Before Changing Course"
-  collapses into it (the pushdown direction the user asked for).
+  Measured 09-22: moves the work from a 7% occasion to a ~30% one --
+  better, not sufficient alone; paired with a `Stop`-hook backstop
+  (`.kb/07-`, now live). CLAUDE.md's "Before Changing Course"
+  collapses into it (the pushdown the user asked for) -- with a cost
+  now visible: 14/22 concessions named what arrived with that line
+  always-on and the entry firing 7%.
 - The 2026-08-29 ruling (guidance is a mode + success criteria +
   tools, not a procedure) applies to this entry and has never been
   applied; the rewrite should take that shape.
@@ -110,12 +126,10 @@ should use that name (`.kb/01-`); two good folds observed there; and
 
 ## Open work
 
-- [~] Run the assert-leg miss-rate test before any rewrite: for each
-      user pushback in the window, had the contested claim been
-      asserted with a disconfirmer? -- and in the same run, split the
-      63 no-read folds three ways: never installed / compacted away /
-      present (`.kb/06-`) (sub-agent, same corpus)
-- [ ] Rulings needed -- see `judgment-protocol-redesign.kb/`
+- [x] Corpus test (09-22): pre-named 2/40; no-read folds PRESENT
+      52/60. Tables in `must-read.kb/trash/judgment-trigger-corpus-test.md`;
+      results in `.kb/01-`, `06-`, `07-`, and new `08-`
+- [ ] Rulings needed -- `.kb/08-` first (posture line or nothing), then `03-`, `04-`; `07-` recommended no
 - [ ] On rulings: rewrite the entry as mode/criteria/tools; move
       "Before Changing Course" down from CLAUDE.md; delete `Jr?`;
       update the devlog's `[!DRAFT]` status

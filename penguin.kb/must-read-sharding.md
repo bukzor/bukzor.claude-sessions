@@ -82,7 +82,11 @@ occasion on its own; meet lives at nested sets only).
       claims in 8 theories, tombstones beside their dissolvers; NAMESPACE
       + GOVERNANCE in `llm-kb/claims.kb/design.claims.kb/` (`5d170c9`).
       That ledger is now the canonical form of `.kb/-000..-003` here.
-- [ ] Migrate `~/.claude/must-read.kb` (after COMPACTION below): create
+- [ ] Migrate `~/.claude/must-read.kb` — decision file
+      `.kb/2026-09-22-001-decision-migration.md`; not gated on COMPACTION
+      (retracted) but on STUB_RISK's pre-check (`.kb/-002`): measure how
+      often `before/making-code-changes.md` is read at code-change
+      beginnings; go above ~70%. Then: create
       `while/making-code-changes/`, move the five, rename rust, move stripe
       to its project bank; update `llm-must-read-ls` to the prune; put the
       recognition line ("a `while/X/` line is a set: when X begins, run
@@ -90,25 +94,27 @@ occasion on its own; meet lives at nested sets only).
       `trigger-installation.md` proposes, not in CLAUDE.md prose (`.kb/-002`
       WORDING); strike the slug line from `llm-must-read-kb/SKILL.md` and
       document `while/`.
-- [ ] NOTICED? — which occasions are noticed reliably enough to head a
-      set; measurable via `Skill(claude-code-archeology)`, occasions vs
-      installs.
-      One occasion measured 2026-09-18 (`judgment-protocol-redesign.md`,
-      session 93639e4d): the assert/concede file has two NOTICED values
-      in one listing line — assert high (12/15 self-narrated), concede
-      2/65 — and COMPACTION? is a confound on the 2/65 (its `.kb/06-`).
-- [ ] COMPACTION? — after context compaction nothing re-installs the top
-      set. Sets add no structural burden: re-installing ⊤ restores the
-      stubs and the per-turn review re-notices them (`.kb/-002`
-      COMPACT_REINSTALL). The migration is gated on the top-set
-      re-install, which `trigger-installation.md` owns (`SessionStart`
-      `compact` matcher or per-context-window wording; ruling pending).
-- [ ] SET_DESC? — a set is a directory, so it has no frontmatter to carry
-      the decidable condition a mechanical puller (llm-triggers) needs.
-      Candidates: `while/X/.trigger.yaml`, or admit `while/X.md` as a
-      descriptor (not a trigger body), which would amend RESERVED.
-- [ ] GIT_SET? — does `git/` earn a set once it has an `after/` member?
-- [ ] RESOLVER? — whether `must-read://` takes a set path; cosmetic.
+- [ ] NOTICED? — measured 2026-09-22 for one judgment-shaped occasion
+      (`judgment-protocol-redesign.kb/06-`, 60 concessions: listing
+      present 52, compacted away 7, never installed 1): noticing is the
+      bottleneck, ≤22% assert / 3% fold with the listing in context.
+      Open for action-shaped occasions, where it now gates the migration
+      (STUB_RISK, `.kb/2026-09-22-002`). Baselines if a per-turn review
+      directive lands: assert ≤22, fold 3, pre-named 5.
+- [ ] COMPACTION? — decision file `.kb/2026-09-22-000-decision-after-
+      compaction.md` (shared with `trigger-installation.md`, which
+      deferred its item 1 here): (a) per context window, (b) `SessionStart`
+      `compact` hook vs wording. Stakes: 7 of 60 misses on one trigger.
+      Sets add nothing to it (COMPACT_REINSTALL).
+- [ ] SET_DESC? — unforced: no mechanical set-puller is planned and
+      llm-triggers is dormant. Decide when one exists. (Candidates:
+      `while/X/.trigger.yaml`, or `while/X.md` as descriptor, amending
+      RESERVED.)
+- [x] GIT_SET? — closed 2026-09-22: no `after/git` entry exists; ECONOMICS
+      keeps near-universal occasions as namespace nesting.
+- [x] RESOLVER? — closed 2026-09-22 by license: the recognition line says
+      "run `llm-must-read-ls` on it", so the tool takes a path; the
+      `must-read://` scheme is unchanged.
 
 ## Addenda
 

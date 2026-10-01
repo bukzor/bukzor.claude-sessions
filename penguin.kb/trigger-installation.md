@@ -93,23 +93,11 @@ Two peers are live on the same subsystem: `must-read-sharding.md`
 
 ## Proposal on the table
 
-> [!DRAFT] agent-authored 2026-09-19, vetoable
-
-```yaml
---- # workaround: anthropics/claude-code#13003
-triggers:
-  - before: your first unrequested tool call
-    read: must-read://~
-  - when: planning a turn
-    read: must-read.kb/when/planning-a-turn/review-installed-triggers.md
----
-```
-
-Body loses "Continually monitor…" and item 0; heads the list `### Sources`
-(1–3; drop deprecated 4). The review directive lives as a bank entry so the
-schema stays `read:`-only; `sweep:` is the named successor verb if sweep
-machinery is ever built. Time Awareness drops *Session start* (harness
-supplies the date); the two judgment-shaped occasions stay prose.
+Superseded 2026-09-22 by the concrete diff in
+`trigger-installation.kb/2026-09-22-000-decision-install-change.md`
+(occasion gains "in this context window"; review entry is the flat
+`when/planning-a-turn.md`). The 09-19 draft is preserved in that file's
+history; nothing else about it changed.
 
 ## Overlap with peers
 
@@ -142,52 +130,72 @@ Claims that extend theirs, for the user (not sent):
   only when a tool is called, which is the objection to `SessionStart`.
   Needs a ruling.
 
+## Reconciled with `judgment-protocol-redesign` `06-`/`08-` (2026-09-22)
+
+Their three-way split ran: of 60 no-read folds, listing PRESENT 52,
+COMPACTED-AWAY 7 (all opus plain long sessions), NEVER-INSTALLED 1 (this
+session, `a9fd5254:662`). Adopted as bounds: for an *entry* to fire, install
+is not the bottleneck (87% present); noticing after install is. My wording
+finding is about the *installer* on a sonnet-heavy population; theirs is
+about one entry on an opus-heavy one (53/60) -- no contradiction, and it
+sizes what each fix buys: the compaction ruling ~7/60, the wording fix
+~1/60 on their population, both real, both small. `08-` names the each-turn
+review directive as the one bank-wide lever on NOTICED and gives the
+baselines (assert <=22%, fold 3%, pre-named 5%). Carried into
+`trigger-installation.kb/2026-09-22-000-decision-install-change.md` as the
+re-measure table.
+
 ## Open questions
 
-- Compaction: **deferred 2026-09-22 to
-  `must-read-sharding.kb/2026-09-22-000-decision-after-compaction.md`**,
-  which poses (a) per-context-window wording and (b) a `SessionStart
-  compact` hook as one `ruling:` file; a ruling there binds here. I added
-  the "unrequested" qualifier from the 09-19 LITERAL ruling in that file.
-  History of the question, for the record: "your first tool call" was
-  literally satisfied once and stayed dark through three re-injections.
-  (= `must-read-sharding` COMPACTION?.)
-  Candidate answer on disk, not ruled -- `must-read-sharding.kb/
-  2026-09-19-003-shell-loader-peer.md` REENTRY+, attributed to
-  `shell-config-intent-first-loader` (`df89c432`), relayed by peer message
-  14:34 and verified: the installer's occasion is *entry into a context
-  window* (session start and every post-compaction resume); installing is
-  idempotent, so re-running costs one listing and needs no state. Draft
-  occasion would read `before: your first unrequested tool call in this
-  context window`. Same file's `-002` TOP_PULLER+: the mechanical form is
-  `SessionStart` matcher `compact` (compaction implies an active session)
-  plus a `PreToolUse` first-call hook -- both dodge the no-tool-calls
-  objection. Ruling is mine to bring to the user; it is theirs to make.
-- `-002` VOCAB (restated) asks that the `while/` recognition line live in
-  the review directive's body, not CLAUDE.md prose, since that body is what
-  the agent has open when scanning a stub -- and prose "standing state" is
-  the shape that measured 5/7. If adopted, CLAUDE.md carries only the two
-  static triggers and the "land as one change" want collapses to one file
-  plus one bank entry.
-- ~~Juncture for the review~~: `when: planning a turn`, by
-  BEGIN_AT_DECISION. Recurrence still has no assigned desc form; prose.
-- Does `llm-triggers-lint` know the `must-read://` scheme, or will it warn
-  `unresolved-read`? Unverified.
-- Cause split: is the skill-first failure sonnet-specific or wording-general?
-  Discriminating cohort -- fable/opus skill-first under current wording -- has
-  n=0 so far.
-- Whether `llm-must-read-ls` should print `date -Is` as its first line (gets
-  clock time for free); probably not worth it.
+Register (`ruling:` slots, staged, uncommitted):
+
+- INSTALL-CHANGE -- `trigger-installation.kb/2026-09-22-000-decision-install-change.md`:
+  the concrete CLAUDE.md diff + `when/planning-a-turn.md` body, what it
+  buys per the peer data, baselines, alternatives. Position: apply both,
+  measure for a fixed window, let the fold-leg number decide.
+- TURN-1-PULLER -- `trigger-installation.kb/2026-09-22-001-decision-turn-1-puller.md`:
+  `PreToolUse` first-call hook. Position: after re-measure; on fable it
+  fires usefully about never.
+- COMPACTION -- deferred to
+  `must-read-sharding.kb/2026-09-22-000-decision-after-compaction.md`.
+
+Closed as facts, no ruling needed:
+
+- `llm-triggers-lint` treats `scheme://x` as a handle (`HANDLE_RE`), so
+  `read: must-read://~` will not warn.
+- Bank `when/` entries are flat files; the review entry is
+  `when/planning-a-turn.md`, not a subdirectory.
+- Juncture: `when: planning a turn`, by BEGIN_AT_DECISION (adequacy; veto
+  by editing the diff).
+- VOCAB line rides in the review body if sharding's migration lands
+  (adequacy; same).
+- Time Awareness drops "Session start": the harness `date` attachment
+  supplies date and rollover (adequacy; same).
+
+History:
+
+- The compaction question began here: "your first tool call" was literally
+  satisfied once and stayed dark through three re-injections. Candidate
+  answer REENTRY (attributed to `shell-config-intent-first-loader`, relayed
+  by `must-read-sharding` `-003`) became the deferred ruling file's (a).
+- Cause split (sonnet vs wording) remains n=0 on the discriminating cohort
+  (fable/opus skill-first under current wording); the re-measure window
+  will populate it.
+- `llm-must-read-ls ~` printing `date -Is`: not worth it, dropped.
 
 ## Live follow-ups
 
-- [ ] Apply the frontmatter proposal to `~/.claude/CLAUDE.md` once the open
-      questions above are settled; run `llm-triggers-lint ~/.claude`
-- [ ] Write `must-read.kb/when/planning-a-turn/review-installed-triggers.md`
-- [ ] Re-measure fire rate after the change (script in the companion kb)
-- [ ] Commit the stub-line removal in dotfiles:
-      `.config/claude-mitmproxy/tool-description.d/Bash/{description,README}.md`
-      (both were already `M` before this session; bundle with care)
+- [ ] On INSTALL-CHANGE ruling: apply the diff to `~/.claude/CLAUDE.md`,
+      write `must-read.kb/when/planning-a-turn.md`, run
+      `llm-triggers-lint ~/.claude`; land with sharding's migration edit if
+      it is ready
+- [ ] Re-measure against the table in the INSTALL-CHANGE file (method in
+      `2026-09-19-000-…`), fixed window; populate the fable/opus skill-first
+      cohort
+- [ ] On TURN-1-PULLER ruling, if "now" or re-measure says so: build the
+      `PreToolUse` first-call hook
+- [x] Commit the stub-line removal in dotfiles -- delegated by the user
+      2026-09-22 to another session
 
 ## Addenda
 
