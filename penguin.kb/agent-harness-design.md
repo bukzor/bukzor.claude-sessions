@@ -40,4 +40,8 @@ CHANNEL_PICK, leaning to files for vcs/audit/control.
 - [ ] Settle CHANNEL_PICK: run REWIND and UNINTERRUPTED against both
       the postbox and SendMessage, then rule (todo.md).
 - [ ] Implement the postbox convention once the architecture question
-      closes; work queue in `.claude/todo.md`.
+      closes; work queue in `.claude/todo.md`. Open ruling (2026-09-22,
+      session `e234e82e` L2860): build it now for the live-peer case --
+      hook plus inbox dirs keyed by sessions.kb slug, ~40 lines of shell
+      -- rather than wait on that question; the topology is already
+      ruled. Evidence in `decide-the-inbound-peer-message-channel.md`.

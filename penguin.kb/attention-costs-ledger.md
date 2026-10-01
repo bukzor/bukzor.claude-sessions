@@ -75,6 +75,25 @@ tiers. Nothing about the findings is duplicated here.
       pairing exact instead of unpairable. One line; would let
       `claude-tokens-wire` read effort off the wire rather than joining
       it back from transcripts.
+- [ ] **Owner's proposal, unanswered** (2026-09-17, L1870; the session
+      died before replying). The agent had recommended (L1841) rating
+      `timebox` for the delivery mode you'll actually use -- an item
+      worth 6 SWEh by hand may be 0.5 SWEh of review when delegated, so
+      every delegable item is under-ranked by the "delegation ratio" --
+      and offered to edit `llm-subtask`'s `timebox` description to say
+      so. The owner's reply, verbatim:
+
+      > it's unclear what mode we'll "actually use" when we're thinking
+      > prospectively. And doubly so when we don't have cost/benefit
+      > numbers in hand. As such, we need multiple modes available.
+      > Proposal: timebox is (optionally?) a list, with a modality
+      > attached to each estimate. Modality can be a freeform string
+      > for now.
+
+      Plus three questions still owed: how, exactly, to run the numbers
+      on a 6-SWEh item; whether agents are well posed to, i.e. are there
+      good docs and breadcrumbs to them; and what the delegation ratio
+      is, and whether it varies over time (with API pricing, at least).
 
 ## Declined, with reason
 
