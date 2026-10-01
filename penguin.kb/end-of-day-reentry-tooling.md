@@ -39,8 +39,11 @@ prune list) are each a stage or command file in that kb and are no
 longer tracked here.
 
 - [ ] Build it, per the taskfile's outcome-shaped steps; the parts kb's
-      `stages.kb/` and `commands.kb/` frontmatter is the distance report
-- [ ] Rule on the four files in the parts kb's `open-questions.kb/`:
-      envelope shape, home for the `jq` views, caching the records
-      stream, and `uuid` versus `#L<n>` as the citation form. Each
-      carries an agent recommendation marked as such
+      `stages.kb/` and `commands.kb/` frontmatter is the distance report.
+      The records stream is built (`claude-jsonl-records`); `claude-jq`
+      and the sessions reduce are next
+- [ ] Rule on the open files in the parts kb's `open-questions.kb/`:
+      envelope shape, caching the records stream, `uuid` versus `#L<n>`
+      as the citation form, one entry command for a time span, and where
+      the stream contracts live. Each carries an agent recommendation
+      marked as such; the home for the `jq` views is ruled there
