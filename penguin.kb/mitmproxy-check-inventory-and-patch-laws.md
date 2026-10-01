@@ -54,6 +54,9 @@ and `pyproject.toml`. `642b4b6` and `6a32bbf` file the two tasks above.
   gate is unreachable in flight. `safeguards[0].classifier_context` does carry
   `permission_mode: "auto"` and the full permission ruleset -- a structured
   auto-mode signal, and a safety-classifier input, so not ours to amend.
+  **Adopted, not mine to restate:** a peer has since written all of this up in
+  `session.kb/2026-10-01-the-gate-that-never-crosses-the-wire.md` (`41e2f57`),
+  more fully than this summary. Read that, not this bullet.
 
 ## Open questions
 
