@@ -3,6 +3,7 @@ cwd: /home/bukzor/claude/mitmproxy
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - 233803b9-c857-4e41-be47-81d8e0fede0d
+    - f85eda22-ebd4-4284-a0f6-19ba0bbde03a # branch of the above; measured the shape vocabulary
   started: 2026-09-17 # predates a /compact; the 2026-10-01 work is its second half
   ended: null
 ---
@@ -27,6 +28,17 @@ revisiting: no request header or body field names the assignment, the
 GrowthBook gate never crosses this proxy, and `safeguards` is a
 dangerous-tool-use classifier input that we do not edit -- so no flag or
 response work obviates the text patch.
+
+Also settled, so that it is not proposed again: a standalone arrivals detector
+for this locus -- an inventory of normalized first lines, ratcheted by a check
+module against a committed set -- was designed, measured and rejected. Every
+mechanism it needed already exists one locus over. Masked digests normalize
+better than a hand-rolled normalizer and are already law-checked, the capture
+store is already the inventory, and the queue is already the keyed report. What
+survived the rejection is the recognition predicate, which is stage 1's third
+task, and the measurement that justifies the stage at all: the one arrival with
+a known date, 2026-08-18, was a five-string delta in that day's first lines,
+against the thirty days it actually took to notice by tool-choice behavior.
 
 ## Awaiting the owner's ruling
 
