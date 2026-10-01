@@ -60,3 +60,16 @@ the cost and still catches the sandbox-only migration, because that
 catch came from reading `git log`, not from talking. If the channel
 stays on, this protocol wants a home in `must-read.kb/when/` so it
 binds future sessions rather than living in one transcript.
+
+**2026-09-19**: the interim protocol now has its enforceable home --
+`Skill(llm-collab)` reclaimed as the cross-session collaboration domain,
+with `skill.kb/must-read.kb/after/receiving-a-peer-message.md` (ticket,
+not conversation), `before/sending-a-peer-message.md` (pointer /
+conflict / hand-off only), and `when/peer-sessions-work-overlapping-ground.md`
+(the `sessions.kb/` entry is the digest; pull at checkpoints). ADR:
+`bukzor-agent-skills/docs/dev/adr/2026-09-19-000-llm-collab-owns-peer-session-coordination.md`.
+
+- [ ] `sessions.kb/CLAUDE.md` / `.template.md`: mention the peer-facing
+      sections an entry carries (findings as signed claims, open questions,
+      overlap suspects, wants).
+- [ ] The inbound-kill question itself is still unruled.
