@@ -41,7 +41,7 @@ wheels = [
 [[package]]
 name = "llm-kb"
 version = "0.1.0"
-source = { directory = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }
+source = { editable = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }
 dependencies = [
     { name = "jsonschema" },
     { name = "pyyaml" },
@@ -197,4 +197,4 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "llm-kb", directory = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }]
+requires-dist = [{ name = "llm-kb", editable = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }]

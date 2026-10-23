@@ -7,4 +7,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-llm-kb = { path = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb" }
+llm-kb = { path = "../../repo/github.com/bukzor/bukzor-agent-skills/llm-kb", editable = true }
