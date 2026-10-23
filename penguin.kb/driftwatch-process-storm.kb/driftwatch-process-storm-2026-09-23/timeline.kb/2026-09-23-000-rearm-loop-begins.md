@@ -1,5 +1,5 @@
 ---
-at: 2026-09-23T15:30:55.039Z
+at: "2026-09-23T10:30:55.039-05:00"
 source: session cc47a367 transcript line 4198 (evidence.kb/004)
 confidence: observed
 ---

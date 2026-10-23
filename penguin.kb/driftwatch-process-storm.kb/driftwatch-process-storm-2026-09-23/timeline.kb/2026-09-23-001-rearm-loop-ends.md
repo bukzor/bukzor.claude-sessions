@@ -1,5 +1,5 @@
 ---
-at: 2026-09-23T15:42:55.882Z
+at: "2026-09-23T10:42:55.882-05:00"
 source: session cc47a367 transcript, last Monitor(driftwatch.sh) tool_use (evidence.kb/004)
 confidence: observed
 ---

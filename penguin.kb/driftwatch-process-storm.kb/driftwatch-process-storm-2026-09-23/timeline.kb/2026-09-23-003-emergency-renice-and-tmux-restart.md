@@ -1,5 +1,5 @@
 ---
-at: 2026-09-23T10:46:38-05:00
+at: "2026-09-23T10:46:38-05:00"
 source: journalctl --user (evidence.kb/005)
 confidence: observed
 ---
