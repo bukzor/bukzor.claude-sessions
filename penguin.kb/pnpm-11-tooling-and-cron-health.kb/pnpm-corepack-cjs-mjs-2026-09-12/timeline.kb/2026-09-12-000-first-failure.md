@@ -1,5 +1,5 @@
 ---
-at: "2026-09-12T00:05:02-05:00"
+at: 2026-09-12T00:05:02-05:00
 source: /home/bukzor/.local/state/cron/pnpm-upgrade-g.log
 confidence: observed
 ---

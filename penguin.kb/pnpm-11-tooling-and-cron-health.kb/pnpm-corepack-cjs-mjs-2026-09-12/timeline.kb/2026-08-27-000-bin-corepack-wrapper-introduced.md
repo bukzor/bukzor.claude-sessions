@@ -1,5 +1,5 @@
 ---
-at: "2026-08-27T17:33:43-05:00"
+at: 2026-08-27T17:33:43-05:00
 source: git log -1 cab90f2 -- bin/corepack
 confidence: observed
 ---

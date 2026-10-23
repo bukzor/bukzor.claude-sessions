@@ -1,5 +1,5 @@
 ---
-at: "2026-09-17T15:21:21-05:00"
+at: 2026-09-17T15:21:21-05:00
 source: "evidence.kb/2026-09-17-005-recovery-confirmed-manual-run-succeeds-end-to-end-warning-cleared.md"
 confidence: observed
 ---

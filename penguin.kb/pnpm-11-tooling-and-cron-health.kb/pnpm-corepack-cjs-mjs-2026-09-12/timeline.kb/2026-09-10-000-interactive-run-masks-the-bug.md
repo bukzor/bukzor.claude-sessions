@@ -1,5 +1,5 @@
 ---
-at: "2026-09-10T09:10:00-05:00"
+at: 2026-09-10T09:10:00-05:00
 source: "mtime of prefix/pnpm global-store corepack/package.json and of .cache/node/corepack/v1/pnpm/12.3.4/.corepack (same minute); pnpm-upgrade-g comment '(found 2026-09-10 chasing the pnpm-12 MODULE_NOT_FOUND incident)'"
 confidence: inferred
 ---
