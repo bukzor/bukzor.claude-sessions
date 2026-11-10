@@ -39,3 +39,6 @@ full chronological list. Latest: 2026-07-13, task 004 (hand-merge true
 divergences) 7/10 themes done — remaining: vim lua files,
 kitty.conf+.gitmodules, claude config; 006 (final merge + switchover)
 strictly last.
+
+buck-win10's side of the effort (folding its `wsl-buck-win10` branch into
+main) has its own entry: `../buck-win10.kb/reunify-dotfiles-lineages.md`.
