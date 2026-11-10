@@ -15,6 +15,8 @@ The effort's main entry is `../penguin.kb/reunify-dotfiles-lineages.md`.
 Plan of record (lives on svelte-crostini; on this host, read it in the
 workspace): `~/repo/github.com/bukzor/dotfiles--svelte-crostini/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.md`.
 This host's task: `…/2026-07-08-000-Reunify-dotfiles.kb/2026-11-10-000-Fold-wsl-buck-win10-into-main.md`.
+Pull that workspace before reading (`git -C ~/repo/github.com/bukzor/dotfiles--svelte-crostini
+pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Host state (2026-11-10)
 
