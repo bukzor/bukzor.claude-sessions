@@ -34,9 +34,10 @@ This host's task: `…/2026-07-08-000-Reunify-dotfiles.kb/2026-11-10-000-Fold-ws
       (`findmnt ~/.config/windows`)
 - [ ] `setup/alpine/wsl.sh` writes a `wsl.conf` with no `[boot]` runsvdir
       command, so a freshly provisioned distro would never start runit
-- [ ] User call (raised by the peer session, `f9c5c03`): whether
-      `recover-deadlock-builds-and-snapshotter` can enter this public repo,
-      since it names a Steam ID; the fold's sessions.kb step waits on it
+- [x] `recover-deadlock-builds-and-snapshotter` migrated here verbatim
+      (`838f45d`; user: the Steam ID being public is fine), and dotfiles'
+      `.claude/sessions.kb` on `wsl-buck-win10` is now this repo as a
+      submodule (`4795ca9`)
 
 ## Overlap
 
