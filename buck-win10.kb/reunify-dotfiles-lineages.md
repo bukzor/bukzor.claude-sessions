@@ -30,8 +30,9 @@ pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Open
 
-- [ ] Next: the fold task's first step, committing or parking `~`'s
-      uncommitted state
+- [ ] Next: user rulings on the fold's wave-1 Open Questions (units in
+      `…/2026-11-10-000-Fold-wsl-buck-win10-into-main.kb/`, svelte `bab90fc`),
+      then the merge in a new `dotfiles--main`
 - [ ] Confirm the AppData mount returns after the next WSL restart
       (`findmnt ~/.config/windows`)
 - [ ] `setup/alpine/wsl.sh` writes a `wsl.conf` with no `[boot]` runsvdir
