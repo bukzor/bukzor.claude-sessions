@@ -33,10 +33,11 @@ pull --ff-only`): penguin may have pushed plan changes since.
 - [x] Fold task done (2026-11-10, svelte `c130c1c`): main `30895e0` merges
       `wsl-buck-win10`, `.claude/` reconciled to svelte (`937c97d`); main ↔
       svelte at 28 conflicts. `dotfiles--main` workspace exists here.
-- [ ] Close the fold's handoff kb once the user has reviewed it: `git rm -r
-      …/2026-11-10-000-Fold-wsl-buck-win10-into-main.kb/` (subagent-handoffs, Close)
-- [ ] Next on this host: task 004 (hand-merge main ↔ svelte); its new fold
-      leftovers: `.envrc`, `bin/alternatives/.gitignore`, `bin/brew` ruby26 `PATH`
+- [ ] Task 004 (hand-merge main ↔ svelte): wave 1 running, six units in
+      `…/2026-07-06-004-Hand-merge-true-divergences.kb/` (svelte `13cf6c0`).
+      Handoff kbs stay until the whole plan is done (user, 2026-11-11; in
+      the plan's Completion). Penguin may hold unpushed svelte work; the
+      user brings penguin up to date afterward.
 - [ ] `~/claude/router-debug` moved from `~/router-debug`: rename
       `~/.claude/projects/-home-bukzor-router-debug/` to match? (user's call)
 - [ ] Deadlock notes now untracked in `~/claude/deadlock/docs/games/`
