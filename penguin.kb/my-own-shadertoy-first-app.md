@@ -4,6 +4,7 @@ session:
   uuid:
     - 634afc3c-6a0f-4d42-afe2-6a4585ddd72a
     - fb592418-515b-4a49-a900-79cbfb528d9d
+    - 18a39fbc-a96f-4090-ac5f-3b75a72a396f
   started: 2026-10-27T11:34:03-05:00
   ended: null
 ---
@@ -36,10 +37,6 @@ milestone 0.1, and bukzor writes it by hand.
   (commit 3695bfe). Residual local/CI divergence: a `.gitignore` edit
   can change what oxlint sees; only CI's `--all-files` run catches
   that. Judged too rare for a rule.
-- User's call, flagged not proposed: two lint rules may fight GPU setup
-  code. The 40-line function cap pushes sequential setup into
-  artificial splits; `no-console` removes the browser's main debugging
-  channel. Both are the stated stance in `CLAUDE.md`.
 - The owner is watching the toolchain-to-product ratio.
 
 ## Findings (design session fb592418, 2026-10-27)
@@ -52,18 +49,6 @@ milestone 0.1, and bukzor writes it by hand.
 - A cold-reader agent on a clean clone found the design and roadmap
   without the skills installed (fixed in f7c43ed: roadmap pointer, done
   marker).
-
-## Awaiting bukzor's veto
-
-Agent-signed claims and defaults stand unless vetoed. Find them with
-`grep -rl '^standing: agent' docs/dev/claims.kb/`. The ones most worth
-a look:
-
-- [ ] Veto or keep: the `components` rung is dropped (`design.md`).
-- [ ] Veto or keep: end-of-session recall of three things (`RECALL`).
-- [ ] Veto or keep: a consolidation session every 3-4 feature sessions.
-- [ ] Veto or keep: Vite as dev server; no UI framework (`packages/ui/CLAUDE.md`).
-- [ ] Veto or keep: package names on the milestone ladder (first guesses).
 
 ## Open
 
