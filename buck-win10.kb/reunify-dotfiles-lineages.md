@@ -46,20 +46,14 @@ pull --ff-only`): penguin may have pushed plan changes since.
       `git merge origin/svelte-crostini` in `dotfiles--main`. Each svelte push
       also starts svelte's old CI (Check sh hangs 6h, `macos-12` never
       schedules): cancel them with `gh run cancel` (done 2026-11-18 18:4x).
-- [ ] Once no session runs it: trash `~/.local/share/pnpm/claude` and its
-      package ([!DRAFT] in the plan; `installMethod` is `native`).
-- [ ] Close the plan once the user is satisfied: record its commit range,
-      `git rm -r` the plan kb, retire `dotfiles--main`, end this entry.
-- [ ] claude-tokens installer (bukzor-tools repo) and `init.templateDir`:
-      route to bukzor-tools' own todo.kb (unrouted since 2026-11-18).
-- [ ] `~/claude/router-debug` moved from `~/router-debug`: rename
-      `~/.claude/projects/-home-bukzor-router-debug/` to match? (user's call)
-- [ ] Deadlock notes now untracked in `~/claude/deadlock/docs/games/`
-      (moved by fold unit 004); commit there when no peer is live in it
-- [ ] Confirm the AppData mount returns after the next WSL restart
-      (`findmnt ~/.config/windows`)
-- [ ] `setup/alpine/wsl.sh` writes a `wsl.conf` with no `[boot]` runsvdir
-      command, so a freshly provisioned distro would never start runit
+- [ ] Close the plan once the user is satisfied (dotfiles `.claude/todo.md`, under
+      the Reunify line, holds the close steps).
+
+Per-task follow-ups were routed 2026-11-18 to their owners' task lists:
+dotfiles `.claude/todo.md` (pnpm `claude`, AppData mount, `wsl.sh` runit),
+`~/.claude/.claude/todo.md` (router-debug projects dir), bukzor-tools
+`.claude/todo.md` (`init.templateDir` rewrite), and
+`~/claude/deadlock/.claude/todo.md` (commit `docs/games/`).
 
 Standing vetoes ([!DRAFT], silence lets them stand) are in the plan's 006
 file and the 004/006 handoff Decisions; the latest: macOS CI `stable`-only,
