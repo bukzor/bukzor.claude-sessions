@@ -65,7 +65,7 @@ origins with `tmux ` (`tmux 0:10 alert`). User confirmed toasts arrive.
       probably warn, not fail.
 - [ ] `notify_hterm` reports success whenever a client tty is
       writable, rendered or not, so on any non-hterm terminal the bell
-      never fires. Gate it on actually being in hterm (or drop it if
+      never fires (confirmed on Windows Terminal 2026-11-18). Gate it on actually being in hterm (or drop it if
       Chrome/crostini is gone). Low urgency: on WSL the toast wins first.
 - [ ] The 24-column truncation budget was picked against this
       terminal's width and never tested narrow.
