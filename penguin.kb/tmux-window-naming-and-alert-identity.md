@@ -4,6 +4,7 @@ session:
   uuid: # chronological; append your uuid when picking this entry up
     - 10dfad2d-6c36-40c4-a012-222965022fcc
     - 17b60946-a452-4069-838b-2b35bf98cebb
+    - cb046bbc-fc84-49a0-ab27-8448eb5289f3
   started: 2026-09-10T09:08:47-05:00
   ended: null
 ---
@@ -38,6 +39,16 @@ alongside the ledger's others rather than only living in this file's prose.
 Nothing here was built or fixed; this is a cross-reference, not a
 resolution.
 
+## WSL toast transport, 2026-11-18 (buck-win10)
+
+Under tmux+WSL no transport reached the user: `notify-send` absent (WSLg
+has no notification daemon), and `notify_hterm` "succeeded" into
+Windows Terminal, shadowing the bell. Added `bin/alert-wsl` (Windows
+toast via `powershell.exe`) as the second transport, and prefixed tmux
+origins with `tmux ` (`tmux 0:10 alert`). User confirmed toasts arrive.
+`main` `86c7bda`+`a8dd56f`, cherry-picked to `svelte-crostini`
+`4f7b4db`+`02e6114`; claims ledger `ALERT_PUSH` updated to match.
+
 ## Open follow-ups
 
 - [ ] The claude mark (U+EC82) sits at the head of the name while names
@@ -52,6 +63,10 @@ resolution.
       `set -e`. A logging failure exits non-zero on an alert that did
       reach the user, which misreports success. Log failures should
       probably warn, not fail.
+- [ ] `notify_hterm` reports success whenever a client tty is
+      writable, rendered or not, so on any non-hterm terminal the bell
+      never fires. Gate it on actually being in hterm (or drop it if
+      Chrome/crostini is gone). Low urgency: on WSL the toast wins first.
 - [ ] The 24-column truncation budget was picked against this
       terminal's width and never tested narrow.
 
