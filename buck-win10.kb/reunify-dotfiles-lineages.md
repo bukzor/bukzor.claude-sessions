@@ -33,8 +33,15 @@ pull --ff-only`): penguin may have pushed plan changes since.
 - [x] Fold task done (2026-11-10, svelte `c130c1c`): main `30895e0` merges
       `wsl-buck-win10`, `.claude/` reconciled to svelte (`937c97d`); main ↔
       svelte at 28 conflicts. `dotfiles--main` workspace exists here.
-- [ ] Task 004 (hand-merge main ↔ svelte): wave 1 running, six units in
-      `…/2026-07-06-004-Hand-merge-true-divergences.kb/` (svelte `13cf6c0`).
+- [ ] Task 004 (hand-merge main ↔ svelte): wave 1 done and reviewed
+      2026-11-18 (svelte `73303b9`). 5 conflicts left: `.claude/CLAUDE.md`,
+      plus 4 vim files waiting on research unit `2026-11-18-000-mason-…`.
+      Contradiction for the user: peer commit `d67dac6` records a 2026-11-12
+      "accept 002's recommendations" ruling, while the user told this
+      session "drop all 4" (2026-11-18).
+- [ ] Switch `~` to main and rename the branch to `merged/wsl-buck-win10`
+      (user, 2026-11-18): brief `…/2026-07-06-006-…kb/2026-11-18-000-…`,
+      blocked until main's `.claude/CLAUDE.md` equals svelte's.
       Handoff kbs stay until the whole plan is done (user, 2026-11-11; in
       the plan's Completion). Penguin may hold unpushed svelte work; the
       user brings penguin up to date afterward.
