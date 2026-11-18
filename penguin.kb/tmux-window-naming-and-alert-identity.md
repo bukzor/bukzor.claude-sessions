@@ -51,24 +51,30 @@ origins with `tmux ` (`tmux 0:10 alert`). User confirmed toasts arrive.
 
 ## Open follow-ups
 
-- [ ] The claude mark (U+EC82) sits at the head of the name while names
+- [x] The claude mark (U+EC82) sits at the head of the name while names
       truncate from the tail, so any title over 24 columns loses it.
       Fix is a three-branch `automatic-rename-format` that pins the
-      glyph and truncates only the body. Offered to the user; no ruling
-      yet, so it stays unbuilt.
-- [ ] `~/.local/state/alert.jsonl` grows without bound -- no rotation,
+      glyph and truncates only the body. Built 2026-11-18 (`b0b3bfc`),
+      the user's request to address it standing as the ruling.
+- [x] `~/.local/state/alert.jsonl` grows without bound -- no rotation,
       no pruning. Small today (3 entries); decide a policy before it
-      matters.
-- [ ] `log_alert` runs after the notification is already out, under
+      matters. 2026-11-18 (`04b9c51`): past 256 KiB, trimmed to the
+      newest 500 lines under a flock; numbers vetoable (`log_alert`).
+- [x] `log_alert` runs after the notification is already out, under
       `set -e`. A logging failure exits non-zero on an alert that did
       reach the user, which misreports success. Log failures should
-      probably warn, not fail.
+      probably warn, not fail. 2026-11-18 (`04b9c51`): it warns.
 - [x] `notify_hterm` false success shadowed the bell (confirmed on
       Windows Terminal 2026-11-18). No hterm signal exists to gate on;
       instead every alert now rings the bell in its pane, whatever
       transport carried the notification.
-- [ ] The 24-column truncation budget was picked against this
-      terminal's width and never tested narrow.
+- [x] The 24-column truncation budget was picked against this
+      terminal's width and never tested narrow. 2026-11-18 (`b0b3bfc`):
+      tested at 80/60/40; 24 stays -- below ~70 columns the ~40-column
+      status-right clips the list whatever the budget.
+- [ ] A narrow client clips the window list because status-right takes
+      ~40 columns. A shorter (or width-conditional) status-right is the
+      fix if narrow clients matter.
 
 ## Notes for whoever picks this up
 
