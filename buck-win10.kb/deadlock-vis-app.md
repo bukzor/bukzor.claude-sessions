@@ -4,7 +4,7 @@ session:
   uuid: # chronological; append your uuid when picking this entry up
     - 14fac9c8-bc5e-42f7-956c-f88e2a8e613c
   started: 2026-11-18T15:46:12+00:00
-  ended: null
+  ended: 2026-11-18T18:09:33+00:00
 ---
 # Deadlock Vis App
 
@@ -83,10 +83,11 @@ DPS measurements that can be checked in-game. Resume with `/subagent-handoffs`.
   `docs/dev/decisions.kb/` entry for the choices above (frontmatter
   `status`/`date`).
 
-## Status (2026-11-18T16:50)
+## Status (2026-11-18, closed)
 
-Built and accepted-pending-review. Live state is the plan,
-`deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md` (waves, handoff files,
-Later); the design is `docs/dev/decisions.kb/vis-app.md`; the agent's own
-calls are claims in `apps/vis/docs/dev/claims.kb/`. Run: `apps/vis/bin/serve`.
-Remaining: user review, then the plan's Close step (`git rm -r` the handoffs).
+Done; the user called it "quite happy with the result". Plan closed in
+`deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md` (commit range there; the
+handoff files are in git history). Design: `docs/dev/decisions.kb/vis-app.md`.
+Open improvements: `deadlock/.claude/ideas.kb/2026-11-18-*-vis--*.md`, one of
+them (a cast's default window) awaiting the user's ruling. Run:
+`apps/vis/bin/serve`, then open http://localhost:5173/.
