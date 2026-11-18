@@ -3,6 +3,7 @@ cwd: /home/bukzor
 session:
   uuid:
     - 4e422e7d-7c8e-4238-8bd3-6312acf6d448
+    - 576192e1-bd4e-4b2e-b9bb-ef2a11093839
   started: 2026-11-10T18:38:24+00:00
   ended: null # set only when no more sessions are expected (~= about to delete this file) -- not "my conversation ended"
 ---
@@ -18,33 +19,39 @@ This host's task: `…/2026-07-08-000-Reunify-dotfiles.kb/2026-11-10-000-Fold-ws
 Pull that workspace before reading (`git -C ~/repo/github.com/bukzor/dotfiles--svelte-crostini
 pull --ff-only`): penguin may have pushed plan changes since.
 
-## Host state (2026-11-10)
+## Host state (2026-11-18)
 
-- `~` is on `main` since 2026-11-18 (was `wsl-buck-win10`, now `merged/`).
-- Workspaces: `~/repo/github.com/bukzor/dotfiles--svelte-crostini/` (clean).
-  `dotfiles--main` gets created when the fold starts.
+- `~` and the Windows home `/mnt/c/Users/worki` are both on `main` (both
+  pulled to `055b482`). Old branches: `merged/wsl-buck-win10`; the
+  Windows home's local `merged/svelte-crostini`.
+- Merge done: main `ff853dc` (2026-11-18). CI on main green: Check sh,
+  Lint Lua, Check Vim, Check Neovim (ubuntu, windows, macOS stable).
+- `claude` is the native install in `~/.local/bin` (as penguin). The
+  running sessions' pnpm copy `~/.local/share/pnpm/claude` remains.
+- Workspaces: `dotfiles--svelte-crostini` (plan kb lives here) and
+  `dotfiles--main` (kept until 006 closes, [!DRAFT] in the plan).
 - `/etc/service` is a symlink to `~/.config/runit/buck-win10/` (commit
   `8a0b0b2`); its `windows-appdata` service keeps AppData mounted at
   `~/.config/windows`.
+- Untracked user data left in place per user ruling ("leave them",
+  2026-11-18): `~/deadlock-builds-recovery/`, `~/willy-practice.txt`,
+  Windows `deadlock-levels.tsv`, `projects/`.
 
 ## Open
 
-- [x] Fold task done (2026-11-10, svelte `c130c1c`): main `30895e0` merges
-      `wsl-buck-win10`, `.claude/` reconciled to svelte (`937c97d`); main ↔
-      svelte at 28 conflicts. `dotfiles--main` workspace exists here.
-- [ ] Task 004: 4 vim files left (`lazy-lock.json`, `lsp.lua`, `plugins.lua`,
-      `diffmode.vim`). They wait on the user's rulings: research unit
-      `2026-11-18-000-mason-…` recommends porting mason `PATH=append` and
-      dropping the rust_analyzer block. `.claude/CLAUDE.md` converged
-      (main `6bfc6f4`, ruled "drop all 4", superseding 2026-11-12).
-- [x] `~` switched to main 2026-11-18 (pre-switch `fa3f7c7`); the branch is now
-      `merged/wsl-buck-win10` locally and on origin. Open (user): the
-      tracked `.ssh/config.d/github.sshconfig` pins the missing
-      `~/.ssh/sentry-github`, so GitHub over ssh fails host-wide (workaround:
-      `GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes'`); Nix and
-      direnv are off PATH (old `.zshenv` saved in `~/trash/switch-to-main/clobbered/`);
-      `~/private-dotfiles/` (keys) is untracked and not ignored; about 35.6k
-      untracked paths need ignore entries (proposals are in the switch handoff file).
+- [ ] Penguin (user, on penguin): start a session there with "Do the task in
+      `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/2026-07-06-006-Final-merge-and-home-switchover.kb/2026-11-18-009-penguin-switch-to-main.md`".
+      Then here: review its report, confirm `merged/svelte-crostini` on origin.
+- [ ] Until 009 renames svelte-crostini: plan-kb commits go on svelte, then
+      `git merge origin/svelte-crostini` in `dotfiles--main`. Each svelte push
+      also starts svelte's old CI (Check sh hangs 6h, `macos-12` never
+      schedules): cancel them with `gh run cancel` (done 2026-11-18 18:4x).
+- [ ] Once no session runs it: trash `~/.local/share/pnpm/claude` and its
+      package ([!DRAFT] in the plan; `installMethod` is `native`).
+- [ ] Close the plan once the user is satisfied: record its commit range,
+      `git rm -r` the plan kb, retire `dotfiles--main`, end this entry.
+- [ ] claude-tokens installer (bukzor-tools repo) and `init.templateDir`:
+      route to bukzor-tools' own todo.kb (unrouted since 2026-11-18).
 - [ ] `~/claude/router-debug` moved from `~/router-debug`: rename
       `~/.claude/projects/-home-bukzor-router-debug/` to match? (user's call)
 - [ ] Deadlock notes now untracked in `~/claude/deadlock/docs/games/`
@@ -53,16 +60,10 @@ pull --ff-only`): penguin may have pushed plan changes since.
       (`findmnt ~/.config/windows`)
 - [ ] `setup/alpine/wsl.sh` writes a `wsl.conf` with no `[boot]` runsvdir
       command, so a freshly provisioned distro would never start runit
-- [x] `recover-deadlock-builds-and-snapshotter` migrated here verbatim
-      (`838f45d`; user: the Steam ID being public is fine), and dotfiles'
-      `.claude/sessions.kb` on `wsl-buck-win10` is now this repo as a
-      submodule (`4795ca9`)
 
-## Overlap
-
-- A peer session works in the same `~` on `wsl-buck-win10`'s `.claude/` and
-  onboarded `../buck-win10.kb/` (`f9c5c03`). Same repo, same refs: its next
-  commit lands on top of this session's work with no sync step.
+Standing vetoes ([!DRAFT], silence lets them stand) are in the plan's 006
+file and the 004/006 handoff Decisions; the latest: macOS CI `stable`-only,
+nvim 0.9.5 untested on Windows, CI `fetch-depth` item moot.
 
 ## Addenda
 
