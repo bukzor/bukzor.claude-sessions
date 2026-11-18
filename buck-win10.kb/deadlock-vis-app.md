@@ -4,7 +4,7 @@ session:
   uuid: # chronological; append your uuid when picking this entry up
     - 14fac9c8-bc5e-42f7-956c-f88e2a8e613c
   started: 2026-11-18T15:46:12+00:00
-  ended: 2026-11-18T18:09:33+00:00
+  ended: 2026-11-18T18:42:12+00:00
 ---
 # Deadlock Vis App
 
@@ -83,11 +83,20 @@ DPS measurements that can be checked in-game. Resume with `/subagent-handoffs`.
   `docs/dev/decisions.kb/` entry for the choices above (frontmatter
   `status`/`date`).
 
-## Status (2026-11-18, closed)
+## Status (2026-11-18T18:42, closed)
 
-Done; the user called it "quite happy with the result". Plan closed in
-`deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md` (commit range there; the
-handoff files are in git history). Design: `docs/dev/decisions.kb/vis-app.md`.
-Open improvements: `deadlock/.claude/ideas.kb/2026-11-18-*-vis--*.md`, one of
-them (a cast's default window) awaiting the user's ruling. Run:
-`apps/vis/bin/serve`, then open http://localhost:5173/.
+Done through review round 5; the user: "good enough for today". The plan,
+`deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md`, records the commit ranges;
+the handoff files are in git history. Run `apps/vis/bin/serve`, open
+http://localhost:5173/.
+
+Awaiting the user's ruling (nothing blocks on it):
+- the design, `docs/dev/decisions.kb/vis-app.md` (`status: proposed`), including
+  its two `[!DRAFT]` calls: zoom-to-kill also on hero/ability/level change;
+- 29 `standing: agent` claims in `apps/vis/docs/dev/claims.kb/`
+  (`llm-claims-kb-grounding` orders them for review);
+- idea `2026-11-18-012-vis--a-cast-s-default-chart-window.md` (two cycles vs one
+  cast; the agent recommends keeping two).
+
+Follow-ups: `deadlock/.claude/ideas.kb/2026-11-18-*-vis--*.md`, one per
+improvement.
