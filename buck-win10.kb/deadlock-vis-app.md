@@ -83,39 +83,10 @@ DPS measurements that can be checked in-game. Resume with `/subagent-handoffs`.
   `docs/dev/decisions.kb/` entry for the choices above (frontmatter
   `status`/`date`).
 
-## State on disk (uncommitted, untracked)
+## Status (2026-11-18T16:50)
 
-- `apps/vis/server/`: `pyproject.toml`, `uv.lock`, `.python-version`,
-  `src/vis_server/{__init__.py (empty), types.py, timeline.py,
-  timeline_test.py}`. All 10 tests passed.
-- **⚠ `timeline.py` holds a leftover mutation.** It was applied when the
-  mutation-testing run was interrupted. At line 72, `if cycle.period is None:`
-  is followed by `n += 1` where it should be `return`, so a cycle with no
-  period loops forever. The pristine copy is
-  `trash/vis-mut/timeline.py.orig`. Restore it before anything else.
-- `docs/games/` is the **user's** untracked file of in-game measurements. Do
-  not stage it.
-
-## Open work
-
-- [ ] Restore `timeline.py` from `trash/vis-mut/timeline.py.orig`. Then see
-  each `timeline_test.py` assertion fail under a mutation. The planned set of
-  mutations: drop the single-shot intra branch, use `(burst-1)*intra`, drop
-  pellets, drop reload, drop travel, swap the horizon checks, drop `cycle=n`.
-- [ ] `measures.py` + test (uptime/steady DPS, total, horizon DPS, first land,
-  time to kill)
-- [ ] `kits.py` (load the trees, classify each ability as gun / melee / cast /
-  null, build its Cycle and notes) + an integration test against the real
-  data: the gun timeline's uptime/steady DPS must equal
-  `ability_profiles` dps/sdps for every live hero, and every ability's
-  timeline must build
-- [ ] `queries.py` registry (heroes, abilities, timeline), `http.py`
-  (Starlette), `__main__.py` (`serve` / `query`). Keep basedpyright `all`
-  clean.
-- [ ] `apps/vis/client/`: pnpm workspace (root `pnpm-workspace.yaml`), Vite
-  React TS, Observable Plot, vitest. Both `tsc --noEmit` and the tests must
-  pass.
-- [ ] README + decisions.kb entry. Commit with `git commit-staged`; read
-  `~/.claude/must-read.kb/before/git/commit.md` first.
-- [ ] Later: ability upgrades (`ability_upgrades.tsv`), charges, hero level
-  scaling, and a check of the melee wind-up in-game.
+Built and accepted-pending-review. Live state is the plan,
+`deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md` (waves, handoff files,
+Later); the design is `docs/dev/decisions.kb/vis-app.md`; the agent's own
+calls are claims in `apps/vis/docs/dev/claims.kb/`. Run: `apps/vis/bin/serve`.
+Remaining: user review, then the plan's Close step (`git rm -r` the handoffs).
