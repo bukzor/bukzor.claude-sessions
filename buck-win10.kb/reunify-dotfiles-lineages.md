@@ -20,8 +20,7 @@ pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Host state (2026-11-10)
 
-- `~` is on `wsl-buck-win10` (renamed from `master`), with ~24 uncommitted
-  modified files and several untracked WSL paths; the fold task lists them.
+- `~` is on `main` since 2026-11-18 (was `wsl-buck-win10`, now `merged/`).
 - Workspaces: `~/repo/github.com/bukzor/dotfiles--svelte-crostini/` (clean).
   `dotfiles--main` gets created when the fold starts.
 - `/etc/service` is a symlink to `~/.config/runit/buck-win10/` (commit
@@ -33,18 +32,19 @@ pull --ff-only`): penguin may have pushed plan changes since.
 - [x] Fold task done (2026-11-10, svelte `c130c1c`): main `30895e0` merges
       `wsl-buck-win10`, `.claude/` reconciled to svelte (`937c97d`); main ↔
       svelte at 28 conflicts. `dotfiles--main` workspace exists here.
-- [ ] Task 004 (hand-merge main ↔ svelte): wave 1 done and reviewed
-      2026-11-18 (svelte `73303b9`). 5 conflicts left: `.claude/CLAUDE.md`,
-      plus 4 vim files waiting on research unit `2026-11-18-000-mason-…`.
-      Contradiction for the user: peer commit `d67dac6` records a 2026-11-12
-      "accept 002's recommendations" ruling, while the user told this
-      session "drop all 4" (2026-11-18).
-- [ ] Switch `~` to main and rename the branch to `merged/wsl-buck-win10`
-      (user, 2026-11-18): brief `…/2026-07-06-006-…kb/2026-11-18-000-…`,
-      blocked until main's `.claude/CLAUDE.md` equals svelte's.
-      Handoff kbs stay until the whole plan is done (user, 2026-11-11; in
-      the plan's Completion). Penguin may hold unpushed svelte work; the
-      user brings penguin up to date afterward.
+- [ ] Task 004: 4 vim files left (`lazy-lock.json`, `lsp.lua`, `plugins.lua`,
+      `diffmode.vim`). They wait on the user's rulings: research unit
+      `2026-11-18-000-mason-…` recommends porting mason `PATH=append` and
+      dropping the rust_analyzer block. `.claude/CLAUDE.md` converged
+      (main `6bfc6f4`, ruled "drop all 4", superseding 2026-11-12).
+- [x] `~` switched to main 2026-11-18 (pre-switch `fa3f7c7`); the branch is now
+      `merged/wsl-buck-win10` locally and on origin. Open (user): the
+      tracked `.ssh/config.d/github.sshconfig` pins the missing
+      `~/.ssh/sentry-github`, so GitHub over ssh fails host-wide (workaround:
+      `GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes'`); Nix and
+      direnv are off PATH (old `.zshenv` saved in `~/trash/switch-to-main/clobbered/`);
+      `~/private-dotfiles/` (keys) is untracked and not ignored; about 35.6k
+      untracked paths need ignore entries (proposals are in the switch handoff file).
 - [ ] `~/claude/router-debug` moved from `~/router-debug`: rename
       `~/.claude/projects/-home-bukzor-router-debug/` to match? (user's call)
 - [ ] Deadlock notes now untracked in `~/claude/deadlock/docs/games/`
