@@ -3,6 +3,7 @@ cwd: /home/bukzor/claude/deadlock
 session:
   uuid: # chronological; append your uuid when picking this entry up
     - 14fac9c8-bc5e-42f7-956c-f88e2a8e613c
+    - 380c3ab7-27e7-4e82-828a-6e0f613e01e9
     - 7bdf94e8-c4ec-4feb-9427-7b8e63e422ad
   started: 2026-11-18T15:46:12+00:00
   ended: 2026-11-18T20:25:00+00:00
@@ -94,7 +95,7 @@ http://localhost:5173/.
 Awaiting the user's ruling (nothing blocks on it):
 - the design, `docs/dev/decisions.kb/vis-app.md` (`status: proposed`), including
   its two `[!DRAFT]` calls: zoom-to-kill also on hero/ability/level change;
-- 29 `standing: agent` claims in `apps/vis/docs/dev/claims.kb/`
+- 28 `standing: agent` claims (and 1 `open`) in `apps/vis/docs/dev/claims.kb/`
   (`llm-claims-kb-grounding` orders them for review);
 - idea `2026-11-18-012-vis--a-nonzero-default-gun-distance.md` (the agent
   recommends keeping 0). A cast's window is settled: two cycles (user).
@@ -114,3 +115,14 @@ Overlap suspect: a peer session was writing idea
 skeleton at 20:20). 010's schema uses `kind` as the line tag
 (`discriminator: kind`), so a rename from 015 changes 010's tag field. Settle
 015 first, or together with 010.
+
+## Review pass (2026-11-18T20:20, session 380c3ab7)
+
+A read-only review: every check is green, the whole roster runs through
+`timeline` with no errors (231 of 308 entries modeled), and gun DPS matches
+`ability_profiles.tsv` exactly. Nothing is verified in-game yet; that, and the
+veto queue above, is what holds the app back. Filed in
+`deadlock/.claude/todo.md`: black + isort for all Python (the user's lean;
+line length 88 is the agent's call), then split `queries.py` and
+`queries_test.py`, plus the pnpm-on-PATH gap. Idea 015: the protocol's `kind`
+key means two things.
