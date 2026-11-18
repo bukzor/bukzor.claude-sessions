@@ -95,8 +95,8 @@ Awaiting the user's ruling (nothing blocks on it):
   its two `[!DRAFT]` calls: zoom-to-kill also on hero/ability/level change;
 - 29 `standing: agent` claims in `apps/vis/docs/dev/claims.kb/`
   (`llm-claims-kb-grounding` orders them for review);
-- idea `2026-11-18-012-vis--a-cast-s-default-chart-window.md` (two cycles vs one
-  cast; the agent recommends keeping two).
+- idea `2026-11-18-012-vis--a-nonzero-default-gun-distance.md` (the agent
+  recommends keeping 0). A cast's window is settled: two cycles (user).
 
 Follow-ups: `deadlock/.claude/ideas.kb/2026-11-18-*-vis--*.md`, one per
 improvement.
