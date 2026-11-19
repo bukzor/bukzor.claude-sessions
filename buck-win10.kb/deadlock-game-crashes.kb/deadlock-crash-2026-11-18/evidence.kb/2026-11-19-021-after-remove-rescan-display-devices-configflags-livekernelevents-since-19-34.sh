@@ -1,0 +1,4 @@
+#!/bin/sh
+# Method for 2026-11-19-021-after-remove-rescan-display-devices-configflags-livekernelevents-since-19-34.md -- re-runnable, and fair game to improve in place
+# (unlike the capture, which is append-only).
+'powershell.exe' '-NoProfile' '-Command' 'Get-PnpDevice -Class Display | Format-Table FriendlyName,Status,Problem,InstanceId -AutoSize | Out-String -Width 200; Get-CimInstance Win32_VideoController | Format-Table Name,Status,ConfigManagerErrorCode,DriverVersion -AutoSize; $i=(Get-PnpDevice -Class Display | ? FriendlyName -match Radeon).InstanceId; "ConfigFlags: " + (Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Enum\$i").ConfigFlags; Get-WinEvent -FilterHashtable @{LogName="Application"; StartTime=[datetime]"2026-11-18 19:34"; Id=1001} -ErrorAction SilentlyContinue | % { if ($_.Message -match "P1: (\S+)") { "{0:HH:mm:ss} WER P1={1}" -f $_.TimeCreated,$matches[1] } }'

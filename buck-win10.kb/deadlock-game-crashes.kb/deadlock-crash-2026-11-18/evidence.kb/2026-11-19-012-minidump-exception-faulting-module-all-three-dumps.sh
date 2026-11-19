@@ -1,0 +1,4 @@
+#!/bin/sh
+# Method for 2026-11-19-012-minidump-exception-faulting-module-all-three-dumps.md -- re-runnable, and fair game to improve in place
+# (unlike the capture, which is append-only).
+'bash' '-c' $'for d in \'/mnt/c/Program Files (x86)/Steam/steamapps/common/Deadlock/game/bin/win64\'/deadlock_2026_1118_*.mdmp; do echo "## $d"; uvx --quiet --from minidump python -I -c \'\nimport sys\nfrom minidump.minidumpfile import MinidumpFile\nm=MinidumpFile.parse(sys.argv[1])\nfor e in m.exception.exception_records:\n    r=e.ExceptionRecord; a=r.ExceptionAddress\n    print("code",r.ExceptionCode,"addr",hex(a),"info",[hex(x) for x in r.ExceptionInformation[:r.NumberParameters]])\n    for mod in m.modules.modules:\n        if mod.baseaddress<=a<mod.baseaddress+mod.size: print("module",mod.name,"+",hex(a-mod.baseaddress))\n\' "$d"; done'
