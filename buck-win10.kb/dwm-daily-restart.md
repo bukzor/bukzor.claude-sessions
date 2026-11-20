@@ -37,6 +37,16 @@ is contended (a restart under a full card hung the GPU on 2026-11-18; see
 - Both decision branches tested in a runsv-like env (`env -i`, root ->
   `chpst -u bukzor`): contended -> "deferred", due -> restart, age reset.
 
+## Judgment calls awaiting the user's ruling
+
+> [!DRAFT] agent-chosen defaults, 2026-11-19, vetoable -- constants in `run`.
+
+- Contention = non-dwm dedicated VRAM >= 2048 MB (idle desktop 0.4-0.9 GB,
+  Deadlock alone 5+ GB per `dwm-vram-contention.log`).
+- Due = dwm age >= 24h; checked every 10 min, so restarts land whenever the
+  machine is next idle after that -- possibly while the user is at the desk.
+- Name `dwm-daily-restart` (user rejected `health`; the agent picked this).
+
 ## Open
 
 - [ ] After ~2026-11-20T21:15Z, confirm the live service logged its first
