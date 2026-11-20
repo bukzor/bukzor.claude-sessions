@@ -7,6 +7,8 @@ session:
     - 18a39fbc-a96f-4090-ac5f-3b75a72a396f
     - 1b724c86-a63b-441f-841e-b31826d224e4
     - ffde79d7-bd91-43d9-94a2-3c936553cd70
+    - 83f86b54-e0ba-4634-91e2-d3ea99d42343
+    - 3443f841-6341-49b3-a26f-7396c71f798c
   started: 2026-10-27T11:34:03-05:00
   ended: null
 ---
@@ -18,9 +20,11 @@ workspace, oxlint and oxfmt on TypeScript 7, a toolchain selftest, and
 pre-commit as the whole of CI (`lib/ci/check`). The second session
 (fb592418) designed the project and filed it as a claim ledger in
 `docs/dev/claims.kb/`. Session 18a39fbc settled the ledger, then bukzor
-began milestone 0.1 by hand in `apps/bukzor-shadertoy` (Vite,
-multi-page under `src/pages/`): adapter info, features and limits are
-on the page. The device, device loss, and uncaptured errors remain.
+built milestone 0.1 by hand in `apps/bukzor-shadertoy` (Vite,
+multi-page under `src/pages/`). Session 3443f841 landed it: the device
+comes from the first kept package, `@repo/gpu-device`, and the
+gpu-info page shows adapter and device side by side, plus two
+permanent expected-error demos.
 
 ## Where things are
 
@@ -33,8 +37,8 @@ on the page. The device, device loss, and uncaptured errors remain.
 - Occasion-bound claims (tripwires, recall, consolidation) fire from the
   repo's trigger bank, `.claude/must-read.kb/`; the root `CLAUDE.md` has
   every session list it.
-- Recall items are `Recall:` trailers on the increment's commit (latest:
-  df8e6e6); `before/starting-the-first-task-of-a-session.md` finds them.
+- Recall items are checkbox items in the repo's `.claude/todo.md`: added
+  unchecked at session end, checked off when written cold (1b1897f).
 
 ## Findings (evaluation session, 2026-10-27)
 
@@ -89,16 +93,49 @@ on the page. The device, device loss, and uncaptured errors remain.
 - The bank fired, but mid-session, when the root `CLAUDE.md` gained its
   stanza; `git rev-parse --show-toplevel` found it from the app subdirectory.
 
+## Findings (recall session 83f86b54, 2026-11-20)
+
+- Recall from df8e6e6: c right; a, b, d half right cold, then settled.
+  `void` handles nothing: the global `unhandledrejection` handler does.
+  `constructor.name` and `@@toStringTag` both come from the Web IDL
+  interface identifier.
+- Unsorted, `adapter.features` keeps about 80% of its order across reloads
+  and swaps the rest in small local clumps: hash-slot order with collisions,
+  not insertion order the page could rely on. Sorting stays.
+- Commit 1b1897f, pushed: recall moved from commit trailers to `todo.md`,
+  because a trailer can't record that recall was done.
+
+## Findings (0.1-landing session 3443f841, 2026-11-20)
+
+- Commits 4a3d8ad, c32ceab, 90cbfab, pushed. 0.1 is "Landed."
+- Rulings: package `gpu/device` (not `device-and-adapter`, `init`,
+  `get`, `webgpu`); REPO_SCOPE: packages private by default and named
+  `@repo/...`, the root included. ERROR_HANDLING is agent-signed and
+  awaiting bukzor's ruling (todo item).
+- Error design bukzor wrote: `UncapturedGPUError` rethrown from an
+  `uncapturederror` listener (with `preventDefault()`), and `init()`
+  returns `lost`, a promise rejecting with `DeviceLostError`; callers
+  opt out by catching it. bukzor rejected a library-side filter for
+  `reason: "destroyed"` as an app assumption.
+- The gpu-info page's demos call WebGPU (`createBuffer`, `destroy`,
+  `addEventListener`) from `apps/`. At milestone 1.2 that trips
+  DEPENDENCY_DIRECTION's lint-rule tripwire; the demos then move or
+  get the rule's exemption.
+- Process miss: the first-task trigger's consolidation check was not
+  run at session start; caught at session end and queued as a todo
+  suggestion.
+- `lib/ci/check` runs pre-commit `--all-files`, which covers tracked
+  files only: a new package goes unchecked until it is added.
+
 ## Open
 
 The repo's `.claude/todo.md` owns the project's open work.
 Occasion-bound items (recall, consolidation, `ASK_BEFORE_EDITING_KEPT`)
 fire from its trigger bank instead. Below: only what outlives the repo.
 
-- [ ] Check that the trigger bank fires: next session should list it
-      unprompted and run `before/starting-the-first-task-of-a-session.md`
-      (recall from df8e6e6). If not, the root `CLAUDE.md` stanza needs work.
-      ffde79d7 saw it fire only mid-session, so a cold start is still untested.
+- [x] Check that the trigger bank fires: 83f86b54 (cold start from
+      `apps/bukzor-shadertoy`, 2026-11-20) listed it unprompted on its first
+      tool call and ran `before/starting-the-first-task-of-a-session.md`.
 - [ ] Upstream, bukzor-agent-skills `llm-must-read-kb` "Adoption": `$SCOPE`
       is `.` for a project, which misses the bank when the session starts in
       a subdirectory; it should name the directory holding the `CLAUDE.md`.
