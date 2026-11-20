@@ -6,6 +6,7 @@ session:
     - fb592418-515b-4a49-a900-79cbfb528d9d
     - 18a39fbc-a96f-4090-ac5f-3b75a72a396f
     - 1b724c86-a63b-441f-841e-b31826d224e4
+    - ffde79d7-bd91-43d9-94a2-3c936553cd70
   started: 2026-10-27T11:34:03-05:00
   ended: null
 ---
@@ -33,7 +34,7 @@ on the page. The device, device loss, and uncaptured errors remain.
   repo's trigger bank, `.claude/must-read.kb/`; the root `CLAUDE.md` has
   every session list it.
 - Recall items are `Recall:` trailers on the increment's commit (latest:
-  509ca6b); `before/starting-the-first-task-of-a-session.md` finds them.
+  df8e6e6); `before/starting-the-first-task-of-a-session.md` finds them.
 
 ## Findings (evaluation session, 2026-10-27)
 
@@ -76,6 +77,18 @@ on the page. The device, device loss, and uncaptured errors remain.
 - `git commit-files ... -- -F -` drops stdin ("empty commit message"); use
   `-F <file>`.
 
+## Findings (WebGPU-object review session ffde79d7, 2026-11-15..20)
+
+- Commit df8e6e6, pushed: `describeObject` rejects iterables at the type
+  level. Rulings: sets and objects are routed by static type, never by a
+  runtime `Symbol.iterator` check; `constructor.name` over
+  `Symbol.toStringTag`; function-valued properties are not filtered out.
+- Recall from 509ca6b: item 1 half right (missed why the linter wants
+  `void`), item 2 right, item 3 rejected by bukzor as presupposing its
+  answer. df8e6e6 carries the miss forward and recasts item 3.
+- The bank fired, but mid-session, when the root `CLAUDE.md` gained its
+  stanza; `git rev-parse --show-toplevel` found it from the app subdirectory.
+
 ## Open
 
 The repo's `.claude/todo.md` owns the project's open work.
@@ -84,7 +97,8 @@ fire from its trigger bank instead. Below: only what outlives the repo.
 
 - [ ] Check that the trigger bank fires: next session should list it
       unprompted and run `before/starting-the-first-task-of-a-session.md`
-      (recall from 509ca6b). If not, the root `CLAUDE.md` stanza needs work.
+      (recall from df8e6e6). If not, the root `CLAUDE.md` stanza needs work.
+      ffde79d7 saw it fire only mid-session, so a cold start is still untested.
 - [ ] Upstream, bukzor-agent-skills `llm-must-read-kb` "Adoption": `$SCOPE`
       is `.` for a project, which misses the bank when the session starts in
       a subdirectory; it should name the directory holding the `CLAUDE.md`.
