@@ -78,20 +78,10 @@ on the page. The device, device loss, and uncaptured errors remain.
 
 ## Open
 
-- [ ] Milestone 0.1, bukzor's, in order: request a device and list
-      `device.limits` and `device.features` beside the adapter's (the
-      comparison is the lesson; don't say what it shows in advance);
-      hand `device.lost` and `device.onuncapturederror` to `showError`
-      (`src/lib/errors.ts`); extract into `gpu/device-and-adapter` via
-      `bin/new-package` (kept code, bukzor's). Then mark 0.1 "Landed."
-- [ ] Decide whether Claude's edits to kept groups prompt for
-      permission (open claim `ASK_BEFORE_EDITING_KEPT`; the trigger
-      `when/claude-wrote-more-in-a-kept-group-than-asked.md` surfaces
-      the evidence).
-- [ ] How WGSL sources are typed and loaded (arises at milestone 1.1).
-- [ ] Browser-side test runner, if the app wants one; `node --test`
-      serves only the selftest today.
-- [ ] Explain or dismiss the 6s-to-55s `lib/ci/check` timing spread.
+The repo's `.claude/todo.md` owns the project's open work.
+Occasion-bound items (recall, consolidation, `ASK_BEFORE_EDITING_KEPT`)
+fire from its trigger bank instead. Below: only what outlives the repo.
+
 - [ ] Check that the trigger bank fires: next session should list it
       unprompted and run `before/starting-the-first-task-of-a-session.md`
       (recall from 509ca6b). If not, the root `CLAUDE.md` stanza needs work.
