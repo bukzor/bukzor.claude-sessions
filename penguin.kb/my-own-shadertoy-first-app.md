@@ -5,6 +5,7 @@ session:
     - 634afc3c-6a0f-4d42-afe2-6a4585ddd72a
     - fb592418-515b-4a49-a900-79cbfb528d9d
     - 18a39fbc-a96f-4090-ac5f-3b75a72a396f
+    - 1b724c86-a63b-441f-841e-b31826d224e4
   started: 2026-10-27T11:34:03-05:00
   ended: null
 ---
@@ -64,6 +65,17 @@ on the page. The device, device loss, and uncaptured errors remain.
   (cef8d9c), and Vite was explicitly approved. The 40-line cap and
   `no-console` stay as they are.
 
+## Findings (review and trigger-bank session 1b724c86, 2026-11-15..20)
+
+- Commits 509ca6b (describeSet refactor), 5a4a6da (six tripwires), 6d379ac
+  (the trigger bank and its ledger adjustments), pushed.
+- A bank is listed from the directory of the `CLAUDE.md` holding its stanza,
+  never the session cwd; `llm-must-read-ls` reading only its argument is
+  right. Parent banks cascade through ancestor `CLAUDE.md` loading, so the
+  script needn't walk up (that would double-list `~`).
+- `git commit-files ... -- -F -` drops stdin ("empty commit message"); use
+  `-F <file>`.
+
 ## Open
 
 - [ ] Milestone 0.1, bukzor's, in order: request a device and list
@@ -80,3 +92,11 @@ on the page. The device, device loss, and uncaptured errors remain.
 - [ ] Browser-side test runner, if the app wants one; `node --test`
       serves only the selftest today.
 - [ ] Explain or dismiss the 6s-to-55s `lib/ci/check` timing spread.
+- [ ] Check that the trigger bank fires: next session should list it
+      unprompted and run `before/starting-the-first-task-of-a-session.md`
+      (recall from 509ca6b). If not, the root `CLAUDE.md` stanza needs work.
+- [ ] Upstream, bukzor-agent-skills `llm-must-read-kb` "Adoption": `$SCOPE`
+      is `.` for a project, which misses the bank when the session starts in
+      a subdirectory; it should name the directory holding the `CLAUDE.md`.
+- [ ] Upstream, git-partial.prototyping: `commit-files`/`commit-staged`
+      don't pass stdin through to `git commit -F -`.
