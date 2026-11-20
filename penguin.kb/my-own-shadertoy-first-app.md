@@ -15,8 +15,10 @@ WebGPU and GPGPU programming. Day one built only the tooling: a pnpm
 workspace, oxlint and oxfmt on TypeScript 7, a toolchain selftest, and
 pre-commit as the whole of CI (`lib/ci/check`). The second session
 (fb592418) designed the project and filed it as a claim ledger in
-`docs/dev/claims.kb/`. No WebGPU code exists yet. The next step is
-milestone 0.1, and bukzor writes it by hand.
+`docs/dev/claims.kb/`. Session 18a39fbc settled the ledger, then bukzor
+began milestone 0.1 by hand in `apps/bukzor-shadertoy` (Vite,
+multi-page under `src/pages/`): adapter info, features and limits are
+on the page. The device, device loss, and uncaptured errors remain.
 
 ## Where things are
 
@@ -26,6 +28,11 @@ milestone 0.1, and bukzor writes it by hand.
   In the kept groups (program, gpu, passes) Claude writes only what is
   directly asked, and declines first uses of the API.
 - `bin/new-package GROUP/THING 'job'` stamps a package.
+- Occasion-bound claims (tripwires, recall, consolidation) fire from the
+  repo's trigger bank, `.claude/must-read.kb/`; the root `CLAUDE.md` has
+  every session list it.
+- Recall items are `Recall:` trailers on the increment's commit (latest:
+  509ca6b); `before/starting-the-first-task-of-a-session.md` finds them.
 
 ## Findings (evaluation session, 2026-10-27)
 
@@ -59,10 +66,16 @@ milestone 0.1, and bukzor writes it by hand.
 
 ## Open
 
-- [ ] Milestone 0.1, bukzor's: adapter and device, limits, device loss,
-      uncaptured errors on the page, served by Vite from `apps/toy`.
+- [ ] Milestone 0.1, bukzor's, in order: request a device and list
+      `device.limits` and `device.features` beside the adapter's (the
+      comparison is the lesson; don't say what it shows in advance);
+      hand `device.lost` and `device.onuncapturederror` to `showError`
+      (`src/lib/errors.ts`); extract into `gpu/device-and-adapter` via
+      `bin/new-package` (kept code, bukzor's). Then mark 0.1 "Landed."
 - [ ] Decide whether Claude's edits to kept groups prompt for
-      permission (open claim `ASK_BEFORE_EDITING_KEPT`, settled by experience).
+      permission (open claim `ASK_BEFORE_EDITING_KEPT`; the trigger
+      `when/claude-wrote-more-in-a-kept-group-than-asked.md` surfaces
+      the evidence).
 - [ ] How WGSL sources are typed and loaded (arises at milestone 1.1).
 - [ ] Browser-side test runner, if the app wants one; `node --test`
       serves only the selftest today.
