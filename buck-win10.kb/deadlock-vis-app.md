@@ -85,7 +85,7 @@ DPS measurements that can be checked in-game. Resume with `/subagent-handoffs`.
   `docs/dev/decisions.kb/` entry for the choices above (frontmatter
   `status`/`date`).
 
-## Status (2026-11-18T18:42, closed)
+## Status (closed)
 
 Done through review round 5; the user: "good enough for today". The plan,
 `deadlock/.claude/todo.kb/2026-11-18-000-vis-app.md`, records the commit ranges;
@@ -103,26 +103,14 @@ Awaiting the user's ruling (nothing blocks on it):
 Follow-ups: `deadlock/.claude/ideas.kb/2026-11-18-*-vis--*.md`, one per
 improvement.
 
-## Discussion 2026-11-18T19:03–20:25 (session 7bdf94e8, no code)
+A read-only review (380c3ab7) found every check green, gun DPS matching
+`ability_profiles.tsv` exactly, and nothing verified in-game yet; that, and
+the veto queue above, holds the app back. Filed in `deadlock/.claude/todo.md`:
+black + isort for all Python, then split `queries.py`/`queries_test.py`, plus
+the pnpm-on-PATH gap. Idea 015 (the protocol's `kind` key means two things)
+should be settled together with 010 (shared JSON Schema for the protocol).
 
-How to share the protocol's types between Python and TS. Outcome: idea
-`2026-11-18-010-vis--one-JSON-Schema-for-the-protocol-s-Python-and-TS-types.md`
-(commit `ead2f1b`). It records the user's ruling (a JSON Schema third source;
-no run-time-loaded protocol) and the open problems.
+## Addenda
 
-Overlap suspect: a peer session was writing idea
-`2026-11-18-015-vis--the-protocol-s-kind-key-means-two-things.md` (an untracked
-skeleton at 20:20). 010's schema uses `kind` as the line tag
-(`discriminator: kind`), so a rename from 015 changes 010's tag field. Settle
-015 first, or together with 010.
-
-## Review pass (2026-11-18T20:20, session 380c3ab7)
-
-A read-only review: every check is green, the whole roster runs through
-`timeline` with no errors (231 of 308 entries modeled), and gun DPS matches
-`ability_profiles.tsv` exactly. Nothing is verified in-game yet; that, and the
-veto queue above, is what holds the app back. Filed in
-`deadlock/.claude/todo.md`: black + isort for all Python (the user's lean;
-line length 88 is the agent's call), then split `queries.py` and
-`queries_test.py`, plus the pnpm-on-PATH gap. Idea 015: the protocol's `kind`
-key means two things.
+`deadlock-vis-app.kb/` holds one dated write-up per session that picked this
+entry up: its findings, rulings, and process notes. `ls` gives the timeline.

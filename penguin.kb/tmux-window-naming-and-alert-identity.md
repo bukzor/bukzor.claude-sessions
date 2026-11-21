@@ -23,31 +23,10 @@ Reasoning, rejected alternatives, and the conventions this session
 established are in
 `docs/dev/devlog/2026-09-10-001-tmux-window-naming--a-precedence-ladder--not-a-program-list.md`.
 
-## Read into a claim ledger, 2026-09-17
-
-A later session (unrelated line of work: cron-alerting, see
-`pnpm-11-tooling-and-cron-health.md`) read `bin/alert`, its commits, and
-this devlog while extending `docs/dev/user-attention.claims.md`
-(`Skill(llm-claims-kb)`, pushed `80149a4`). `alert` is now formalized there
-as a **push channel** -- fires when the caller calls out rather than being
-polled or triggered by session lifecycle, so its coverage is exactly its
-call sites (`ALERT_PUSH`, `PUSH_BOUNDED_BY_CALLSITES`,
-`PUSH_ATTEMPTS_LOGGED` in `docs/dev/user-attention.claims.kb/`). The
-`log_alert`-under-`set -e` follow-up below is now also tracked as an open
-claim there (`ALERT_LOG_DESYNC`) -- same open question, now checkable
-alongside the ledger's others rather than only living in this file's prose.
-Nothing here was built or fixed; this is a cross-reference, not a
-resolution.
-
-## WSL toast transport, 2026-11-18 (buck-win10)
-
-Under tmux+WSL no transport reached the user: `notify-send` absent (WSLg
-has no notification daemon), and `notify_hterm` "succeeded" into
-Windows Terminal, shadowing the bell. Added `bin/alert-wsl` (Windows
-toast via `powershell.exe`) as the second transport, and prefixed tmux
-origins with `tmux ` (`tmux 0:10 alert`). User confirmed toasts arrive.
-`main` `86c7bda`+`a8dd56f`, cherry-picked to `svelte-crostini`
-`4f7b4db`+`02e6114`; claims ledger `ALERT_PUSH` updated to match.
+`alert` is also formalized as a push channel in
+`docs/dev/user-attention.claims.md` (`ALERT_PUSH`, `PUSH_BOUNDED_BY_CALLSITES`,
+`PUSH_ATTEMPTS_LOGGED`). Under tmux+WSL the transport is `bin/alert-wsl`
+(Windows toast via `powershell.exe`); tmux origins read `tmux 0:10 alert`.
 
 ## Open follow-ups
 
@@ -95,3 +74,9 @@ tmux re-derives an automatic name only on **pane activity**: after
 `source-file`, idle windows keep stale names and look like they opted
 out. Distinguish real opt-outs (`automatic-rename off`, meaning a human
 named the window) from stale inheritance before touching live state.
+
+## Addenda
+
+`tmux-window-naming-and-alert-identity.kb/` holds one dated write-up per
+session that picked this entry up: its findings, rulings, and process notes.
+`ls` gives the timeline.
