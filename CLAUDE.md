@@ -4,58 +4,9 @@ git-caution: personal
 
 # Sessions Collection
 
-The user runs many parallel sessions across cwds, repos, and skills;
-these notes keep the live ones at hand on disk for the next session
-to pick up.
-
-## What Belongs
-
-- A planned session that has not been started yet (no/empty `session.uuid`)
-- An in-flight session worth referencing across other contexts
-- A recently completed session whose follow-ups are still live
-
-## What Does Not Belong
-
-- Per-task todos -- those go in the project's own `.claude/todo.kb/`
-- Per-session devlogs -- those belong with the project (Skill(llm-collab))
-- Concept definitions, principles, etc. -- those go in their respective
-  skill kbs
-
-## When to Add
-
-Add an entry the moment a future line of work is identified -- end of a
-session that surfaced follow-ups, mid-conversation when a tangent is
-recognized as its own scope, or whenever the user notes "that's another
-session." Writing it down is cheap; the value is reading it back at
-the next session start.
-
-## When to Read
-
-Read at session start to recover the user's open lines of work, or
-when checking whether the current task is already noted elsewhere.
-
-## Open Work: `- [ ]` Is Load-Bearing
-
-A session entry's open work surfaces in `claude-open-tasks-list` only
-when its lines use `- [ ]`. Bare `-` bullets are **invisible** to the
-inventory and silently lost — they will not be rated, will not appear in
-`task-list.md`, will not compete for prioritization. See
-`Skill(llm-subtask)` for the full rule; the short version: any
-task-shaped line uses `- [ ]`, anything else is prose.
-
-## File Naming
-
-kebab-case, descriptive enough that the user can guess the session's
-purpose from the filename. Do not number -- sessions are not ordered.
-
-## Where Files Live
-
-Session files live directly here, in `~/.claude/sessions.kb/`. This
-is the default home regardless of which project the session relates
-to. A single directory keeps "what am I working on?" a one-`ls`
-question and avoids fragmenting notes across repos.
-
-See the appendix below for an optional in-repo + symlink scheme.
+Entry conventions -- what belongs, entry shape, and what to do at session
+start, mid-session, and end -- are Skill(llm-sessions). This file covers
+only what is particular to this repo.
 
 ## This Repo
 
@@ -73,8 +24,8 @@ Entries live under `<hostname>.kb/`, e.g. `penguin.kb/reunify-dotfiles.md`
 for host `penguin`. Rationale: sessions are tied to a specific
 machine's filesystem state (open worktrees, local branches, uncommitted
 files) — a flat namespace would silently collide or misattribute
-entries across hosts sharing this one repo. `CLAUDE.md` and
-`.template.md` stay at the repo root, shared across hosts.
+entries across hosts sharing this one repo. `CLAUDE.md` stays at the
+repo root, shared across hosts.
 
 The `.kb` suffix is load-bearing, not decoration: `llm.kb-validate`
 only descends into `*.kb/`, so a plain `penguin/` made the whole
@@ -108,51 +59,3 @@ something outside sessions.kb needs the pointer current (e.g. cloning
 dotfiles fresh on a new host). Until then, dotfiles will often show
 this submodule as "modified (new commits)" against its recorded
 pointer — that's expected, not a problem to fix.
-
-## Lifecycle
-
-These are ephemeral working notes — useful on disk between sessions,
-not durable knowledge artifacts. When follow-ups are absorbed
-elsewhere (or no longer worth keeping at hand), delete the file.
-
-### Creating a New Entry
-
-- see `~/.claude/sessions.kb/.template.md`
-- substitute the `$(...)` placeholders
-- Filename: see `## File Naming` above; additionally, prefer exact
-  match with the taskfile's slug (strip `CLAUDE.`/`.Task.`/`.md`
-  affixes) — exact-match ids across files with the same referent make
-  cross-reference cheap.
-- Consider creating a new sessions.kb entry (via .template.md) when any apply:
-  - Complex or nuanced task
-  - Will take more than a couple hours
-  - Has already been more than a day
-  - Context already > 100k tokens (plan a separate session)
-
-### Growing Entries: Dated Addenda
-
-Naming is `Skill(llm-kb)`'s `references/dated-slug-filename.md`.
-
-- `$slug.kb/` -- one file per pickup write-up, reading like a devlog
-  entry. Filed once per pickup; corrections or a late-fallout note are
-  fine, it's not append-only-forever
-- `$slug.md` -- live status (plan/blocked/decisions), edited in
-  place, never appended
-  - close with an `## Addenda` section pointing at `$slug.kb/`
-- trigger -- a pickup write-up outgrows a one-line status update
-  - `Skill(llm-kb)`'s promotion signal
-
-## Appendix: in-repo placement with symlink (optional)
-
-A session may instead live in a project's own source tree when that
-suits the work — e.g., notes tightly coupled to project-internal
-artifacts, or that should appear in the project's grep results. In
-that case:
-
-- on-disk home: `<project>/.claude/sessions.kb/<slug>.md`
-- symlink: `~/.claude/sessions.kb/<hostname>.kb/<slug>.md` → on-disk
-  home (per-host, same as any entry — sessions are host-bound)
-
-This is an optional scheme. The default (directly in
-`~/.claude/sessions.kb/`) is simpler and should be preferred unless
-there's a specific reason to co-locate.
