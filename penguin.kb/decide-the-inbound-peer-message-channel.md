@@ -55,56 +55,33 @@ the agent sees them, pulled rather than pushed, and durable past the
 context. The only thing files lack is liveness, which was not
 load-bearing: the peer held its migration for a day regardless.
 
-Interim protocol adopted unilaterally this session, and **not
-persisted anywhere enforceable** -- that gap is itself a follow-up:
-treat an inbound peer message as a ticket, not a conversation. Read
-it, verify any claim it makes about the repo against the repo, file
-what is actionable, tell the operator in one line, do not reply in
-prose. Applied retroactively to 2026-08-13 it removes roughly 80% of
-the cost and still catches the sandbox-only migration, because that
-catch came from reading `git log`, not from talking. If the channel
-stays on, this protocol wants a home in `must-read.kb/when/` so it
-binds future sessions rather than living in one transcript.
+Interim protocol, adopted 2026-08-13 and now enforceable (see Addenda,
+2026-09-19): treat an inbound peer message as a ticket, not a
+conversation. Read it, verify any claim it makes about the repo against
+the repo, file what is actionable, tell the operator in one line, do not
+reply in prose. Applied retroactively to 2026-08-13 it removes roughly
+80% of the cost and still catches the sandbox-only migration, because
+that catch came from reading `git log`, not from talking. Its home is
+`Skill(llm-collab)`'s `must-read.kb/`; the postbox (2026-09-22) would
+make `SendMessage` a wake phrase or retire it, which is this entry's
+open ruling. Agent recommendation (2026-10-01, unruled): `hold` now,
+`refuse` once peers have a pull channel.
 
-**2026-09-19**: the interim protocol now has its enforceable home --
-`Skill(llm-collab)` reclaimed as the cross-session collaboration domain,
-with `skill.kb/must-read.kb/after/receiving-a-peer-message.md` (ticket,
-not conversation), `before/sending-a-peer-message.md` (pointer /
-conflict / hand-off only), and `when/peer-sessions-work-overlapping-ground.md`
-(the `sessions.kb/` entry is the digest; pull at checkpoints). ADR:
-`bukzor-agent-skills/docs/dev/adr/2026-09-19-000-llm-collab-owns-peer-session-coordination.md`.
+## Open work
 
 - [ ] `sessions.kb/CLAUDE.md` / `.template.md`: mention the peer-facing
       sections an entry carries (findings as signed claims, open questions,
       overlap suspects, wants).
-
-**2026-09-22**: evidence from the dispatcher field test (session
-`e234e82e`, analysis at L2860, never answered -- the session died in the
-09-23 tmux crash). The four peers had already judged relevance: each
-entry's "Offered back to X" / "Overlap with peers" section named its
-addressee. The dispatcher only noticed X hadn't read it yet, at ~140
-model turns and 4 unrewindable interrupts; the ratified postbox
-(PULL_DELIVERY, POINTERS_ONLY, a silent-when-empty prompt hook) does the
-same at ~8 turns and 0 interrupts, and a recipient reads only mail
-addressed to it. Discovery stays with the sessions.kb "overlap suspects"
-line or the owner; liveness was not load-bearing. Under the postbox,
-pointer/conflict/hand-off all become inbox files, so `SendMessage`
-shrinks to a wake phrase or goes -- which is this entry's question, now
-with an answer to rule on. The other ruling it asked for lives in
-`agent-harness-design.md`.
-
-**2026-10-01** (session `3ed32159`): agent recommendation, unruled --
-set `"crossSessionInbound": "hold"` in user settings now, and move to
-`refuse` once peers have a pull channel. `hold` restores the operator
-act the 08-13 failure lacked: a held message reaches the model only
-when an `accept` applies, and the notices keep visible what would have
-arrived -- evidence on whether liveness is ever load-bearing. Leave
-`SendMessage` allowed: it also carries subagent resumes.
 
 - [ ] Rule `hold` / `refuse` / `accept`, then set it in
       `~/.claude/settings.json` (owner's edit)
 - [ ] `~/.claude/settings.json` lists `SendMessage`, `ListAgents`,
       `TaskStop` under `permissions.questionable`, not a documented
       Claude Code permission category; confirm whether it gates anything
+
+## Addenda
+
+`decide-the-inbound-peer-message-channel.kb/` holds one dated write-up per
+session that picked this entry up. `ls` gives the timeline.
 
 [cross-session-messaging]: https://code.claude.com/docs/en/cross-session-messaging#control-inbound-messages
