@@ -38,8 +38,8 @@ descriptor) are filed in the addenda.
 
 ## Open work
 
-- [ ] Swap the two `PLACEHOLDER` hrefs once real Payment Links exist,
-  then build and deploy -- ~15 min, gated on activation
+- [x] Swap the two `PLACEHOLDER` hrefs once real Payment Links exist,
+  then build and deploy -- ~15 min, gated on activation (swapped in 366a993)
 
 ## Addenda
 

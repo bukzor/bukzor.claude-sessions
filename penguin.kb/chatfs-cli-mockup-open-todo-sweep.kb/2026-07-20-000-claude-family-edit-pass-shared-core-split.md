@@ -1,5 +1,3 @@
-Part of `../chatfs-cli-mockup-open-todo-sweep.md`.
-
 # 2026-07-20: claude family edit pass — package imports + pure/shell split
 
 Picked up via `/session-start` pointing at
