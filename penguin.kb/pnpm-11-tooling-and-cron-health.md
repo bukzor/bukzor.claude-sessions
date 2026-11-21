@@ -19,84 +19,11 @@ this file: `docs/dev/adr/2026-08-27-000-pnpm-11-global-tooling-mechanism.md`
 (what pnpm 11 changed and what replaced it) and
 `docs/dev/adr/2026-08-27-001-scheduled-job-health.md` (why nobody noticed).
 
-## Completed this session
-
-Three commits on `svelte-crostini`, pushed: `3f0a8ba` (shell), `cab90f2`
-(pnpm), `f0e66ec` (cron).
-
-- Root cause: `.config/pnpm/rc`'s `prefix=` configured pnpm 10's global root,
-  bin dir, and store. pnpm 11 reads only `config.yaml`, where `prefix` does
-  not exist -- so the nightly job that installed pnpm 11 silently moved every
-  global path to defaults whose bin dir is not on PATH, and failed every run
-  after.
-- `.config/pnpm/config.yaml` now declares `globalBinDir`/`globalDir`
-  (camelCase only; `${HOME}` expands, `~` and `$HOME` do not). Store left at
-  the XDG default.
-- corepack is the pnpm entry point again -- `pnpm add -g pnpm` and, under
-  corepack, `pnpm self-update` both refuse. `bin/corepack` reaches it via
-  `volta which node`. `bin/pnpm-upgrade-g` rewritten: declared set from the
-  tracked manifest, one install with a fixed flag list, `--allow-build=bun`,
-  `corepack use pnpm@latest`, and a smoke test that would have caught the
-  original failure on day one.
-- Two separate aborts of `.profile` under errexit, both dating to the
-  2026-07-09 env.d migration and both fatal to every anacron job: a `grep`
-  matching nothing in `path.sh`, and `HOMEBREW="$(command -v brew)"` in
-  `300-homebrew.sh`, which runs six hundred numbers before PATH gets
-  homebrew. Nothing read `$HOMEBREW`, so it is gone. `source_dir` now reports
-  a file whose last command failed, with errexit still armed, and
-  `.profile_test.sh` sources under `set -e` -- the mode cron uses, and the
-  one its existing clean-stderr assertion could never see.
-- `logrotate-cron` writes `<job>.status`; `.config/sh/rc.d/cron-status.sh`
-  warns at shell start; `.config/anacron/cron-health_check.sh` joins the
-  `redo test` fan-out.
-- Retired: `~/prefix/pnpm/{5,v3,store}` (6G by `df`), a 92M npm-global Claude
-  Code at `~/prefix/{bin,lib}`, `.npmrc`, and `pi` (broken upstream) with the
-  `~/node_modules` and `~/pnpm-lock.yaml` it dragged along.
-
-## Follow-on, 2026-09-10/17: pnpm 12 broke corepack, alerting still didn't reach usage
-
-Two commits, pushed on `svelte-crostini`: `2109e91` (corepack) and `80149a4`
-(ledger). Root-caused via `~/.local/state/cron/pnpm-upgrade-g.log`:
-`pnpm-upgrade-g` had failed nightly since 2026-09-07 because pnpm 12 moved
-to a native binary that corepack couldn't invoke until its own 0.35.0, and
-no node build here bundled a corepack that new. Fixed by self-hosting
-corepack via `pnpm add -g` instead of relying on node's bundle -- full
-account in `docs/dev/adr/2026-09-10-000-corepack-self-hosted-via-pnpm-add-g.md`.
-Deliberately no self-heal added for the poisoned-cache failure mode.
-
-Separately, the user corrected a belief I'd stated as fact: `cron-status.sh`
-"warns at shell start" was read as covering ongoing use, but this machine's
-panes run 6-17+ days without a shell restart, so the warning had never once
-reached the pane where the failing job actually lived. Fixed by polling the
-same status files from tmux's `status-right` (`bin/cron-status`, shared with
-the rc.d warning) -- `docs/dev/adr/2026-09-10-001-tmux-status-bar-cron-alerting.md`.
-That incident's lesson (a trigger's reach decays with session age; polling a
-continuously-visible surface doesn't) is now a checkable claim ledger,
-`docs/dev/user-attention.claims.md` (`Skill(llm-claims-kb)`), extended after
-reading `bin/alert` to add a fourth channel kind (push, coverage bounded by
-call sites rather than session lifecycle) -- see
-`tmux-window-naming-and-alert-identity.md`, the sibling entry for that code.
-
-**Unbuilt idea, awaiting the owner's ruling** (see `~/.claude/todo.md`):
-wire `bin/alert` into the cron-failure path (`bin/cron-status` or its
-callers) so a failed job pushes a real-time notification instead of waiting
-up to 15s for the tmux poll, or being silent entirely outside tmux. Not
-built -- autonomous desktop notifications from a cron job is a noise-level
-judgment call, not a refactor.
-
-**Correction, same day**: the ADR's PATH-shadowing claim ("self-hosted
-corepack shadows `~/bin/corepack` automatically") turned out wrong for
-cron specifically -- found by a third, independent recurrence of this
-exact failure class in a concurrent investigation
-(`pnpm-11-tooling-and-cron-health.kb/pnpm-corepack-cjs-mjs-2026-09-12/`,
-incident-forensics kb, not committed to `dotfiles`; root-caused,
-fixed, and verified 2026-09-17): the real order is direnv-gated (`~/.envrc`'s
-`path_add` re-prepends `~/prefix/pnpm/bin` ahead of `~/bin` on every
-direnv-hooked prompt, masking the bug interactively; cron's plain
-`/bin/sh` has no direnv and hits stale `~/bin/corepack` directly). Their
-remediation removes `~/bin/corepack` outright (staged, not committed --
-not mine to land). Pushed a correction commit rather than rewriting the
-original claim: `9d49617`.
+Current state: pnpm 11/12 global tooling and both daily jobs are fixed and
+verified under a cron-identical environment (corepack self-hosted via
+`pnpm add -g`, stale `~/bin/corepack` removed); failures now reach the
+user through the shell-start warning and the tmux status bar
+(`bin/cron-status`).
 
 ## Live follow-ups
 
@@ -111,6 +38,10 @@ original claim: `9d49617`.
 - Nothing else is known-broken: both jobs were re-run under a cron-identical
   `env -i ... PATH=/usr/bin:/bin` shell and exited 0. That environment, not
   a login shell, is the one that matters here.
+- Unbuilt idea, awaiting the owner's ruling (see `~/.claude/todo.md`): wire
+  `bin/alert` into the cron-failure path so a failed job pushes a real-time
+  notification. Not built; autonomous desktop notifications from cron is a
+  noise-level judgment call, not a refactor.
 - Smaller items live in `~/.claude/todo.md` (trash purge, `~/prefix/npm/`,
   the `functions.sh` loop, corepack's version-coupled shims).
 
@@ -131,7 +62,10 @@ original claim: `9d49617`.
 
 ## Addenda
 
-`pnpm-11-tooling-and-cron-health.kb/pnpm-corepack-cjs-mjs-2026-09-12/` --
-the full incident-forensics kb for the 2026-09-12/17 corepack recurrence
-summarized above, moved here from a loose `$HOME` directory (private,
-machine-scoped notes; not `dotfiles` material).
+Dated pickup write-ups in `pnpm-11-tooling-and-cron-health.kb/`:
+2026-08-27 (the original fixes) and 2026-09-10/17 (pnpm 12 broke corepack;
+tmux alerting; PATH-shadowing correction `9d49617`).
+
+The incident-forensics kb there, `pnpm-corepack-cjs-mjs-2026-09-12/`, is the
+full record of the 2026-09-12/17 corepack recurrence, moved here from a loose
+`$HOME` directory (private, machine-scoped notes; not `dotfiles` material).

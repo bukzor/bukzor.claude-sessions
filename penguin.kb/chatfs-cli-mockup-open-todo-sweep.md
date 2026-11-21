@@ -27,53 +27,23 @@ sessions.kb entries (`provider-code-reuse-stutter-step.md`,
 `pyright-clean-sweep-across-the-incubator.md`) — both fully closed per git
 history (`7ba1669`, `a82d1f7`) and deleted per sessions.kb lifecycle.
 
+Current state: the Immediate plan (4 steps) is done; the incubator has since
+graduated (see Addenda), so the backlog below is carried against
+`packages/chatfs-cli/`.
+
 Taskfile: `.claude/todo.md` (this incubator's own tactical list; project-wide
 work lives in `../../../../.claude/todo.md`, which now carries an "Immediate
 plan" section — read that first on pickup).
 
-## Landed 2026-07-09/10 (all pushed as of 2026-07-10)
+## Decisions in force
 
-- `a5c8bce` — explicit-if/elif/else sweep (todo.md's "match/case
-  exhaustiveness" item): 3 real violations found in
-  `chatfs_render.py::primary_child`/`divider` and
-  `chatfs_chatgpt_layout.py::_created`. None were actually enum/variant
-  dispatch, so each became explicit `if`/`elif`/`else`, not `match`/`case`
-  — worth a skim to confirm that reading of the house style rule.
-- `29274b9` — closed the chatgpt `normalize_turnless` test gap. Required
-  extracting `make_turn`/`render_conversation` out of `main()`'s
-  closure/inline body first (same pure-pipeline shape claude's renderer
-  already had) — a small refactor, not just new tests. Mutation-checked
-  by hand (not the full `Skill(mutation-testing)` procedure — scoped to
-  this one known gap, not a sweep).
-- `c968a22` — promoted `provider-plugin-model.md` from a symlink (to the
-  parent project's abstract spec) to a real incubator entry with the
-  concrete three-way provider/universal split, grounded in the landed
-  `chatfs_layout.py`/`chatfs_render.py` code.
-- `f85d485` — fixed stale "two-provider lessons" wording (caught by user)
-  from before AI Studio landed as the third provider, in
-  `provider-plugin-model.md` and `shared-code-among-providers.md`.
-- `8579b7d` — renamed the incubator `chatfs-mockup-chatgpt` ->
-  `chatfs-cli-mockup`. Full repo-wide reference sweep; devlog
-  filenames/bodies and the ADR title kept as historical record. README
-  closing paragraph reframed: graduation target is `$REPO/lib/chatfs/`
-  once libraryized (corrected mid-session from the plan's original
-  `packages/chatfs-cli/`).
-- `982f4a9` — recorded the agreed four-step execution plan in
-  `.claude/todo.md`'s new "Immediate plan" section, and closed the two
-  strategic decisions below.
-- `ddc52a9` — unrelated: a forked subagent's `.claude/focus.md`
-  convention removal (never paid out), landed in the same working tree.
-
-## Decisions resolved this session (2026-07-10)
-
-- **Driver model** (cross-provider-drift's last open item): not
-  pipe-vs-delegation either/or. User: a well-decomposed CLI with
-  importable generator functions gives both — pipe and delegation
-  become thin drivers over the same library. Documentation of this in
-  `cli-command-shape.kb/` deferred to the actual unification work
-  (Immediate plan step 4).
-- **Shared-lib destination**: `$REPO/lib/chatfs/` once libraryized —
-  not `packages/chatfs-core/`, and not permanent incubator residence.
+- **Driver model**: a well-decomposed CLI with importable generator
+  functions; pipe and delegation are thin drivers over the same library.
+  Documented in the design kb's `driver-model.md` (landed 2026-07-11, step 4
+  below).
+- The 2026-07-10 shared-lib-destination ruling (`$REPO/lib/chatfs/`) is
+  superseded: the incubator graduated to `packages/chatfs-cli/` (see
+  Addenda).
 
 ## Immediate plan (agreed with user, recorded in `.claude/todo.md`)
 
@@ -158,7 +128,7 @@ plan" section — read that first on pickup).
 
 ## Addenda
 
-Dated pickup write-ups (2026-07-11 through 2026-07-20) moved to
+Dated pickup write-ups (2026-07-09 through 2026-07-20) moved to
 `chatfs-cli-mockup-open-todo-sweep.kb/` — one file per addendum,
 `ls` for the full chronological list. Latest: 2026-07-20, the claude
 family edit pass (real package imports, pure/shell split, subprocess→

@@ -1,4 +1,4 @@
-# Chatfs-Cli-Mockup Open Todo Sweep — Session Addenda
+# Chatfs-Cli-Mockup Open Todo Sweep -- Session Addenda
 
-Dated append log for `../chatfs-cli-mockup-open-todo-sweep.md`, per
-sessions.kb's root `CLAUDE.md` → Lifecycle → Growing Entries.
+One dated write-up per session that picked up `../chatfs-cli-mockup-open-todo-sweep.md`, per
+Skill(llm-sessions) → Entry shape.
