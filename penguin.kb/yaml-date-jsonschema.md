@@ -12,40 +12,13 @@ The session that bootstrapped this collection. Started from the
 question "is there any 'good' way to jsonschema a yaml datetime?"
 and expanded into a rename and an index.
 
-## Completed
+## Open work
 
-- KbValidator extended with `date` and `instant` custom types
-  (commit 5d64413 in bukzor-agent-skills/llm-kb). Naive datetime
-  is intentionally rejected; the rationale is in
-  `lib/python/llmd/frontmatter_validate.py`.
-- `.d/` → `.kb/` rename across complete-example and the devlog
-  tools dir (commit 799eb02). 7 directories renamed, 18 reference
-  files updated.
-- Rename todo updated with progress (commit d59458b).
-- `.claude/ideas.jsonschema.yaml` committed (commit cb315b3); the
-  schema was already in use on disk but untracked. Done on a
-  branch session (uuid dca7da65-d65c-43de-b345-87fa6518d630).
-- This collection's `CLAUDE.md` opening reframed: dropped the
-  contradictory `one file = one session` axiom so the judgment
-  criteria are primary.
-- This collection (`~/.claude/sessions.kb/`) created and seeded
-  with five follow-up entries (commit d288b9a in bukzor/dotfiles).
-- Schema grew a `session: { uuid, started, ended }` block. `started`
-  and `ended` accept `[instant, "null"]` -- the new `instant` type
-  put to immediate use. Top-level `session-uuid` removed; `uuid`
-  lives inside `session` now (committed in ba089e8, dotfiles).
-- `commands/session-{start,end}.md` amended with sessions.kb
-  maintenance steps (find-or-create entry, propose new entries
-  for surfaced follow-ups, rules of thumb for when to capture)
-  (committed in ba089e8, dotfiles).
-- Validator (`lib/python/llmd/frontmatter_validate.py`) now skips
-  dotfiles (`.template.md` etc.) in addition to `CLAUDE.md`
-  (committed in ecfb6fd, bukzor-agent-skills).
-- Authored Task file
-  `~/.claude/CLAUDE.integrate-sessions-kb-into-llm-subtask.Task.md`
-  for a follow-up session to integrate sessions.kb into
-  Skill(llm-subtask) and evaluate relocating
-  `/session-{start,end}` into the skill (commit 5a5f54a, dotfiles).
+- [ ] Have the validator, on a `type: string` failure whose instance is a
+      `date`/`datetime`, name the extension type and the dialect URI in
+      the error. One branch in `lib/python/llmd/_jsonschema_adapter.py`
+      or its caller; the failure it prevents is silent data loss, not
+      just a slow fix.
 
 ## Live Follow-Ups
 
@@ -68,33 +41,10 @@ elsewhere and deleted.)
   no longer load-bearing -- could be tightened to just "absent until
   the session is actually run." Left as a doc nit, not behavior.
 
-## Addendum 2026-08-08
-
-The `date`/`instant` types grew a declared, fetchable dialect identity:
-`skill://llm-kb/jsonschema/dialect.jsonschema.yaml` (bukzor-agent-skills
-`3c7de8a`, superseding `489562b`'s strip approach). Schemas using the
-extension types now declare that `$schema` (or none — absent defaults to
-it); stock-dialect declarations are honored and report extension types
-as schema bugs. The type checker and the naive-datetime rationale moved
-from `frontmatter_validate.py` to `lib/python/llmd/_jsonschema_adapter.py`.
-
-## Addendum 2026-08-10 — the diagnostic is missing a hint
-
-Observed in a fresh kb (`~/claude/crostini-health/`): an agent wrote
-`last-updated: { type: string }` under the stock dialect, hit
-`datetime.date(2026, 8, 10) is not of type 'string'`, and "fixed" it by
-**deleting the field**. The message is accurate and useless — it names
-what failed, never that `type: date` exists.
-
-- [ ] Have the validator, on a `type: string` failure whose instance is a
-      `date`/`datetime`, name the extension type and the dialect URI in
-      the error. One branch in `lib/python/llmd/_jsonschema_adapter.py`
-      or its caller; the failure it prevents is silent data loss, not
-      just a slow fix.
-
-The declared-dialect design worked exactly as intended here (stock
-`$schema` correctly refused the extension type). The gap is only that
-the diagnostic points at the data instead of at the schema.
-
 Delete this entry once those follow-ups are absorbed and there is
 no remaining reason to point back at the originating session.
+
+## Addenda
+
+`yaml-date-jsonschema.kb/` holds one dated write-up per session that
+picked this entry up. `ls` gives the timeline.

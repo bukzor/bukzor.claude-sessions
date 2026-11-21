@@ -1,6 +1,6 @@
 ---
 managed-by: Skill(llm-subtask)
-status: open
+status: done
 required-reading:
   - /home/bukzor/.claude/sessions.kb/.claude/todo.kb/2026-11-21-000-migrate-append-style-entries.kb/CLAUDE.md
 ---
@@ -26,8 +26,25 @@ two. yaml-date-jsonschema: "Addendum 2026-08-08" and "Addendum 2026-08-10".
 
 ## Steps
 
+- [x] decide-the-inbound-peer-message-channel: 3 addenda (09-19, 09-22, 10-01)
+- [x] sttt-support-button: 2 addenda (09-02-000, 09-02-001)
+- [x] yaml-date-jsonschema: 3 addenda (05-15, 08-08, 08-10)
+
 ## Decisions
+
+- sttt: the two "Status 2026-09-02" sections are two pickups (split, then
+  shipped; "Shipped" reads as a later sitting), filed 000 and 001.
+- yaml: the original 2026-05-15 "Completed" list is itself a pickup record,
+  so it moved to an addendum; Live Follow-Ups and Minor noted stay live.
+- Live summaries rewritten where they narrated pickups (decide, sttt).
 
 ## Open Questions
 
+- sttt's `- [ ] Swap the two PLACEHOLDER hrefs` looks done per the "Shipped"
+  addendum; left unchecked (not mine to rule).
+
 ## Final report
+
+Checkbox counts match (3/1/1). llm.kb-validate clean (269 files, 0 errors).
+Link definition `[cross-session-messaging]` kept live and copied to the
+10-01 addendum.
