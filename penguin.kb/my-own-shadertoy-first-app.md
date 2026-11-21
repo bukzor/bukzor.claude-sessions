@@ -29,17 +29,20 @@ permanent expected-error demos.
 
 ## Where things are
 
-- Design: `docs/dev/claims.kb/design.md`. Roadmap:
-  `docs/dev/claims.kb/design.kb/deliverables.kb/milestone-ladder.md`.
+- Design: `docs/dev/claims.kb/design.md`. Roadmap: the roll-up
+  `docs/dev/claims.kb/design.kb/deliverables.kb/milestone-ladder.md` and
+  one file per milestone in `milestone-ladder.kb/`.
 - Who writes what: the root `CLAUDE.md` and each lifetime group's `CLAUDE.md`.
   In the kept groups (program, gpu, passes) Claude writes only what is
-  directly asked, and declines first uses of the API.
+  directly asked. In every group it declines a first use that
+  FIRST_INSTANCE covers (relevant to the work and new to bukzor).
 - `bin/new-package GROUP/THING 'job'` stamps a package.
 - Occasion-bound claims (tripwires, recall, consolidation) fire from the
   repo's trigger bank, `.claude/must-read.kb/`; the root `CLAUDE.md` has
   every session list it.
 - Recall items are checkbox items in the repo's `.claude/todo.md`: added
-  unchecked at session end, checked off when written cold (1b1897f).
+  unchecked at session end, each naming its durable artifact, checked off
+  when written cold (1b1897f).
 
 ## Open
 
