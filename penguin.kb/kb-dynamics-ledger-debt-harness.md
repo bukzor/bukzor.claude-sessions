@@ -23,18 +23,21 @@ a wall of text; the answer is a graph query, and the harness is the
 TDD-style sandbox for getting the query and the rules right before
 touching real ledgers).
 
-First session (2026-09-10): scaffolded the subpath and its ledger
-(`docs/dev/claims.md`, commit `a423174`). The owner's ruling that shaped
-it: keep the work independent of `session-model/` and the {TL, RN}
-schema, and make the later reconciliation cheap by importing the outer
-vocabulary through one theory only. That theory is `imported-terms` --
-fourteen `+` claims (rule, state, move, permit, oblige, example, flip,
-coverage from session-model's `law`; load event, weekly cost from
-`budget`; stipulated, certified, obligation from the realm's root graph;
-standing from llm-claims' notation) -- and it is the only theory whose
-`why:` may leave the subpath. `imported-terms.verify.py` beside it
-certifies five things and was seen failing on a planted violation.
-Nothing else in the layout exists yet.
+The harness lives in `ideation.epistemics/kb-dynamics/`, with its ledger
+at `docs/dev/claims.md`. It is independent of `session-model/` and the
+{TL, RN} schema; the outer vocabulary enters through one theory only,
+`imported-terms` (fourteen `+` claims from session-model's `law` and
+`budget`, the realm's root graph, and llm-claims' notation), the only
+theory whose `why:` may leave the subpath. `imported-terms.verify.py`
+beside it certifies five things. The spine (problem, debt, method) is
+now grounded in the owner's rulings: the reviews are the cause and the
+ledgers stay; debt is wanted and only unrepayable debt is rot; trust is
+per claim; moves carry authority, not hands. `python/` and `examples/`
+hold the debt function, per-claim trust, the move table, the random and
+repairing agents, and all five properties running. Next build items are
+in `ideation.epistemics/.claude/todo.md` under the kb-dynamics entry.
+
+## Open work
 
 - [x] First red test (2026-09-11, `dd63738`): `examples/` and `python/`
       exist; properties two and three pass on the owner's three
@@ -55,23 +58,7 @@ Nothing else in the layout exists yet.
       `ideation.epistemics/.claude/todo.kb/suggestions-to-audit.kb/kb-dynamics-*.md`:
       the subpath name, and `IMPORTED_` labels with filename-as-word
 
-## Grounding sitting, 2026-09-11 (session f65fbdf3)
-
-The owner asked which claims rest weakest on their own judgment, chat
-discounted. `llm-claims-kb-grounding` showed the whole spine (problem,
-debt, method) agent-standing with no user ground; the owner's six
-stipulations were all about build method. Two rounds of rulings landed
-(`f65fbdf3#L606`, `#L815`), all filed as user claims or verdicts in the
-ledger. The big ones: the reviews are the cause and the ledgers stay
-(`REVIEW_RATIO`); debt is wanted and only unrepayable debt is rot
-(`WANTED_DEBT`, which withdrew monotonicity from `MONOTONE`); no claim is
-exempt from review, leaves are low priority (`LEAF_EXEMPT`); the four rot
-kinds were the owner's examples, now a nested `components` theory with a
-fifth, staleness; the headline missing capability is prioritized review
-with deferral, never dismissal (`DEFER_NOT_DISMISS`); derivation earns
-unread trust only when entire and rigorous (`DERIVED_TRUST`). `MINUTIAE`
-is certified by a fleet measurement with its verify script beside it.
-Committed as `168b5bd`.
+From Grounding sitting, 2026-09-11:
 
 - [x] The eight opens of the sitting are ruled (`f65fbdf3#L815`,
       `#L995`); two remain open by the owner's word: `ROT_LIST`
@@ -88,23 +75,7 @@ Committed as `168b5bd`.
       open `TRUST_CORNERS` beside `TRUST_TEST` holds the two decisions it
       reduces to. `ROT_LIST` untouched
 
-## Harness sitting, 2026-09-11 (session 9b6f24ad)
-
-Built the first two rungs on the ladder and committed each. Posed
-`TRUST_CORNERS` as two ledger-level trust decisions; the owner dissolved
-it: trust is per claim, a ledger's trust is an aggregation, a non-empty
-queue has no bearing on any claim, and "why does a sitting count at
-all". Filed as `TRUST_PER_CLAIM` (user) and `EMPTY_QUEUE_TRUST` (agent,
-verified by `test_trust.py`: empty queue entails all trusted; converse
-fails, witness `rot-among-user-claims-only`). `trust.py` is per-claim
-plus aggregations; the ledger-level `trusted` and the sitting count are
-gone. A peer session (kb-dynamics-28) edited five ledger claims in
-`5d44257` meanwhile, coordinated by message; no conflict. Lesson from
-the owner: a "files to look at" list holds only files needing their
-act, one line each naming the act, never background. This session owns
-`python/` (the owner's word, after a brief reversal at 13:55 that was
-their mistake); `179fe73` was amended without its Python and then
-amended back, landing as the final commit with the Python restored.
+From Harness sitting, 2026-09-11:
 
 - [x] Sufficiency entered the claim, not the arrow (`0ab6d8b`): a
       property of the grounds together; the weak-arrows corner is a bad
@@ -157,30 +128,7 @@ amended back, landing as the final commit with the Python restored.
       is pinned to py313. `.envrc` at the repo root is untracked and not
       mine
 
-## Review sitting, 2026-09-16 (session dfc18e9d)
-
-The owner ran `llm-claims-kb-grounding` on the ledger and asked for
-thoughts. Read: the spine is the owner's; the queue head is the three
-discourse-graph imports (tooling debt, filed as a planned session);
-the table sees one of five components, and this ledger carries the
-other kinds under its own definitions. Rulings landed as claims, each
-quoting the owner at `dfc18e9d`: `VETO_QUEUE` (every agent-authority
-move is a veto item, said once), `RESOLUTION` (resolve under agent
-authority or mark; either queued), `RESTING_STATES` (four, as
-examples), `CONFLICT` (a pair-or-set attribute, cached at most;
-absorbs `STALE`), `CYCLIC_CONFLICT` (yes, three claims can conflict
-pairwise-consistently), `OBJECTIVE` (benefit first, then cost per
-benefit), `EXCHANGE_RATE` (attention dearer than tokens, both in
-dollars). "Lowering" became "reduction" fleet-wide in the ledger.
-`UNREPAYABLE` was restored to the four routes the owner approved,
-with the agent's withdrawal of the fourth as `LEAF_REPAYS` (agent):
-the first application of `RESOLUTION` to the ledger's own history.
-In bukzor-agent-skills: `authority:` may be an object (address,
-words, about) and `ledger.py` projects it; VOICE's "verbatim" is
-"faithful" on the owner's word. A peer branch of this session filed
-the rename plan under `.claude/todo.kb/`. Two label lessons: no label
-may prefix another (`CONFLICT` blocked `CONFLICT_REDUCTION`), and YAML
-reads `on:` as true.
+From Review sitting, 2026-09-16:
 
 - [x] Reviewed, filed, verified: 93 ledger files validate; mentions,
       flatten, and the import certification clean; 64 tests pass with
@@ -196,24 +144,7 @@ reads `on:` as true.
 - [ ] `discourse-graph-claims-readable-as-ledger-claims.md` is the
       planned session for the queue head
 
-## Naming branch, 2026-09-16 (session eb08c9ed, branched from dfc18e9d)
-
-The owner struck the count from `FIVE_PROPERTIES`: it described the
-current wording, not the acceptance criterion. Renamed `PROPERTY_SET`
-(`PROPERTIES` and `HARNESS_PROPERTIES` both failed the no-prefix rule)
-and `the-properties.md`; the property-five witness file lost its
-ordinal. A scan of every label and filename for counts found four
-more contingent names and five inherent ones; the contingent ones are
-rows in the parent's rename plan. The owner refused a negative rule
-("we won't be enumerating negatives"): the positive statement already
-existed as `NAME_LOCUS`, open, labels only. Widened to file names,
-given the count case as its quieter failing example, and projected
-once into the act-time trigger `before/writing-a-claim.md` with a
-test (amend the body in your head; the name still reads true), plus
-one bullet in llm-kb Naming. A first pass had projected it into two
-SKILL.md files; on the owner's "refactor for token-efficiency" the
-llm-claims-kb projection was withdrawn, since that skill takes
-llm-kb's rules wholesale. Committed as bukzor-agent-skills b81056b.
+From Naming branch, 2026-09-16:
 
 - [ ] Rule `NAME_LOCUS` (`llm-claims/claims.kb/design.claims.kb/good-smells.kb/names-outlive-contents.md`):
       it now asserts the locus rule for file names, which is the
@@ -221,3 +152,9 @@ llm-kb's rules wholesale. Committed as bukzor-agent-skills b81056b.
 - [ ] Declined, for the record: a number-word scan over labels and
       filenames as a tool check. The rule is judgment-shaped; the scan
       catches one species and flagged four inherent names in eight
+
+## Addenda
+
+`kb-dynamics-ledger-debt-harness.kb/` holds one dated write-up per session
+that picked this entry up: its findings, rulings, and process notes.
+`ls` gives the timeline.
