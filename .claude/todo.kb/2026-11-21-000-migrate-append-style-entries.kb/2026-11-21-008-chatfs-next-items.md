@@ -15,9 +15,10 @@ required-reading:
 `penguin.kb/chatfs-cli-mockup-open-todo-sweep.kb/2026-07-20-000-claude-family-edit-pass-shared-core-split.md`
 ends with a `## Next` list of four `- [ ]` items. Open work belongs in the
 live entry (this directory's `CLAUDE.md`), and the live entry has none of
-them. For each item, settle from ground truth (read only): the chatfs repo
-at the entry's `cwd:` (`/home/bukzor/repo/github.com/bukzor/prototype.chatfs/docs/dev/design-incubators/chatfs-cli-mockup`), its `.claude/todo.md` and
-`.claude/todo.kb/`, and its git log.
+them. For each item, settle from ground truth (read only): the repo
+`~/repo/github.com/bukzor/prototype.chatfs/` (the entry's `cwd:` is an
+incubator there that graduated to `packages/chatfs-cli/`), every
+`.claude/todo.md` and `.claude/todo.kb/` in it, and its git log.
 
 - Done: no action in the live entry; record the evidence in Decisions.
 - Still open and already tracked in the repo's todo: no action; record
