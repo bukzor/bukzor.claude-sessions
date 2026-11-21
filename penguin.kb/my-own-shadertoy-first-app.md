@@ -58,6 +58,14 @@ fire from its trigger bank instead. Below: only what outlives the repo.
       a subdirectory; it should name the directory holding the `CLAUDE.md`.
 - [ ] Upstream, git-partial.prototyping: `commit-files`/`commit-staged`
       don't pass stdin through to `git commit -F -`.
+- [ ] Upstream, bukzor-agent-skills `llm-kb`: `llm.kb-validate` checks a
+      roll-up `X.md` against its parent collection's schema, contrary to
+      `references/frontmatter-outside-a-collection.md`. Deferred by bukzor
+      (6307adfb).
+- [ ] Upstream, bukzor-agent-skills `subagent-handoffs` Pitfalls: record
+      bukzor's rule (6307adfb), "only use subagent-handoffs if the subtask is
+      large enough that we have a net savings in the parent context"; the
+      Pitfalls now say even a two-line fix is a unit. Deferred by bukzor.
 
 ## Addenda
 
