@@ -1,6 +1,6 @@
 ---
 managed-by: Skill(llm-subtask)
-status: open
+status: done
 ---
 
 # Migrate append-style session entries to dated addenda
@@ -17,22 +17,24 @@ Success: every entry below has no per-pickup sections left inline; every
 `llm.kb-validate .` is clean; no addenda `CLAUDE.md` cites
 "Lifecycle → Growing Entries".
 
-Coordination: Skill(subagent-handoffs); units in
-`2026-11-21-000-migrate-append-style-entries.kb/`.
+Coordination: Skill(subagent-handoffs). Closed 2026-11-21: commits
+`4d13d82^..b1cc49b` here, plus `ffd7176` in
+`bukzor/2026-05-19--task-archeology`. The handoff files are in git:
+`git log -- .claude/todo.kb/2026-11-21-000-migrate-append-style-entries.kb/`.
 
 ## Wave 1 (all parallel)
 
-- [x] [001](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-001-kb-dynamics.md) `kb-dynamics-ledger-debt-harness`
-- [x] [002](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-002-jsonschema-ref-rollout.md) `jsonschema-ref-rollout-beyond-todo-ideas`
-- [x] [003](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-003-chatfs-and-pnpm.md) `chatfs-cli-mockup-open-todo-sweep`, `pnpm-11-tooling-and-cron-health`
-- [x] [004](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-004-deadlock-vis-and-tmux.md) `buck-win10.kb/deadlock-vis-app`, `tmux-window-naming-and-alert-identity`
-- [x] [005](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-005-three-small-entries.md) `decide-the-inbound-peer-message-channel`, `sttt-support-button`, `yaml-date-jsonschema`
-- [x] [006](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-006-retarget-addenda-pointers.md) retarget 14 addenda `CLAUDE.md` pointers
+- [x] 001 `kb-dynamics-ledger-debt-harness`
+- [x] 002 `jsonschema-ref-rollout-beyond-todo-ideas`
+- [x] 003 `chatfs-cli-mockup-open-todo-sweep`, `pnpm-11-tooling-and-cron-health`
+- [x] 004 `buck-win10.kb/deadlock-vis-app`, `tmux-window-naming-and-alert-identity`
+- [x] 005 `decide-the-inbound-peer-message-channel`, `sttt-support-button`, `yaml-date-jsonschema`
+- [x] 006 retarget 14 addenda `CLAUDE.md` pointers
 
 ## Wave 2
 
-- [x] [007](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-007-leftovers.md) a stray `Part of` line (chatfs); sttt's PLACEHOLDER item ticked (366a993)
-- [x] [008](2026-11-21-000-migrate-append-style-entries.kb/2026-11-21-008-chatfs-next-items.md) four open items in a chatfs addendum: all already done
+- [x] 007 a stray `Part of` line (chatfs); sttt's PLACEHOLDER item ticked (366a993)
+- [x] 008 four open items in a chatfs addendum: all already done
 
 Considered and left alone: `confidence-walk-2026-08-21` (its sittings are
 a plan, not a log), `agent-harness-design` and `judgment-protocol-redesign`
