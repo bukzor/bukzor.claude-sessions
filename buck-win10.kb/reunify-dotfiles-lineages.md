@@ -30,8 +30,9 @@ pull --ff-only`): penguin may have pushed plan changes since.
   Lint Lua, Check Vim, Check Neovim (ubuntu, windows, macOS stable).
 - `claude` is the native install in `~/.local/bin` (as penguin). The
   running sessions' pnpm copy `~/.local/share/pnpm/claude` remains.
-- Workspaces: `dotfiles--svelte-crostini` (plan kb lives here) and
-  `dotfiles--main` (kept until 006 closes, [!DRAFT] in the plan).
+- Workspaces: `dotfiles--svelte-crostini` only (for plan-kb commits penguin
+  must see). `dotfiles--main` moved to `~/trash/` 2026-11-24 per the user's
+  ruling: `~` on main is the working copy.
 - `/etc/service` is a symlink to `~/.config/runit/buck-win10/` (commit
   `8a0b0b2`); its `windows-appdata` service keeps AppData mounted at
   `~/.config/windows`.
@@ -44,8 +45,9 @@ pull --ff-only`): penguin may have pushed plan changes since.
 - [ ] After penguin runs unit 009 (its next step is in
       `../penguin.kb/reunify-dotfiles-lineages.md`): review its report here,
       confirm `merged/svelte-crostini` on origin.
-- [ ] Until 009 renames svelte-crostini: plan-kb commits go on svelte, then
-      `git merge origin/svelte-crostini` in `dotfiles--main`. Each svelte push
+- [ ] Until 009 renames svelte-crostini: plan-kb edits penguin must see are
+      applied to both branches (`~` for main, `dotfiles--svelte-crostini`
+      for svelte); don't merge svelte into main early, since 009 owns that. Each svelte push
       also starts svelte's old CI (Check sh hangs 6h, `macos-12` never
       schedules): cancel them with `gh run cancel` (done 2026-11-18 18:4x).
 - [ ] Close the plan once the user is satisfied (dotfiles `.claude/todo.md`, under
