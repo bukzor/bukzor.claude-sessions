@@ -23,7 +23,8 @@ pull --ff-only`): penguin may have pushed plan changes since.
 ## Host state (2026-11-18)
 
 - `~` and the Windows home `/mnt/c/Users/worki` are both on `main` (both
-  pulled to `055b482`). Old branches: `merged/wsl-buck-win10`; the
+  pulled to `055b482`; WSL `~` at `a62398f` on 2026-11-24, after a stale
+  local main whose 7 commits origin already held as rebased copies). Old branches: `merged/wsl-buck-win10`; the
   Windows home's local `merged/svelte-crostini`.
 - Merge done: main `ff853dc` (2026-11-18). CI on main green: Check sh,
   Lint Lua, Check Vim, Check Neovim (ubuntu, windows, macOS stable).
