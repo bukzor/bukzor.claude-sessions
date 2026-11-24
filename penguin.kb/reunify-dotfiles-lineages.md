@@ -31,6 +31,20 @@ for the CI/testing-foundations pairing.
 Delete this file when the supertask's todo.kb entry is fully checked and
 006's switchover is done.
 
+## Status (2026-11-24, written from buck-win10)
+
+Merged: main `ff853dc` (2026-11-18) holds all three lineages; CI green;
+buck-win10's `~` is on main. Everything else waits on penguin.
+
+- [ ] Penguin's next session: run `git -C ~ pull --ff-only` (`~` is
+      `svelte-crostini`, and the brief arrived there 2026-11-18), then do
+      the task in
+      `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/2026-07-06-006-Final-merge-and-home-switchover.kb/2026-11-18-009-penguin-switch-to-main.md`.
+      It switches `~` to main and renames `svelte-crostini` to
+      `merged/svelte-crostini`. svelte has penguin commits main lacks
+      (through 2026-11-22); the brief's opening step merges them.
+      Append this session's uuid above.
+
 ## Addenda
 
 Dated pickup write-ups (2026-07-09 through 2026-07-13) moved to

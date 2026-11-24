@@ -40,9 +40,9 @@ pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Open
 
-- [ ] Penguin (user, on penguin): start a session there with "Run `git -C ~ pull --ff-only`, then do the task in
-      `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/2026-07-06-006-Final-merge-and-home-switchover.kb/2026-11-18-009-penguin-switch-to-main.md`".
-      Then here: review its report, confirm `merged/svelte-crostini` on origin.
+- [ ] After penguin runs unit 009 (its next step is in
+      `../penguin.kb/reunify-dotfiles-lineages.md`): review its report here,
+      confirm `merged/svelte-crostini` on origin.
 - [ ] Until 009 renames svelte-crostini: plan-kb commits go on svelte, then
       `git merge origin/svelte-crostini` in `dotfiles--main`. Each svelte push
       also starts svelte's old CI (Check sh hangs 6h, `macos-12` never
