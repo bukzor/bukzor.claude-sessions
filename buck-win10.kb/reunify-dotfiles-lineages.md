@@ -40,7 +40,7 @@ pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Open
 
-- [ ] Penguin (user, on penguin): start a session there with "Do the task in
+- [ ] Penguin (user, on penguin): start a session there with "Run `git -C ~ pull --ff-only`, then do the task in
       `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/2026-07-06-006-Final-merge-and-home-switchover.kb/2026-11-18-009-penguin-switch-to-main.md`".
       Then here: review its report, confirm `merged/svelte-crostini` on origin.
 - [ ] Until 009 renames svelte-crostini: plan-kb commits go on svelte, then
