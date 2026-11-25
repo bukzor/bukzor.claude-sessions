@@ -12,13 +12,11 @@ session:
 
 buck-win10's share of the dotfiles reunification: fold this host's branch,
 `wsl-buck-win10`, into main, then switch `~` to main with penguin at task 006.
-The effort's main entry is `../penguin.kb/reunify-dotfiles-lineages.md`.
+This is now the effort's main entry: penguin's share ended 2026-11-25
+(`../penguin.kb/reunify-dotfiles-lineages.md`, which holds the early addenda).
 
-Plan of record (lives on svelte-crostini; on this host, read it in the
-workspace): `~/repo/github.com/bukzor/dotfiles--svelte-crostini/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.md`.
-This host's task: `…/2026-07-08-000-Reunify-dotfiles.kb/2026-11-10-000-Fold-wsl-buck-win10-into-main.md`.
-Pull that workspace before reading (`git -C ~/repo/github.com/bukzor/dotfiles--svelte-crostini
-pull --ff-only`): penguin may have pushed plan changes since.
+Plan of record, on main in `~`: `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.md`
+(`git -C ~ pull --ff-only` first).
 
 ## Host state (2026-11-18)
 
@@ -30,8 +28,8 @@ pull --ff-only`): penguin may have pushed plan changes since.
   Lint Lua, Check Vim, Check Neovim (ubuntu, windows, macOS stable).
 - `claude` is the native install in `~/.local/bin` (as penguin). The
   running sessions' pnpm copy `~/.local/share/pnpm/claude` remains.
-- Workspaces: `dotfiles--svelte-crostini` only (for plan-kb commits penguin
-  must see). `dotfiles--main` moved to `~/trash/` 2026-11-24 per the user's
+- Workspaces: `dotfiles--svelte-crostini`, obsolete (see Open).
+  `dotfiles--main` moved to `~/trash/` 2026-11-24 per the user's
   ruling: `~` on main is the working copy.
 - `/etc/service` is a symlink to `~/.config/runit/buck-win10/` (commit
   `8a0b0b2`); its `windows-appdata` service keeps AppData mounted at
@@ -42,16 +40,17 @@ pull --ff-only`): penguin may have pushed plan changes since.
 
 ## Open
 
-- [ ] After penguin runs unit 009 (its next step is in
-      `../penguin.kb/reunify-dotfiles-lineages.md`): review its report here,
-      confirm `merged/svelte-crostini` on origin.
-- [ ] Until 009 renames svelte-crostini: plan-kb edits penguin must see are
-      applied to both branches (`~` for main, `dotfiles--svelte-crostini`
-      for svelte); don't merge svelte into main early, since 009 owns that. Each svelte push
-      also starts svelte's old CI (Check sh hangs 6h, `macos-12` never
-      schedules): cancel them with `gh run cancel` (done 2026-11-18 18:4x).
-- [ ] Close the plan once the user is satisfied (dotfiles `.claude/todo.md`, under
-      the Reunify line, holds the close steps).
+As of 2026-11-25 (penguin): one lineage. Every host's `~` is on main;
+origin holds only `main` and `merged/*`. 009 is done and reviewed, all of
+006's user rulings are applied, and main's CI is green.
+
+- [ ] Trash `dotfiles--svelte-crostini` here (its branch is gone from origin).
+- [ ] 006's "`git -C ~ status` clean" waits on peers' uncommitted work in
+      `~` on each host (penguin: skill-uri, nvim lsp, pnpm config,
+      `conventions.md`, others).
+- [ ] Then close the plan: record its commit range, `git rm -r` its kb,
+      close `todo.kb/2026-06-03-001`, delete both hosts' reunify entries
+      (dotfiles `.claude/todo.md`, under the Reunify line).
 
 Per-task follow-ups were routed 2026-11-18 to their owners' task lists:
 dotfiles `.claude/todo.md` (pnpm `claude`, AppData mount, `wsl.sh` runit),

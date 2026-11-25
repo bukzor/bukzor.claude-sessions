@@ -8,7 +8,7 @@ session:
     - 3d5f08d8-08c4-4a84-ab3a-4b161b0c8427
     - 08a2b58d-5de2-4b5a-a991-ee74f5e0e78a
   started: 2026-07-06T18:30:00-05:00
-  ended: null # set only when no more sessions are expected (~= about to delete this file) -- not "my conversation ended"
+  ended: 2026-11-25T15:16:34-06:00
 ---
 # Reunify Dotfiles Lineages (supertask)
 
@@ -34,20 +34,10 @@ Delete this file when the supertask's todo.kb entry is fully checked and
 
 ## Status (2026-11-25)
 
-One lineage: every host's `~` is on main, and origin holds only `main`
-plus `merged/*` (svelte-crostini, wsl-buck-win10, ci-vim-config-tests).
-Penguin has no dotfiles workspaces besides `~`; the general clone sits on
-`merged/svelte-crostini`. All of 006's user rulings are given and applied;
-its checkboxes and the topology table are current. Main's Check sh runs
-without the reunify-era branch checks.
-
-- [ ] buck-win10: trash `dotfiles--svelte-crostini` (branch gone from
-      origin) and refresh its own entry,
-      `../buck-win10.kb/reunify-dotfiles-lineages.md`.
-- [ ] 006's "`git -C ~ status` clean" waits on peers' uncommitted work in
-      `~` (skill-uri, nvim lsp, pnpm config, `conventions.md`, others).
-- [ ] Then close the plan: record its commit range, `git rm -r` its kb,
-      close `todo.kb/2026-06-03-001`, delete this entry.
+Penguin's share is done: `~` on main, svelte renamed `merged/`, 009
+reviewed, all of 006's user rulings applied. The closing steps left are
+tracked in `../buck-win10.kb/reunify-dotfiles-lineages.md`, now the
+effort's main entry; delete this file when the plan closes.
 
 ## Addenda
 
