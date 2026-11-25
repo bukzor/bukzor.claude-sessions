@@ -3,6 +3,7 @@ cwd: /home/bukzor/repo/github.com/bukzor/bukzor-agent-skills
 session:
   uuid:
     - 59b55f01-a707-409f-9f4b-78bea5090043
+    - cdc9b664-6121-4cf6-bdb4-2545c2f46953
   started: 2026-11-25T14:00:00-06:00
   ended: null
 ---
@@ -77,4 +78,6 @@ definition now counts "kb" as a type. The burn-down is
 fresh session with `/subagent-handoffs`; its mechanical wave is
 `llm-kb/migrations.kb/2026-11-25-001-skill-kb-quality-passes-and-reference-kb.md`.
 
-- [ ] Burn down the taskfile above.
+- [ ] Burn down the taskfile above. cdc9b664 (2026-11-25) coordinates it
+      with `/subagent-handoffs`; the handoff files are in its `.kb/` and the
+      plan's steps link each one.
