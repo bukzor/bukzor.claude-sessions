@@ -10,6 +10,8 @@ session:
     - 83f86b54-e0ba-4634-91e2-d3ea99d42343
     - 3443f841-6341-49b3-a26f-7396c71f798c
     - 6307adfb-c35d-4671-86da-ad5c8428d687
+    - c5d1f7f5-b328-4c81-8c75-afd79eb397e9
+    - 59b55f01-a707-409f-9f4b-78bea5090043
   started: 2026-10-27T11:34:03-05:00
   ended: null
 ---
@@ -37,17 +39,18 @@ permanent expected-error demos.
   directly asked. In every group it declines a first use that
   FIRST_INSTANCE covers (relevant to the work and new to bukzor).
 - `bin/new-package GROUP/THING 'job'` stamps a package.
-- Occasion-bound claims (tripwires, recall, consolidation) fire from the
+- Occasion-bound claims (tripwires, prediction, consolidation) fire from the
   repo's trigger bank, `.claude/must-read.kb/`; the root `CLAUDE.md` has
   every session list it.
-- Recall items are checkbox items in the repo's `.claude/todo.md`: added
-  unchecked at session end, each naming its durable artifact, checked off
-  when written cold (1b1897f).
+- Prediction items (`PREDICTION`, formerly `RECALL`) are checkbox items in
+  the repo's `.claude/todo.md`: added unchecked at session end, each a
+  change and what it will do, checked off once bukzor can explain the
+  result.
 
 ## Open
 
 The repo's `.claude/todo.md` owns the project's open work.
-Occasion-bound items (recall, consolidation, `ASK_BEFORE_EDITING_KEPT`)
+Occasion-bound items (prediction, consolidation, `ASK_BEFORE_EDITING_KEPT`)
 fire from its trigger bank instead. Below: only what outlives the repo.
 
 - [x] Check that the trigger bank fires: 83f86b54 (cold start from
