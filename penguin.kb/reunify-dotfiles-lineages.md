@@ -6,6 +6,7 @@ session:
     - 58689610-0fee-4260-ac2f-eccd37c487f8
     - 21220341-2ef8-4c38-81ce-050119106309
     - 3d5f08d8-08c4-4a84-ab3a-4b161b0c8427
+    - 08a2b58d-5de2-4b5a-a991-ee74f5e0e78a
   started: 2026-07-06T18:30:00-05:00
   ended: null # set only when no more sessions are expected (~= about to delete this file) -- not "my conversation ended"
 ---
@@ -31,19 +32,21 @@ for the CI/testing-foundations pairing.
 Delete this file when the supertask's todo.kb entry is fully checked and
 006's switchover is done.
 
-## Status (2026-11-24, written from buck-win10)
+## Status (2026-11-25)
 
-Merged: main `ff853dc` (2026-11-18) holds all three lineages; CI green;
-buck-win10's `~` is on main. Everything else waits on penguin.
+Every host's `~` is on main. Unit 009 ran on penguin 2026-11-25: it merged
+svelte's last 10 commits into main, switched `~`, and renamed
+`merged/svelte-crostini` on origin. Its report and 3 open questions are in
+the 009 handoff file (path in the plan's 006 kb).
 
-- [ ] Penguin's next session: run `git -C ~ pull --ff-only` (`~` is
-      `svelte-crostini`, and the brief arrived there 2026-11-18), then do
-      the task in
-      `~/.claude/todo.kb/2026-07-08-000-Reunify-dotfiles.kb/2026-07-06-006-Final-merge-and-home-switchover.kb/2026-11-18-009-penguin-switch-to-main.md`.
-      It switches `~` to main and renames `svelte-crostini` to
-      `merged/svelte-crostini`. svelte has penguin commits main lacks
-      (through 2026-11-22); the brief's opening step merges them.
-      Append this session's uuid above.
+- [ ] buck-win10 (coordinator): review the 009 report, update 006's
+      checkboxes and the topology table, prune `dotfiles--svelte-crostini`
+      (its branch is gone from origin).
+- [ ] User rulings: 009's OQ1 (delete the reunify-era `*_check.sh`, since
+      main's Check sh is red), OQ3 (the general clone's stale branch), plus
+      006's two existing items (`ci-vim-config-tests`; push-vs-hold, which
+      009's Decisions argue is moot).
+- [ ] 006's "`git status` clean" waits on peers committing their WIP in `~` (009 OQ2).
 
 ## Addenda
 
