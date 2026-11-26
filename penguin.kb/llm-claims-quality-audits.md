@@ -78,6 +78,8 @@ definition now counts "kb" as a type. The burn-down is
 fresh session with `/subagent-handoffs`; its mechanical wave is
 `llm-kb/migrations.kb/2026-11-25-001-skill-kb-quality-passes-and-reference-kb.md`.
 
-- [ ] Burn down the taskfile above. cdc9b664 (2026-11-25) coordinates it
-      with `/subagent-handoffs`; the handoff files are in its `.kb/` and the
-      plan's steps link each one.
+- [ ] Burn down the taskfile above. cdc9b664 (2026-11-25) coordinated it
+      with `/subagent-handoffs`: all six waves are done and pushed. The
+      receipt passed "fires untold". It dispositioned 5 of the 6 trespasses
+      and missed `goals.kb`'s `milestone`. Open: the plan's Open Questions
+      (bukzor's rulings), then Close (record the range, `git rm` the kb).
